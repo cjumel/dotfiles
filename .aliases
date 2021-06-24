@@ -1,70 +1,65 @@
 ### Aliases ###
-# General aliases (can be shared).
 
-function al(){ alias | grep "^$1" }               # list aliases starting with the input
-
-
-## Files ##
-
-# [To]uch
-alias to='touch'
-alias toal='touch ~/.aliases'
-
-# [So]urce
-alias so='source'
-alias sobrc='source ~/.bashrc'
-alias sozrc='source ~/.zshrc'
-
-# [Vi]m
-alias vi='vim'
-alias vial='vim ~/.aliases'
-alias vibrc='vim ~/.bashrc'
-alias virq='vim ./requirements.txt'
-alias virqd='vim ./requirements-dev.txt'
-alias vissh='vim ~/.ssh/config'
-alias vizrc='vim ~/.zshrc'
-
-# [At]tom
-alias at='atom'
-alias atal='atom ~/.aliases'
-alias atbrc='atom ~/.bashrc'
-alias atssh='atom ~/.ssh/config'
-alias atzrc='atom ~/.zshrc'
+function alls(){ alias | grep "^$1" }  # List aliases starting with the input string
+function allsa(){ alias | grep "^$1"; functions | grep "^$1" }  # List aliases & functions starting with the input string
+function allsf(){ functions | grep "^$1" }  # List functions starting with the input string
+alias alup='source ~/.dotfiles/.zshrc'
 
 
-## Navigation ##
+### Core ##
 
-# [L]i[s]t
-alias lsa='ls -A'                                 # [a]ll files (except '.' and '..')
-alias lsr='ls -R'                                 # [r]ecursively
+# ls
+alias lsa='ls -A'  # List all files
+alias lsr='ls -R'  # List files recursively
 
-# [R]e[m]ove
-alias rmd='rm -d'                                 # [d]irectories (must be empty)
-alias rmf='rm -f'                                 # [f]orce (no confirmation needed)
-alias rmr='rm -r'                                 # [r]ecursively (deal with non-empty directories)
-alias rmrf='rm -fr'                               # [r]ecursively [f]orce
+# rm
+alias rmd='rm -d'  # Remove empty directories
+alias rmf='rm -f'  # Forcely remove (no confirmation needed)
+alias rmr='rm -r'  # Remove recursively (deal with non-empty directories)
+alias rmrf='rm -fr'  # Forcely remove recursively
 
-# [D]isplay [u]sage
-alias du='du -h'                                  # human readable
-alias dud='du -h -d 1'                            # with [d]epth 1
+# du
+alias du='du -h'  # Display in a human readable way
+alias dud='du -h -d 1'  # Display in a human readable way with recursion depth of 1
 
-# [M]a[k]e [dir]ectory
-alias mkdirr='mkdir -p'                           # create [r]ecursively
-
-# E[x]i[t]
+# Other
+alias mkdirr='mkdir -p'  # Create a directory recursively (including its parents)
 alias xt='exit'
 
 
-## Code environments ##
+### Navigation ###
 
-# [B]rew
-alias b='brew'
+alias home='cd ~; pwd; ls'
+alias desk='cd ~/Desktop/; pwd; ls'
+alias docs='cd ~/Documents/; pwd; ls'
+alias dot='cd ~/.dotfiles/; pwd; ls'
+
+
+### File edition ###
+
+alias so='source'
+alias to='touch'
+
+# Atom
+alias at='atom'
+alias atal='atom ~/.dotfiles/.aliases'
+alias atalp='atom ~/.dotfiles/.aliases_private'
+
+# Vim
+alias vi='vim'
+alias vial='vim ~/.dotfiles/.aliases'
+alias vialp='vim ~/.dotfiles/.aliases_private'
+
+
+### Code environments ###
+
+# Brew
 alias bcu='brew cleanup'
-alias bcus='brew cleanup -s'  # [s]crub the cache (remove download of even latest versions)
+alias bcus='brew cleanup -s'  # Scrub the cache (remove download of even latest versions)
 alias bi='brew install'
 alias bic='brew install --cask'
-alias bl='brew list'
-alias blc='brew list --cask'
+alias bls='brew list'
+alias blsc='brew list --cask'
 alias bud='brew update'
 alias budf='
   echo "brew update..."; brew update;
@@ -72,39 +67,21 @@ alias budf='
   echo "brew upgrade (casks)..."; brew upgrade homebrew/cask/docker; brew upgrade $(brew outdated --cask --greedy --quiet);
   echo "brew cleanup..."; brew cleanup;
   echo "brew cleanup -s..."; brew cleanup -s;
-'
+'  # Do a full update/upgrade/cleanup
 alias bug='brew upgrade'
-alias bugc='brew upgrade $(brew outdated --cask --greedy --quiet)'  # update all outdated casks
+alias bugc='brew upgrade $(brew outdated --cask --greedy --quiet)'  # Update all outdated casks
 alias bui='brew uninstall'
 alias buic='brew uninstall --cask'
 
-# [C]onda
-alias c='conda'
-alias ca='conda activate'
-alias cab='conda activate base'
-alias ccl='conda clean --all'
-alias cco='conda config'
-alias ccr='conda create --name'                   # [cr]eate an environment
-alias ci='conda install'
-alias cl='conda list'                             # [l]ist packages
-alias cle='conda env list'                        # [l]ist [e]nvironments
-alias crm='conda remove'                          # [r]e[m]ove a package
-alias crme='conda remove --all --name'            # [r]e[m]ove an environment
-alias cud='conda update'
-alias cuda='conda update --all'                   # [u]p[d]ate [a]ll the packages of an environment
-
-# [Pi]p
-alias pi='pip'
+# Pip
 alias pii='pip install'
 alias piie='pip install -e'
-alias piieh='pip install -e .'
-alias pil='pip list'
+alias pils='pip list'
 alias pis='pip show'
 alias piui='pip uninstall'
 alias piuif='pip uninstall -y'
 
-# [Po]etry
-alias po='poetry'
+# Poetry
 alias poa='poetry add'
 alias poad='poetry add --dev'
 alias poccl='poetry cache clear --all .'
@@ -124,57 +101,54 @@ alias poruptes='poetry run pytest --show-capture=no'
 alias poruptev='poetry run pytest -vvv'
 alias poud='poetry update'
 
-# [ve]nv
-function vea(){ source "$1/bin/activate" }        # [a]ctivate an environemnt
-alias ved='deactivate'                            # [d]eactivate an environment
+# Conda
+alias c='conda'
+alias ca='conda activate'
+alias cab='conda activate base'
+alias ccla='conda clean --all'
+alias cco='conda config'
+alias ccr='conda create --name'  # Create an environment
+alias ci='conda install'
+alias cls='conda list'  # List packages
+alias cels='conda env list'  # List environments
+alias crm='conda remove'  # Remove a package
+alias cerm='conda remove --all --name'  # Remove an environment
+alias cud='conda update'
+alias cuda='conda update --all'  # Update all the packages of an environment
+
+# Venv
+function vea(){ source "$1/bin/activate" }  # Activate an environemnt
+alias ved='deactivate'  # Deactivate an environment
 
 
-## Code ##
+### Code ###
 
-# [G]it
-alias g='git'
+# Git
 alias ga='git add'
 alias gaa='git add --all'
-alias gb='git branch'                             # list local [b]ranches
-alias gba='git branch -a'                         # list [a]ll [b]ranches
-alias gbd='git branch -D'                         # force [d]elete local [b]ranch
-alias gbrt='git branch -r'                        # list [r]emo[t]e [b]ranches
+alias gb='git branch'
+alias gba='git branch -a'  # List all branches
+alias gbd='git branch -D'  # Force delete a local branch
+alias gbrt='git branch -r'  # List remote branches
 alias gch='git checkout'
-alias gchb='git checkout -b'                      # checkout without discarding local changes
-alias gchd='git checkout --'                      # discard local changes for the given file(s)
-alias gchm='git checkout main'                    # [ch]eckout to the [m]ain branch
-alias gchms='git checkout master'                 # [ch]eckout to the [m]a[s]ter branch
+alias gchb='git checkout -b'  # Checkout without discarding local changes
+alias gchd='git checkout --'  # Discard local changes
+alias gchm='git checkout main'  # Checkout to main
+alias gchms='git checkout master'  # Ceckout to master
 alias gcl='git clone'
 alias gcm='git commit -m'
-function gcmbug(){ git commit -m ":bug: $1" }
-function gcmcomm(){ git commit -m ":bulb: $1" }
-function gcmconf(){ git commit -m ":wrench: $1" }
-function gcmdel(){ git commit -m ":fire: $1" }
-function gcmdoc(){ git commit -m ":memo: $1" }
-function gcmfeat(){ git commit -m ":sparkles: $1" }
-function gcmfix(){ git commit -m ":adhesive_bandage: $1" }
-function gcmfrmt(){ git commit -m ":art: $1" }
-function gcmhtfx(){ git commit -m ":ambulance: $1" }
-function gcmignr(){ git commit -m ":see_no_evil: $1" }
-function gcmmove(){ git commit -m ":truck: $1" }
-function gcmmrg(){ git commit -m ":twisted_rightwards_arrows: $1" }
-function gcmrfct(){ git commit -m ":recycle: $1" }
-function gcmtest(){ git commit -m ":white_check_mark: $1" }
-function gcmtype(){ git commit -m ":label: $1" }
-function gcmtypo(){ git commit -m ":pencil2: $1" }
-function gcmwip(){ git commit -m ":construction: $1" }
 alias gco='git config'
 alias gf='git fetch'
 alias gfo='git fetch origin'
-alias gfp='git fetch --prune'                     # remove unused remote branches
+alias gfp='git fetch --prune'  # Remove unused remote branches
 alias gh='git help'
 alias gl='git log'
 alias gm='git merge'
 alias gmm='git merge main'
 alias gpl='git pull'
 alias gps='git push'
-alias gpst='git push --tags'                      # [p]u[s]h all [t]ags
-alias gpstd='git push --delete origin'            # [p]u[s]h [t]ags [d]eletion
+alias gpst='git push --tags'  # Push all tags
+alias gpstd='git push --delete origin'  # Push local tags deletions
 alias gs='git status'
 alias gst='git stash'
 alias gsta='git stash apply'
@@ -187,45 +161,51 @@ alias grshe='git reset HEAD'
 alias grsso='git reset --soft'
 alias grv='git revert'
 alias gt='git tag'
-alias gtd='git tag -d'                            # [d]elete local [t]ag
+alias gtd='git tag -d'  # Delete local tag
 
-# [P]re-[c]o[m]mit
+# Gitmoji commits
+function gcmbug(){ git commit -m ":bug: $1" }
+function gcmcomment(){ git commit -m ":bulb: $1" }
+function gcmconfig(){ git commit -m ":wrench: $1" }
+function gcmdel(){ git commit -m ":fire: $1" }
+function gcmdoc(){ git commit -m ":memo: $1" }
+function gcmfeat(){ git commit -m ":sparkles: $1" }
+function gcmfix(){ git commit -m ":adhesive_bandage: $1" }
+function gcmformat(){ git commit -m ":art: $1" }
+function gcmhotfix(){ git commit -m ":ambulance: $1" }
+function gcmignore(){ git commit -m ":see_no_evil: $1" }
+function gcmmove(){ git commit -m ":truck: $1" }
+function gcmmerge(){ git commit -m ":twisted_rightwards_arrows: $1" }
+function gcmrefacto(){ git commit -m ":recycle: $1" }
+function gcmtest(){ git commit -m ":white_check_mark: $1" }
+function gcmtype(){ git commit -m ":label: $1" }
+function gcmtypo(){ git commit -m ":pencil2: $1" }
+function gcmwip(){ git commit -m ":construction: $1" }
+
+# Pre-commit
 alias pcm='pre-commit'
-alias pcmi='pre-commit install'                   # [i]nstall in a repository
-alias pcmru='pre-commit run'                       # [r]un on a file
-alias pcmrua='pre-commit run --all-files'          # [r]un on [a]ll files
-alias pcmui='pre-commit uninstall'                # [u]ninstall from a repository
+alias pcmi='pre-commit install'  # Install in a repository
+alias pcmru='pre-commit run'  # Run on a file
+alias pcmrua='pre-commit run --all-files'  # Run on all files
+alias pcmui='pre-commit uninstall'  # Uninstall from a repository
 
-# Formatting
-alias prt='prettier'
-alias prtc='prettier --check'
-alias prtw='prettier --write'
-alias blk='black'                                 # [Bl]ac[k] re-format
-alias iso='isort'                                 # [iso]rt re-format
-alias flk='flake8'                                # [Fl]a[k]e8 re-format
+# Screen
+alias scd='screen -d'  # Force detach a session
+alias scl='screen -ls'  # List current sessions
+alias scr='screen -r'  # Resume/attach a session
+alias scs='screen -S'  # Create a session by name
+alias scx='screen -x'  # Share a screen session
 
-# Testing
-alias pte='pytest'                                # run [p]y[te]st
-alias ptef='rm -r .pytest_cache; pytest'          # [f]orce a fresh installation and run [p]y[te]st
-
-# [Sc]reen
-alias scd='screen -d'                             # force detach a session
-alias scl='screen -ls'                            # list current sessions
-alias scr='screen -r'                             # resume/attach a session
-alias scs='screen -S'                             # create a session by name
-alias scx='screen -x'                             # share a screen session
-
-# [D]oc[k]er
-alias d='docker'
+# Docker
 alias db='docker build'
-alias dcm='docker-compose'
-alias dcmd='docker-compose down'
-alias dcmu='docker-compose up'
-alias dcmub='docker-compose up --build'
-alias dcn='docker container'
-alias dcnls='docker container ls'
-alias dcnlsa='docker container ls -a'
-alias dcnrm='docker container rm'
+alias dcp='docker-compose'
+alias dcpd='docker-compose down'
+alias dcpu='docker-compose up'
+alias dcpub='docker-compose up --build'
+alias dct='docker container'
+alias dctls='docker container ls'
+alias dctlsa='docker container ls -a'
+alias dctrm='docker container rm'
 alias dli='docker login'
 alias dlo='docker logout'
 alias dps='docker push'
@@ -235,51 +215,8 @@ alias dst='docker stop'
 alias dsyp='docker system prune'
 
 
-## Distant server ##
+### File transfers ###
 
 function bind(){ ssh -N -f -L localhost:$2:localhost:$3 $1 }
-function copy-to(){ rsync -r $2 $1:$3 }       # $1: user@host; $2: local path; $3: remote path
-function copy-from(){ rsync -r $1:$2 $3 }     # $1: user@host; $2: remote path; $3: local path
-
-
-## Applications ##
-
-alias chrm='open -a "Google Chrome"'
-
-
-
-## Navigation ##
-
-alias desk='cd ~/Desktop/; ls'
-alias docs='cd ~/Documents/; ls'
-alias rkn='cd ~/Desktop/arkhn; ls'
-alias pypa='cd ~/Desktop/arkhn/pypa; ls'
-
-
-## Templates ##
-
-alias platex='cd ~/Documents/code/platex'
-alias plathon='cd ~/Documents/code/plathon'
-alias plathon-import='
-  cp ~/Documents/code/plathon/.gitignore .;
-  cp ~/Documents/code/plathon/.pre-commit-config.yaml .;
-  cp ~/Documents/code/plathon/LICENSE .;
-  cp ~/Documents/code/plathon/pyproject.toml .;
-  cp ~/Documents/code/plathon/requirements-dev.txt .;
-  cp ~/Documents/code/plathon/setup.cfg .;
-  cp ~/Documents/code/plathon/.github/workflows/lint.yml .github/workflows;
-  cp ~/Documents/code/plathon/.github/workflows/test.yml .github/workflows;
-  cp -n ~/Documents/code/plathon/MANIFEST.in .;
-  cp -n ~/Documents/code/plathon/README.md .;
-  cp -n ~/Documents/code/plathon/setup.py .;
-  cp -n ~/Documents/code/plathon/requirements.txt .;
-'
-
-
-## Distant server ##
-
-alias bind-pypa-dev='ssh -N -f -L localhost:8000:localhost:8000 root@163.172.137.151'
-alias bind-pypa-staging='ssh -N -f -L localhost:9000:localhost:9000 root@163.172.137.151'
-function copy-to-pypa(){ rsync -r $1 root@163.172.137.151:$2 }  # $1: local path; $2: remote path
-alias copy-to-pypa-al='rsync -r ~/.aliases root@163.172.137.151:.'
-function copy-from-pypa(){ rsync -r root@163.172.137.151:$1 $2 }  # $1: remote path; $2: local path
+function copy-to(){ rsync -r $2 $1:$3 }  # $1: user@host; $2: local path; $3: remote path
+function copy-from(){ rsync -r $1:$2 $3 }  # $1: user@host; $2: remote path; $3: local path
