@@ -111,5 +111,5 @@ unset __conda_setup
 
 
 ### Aliases ###
-source $HOME/.dotfiles/.aliases
-source $HOME/.dotfiles/.aliases_private
+source $HOME/dotfiles/.aliases
+source $HOME/dotfiles/.aliases_private

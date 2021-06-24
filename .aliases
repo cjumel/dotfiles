@@ -3,7 +3,7 @@
 function alls(){ alias | grep "^$1" }  # List aliases starting with the input string
 function allsa(){ alias | grep "^$1"; functions | grep "^$1" }  # List aliases & functions starting with the input string
 function allsf(){ functions | grep "^$1" }  # List functions starting with the input string
-alias alup='source ~/.dotfiles/.zshrc'
+alias alup='source ~/dotfiles/.zshrc'
 
 
 ### Core ##
@@ -32,7 +32,7 @@ alias xt='exit'
 alias home='cd ~; pwd; ls'
 alias desk='cd ~/Desktop/; pwd; ls'
 alias docs='cd ~/Documents/; pwd; ls'
-alias dot='cd ~/.dotfiles/; pwd; ls'
+alias dot='cd ~/dotfiles/; pwd; ls'
 
 
 ### File edition ###
@@ -42,13 +42,13 @@ alias to='touch'
 
 # Atom
 alias at='atom'
-alias atal='atom ~/.dotfiles/.aliases'
-alias atalp='atom ~/.dotfiles/.aliases_private'
+alias atal='atom ~/dotfiles/.aliases'
+alias atalp='atom ~/dotfiles/.aliases_private'
 
 # Vim
 alias vi='vim'
-alias vial='vim ~/.dotfiles/.aliases'
-alias vialp='vim ~/.dotfiles/.aliases_private'
+alias vial='vim ~/dotfiles/.aliases'
+alias vialp='vim ~/dotfiles/.aliases_private'
 
 
 ### Code environments ###
@@ -138,6 +138,7 @@ alias gchms='git checkout master'  # Ceckout to master
 alias gcl='git clone'
 alias gcm='git commit -m'
 alias gco='git config'
+alias gcog='git config --global'
 alias gf='git fetch'
 alias gfo='git fetch origin'
 alias gfp='git fetch --prune'  # Remove unused remote branches
@@ -155,6 +156,7 @@ alias gsta='git stash apply'
 alias gstclr='git stash clear'
 alias gstls='git stash list'
 alias grb='git rebase'
+alias grbi='git rebase -i'
 alias grs='git reset'
 alias grsha='git reset --hard'
 alias grshe='git reset HEAD'
