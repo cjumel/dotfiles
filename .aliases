@@ -44,12 +44,16 @@ alias to='touch'
 alias at='atom'
 alias atal='atom ~/dotfiles/.aliases'
 alias atalp='atom ~/dotfiles/.aliases_private'
+alias atdot='atom ~/dotfiles/'
 alias ath='atom .'
 
 # Vim
 alias vi='vim'
 alias vial='vim ~/dotfiles/.aliases'
 alias vialp='vim ~/dotfiles/.aliases_private'
+
+# Pycharm
+function pc(){ open -na "PyCharm.app" --args "$1" }
 
 
 ### Code environments ###
