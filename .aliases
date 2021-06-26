@@ -1,5 +1,6 @@
 ### Aliases ###
 
+alias algcm='cd ~/dotfiles/; git add .aliases; git commit -m "Update aliases"; 1'
 function alls(){ alias | grep "^$1" }  # List aliases starting with the input string
 function allsa(){ alias | grep "^$1"; functions | grep "^$1" }  # List aliases & functions starting with the input string
 function allsf(){ functions | grep "^$1" }  # List functions starting with the input string
@@ -65,16 +66,16 @@ alias bi='brew install'
 alias bic='brew install --cask'
 alias bls='brew list'
 alias blsc='brew list --cask'
-alias bud='brew update'
-alias budf='
+alias bup='brew update'
+alias bupa='brew upgrade'
+alias bupca='brew upgrade $(brew outdated --cask --greedy --quiet)'  # Update all outdated casks
+alias bupf='
   echo "brew update..."; brew update;
   echo "brew upgrade..."; brew upgrade;
   echo "brew upgrade (casks)..."; brew upgrade homebrew/cask/docker; brew upgrade $(brew outdated --cask --greedy --quiet);
   echo "brew cleanup..."; brew cleanup;
   echo "brew cleanup -s..."; brew cleanup -s;
 '  # Do a full update/upgrade/cleanup
-alias bug='brew upgrade'
-alias bugc='brew upgrade $(brew outdated --cask --greedy --quiet)'  # Update all outdated casks
 alias bui='brew uninstall'
 alias buic='brew uninstall --cask'
 
@@ -104,7 +105,7 @@ alias porupte='poetry run pytest'
 alias poruptec='poetry run pytest --cov=.; poetry run coverage erase'
 alias poruptes='poetry run pytest --show-capture=no'
 alias poruptev='poetry run pytest -vvv'
-alias poud='poetry update'
+alias poup='poetry update'
 
 # Conda
 alias c='conda'
@@ -118,8 +119,8 @@ alias cls='conda list'  # List packages
 alias cels='conda env list'  # List environments
 alias crm='conda remove'  # Remove a package
 alias cerm='conda remove --all --name'  # Remove an environment
-alias cud='conda update'
-alias cuda='conda update --all'  # Update all the packages of an environment
+alias cup='conda update'
+alias cupa='conda update --all'  # Update all the packages of an environment
 
 # Venv
 function vea(){ source "$1/bin/activate" }  # Activate an environemnt
