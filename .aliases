@@ -69,11 +69,11 @@ alias bup='brew update'
 alias bupa='brew upgrade'
 alias bupca='brew upgrade $(brew outdated --cask --greedy --quiet)'  # Update all outdated casks
 alias bupf='
-  echo "brew update..."; brew update;
-  echo "brew upgrade..."; brew upgrade;
-  echo "brew upgrade (casks)..."; brew upgrade homebrew/cask/docker; brew upgrade $(brew outdated --cask --greedy --quiet);
-  echo "brew cleanup..."; brew cleanup;
-  echo "brew cleanup -s..."; brew cleanup -s;
+  echo "brew update..."; brew update
+  echo "brew upgrade..."; brew upgrade
+  echo "brew upgrade (casks)..."; brew upgrade homebrew/cask/docker; brew upgrade $(brew outdated --cask --greedy --quiet)
+  echo "brew cleanup..."; brew cleanup
+  echo "brew cleanup -s..."; brew cleanup -s
 '  # Do a full update/upgrade/cleanup
 alias bui='brew uninstall'
 alias buic='brew uninstall --cask'
