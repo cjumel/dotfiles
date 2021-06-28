@@ -160,6 +160,7 @@ alias gsta='git stash apply'  # Re-apply the last stashed changes
 alias gstclr='git stash clear'
 alias gstls='git stash list'
 alias grb='git rebase -i'  # Rebase in interactive mode
+alias grb='git rebase -i origin/main'  # Rebase in interactive mode from the fork with main
 alias grs='git reset'
 alias grsha='git reset --hard'
 alias grshe='git reset HEAD'
