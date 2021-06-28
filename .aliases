@@ -32,7 +32,7 @@ alias xt='exit'
 
 alias desk='cd ~/Desktop/; pwd; ls'
 alias docs='cd ~/Documents/; pwd; ls'
-alias dot='cd ~/dotfiles/; pwd; ls'
+alias dot='cd ~/dotfiles/; pwd; ls; git status'
 
 
 ### File edition ###
@@ -152,6 +152,7 @@ alias gps='git push'
 alias gpso='git push origin'
 alias gpst='git push --tags'  # Push all tags
 alias gpstd='git push --delete origin'  # Push local tags deletions
+alias gpsu='git push -u'  # Push the current local branch to remote & track it
 alias gs='git status'
 alias gsh='git status .'
 alias gst='git stash'  # Stash the uncommited changes
