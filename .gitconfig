@@ -15,3 +15,5 @@
 	rebase = true
 [alias]
 	lg = log --oneline --graph --decorate --color
+[push]
+	default = current
