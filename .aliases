@@ -94,7 +94,7 @@ alias poini='poetry init'
 alias porm='poetry remove'
 alias poru='poetry run'
 alias porupte='poetry run pytest'
-alias poruptec='poetry run pytest --cov=.; poetry run coverage erase'
+alias poruptec='poetry run pytest --cov-report term-missing:skip-covered --cov=.; poetry run coverage erase'
 alias poruptes='poetry run pytest --show-capture=no'
 alias poruptev='poetry run pytest -vvv'
 alias poup='poetry update'
@@ -145,7 +145,7 @@ alias gfo='git fetch origin'
 alias gfp='git fetch --prune'  # Remove unused remote branches
 alias gh='git help'
 alias glg='git lg'
-alias glgo='git lg origin..HEAD'  # Show the log since the divergence from origin
+alias glgm='git lg origin..HEAD'  # Show the log since the divergence from origin/main
 alias gm='git merge'
 alias gmm='git merge main'
 alias gpl='git pull'
@@ -166,6 +166,7 @@ alias grba='git rebase --abort'
 alias grbc='git rebase --continue'
 alias grbi='git rebase -i'  # Rebase in interactive mode
 alias grbim='git rebase -i origin/main'  # Rebase in interactive mode from the fork with main
+alias grbs='git rebase --skip'
 alias grs='git reset'
 alias grsha='git reset --hard'  # Rever commits; discard the changes in the working tree
 alias grshal='git reset --hard HEAD~1'  # Rever the last commit; discard the changes in the working tree
