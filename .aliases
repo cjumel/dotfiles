@@ -1,10 +1,9 @@
 ### Aliases ###
 
-alias algcm='cd ~/dotfiles/; git add .aliases; git commit -m "Update aliases"; git push; 1'
 function alls(){ alias | grep "^$1" }  # List aliases starting with the input string
 function allsa(){ alias | grep "^$1"; functions | grep "^$1" }  # List aliases & functions starting with the input string
 function allsf(){ functions | grep "^$1" }  # List functions starting with the input string
-alias alup='source ~/dotfiles/.zshrc'
+alias alup='cd ~/dotfiles/; source .zshrc; git add .aliases; git commit -m "Update aliases"; git push; 1'
 
 
 ### Core ##
