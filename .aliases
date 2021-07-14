@@ -92,21 +92,6 @@ alias poruptes='poetry run pytest --show-capture=no'
 alias poruptev='poetry run pytest -vvv'
 alias poup='poetry update'
 
-# Conda
-alias c='conda'
-alias ca='conda activate'
-alias cab='conda activate base'
-alias ccla='conda clean --all'
-alias cco='conda config'
-alias ccr='conda create --name'  # Create an environment
-alias ci='conda install'
-alias cls='conda list'  # List packages
-alias cels='conda env list'  # List environments
-alias crm='conda remove'  # Remove a package
-alias cerm='conda remove --all --name'  # Remove an environment
-alias cup='conda update'
-alias cupa='conda update --all'  # Update all the packages of an environment
-
 # Venv
 function vea(){ source "$1/bin/activate" }  # Activate an environemnt
 alias ved='deactivate'  # Deactivate an environment
