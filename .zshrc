@@ -108,7 +108,7 @@ source $ZSH/oh-my-zsh.sh
 # ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
 
 PROMPT="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
-PROMPT+=' %{$fg[cyan]%}%2~%{$reset_color%} $(git_prompt_info)'
+PROMPT+=' %{$fg[cyan]%}%3~%{$reset_color%} $(git_prompt_info)'
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}("
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗"
