@@ -55,6 +55,7 @@ alias bcu='brew cleanup'
 alias bcus='brew cleanup -s'  # Scrub the cache (remove download of even latest versions)
 alias bi='brew install'
 alias bic='brew install --cask'
+alias bif='brew install --force'
 alias bls='brew list'
 alias blsc='brew list --cask'
 alias bup='brew update'
