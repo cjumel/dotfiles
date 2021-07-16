@@ -147,6 +147,7 @@ alias grba='git rebase --abort'
 alias grbc='git rebase --continue'
 alias grbi='git rebase -i'  # Rebase in interactive mode
 alias grbim='git rebase -i origin/main'  # Rebase in interactive mode from the fork with main
+alias grbm='git rebase main'
 alias grbs='git rebase --skip'
 alias grs='git reset'
 alias grsha='git reset --hard'  # Rever commits; discard the changes in the working tree
