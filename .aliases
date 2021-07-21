@@ -225,6 +225,9 @@ alias dsypr='docker system prune --all'
 alias dvols='docker volume ls'
 alias dvopr='docker volume prune'
 alias dvorm='docker volume rm'
+alias dstart='
+  open -a "Docker"
+'
 alias dclean='
   echo "docker stop $(docker ps -a -q)..."; docker stop $(docker ps -a -q)
   echo "docker container prune --force..."; docker container prune --force
