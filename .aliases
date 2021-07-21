@@ -223,10 +223,9 @@ alias dvls='docker volume ls'
 alias dvpr='docker volume prune'
 alias dvrm='docker volume rm'
 alias dclean='
-  echo "docker-compose down..."; docker-compose down
-  echo "docker container prune..."; docker container prune
-  echo "docker volume prune..."; docker volume prune
-  echo "docker system prune..."; docker system prune
+  echo "docker container prune..."; docker container prune -f
+  echo "docker volume prune..."; docker volume prune -f
+  echo "docker system prune..."; docker system prune -f
 '
 
 
