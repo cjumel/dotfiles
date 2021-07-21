@@ -204,20 +204,34 @@ alias scx='screen -x'  # Share a screen session
 # Docker
 alias db='docker build'
 alias dcp='docker-compose'
-alias dcpd='docker-compose down'
-alias dcpu='docker-compose up'
-alias dcpub='docker-compose up --build'
+alias dcpdo='docker-compose down'
+alias dcpup='docker-compose up'
+alias dcpupb='docker-compose up --build'
 alias dct='docker container'
 alias dctls='docker container ls'
 alias dctlsa='docker container ls -a'
+alias dctpr='docker container prune'
 alias dctrm='docker container rm'
-alias dli='docker login'
-alias dlo='docker logout'
+alias dlgi='docker login'
+alias dlgo='docker logout'
 alias dps='docker push'
 alias dpl='docker pull'
 alias dru='docker run'
 alias dst='docker stop'
-alias dsyp='docker system prune'
+alias dsypr='docker system prune'
+alias dvls='docker volume ls'
+alias dvpr='docker volume prune'
+alias dvrm='docker volume rm'
+
+
+
+
+alias dclean='
+  echo "docker-compose down..."; docker-compose down
+  echo "docker rm -f $(docker ps -a -q)..."; docker rm -f $(docker ps -a -q)
+  echo "docker volume rm $(docker volume ls -q)..."; docker volume rm $(docker volume ls -q)
+'
+# TODO: clean
 
 
 ### File transfers ###
