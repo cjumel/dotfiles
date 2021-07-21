@@ -222,16 +222,12 @@ alias dsypr='docker system prune'
 alias dvls='docker volume ls'
 alias dvpr='docker volume prune'
 alias dvrm='docker volume rm'
-
-
-
-
 alias dclean='
   echo "docker-compose down..."; docker-compose down
-  echo "docker rm -f $(docker ps -a -q)..."; docker rm -f $(docker ps -a -q)
-  echo "docker volume rm $(docker volume ls -q)..."; docker volume rm $(docker volume ls -q)
+  echo "docker container prune..."; docker container prune
+  echo "docker volume prune..."; docker volume prune
+  echo "docker system prune..."; docker system prune
 '
-# TODO: clean
 
 
 ### File transfers ###
