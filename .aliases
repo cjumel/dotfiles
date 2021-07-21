@@ -212,6 +212,7 @@ alias dctls='docker container ls'
 alias dctlsa='docker container ls -a'
 alias dctpr='docker container prune'
 alias dctrm='docker container rm'
+alias dimpr='docker image prune'
 alias dlgi='docker login'
 alias dlgo='docker logout'
 alias dps='docker push'
@@ -219,13 +220,14 @@ alias dpl='docker pull'
 alias dru='docker run'
 alias dst='docker stop'
 alias dsypr='docker system prune'
-alias dvls='docker volume ls'
-alias dvpr='docker volume prune'
-alias dvrm='docker volume rm'
+alias dvols='docker volume ls'
+alias dvopr='docker volume prune'
+alias dvorm='docker volume rm'
 alias dclean='
-  echo "docker container prune..."; docker container prune -f
-  echo "docker volume prune..."; docker volume prune -f
-  echo "docker system prune..."; docker system prune -f
+  echo "docker container prune -force..."; docker container prune -f
+  echo "docker volume prune -force..."; docker volume prune -f
+  echo "docker image prune -force..."; docker image prune -f
+  echo "docker system prune -force..."; docker system prune -f
 '
 
 
