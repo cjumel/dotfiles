@@ -1,5 +1,3 @@
-### Oh-my-zsh ###
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -26,7 +24,7 @@ ZSH_THEME="robbyrussell"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-DISABLE_AUTO_UPDATE="true"
+# DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to automatically update without prompting.
 # DISABLE_UPDATE_PROMPT="true"
@@ -96,8 +94,10 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
+source $HOME/dotfiles/.aliases
+source $HOME/dotfiles/.aliases_private
 
-### Customized prompt ###
+# Customized prompt
 
 PROMPT="%(?:%{$fg_bold[yellow]%}➜ :%{$fg_bold[red]%}➜ )"
 PROMPT+=' %{$fg[cyan]%}%3~%{$reset_color%} $(git_prompt_info)'
@@ -106,8 +106,3 @@ ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}("
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%}) %{$fg_bold[green]%}✓"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
-
-### Aliases ###
-
-source $HOME/dotfiles/.aliases
-source $HOME/dotfiles/.aliases_private
