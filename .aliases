@@ -96,8 +96,8 @@ alias poru='poetry run'
 alias porucove='poetry run coverage erase'
 alias porupte='poetry run pytest'
 alias poruptec='poetry run pytest --cov-report term-missing:skip-covered --cov=.'
-alias poruptes='poetry run pytest --show-capture=no'
 alias poruptev='poetry run pytest -vvv'
+alias poruptex='poetry run pytest -x'
 alias poup='poetry update'
 
 # Venv
