@@ -51,11 +51,8 @@ function pc(){ open -na "PyCharm.app" --args "$1" }
 ### Code environments ###
 
 # Brew
-alias bcu='brew cleanup'
-alias bcus='brew cleanup -s'  # Scrub the cache (remove download of even latest versions)
 alias bi='brew install'
 alias bic='brew install --cask'
-alias bif='brew install --force'
 alias blk='brew link'
 alias blk38='brew link python@3.8'
 alias blk39='brew link python@3.9'
@@ -64,8 +61,7 @@ alias blsc='brew list --cask'
 alias bulk='brew unlink'
 alias bulk38='brew unlink python@3.8'
 alias bulk39='brew unlink python@3.9'
-alias bupd='brew update'
-alias bupg='brew upgrade'
+alias bup='brew upgrade; brew cleanup'
 alias bui='brew uninstall'
 alias buic='brew uninstall --cask'
 
