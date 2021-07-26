@@ -61,7 +61,7 @@ alias blsc='brew list --cask'
 alias bulk='brew unlink'
 alias bulk38='brew unlink python@3.8'
 alias bulk39='brew unlink python@3.9'
-alias bup='brew upgrade; brew cleanup'
+alias bup='brew update; brew upgrade; brew cleanup'
 alias bui='brew uninstall'
 alias buic='brew uninstall --cask'
 
