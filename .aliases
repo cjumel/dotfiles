@@ -177,6 +177,7 @@ function gcmignore(){ git commit -m ":see_no_evil: $1" }
 function gcmmove(){ git commit -m ":truck: $1" }
 function gcmmerge(){ git commit -m ":twisted_rightwards_arrows: $1" }
 function gcmrefacto(){ git commit -m ":recycle: $1" }
+function gcmstart(){ git commit -m ":tada: $1" }
 function gcmtest(){ git commit -m ":white_check_mark: $1" }
 function gcmtype(){ git commit -m ":label: $1" }
 function gcmtypo(){ git commit -m ":pencil2: $1" }
