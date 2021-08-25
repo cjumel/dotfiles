@@ -53,6 +53,7 @@ function pc(){ open -na "PyCharm.app" --args "$1" }
 # Brew
 alias bi='brew install'
 alias bic='brew install --cask'
+alias bif='brew info'
 alias blk='brew link'
 alias blk38='brew link python@3.8'
 alias blk39='brew link python@3.9'
@@ -146,6 +147,7 @@ alias grbi='git rebase -i'  # Rebase in interactive mode
 alias grbim='git rebase -i origin/main'  # Rebase in interactive mode from the fork with main
 alias grbm='git rebase main'
 alias grbs='git rebase --skip'
+alias grlg='git reflog'
 alias grs='git reset'
 alias grsha='git reset --hard'  # Rever commits; discard the changes in the working tree
 alias grshal='git reset --hard HEAD~1'  # Rever the last commit; discard the changes in the working tree
