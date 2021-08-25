@@ -171,6 +171,7 @@ function gcmcomment(){ git commit -m ":bulb: $1" }
 function gcmconfig(){ git commit -m ":wrench: $1" }
 function gcmdel(){ git commit -m ":fire: $1" }
 function gcmdoc(){ git commit -m ":memo: $1" }
+function gcmdown(){ git commit -m ":arrow_down: $1" }
 function gcmfeat(){ git commit -m ":sparkles: $1" }
 function gcmfix(){ git commit -m ":adhesive_bandage: $1" }
 function gcmformat(){ git commit -m ":art: $1" }
@@ -183,6 +184,7 @@ function gcmstart(){ git commit -m ":tada: $1" }
 function gcmtest(){ git commit -m ":white_check_mark: $1" }
 function gcmtype(){ git commit -m ":label: $1" }
 function gcmtypo(){ git commit -m ":pencil2: $1" }
+function gcmup(){ git commit -m ":arrow_up: $1" }
 function gcmwip(){ git commit -m ":construction: $1" }
 
 # Pre-commit
