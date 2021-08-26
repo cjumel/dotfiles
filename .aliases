@@ -181,6 +181,7 @@ function gcmhotfix(){ git commit -m ":ambulance: $1" }
 function gcmignore(){ git commit -m ":see_no_evil: $1" }
 function gcmmove(){ git commit -m ":truck: $1" }
 function gcmmerge(){ git commit -m ":twisted_rightwards_arrows: $1" }
+function gcmpin(){ git commit -m ":pushpin: $1" }
 function gcmrefacto(){ git commit -m ":recycle: $1" }
 function gcmstart(){ git commit -m ":tada: $1" }
 function gcmtest(){ git commit -m ":white_check_mark: $1" }
