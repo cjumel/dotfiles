@@ -20,14 +20,14 @@ repos:
       - id: prettier
 
   - repo: https://github.com/psf/black
-    rev: 21.6b0
+    rev: 21.8b0
     hooks:
       - id: black
 
   # When adding certain files in sub-modules of projects/pypa/, for an unknown reason, isort's hook
   # stopped detecting the configuration file automatically, so we have to specify it.
   - repo: https://github.com/PyCQA/isort
-    rev: 5.9.1
+    rev: 5.9.3
     hooks:
       - id: isort
         args: ["--settings-path", "pyproject.toml"]
