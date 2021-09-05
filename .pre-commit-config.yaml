@@ -5,7 +5,6 @@ repos:
       - id: check-added-large-files # Prevent giant files from being committed
       - id: check-ast # Check whether the files parse as valid python
       - id: check-json # Check json files for parseable syntax
-        exclude: /models/
       - id: check-merge-conflict # Check for files that contain merge conflict strings
       - id: check-toml # Checks toml files for parseable syntax
       - id: check-yaml # Check yaml files for parseable syntax
