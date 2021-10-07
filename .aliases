@@ -69,6 +69,7 @@ alias buic='brew uninstall --cask'
 # Pip
 alias pii='pip install'
 alias piie='pip install -e'
+alias piieh='pip install -e .'
 alias pils='pip list'
 alias pis='pip show'
 alias piui='pip uninstall'
