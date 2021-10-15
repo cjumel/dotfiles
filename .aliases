@@ -24,6 +24,7 @@ alias dud='du -h -d 1'  # Display in a human readable way with recursion depth o
 # Other
 alias mkdirr='mkdir -p'  # Create a directory recursively (including its parents)
 alias src='source'
+function srca(){ source $1/bin/activate }
 
 
 ### Navigation ###
