@@ -24,7 +24,9 @@ alias dud='du -h -d 1'  # Display in a human readable way with recursion depth o
 # Other
 alias mkdirr='mkdir -p'  # Create a directory recursively (including its parents)
 alias src='source'
-function srca(){ source $1/bin/activate }
+function srcv(){ source $1/bin/activate }
+alias tch='touch'
+function tchv(){ python3 -m venv $1 }
 
 
 ### Navigation ###
