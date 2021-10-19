@@ -39,9 +39,6 @@ alias dot='cd ~/dotfiles/; pwd; ls; git status'
 
 ### File edition ###
 
-alias so='source'
-alias to='touch'
-
 # Atom
 alias at='atom'
 alias atal='atom ~/dotfiles/.aliases_private ~/dotfiles/.aliases'
@@ -50,6 +47,9 @@ alias ath='atom .'
 
 # Pycharm
 function pc(){ open -na "PyCharm.app" --args "$1" }
+
+# Jupyter
+alias nb='jupyter notebook'
 
 
 ### Code environments ###
