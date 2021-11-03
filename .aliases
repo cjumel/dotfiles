@@ -164,6 +164,8 @@ function grsson(){ git reset --soft HEAD~$1 }  # Reset the N last commits but ke
 alias grv='git revert'
 alias gs='git status'
 alias gsh='git status .'
+alias gss='git status -s'
+alias gssh='git status -s .'
 alias gst='git stash'  # Stash the uncommited changes
 alias gsta='git stash apply'  # Re-apply the last stashed changes (don't clear them)
 alias gstclr='git stash clear'
