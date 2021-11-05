@@ -31,7 +31,6 @@ function tchv(){ python3 -m venv $1 }
 
 ### Navigation ###
 
-alias rkn='cd ~/Desktop/arkhn; pwd; ls'
 alias desk='cd ~/Desktop/; pwd; ls'
 alias docs='cd ~/Documents/; pwd; ls'
 alias dot='cd ~/dotfiles/; pwd; ls; git status'
