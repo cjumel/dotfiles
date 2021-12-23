@@ -6,6 +6,7 @@
 [core]
 	excludesfile = /Users/clement/dotfiles/.gitignore_global
 	autocrlf = input
+	editor = 'Atom' -n -w
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
