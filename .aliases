@@ -181,6 +181,7 @@ function gcmcomment(){ git commit -m ":bulb: $1" }
 function gcmconfig(){ git commit -m ":wrench: $1" }
 function gcmdead(){ git commit -m ":coffin: $1" }
 function gcmdel(){ git commit -m ":fire: $1" }
+function gcmdev(){ git commit -m ":technologist: $1" }
 function gcmdoc(){ git commit -m ":memo: $1" }
 function gcmdown(){ git commit -m ":arrow_down: $1" }
 function gcmfeat(){ git commit -m ":sparkles: $1" }
