@@ -79,7 +79,7 @@ alias piuif='pip uninstall -y'
 # Poetry
 alias poa='poetry add'
 alias poad='poetry add --dev'
-alias poccl='poetry cache clear --all .'
+alias poclr='poetry cache clear --all .'
 alias poe='poetry env'
 alias poeif='poetry env info'
 alias poels='poetry env list'
