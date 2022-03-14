@@ -22,6 +22,7 @@ alias du='du -h'  # Display in a human readable way
 alias dud='du -h -d 1'  # Display in a human readable way with recursion depth of 1
 
 # Other
+alias clr='clear'
 alias mkdirr='mkdir -p'  # Create a directory recursively (including its parents)
 alias src='source'
 function srcv(){ source $1/bin/activate }
