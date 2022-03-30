@@ -185,6 +185,7 @@ function gcmdel(){ git commit -m ":fire: $1" }
 function gcmdev(){ git commit -m ":technologist: $1" }
 function gcmdoc(){ git commit -m ":memo: $1" }
 function gcmdown(){ git commit -m ":arrow_down: $1" }
+function gcmexp(){ git commit -m ":alembic: $1" }
 function gcmfeat(){ git commit -m ":sparkles: $1" }
 function gcmfix(){ git commit -m ":adhesive_bandage: $1" }
 function gcmformat(){ git commit -m ":art: $1" }
