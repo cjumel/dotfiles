@@ -201,6 +201,7 @@ function gcmtest(){ git commit -m ":white_check_mark: $1" }
 function gcmtype(){ git commit -m ":label: $1" }
 function gcmtypo(){ git commit -m ":pencil2: $1" }
 function gcmup(){ git commit -m ":arrow_up: $1" }
+function gcmuser(){ git commit -m ":children_crossing: $1" }
 function gcmwip(){ git commit -m ":construction: $1" }
 
 # Pre-commit
