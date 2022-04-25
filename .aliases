@@ -80,6 +80,9 @@ alias piuif='pip uninstall -y'
 # Poetry
 alias poa='poetry add'
 alias poad='poetry add --dev'
+alias popb='poetry publish'
+alias popbb='poetry publish --build'
+alias popbbr='poetry publish --build -r'
 alias poclr='poetry cache clear --all .'
 alias poe='poetry env'
 alias poeif='poetry env info'
@@ -101,8 +104,9 @@ alias porupy='poetry run python'
 alias poup='poetry update'
 
 # Venv
-function vea(){ source "$1/bin/activate" }  # Activate an environemnt
+alias ve='venv'  # Create a venv environment
 alias ved='deactivate'  # Deactivate an environment
+function vea(){ source "$1/bin/activate" }  # Activate an environemnt
 
 
 ### Code ###
