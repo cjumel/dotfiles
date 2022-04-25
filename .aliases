@@ -104,7 +104,7 @@ alias porupy='poetry run python'
 alias poup='poetry update'
 
 # Venv
-alias ve='venv'  # Create a venv environment
+alias ve='python3 -m venv .venv'  # Create a venv environment
 alias ved='deactivate'  # Deactivate an environment
 function vea(){ source "$1/bin/activate" }  # Activate an environemnt
 
