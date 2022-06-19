@@ -56,8 +56,8 @@ alias gcmf='git commit --no-verify -m'
 alias gconf='git config'
 alias gconfg='git config --global'
 alias gfp='git fetch --prune'  # Remove unused remote branches
-alias glog='git lg'
-alias glogm='git lg origin..HEAD'  # Show the log since the divergence from origin/main
+alias glg='git lg'
+alias glgm='git lg origin..HEAD'  # Show the log since the divergence from origin/main
 alias gpl='git pull'
 alias gps='git push'
 alias gpsf='git push --force'
@@ -127,6 +127,7 @@ alias pils='pip list'
 alias pis='pip show'
 alias piui='pip uninstall'
 
+alias po='poetry'
 alias poa='poetry add'
 alias popb='poetry publish'
 alias popbb='poetry publish --build'
@@ -143,6 +144,7 @@ alias poru='poetry run'
 alias porudoc='poetry run mkdocs serve'
 alias porunb='poetry run jupyter notebook'
 alias porupte='poetry run pytest'
+alias postart='poerty init'
 alias poup='poetry update'
 
 alias pcm='pre-commit'
