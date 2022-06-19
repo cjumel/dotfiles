@@ -144,7 +144,7 @@ alias poru='poetry run'
 alias porudoc='poetry run mkdocs serve'
 alias porunb='poetry run jupyter notebook'
 alias porupte='poetry run pytest'
-alias postart='poerty init'
+alias postart='poetry init'
 alias poup='poetry update'
 
 alias pcm='pre-commit'
