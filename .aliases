@@ -1,161 +1,74 @@
-### Aliases ###
-
 function al(){ alias | grep "^$1" }  # List aliases starting with the input string
 function alf(){ functions | grep "^$1" }  # List functions starting with the input string
-alias alup='cd ~/dotfiles/; source .zshrc; git add .aliases; git commit -m ":wrench: Update aliases"; git push; 1'
+alias alup='
+    cd ~/dotfiles/
+    source .zshrc
+    git add .aliases
+    git commit -m ":wrench: Update aliases"
+    git push
+    1
+'
 
-
-### Core ##
-
-# ls
-alias lsa='ls -A'  # List all files
-alias lsr='ls -R'  # List files recursively
-
-# rm
-alias rmd='rm -d'  # Remove empty directories
-alias rmf='rm -f'  # Forcely remove (no confirmation needed)
-alias rmr='rm -r'  # Remove recursively (deal with non-empty directories)
-alias rmrf='rm -fr'  # Forcely remove recursively
-
-# du
-alias du='du -h'  # Display in a human readable way
-alias dud='du -h -d 1'  # Display in a human readable way with recursion depth of 1
-
-# Other
-alias clr='clear'
-alias mkdirr='mkdir -p'  # Create a directory recursively (including its parents)
-alias src='source'
-function srcv(){ source $1/bin/activate }
-alias tch='touch'
-function tchv(){ python3 -m venv $1 }
-
-
-### Navigation ###
-
-alias desk='cd ~/Desktop/; pwd; ls'
-alias docs='cd ~/Documents/; pwd; ls'
-alias dot='cd ~/dotfiles/; pwd; ls; git status'
-
-
-### File edition ###
-
-# Atom
-alias at='atom'
-alias atal='atom ~/dotfiles/.aliases_private ~/dotfiles/.aliases'
-alias atdot='atom ~/dotfiles/'
-alias ath='atom .'
-
-# Pycharm
-function pc(){ open -na "PyCharm.app" --args "$1" }
-
-# Jupyter
-alias nb='jupyter notebook'
-
-
-### Code environments ###
-
-# Brew
+alias b='brew'
 alias bi='brew install'
-alias bic='brew install --cask'
 alias bif='brew info'
-alias blk='brew link'
-function blkpy(){ brew link python@3.$1 }
 alias bls='brew list'
-alias blsc='brew list --cask'
-alias bulk='brew unlink'
-function bulkpy(){ brew unlink python@3.$1 }
-alias bup='brew update; brew upgrade; brew upgrade --cask --greedy; brew cleanup; brew cleanup -s'
 alias bui='brew uninstall'
-alias buic='brew uninstall --cask'
+alias bup='
+    brew update
+    brew upgrade
+    brew upgrade --cask --greedy
+    brew cleanup
+    brew cleanup -s
+'
 
-# Pip
-alias pii='pip install'
-alias piie='pip install -e'
-alias piieh='pip install -e .'
-alias pils='pip list'
-alias pis='pip show'
-alias piui='pip uninstall'
-alias piuif='pip uninstall -y'
+function bind(){ ssh -N -f -L localhost:$2:localhost:$3 $1 }
 
-# Poetry
-alias poa='poetry add'
-alias poad='poetry add --dev'
-alias popb='poetry publish'
-alias popbb='poetry publish --build'
-alias popbbr='poetry publish --build -r'
-alias poclr='poetry cache clear --all .'
-alias poe='poetry env'
-alias poeif='poetry env info'
-alias poels='poetry env list'
-alias poerm='poetry env remove'
-alias poeus='poetry env use'
-alias poeus38='poetry env use python3.8'
-alias poeus39='poetry env use python3.9'
-alias poi='poetry install'
-alias poini='poetry init'
-alias porm='poetry remove'
-alias poru='poetry run'
-alias porucove='poetry run coverage erase'
-alias porudoc='poetry run mkdocs serve'
-alias porunb='poetry run jupyter notebook'
-alias porupte='poetry run pytest'
-alias poruptenb='poetry run pytest --nbmake'
-alias porupy='poetry run python'
-alias poup='poetry update'
+alias clr='clear'
 
-# Venv
-function vea(){ source "$1/bin/activate" }  # Activate an environemnt
-alias veav='source .venv/bin/activate'
-alias vec='python3 -m venv'  # Create a venv environment
-alias vecv='python3 -m venv .venv'
-alias ved='deactivate'  # Deactivate an environment
+function copy-to(){ rsync -r $2 $1:$3 }  # $1: user@host; $2: local path; $3: remote path
+function copy-from(){ rsync -r $1:$2 $3 }  # $1: user@host; $2: remote path; $3: local path
 
-### Code ###
+alias do='docker'
+alias doc='docker-compose'
+alias doclean='
+  echo "docker stop $(docker ps -a -q)..."; docker stop $(docker ps -a -q)
+  echo "docker container prune --force..."; docker container prune --force
+  echo "docker volume prune --force..."; docker volume prune --force
+  echo "docker image prune --all --force..."; docker image prune --all --force
+  echo "docker system prune --all --force..."; docker system prune --all --force
+'
+alias dostart='open -a "Docker"'
 
-# Git/Tig
+alias g='git'
 alias ga='git add'
 alias gaa='git add --all'
-alias gah='git add .'
 alias gb='git branch'
-alias gba='git branch -a'  # List all branches
 alias gbd='git branch -D'  # Force delete a local branch
-alias gbrt='git branch -r'  # List remote branches
 alias gch='git checkout'
-alias gchb='git checkout -b'  # Checkout without discarding local changes
 alias gchd='git checkout --'  # Discard local changes
 alias gchm='git checkout main'  # Checkout to main
-alias gchms='git checkout master'  # Ceckout to master
 alias gcl='git clone'
-alias gcm='git commit -m'
+alias gcm='git commit'
 alias gcma='git commit --amend'
 alias gcman='git commit --amend --no-edit'
 alias gcmf='git commit --no-verify -m'
-alias gco='git config'
-alias gcog='git config --global'
-alias gf='git fetch'
-alias gfo='git fetch origin'
+alias gconf='git config'
+alias gconfg='git config --global'
 alias gfp='git fetch --prune'  # Remove unused remote branches
-alias gh='git help'
-alias glg='git lg'
-alias tlg='tig log'
-alias glgm='git lg origin..HEAD'  # Show the log since the divergence from origin/main
-alias gm='git merge'
-alias gmm='git merge main'
+alias glog='git lg'
+alias glogm='git lg origin..HEAD'  # Show the log since the divergence from origin/main
 alias gpl='git pull'
 alias gps='git push'
 alias gpsf='git push --force'
-alias gpso='git push origin'
 alias gpst='git push --tags'  # Push all tags
 alias gpstd='git push --delete origin'  # Push local tags deletions
 alias gpsu='git push -u'  # Push the current local branch to remote & track it
 alias grb='git rebase'
 alias grba='git rebase --abort'
 alias grbc='git rebase --continue'
-alias grbi='git rebase -i'  # Rebase in interactive mode
 alias grbim='git rebase -i origin/main'  # Rebase in interactive mode from the fork with main
-alias grbm='git rebase main'
 alias grbs='git rebase --skip'
-alias grlg='git reflog'
 alias grs='git reset'  # Reset commits but keep changes in the working tree as not added
 alias grsha='git reset --hard'  # Reset commits & changes in the working tree
 alias grshal='git reset --hard HEAD~1'  # Reset the last commit & its changes in the working tree
@@ -168,24 +81,19 @@ alias grssol='git reset --soft HEAD~1'  # Reset the last commit but keep its cha
 function grsson(){ git reset --soft HEAD~$1 }  # Reset the N last commits but keep their changes in the working tree as added
 alias grv='git revert'
 alias gs='git status'
-alias gsh='git status .'
-alias gss='git status -s'
-alias gssh='git status -s .'
 alias gst='git stash'  # Stash the uncommited changes
 alias gsta='git stash apply'  # Re-apply the last stashed changes (don't clear them)
 alias gstclr='git stash clear'
 alias gstls='git stash list'
 alias gstp='git stash pop'  # Re-apply the last stashed changes & clear them
-alias ts='tig status'
 alias gt='git tag'
 alias gtd='git tag -d'  # Delete local tag
 
-# Gitmoji commits
 function gcmbug(){ git commit -m ":bug: $1" }
 function gcmcifix(){ git commit -m ":green_heart: $1" }
 function gcmciadd(){ git commit -m ":construction_worker: $1" }
-function gcmcomment(){ git commit -m ":bulb: $1" }
-function gcmconfig(){ git commit -m ":wrench: $1" }
+function gcmcomm(){ git commit -m ":bulb: $1" }
+function gcmconf(){ git commit -m ":wrench: $1" }
 function gcmdead(){ git commit -m ":coffin: $1" }
 function gcmdel(){ git commit -m ":fire: $1" }
 function gcmdev(){ git commit -m ":technologist: $1" }
@@ -198,7 +106,6 @@ function gcmformat(){ git commit -m ":art: $1" }
 function gcmhotfix(){ git commit -m ":ambulance: $1" }
 function gcmignore(){ git commit -m ":see_no_evil: $1" }
 function gcmmove(){ git commit -m ":truck: $1" }
-function gcmmerge(){ git commit -m ":twisted_rightwards_arrows: $1" }
 function gcmperf(){ git commit -m ":zap: $1" }
 function gcmpin(){ git commit -m ":pushpin: $1" }
 function gcmrefacto(){ git commit -m ":recycle: $1" }
@@ -210,58 +117,52 @@ function gcmup(){ git commit -m ":arrow_up: $1" }
 function gcmuser(){ git commit -m ":children_crossing: $1" }
 function gcmwip(){ git commit -m ":construction: $1" }
 
-# Pre-commit
+alias nb='jupyter notebook'
+
+function pc(){ open -na "PyCharm.app" --args "$1" }
+alias pcdot='open -na "PyCharm.app" --args ~/dotfiles/'
+
+alias pii='pip install'
+alias pils='pip list'
+alias pis='pip show'
+alias piui='pip uninstall'
+
+alias poa='poetry add'
+alias popb='poetry publish'
+alias popbb='poetry publish --build'
+alias poclr='poetry cache clear --all .'
+alias poe='poetry env'
+alias poeif='poetry env info'
+alias poels='poetry env list'
+alias poerm='poetry env remove'
+alias poepy37='poetry env use python3.7'
+alias poepy38='poetry env use python3.8'
+alias poepy39='poetry env use python3.9'
+alias poi='poetry install'
+alias poru='poetry run'
+alias porudoc='poetry run mkdocs serve'
+alias porunb='poetry run jupyter notebook'
+alias porupte='poetry run pytest'
+alias poup='poetry update'
+
 alias pcm='pre-commit'
 alias pcmi='pre-commit install'  # Install in a repository
 alias pcmru='pre-commit run'  # Run on a file
 alias pcmrua='pre-commit run --all-files'  # Run on all files
 alias pcmui='pre-commit uninstall'  # Uninstall from a repository
 
-# Screen
-alias scd='screen -d'  # Force detach a session
-alias scl='screen -ls'  # List current sessions
-alias scr='screen -r'  # Resume/attach a session
-alias scs='screen -S'  # Create a session by name
-alias scx='screen -x'  # Share a screen session
+alias sc='screen'
+alias scls='screen -ls'  # List current sessions
 
-# Docker
-alias db='docker build'
-alias dcp='docker-compose'
-alias dcpdo='docker-compose down'
-alias dcpup='docker-compose up'
-alias dcpupb='docker-compose up --build'
-alias dct='docker container'
-alias dctls='docker container ls'
-alias dctlsa='docker container ls -a'
-alias dctpr='docker container prune'
-alias dctrm='docker container rm'
-alias dim='docker image'
-alias dimpr='docker image prune --all'
-alias dlgi='docker login'
-alias dlgo='docker logout'
-alias dps='docker push'
-alias dpl='docker pull'
-alias dru='docker run'
-alias dst='docker stop'
-alias dsta='docker stop $(docker ps -a -q)'
-alias dsypr='docker system prune --all'
-alias dvols='docker volume ls'
-alias dvopr='docker volume prune'
-alias dvorm='docker volume rm'
-alias dstart='
-  open -a "Docker"
-'
-alias dclean='
-  echo "docker stop $(docker ps -a -q)..."; docker stop $(docker ps -a -q)
-  echo "docker container prune --force..."; docker container prune --force
-  echo "docker volume prune --force..."; docker volume prune --force
-  echo "docker image prune --all --force..."; docker image prune --all --force
-  echo "docker system prune --all --force..."; docker system prune --all --force
-'
+alias src='source'
 
+alias tch='touch'
 
-### File transfers ###
+function vea(){ source "$1/bin/activate" }  # Activate an environemnt
+alias veav='source .venv/bin/activate'
+alias vec='python3 -m venv'  # Create a venv environment
+alias vecv='python3 -m venv .venv'
+alias ved='deactivate'  # Deactivate an environment
 
-function bind(){ ssh -N -f -L localhost:$2:localhost:$3 $1 }
-function copy-to(){ rsync -r $2 $1:$3 }  # $1: user@host; $2: local path; $3: remote path
-function copy-from(){ rsync -r $1:$2 $3 }  # $1: user@host; $2: remote path; $3: local path
+alias vial='vi ~/dotfiles/.aliases'
+alias vialp='vi ~/dotfiles/.aliases_private'
