@@ -2,7 +2,7 @@
 
 function al(){ alias | grep "^$1" }  # List aliases starting with the input string
 function alf(){ functions | grep "^$1" }  # List functions starting with the input string
-alias alup='cd ~/dotfiles/; source .zshrc; git add .aliases; git commit -m "Update aliases"; git push; 1'
+alias alup='cd ~/dotfiles/; source .zshrc; git add .aliases; git commit -m ":wrench: Update aliases"; git push; 1'
 
 
 ### Core ##
