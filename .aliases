@@ -118,7 +118,7 @@ function gcmup(){ git commit -m ":arrow_up: $1" }
 function gcmuser(){ git commit -m ":children_crossing: $1" }
 function gcmwip(){ git commit -m ":construction: $1" }
 
-alias nb='jupyter notebook'
+alias jnb='jupyter notebook'
 
 function pc(){ open -na "PyCharm.app" --args "$1" }
 alias pcdot='open -na "PyCharm.app" --args ~/dotfiles/'
@@ -143,7 +143,7 @@ alias poepy39='poetry env use python3.9'
 alias poi='poetry install'
 alias poru='poetry run'
 alias porudoc='poetry run mkdocs serve'
-alias porunb='poetry run jupyter notebook'
+alias porujnb='poetry run jupyter notebook'
 alias porupte='poetry run pytest'
 alias postart='poetry init'
 alias poup='poetry update'
