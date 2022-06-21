@@ -29,16 +29,18 @@ alias clr='clear'
 function copy-to(){ rsync -r $2 $1:$3 }  # $1: user@host; $2: local path; $3: remote path
 function copy-from(){ rsync -r $1:$2 $3 }  # $1: user@host; $2: remote path; $3: local path
 
-alias do='docker'
-alias doc='docker-compose'
-alias doclean='
+alias dk='docker'
+alias dkapp='open -a "Docker"'
+alias dkclean='
   echo "docker stop $(docker ps -a -q)..."; docker stop $(docker ps -a -q)
   echo "docker container prune --force..."; docker container prune --force
   echo "docker volume prune --force..."; docker volume prune --force
   echo "docker image prune --all --force..."; docker image prune --all --force
   echo "docker system prune --all --force..."; docker system prune --all --force
 '
-alias dostart='open -a "Docker"'
+
+alias dkc='docker-compose'
+alias dkcup='docker-compose up'
 
 alias g='git'
 alias ga='git add'
