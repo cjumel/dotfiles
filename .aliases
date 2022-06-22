@@ -49,6 +49,7 @@ alias gb='git branch'
 alias gbd='git branch -D'  # Force delete a local branch
 alias gch='git checkout'
 alias gchd='git checkout --'  # Discard local changes
+alias gchdh='git checkout -- .'
 alias gchm='git checkout main'  # Checkout to main
 alias gcl='git clone'
 alias gcm='git commit'
