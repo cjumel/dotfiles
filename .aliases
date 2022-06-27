@@ -71,6 +71,7 @@ alias gpsu='git push -u'  # Push the current local branch to remote & track it
 alias grb='git rebase'
 alias grba='git rebase --abort'
 alias grbc='git rebase --continue'
+alias grbi='git rebase -i'
 alias grbim='git rebase -i origin/main'  # Rebase in interactive mode from the fork with main
 alias grbs='git rebase --skip'
 alias grs='git reset'  # Reset commits but keep changes in the working tree as not added
