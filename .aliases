@@ -1,3 +1,8 @@
+alias cod='cd ~/Desktop/code/'
+alias doc='cd ~/Documents/'
+alias dot='cd ~/dotfiles/'
+alias dsk='cd ~/Desktop/'
+
 function al(){ alias | grep "^$1" }  # List aliases starting with the input string
 function alf(){ functions | grep "^$1" }  # List functions starting with the input string
 alias alup='
