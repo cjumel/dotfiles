@@ -66,6 +66,7 @@ alias gcm='git commit'
 alias gcman='git commit --amend --no-edit'
 alias gcmanf='git commit --amend --no-edit --no-verify'
 alias gcmf='git commit --no-verify'
+alias gcmfwip='git commit --no-verify -m ":construction: WIP'
 alias gconf='git config'
 alias gconfg='git config --global'
 alias gfp='git fetch --prune'  # Remove unused remote branches
