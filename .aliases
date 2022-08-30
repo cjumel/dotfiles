@@ -160,6 +160,7 @@ alias poru='poetry run'
 alias porudoc='poetry run mkdocs serve'
 alias porujnb='poetry run jupyter notebook'
 alias porupte='poetry run pytest'
+alias posh='poetry shell'
 alias postart='poetry init'
 alias poup='poetry update'
 
