@@ -170,6 +170,8 @@ alias pcmru='pre-commit run'  # Run on a file
 alias pcmrua='pre-commit run --all-files'  # Run on all files
 alias pcmui='pre-commit uninstall'  # Uninstall from a repository
 
+alias pte='pytest'
+
 alias sc='screen'
 alias scls='screen -ls'  # List current sessions
 
