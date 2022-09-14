@@ -172,6 +172,8 @@ alias pcmui='pre-commit uninstall'  # Uninstall from a repository
 
 alias pte='pytest'
 
+alias py='python'
+
 alias sc='screen'
 alias scls='screen -ls'  # List current sessions
 
