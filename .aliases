@@ -47,8 +47,8 @@ alias dkclean='
 alias dkc='docker-compose'
 alias dkcup='docker-compose up'
 
-alias duh='du -d 1 -h'
-alias duhbig='du -d 1 -h -t1G'
+alias duh='du -d 1 -h 2>/dev/null'
+alias duhbig='du -d 1 -h -t1G 2>/dev/null'
 
 alias g='git'
 alias ga='git add'
