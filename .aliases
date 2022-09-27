@@ -48,8 +48,7 @@ alias dkc='docker-compose'
 alias dkcup='docker-compose up'
 
 alias duh='du -d 1 -h'
-alias dutopg='du -d 1 -g | sort -nr | head'
-alias dutopm='du -d 1 -m | sort -nr | head'
+alias duhbig='du -d 1 -h -t1G'
 
 alias g='git'
 alias ga='git add'
