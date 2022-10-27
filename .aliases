@@ -103,6 +103,7 @@ alias gstp='git stash pop'  # Re-apply the last stashed changes & clear them
 alias gt='git tag'
 alias gtd='git tag -d'  # Delete local tag
 
+function gcmasset(){ git commit -m ":bento: $1" }
 function gcmbug(){ git commit -m ":bug: $1" }
 function gcmcifix(){ git commit -m ":green_heart: $1" }
 function gcmciadd(){ git commit -m ":construction_worker: $1" }
