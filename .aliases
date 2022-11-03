@@ -124,7 +124,7 @@ function gcmj-deps-add() { git commit -m ":heavy_plus_sign: $1" }
 function gcmj-deps-rm() { git commit -m ":heavy_minus_sign: $1" }
 function gcmj-deps-up() { git commit -m ":arrow_up: $1" }
 function gcmj-deps-down() { git commit -m ":arrow_down: $1" }
-function gcmj-deps-pin() { git commit -m ":push_pin: $1" }
+function gcmj-deps-pin() { git commit -m ":pushpin: $1" }
 ## CI
 function gcmj-ci-add(){ git commit -m ":construction_worker: $1" }
 function gcmj-ci-fix(){ git commit -m ":green_heart: $1" }
