@@ -110,6 +110,7 @@ function gcmj-feat(){ git commit -m ":sparkles: $1" }
 function gcmj-asset(){ git commit -m ":bento: $1" }
 function gcmj-start(){ git commit -m ":tada: $1" }
 function gcmj-comm(){ git commit -m ":bulb: $1" }
+function gcmj-doc(){ git commit -m ":memo: $1" }
 function gcmj-conf(){ git commit -m ":wrench: $1" }
 function gcmj-test(){ git commit -m ":white_check_mark: $1" }
 ## Move
@@ -130,7 +131,6 @@ function gcmj-ci-add(){ git commit -m ":construction_worker: $1" }
 function gcmj-ci-fix(){ git commit -m ":green_heart: $1" }
 
 function gcmdev(){ git commit -m ":technologist: $1" }
-function gcmdoc(){ git commit -m ":memo: $1" }
 function gcmexp(){ git commit -m ":alembic: $1" }
 function gcmformat(){ git commit -m ":art: $1" }
 function gcmhotfix(){ git commit -m ":ambulance: $1" }
