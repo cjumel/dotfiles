@@ -114,6 +114,7 @@ function gcmj-doc(){ git commit -m ":memo: $1" }
 function gcmj-conf(){ git commit -m ":wrench: $1" }
 function gcmj-test(){ git commit -m ":white_check_mark: $1" }
 ## Move
+function gcmj-refacto(){ git commit -m ":recycle: $1" }
 function gcmj-move(){ git commit -m ":truck: $1" }
 function gcmj-del(){ git commit -m ":fire: $1" }
 function gcmj-dead(){ git commit -m ":coffin: $1" }
