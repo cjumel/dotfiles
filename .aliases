@@ -105,42 +105,36 @@ alias gt='git tag'
 alias gtd='git tag -d'  # Delete local tag
 
 # Git commit with gitmoji
-## Add
-function gcmj-feat(){ git commit -m ":sparkles: $1" }
-function gcmj-asset(){ git commit -m ":bento: $1" }
-function gcmj-start(){ git commit -m ":tada: $1" }
-function gcmj-comm(){ git commit -m ":bulb: $1" }
-function gcmj-doc(){ git commit -m ":memo: $1" }
-function gcmj-conf(){ git commit -m ":wrench: $1" }
-function gcmj-test(){ git commit -m ":white_check_mark: $1" }
-## Move
-function gcmj-refacto(){ git commit -m ":recycle: $1" }
-function gcmj-move(){ git commit -m ":truck: $1" }
-function gcmj-del(){ git commit -m ":fire: $1" }
-function gcmj-dead(){ git commit -m ":coffin: $1" }
-## Fix
-function gcmj-fix(){ git commit -m ":adhesive_bandage: $1" }
+function gcmj-adhesive_bandage(){ git commit -m ":adhesive_bandage: $1" }
+function gcmj-alembic(){ git commit -m ":alembic: $1" }
+function gcmj-ambulance(){ git commit -m ":ambulance: $1" }
+function gcmj-arrow_down() { git commit -m ":arrow_down: $1" }
+function gcmj-arrow_up() { git commit -m ":arrow_up: $1" }
+function gcmj-art(){ git commit -m ":art: $1" }
+function gcmj-bento(){ git commit -m ":bento: $1" }
 function gcmj-bug(){ git commit -m ":bug: $1" }
-## Dependencies
-function gcmj-deps-add() { git commit -m ":heavy_plus_sign: $1" }
-function gcmj-deps-rm() { git commit -m ":heavy_minus_sign: $1" }
-function gcmj-deps-up() { git commit -m ":arrow_up: $1" }
-function gcmj-deps-down() { git commit -m ":arrow_down: $1" }
-function gcmj-deps-pin() { git commit -m ":pushpin: $1" }
-## CI
-function gcmj-ci-add(){ git commit -m ":construction_worker: $1" }
-function gcmj-ci-fix(){ git commit -m ":green_heart: $1" }
-
-function gcmdev(){ git commit -m ":technologist: $1" }
-function gcmexp(){ git commit -m ":alembic: $1" }
-function gcmformat(){ git commit -m ":art: $1" }
-function gcmhotfix(){ git commit -m ":ambulance: $1" }
-function gcmignore(){ git commit -m ":see_no_evil: $1" }
-function gcmtype(){ git commit -m ":label: $1" }
-function gcmtypo(){ git commit -m ":pencil2: $1" }
-function gcmuser(){ git commit -m ":children_crossing: $1" }
-function gcmwip(){ git commit -m ":construction: $1" }
-function gcmperf(){ git commit -m ":zap: $1" }
+function gcmj-bulb(){ git commit -m ":bulb: $1" }
+function gcmj-children_crossing(){ git commit -m ":children_crossing: $1" }
+function gcmj-coffin(){ git commit -m ":coffin: $1" }
+function gcmj-construction(){ git commit -m ":construction: $1" }
+function gcmj-construction_worker(){ git commit -m ":construction_worker: $1" }
+function gcmj-fire(){ git commit -m ":fire: $1" }
+function gcmj-green_heart(){ git commit -m ":green_heart: $1" }
+function gcmj-heavy_minus_sign() { git commit -m ":heavy_minus_sign: $1" }
+function gcmj-heavy_plus_sign() { git commit -m ":heavy_plus_sign: $1" }
+function gcmj-label(){ git commit -m ":label: $1" }
+function gcmj-memo(){ git commit -m ":memo: $1" }
+function gcmj-pencil2(){ git commit -m ":pencil2: $1" }
+function gcmj-pushpin() { git commit -m ":pushpin: $1" }
+function gcmj-recycle(){ git commit -m ":recycle: $1" }
+function gcmj-see_no_evil(){ git commit -m ":see_no_evil: $1" }
+function gcmj-sparkles(){ git commit -m ":sparkles: $1" }
+function gcmj-tada(){ git commit -m ":tada: $1" }
+function gcmj-technologist(){ git commit -m ":technologist: $1" }
+function gcmj-truck(){ git commit -m ":truck: $1" }
+function gcmj-white_check_mark(){ git commit -m ":white_check_mark: $1" }
+function gcmj-wrench(){ git commit -m ":wrench: $1" }
+function gcmj-zap(){ git commit -m ":zap: $1" }
 
 alias jnb='jupyter notebook'
 
