@@ -112,6 +112,7 @@ function gcmj-arrow_down() { git commit -m ":arrow_down: $1" }
 function gcmj-arrow_up() { git commit -m ":arrow_up: $1" }
 function gcmj-art(){ git commit -m ":art: $1" }
 function gcmj-bento(){ git commit -m ":bento: $1" }
+function gcmj-boom(){ git commit -m ":boom: $1" }
 function gcmj-bug(){ git commit -m ":bug: $1" }
 function gcmj-bulb(){ git commit -m ":bulb: $1" }
 function gcmj-children_crossing(){ git commit -m ":children_crossing: $1" }
