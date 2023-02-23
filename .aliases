@@ -63,6 +63,7 @@ alias gchdh='git checkout -- .'
 alias gchm='git checkout main'  # Checkout to main
 alias gcl='git clone'
 alias gcm='git commit'
+alias gcma='git commit --amend'
 alias gcman='git commit --amend --no-edit'
 alias gcmanf='git commit --amend --no-edit --no-verify'
 alias gcmf='git commit --no-verify'
