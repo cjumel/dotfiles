@@ -27,7 +27,7 @@ repos:
 
   # Isort is used to re-organize our import statements in Python
   - repo: https://github.com/PyCQA/isort
-    rev: 5.11.4
+    rev: 5.11.5
     hooks:
       - id: isort
         args: ["--resolve-all-configs"]
