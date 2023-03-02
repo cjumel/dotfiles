@@ -134,6 +134,7 @@ function gcmj-sparkles(){ git commit -m ":sparkles: $1" }
 function gcmj-tada(){ git commit -m ":tada: $1" }
 function gcmj-technologist(){ git commit -m ":technologist: $1" }
 function gcmj-truck(){ git commit -m ":truck: $1" }
+function gcmj-wastebasket(){ git commit -m ":wastebasket: $1" }
 function gcmj-white_check_mark(){ git commit -m ":white_check_mark: $1" }
 function gcmj-wrench(){ git commit -m ":wrench: $1" }
 function gcmj-zap(){ git commit -m ":zap: $1" }
