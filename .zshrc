@@ -94,10 +94,7 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
-source $HOME/dotfiles/.aliases
-source $HOME/dotfiles/.aliases_private
-
-# Customized prompt
+# Customize the prompt
 
 PROMPT="%(?:%{$fg_bold[yellow]%}➜ :%{$fg_bold[red]%}➜ )"
 PROMPT+=' %{$fg[cyan]%}%3~%{$reset_color%} $(git_prompt_info)'

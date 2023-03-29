@@ -1,0 +1,5 @@
+alias cod='cd ~/Desktop/code/'
+alias doc='cd ~/Documents/'
+alias dot='cd ~/dotfiles/'
+alias dsk='cd ~/Desktop/'
+alias wrk='cd ~/Desktop/work/'
