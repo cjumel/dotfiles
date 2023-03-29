@@ -1,36 +1,49 @@
 alias g='git'
+
 alias ga='git add'
 alias gaa='git add --all'
-alias gah='git add .'
+
 alias gb='git branch'
 alias gbd='git branch -D'  # Force delete a local branch
+
 alias gch='git checkout'
 alias gchd='git checkout --'  # Discard local changes
-alias gchdh='git checkout -- .'
 alias gchm='git checkout main'  # Checkout to main
-alias gcl='git clone'
+
+alias gcle='git clean'
+
+alias gclo='git clone'
+
 alias gcm='git commit'
+alias gcm-wip='git commit --no-verify -m ":construction: WIP"'
 alias gcma='git commit --amend'
 alias gcman='git commit --amend --no-edit'
 alias gcmanf='git commit --amend --no-edit --no-verify'
 alias gcmf='git commit --no-verify'
-alias gcmfwip='git commit --no-verify -m ":construction: WIP"'
+
 alias gconf='git config'
 alias gconfg='git config --global'
+
+alias gcp='git cherry-pick'  # Apply the changes introduced by some existing commits
+
+alias gf='git fetch'
 alias gfp='git fetch --prune'  # Remove unused remote branches
+
 alias glg='git lg'
 alias glgm='git lg origin..HEAD'  # Show the log since the divergence from origin/main
+
 alias gpl='git pull'
+
 alias gps='git push'
-alias gpsf='git push --force'
 alias gpst='git push --tags'  # Push all tags
 alias gpstd='git push --delete origin'  # Push local tags deletions
-alias gpsu='git push -u'  # Push the current local branch to remote & track it
+
 alias grb='git rebase'
 alias grba='git rebase --abort'
 alias grbc='git rebase --continue'
 alias grbm='git rebase origin/main'  # Rebase in interactive mode from the fork with main
 alias grbs='git rebase --skip'
+
 alias grs='git reset'  # Reset commits but keep changes in the working tree as not added
 alias grsha='git reset --hard'  # Reset commits & changes in the working tree
 alias grshal='git reset --hard HEAD~1'  # Reset the last commit & its changes in the working tree
@@ -41,13 +54,21 @@ function grsn(){ git reset HEAD~$1 }  # Reset the N last commits but keep their 
 alias grsso='git reset --soft'  # Reset commits but keep changes in the working tree as added
 alias grssol='git reset --soft HEAD~1'  # Reset the last commit but keep its changes in the working tree as added
 function grsson(){ git reset --soft HEAD~$1 }  # Reset the N last commits but keep their changes in the working tree as added
+
+alias grt='git restore'  # Restore working tree files
+
 alias grv='git revert'
-alias gs='git status'
-alias gsh='git status .'
-alias gst='git stash'  # Stash the uncommited changes
-alias gsta='git stash apply'  # Re-apply the last stashed changes (don't clear them)
-alias gstclr='git stash clear'
-alias gstls='git stash list'
-alias gstp='git stash pop'  # Re-apply the last stashed changes & clear them
+
+alias gso='git show'  # Show various types of objects
+
+alias gst='git status'
+
+alias gsh='git stash'  # Stash the uncommited changes
+alias gsha='git stash apply'  # Re-apply the last stashed changes (don't clear them)
+alias gshclr='git stash clear'
+alias gshls='git stash list'
+alias gshp='git stash pop'  # Re-apply the last stashed changes & clear them
+
+alias gsw='git switch'  # Switch branches
+
 alias gt='git tag'
-alias gtd='git tag -d'  # Delete local tag
