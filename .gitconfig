@@ -4,7 +4,7 @@
 [credential]
 	helper = osxkeychain
 [core]
-	excludesfile = /Users/clement/dotfiles/.gitignore_global
+	excludesfile = ~/dotfiles/.gitignore
 	autocrlf = input
 [filter "lfs"]
 	clean = git-lfs clean -- %f

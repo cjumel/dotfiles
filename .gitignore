@@ -1,7 +1,5 @@
 ### Custom .gitignore ###
 
-.aliases_private
-
 # Data stuff
 data/
 
