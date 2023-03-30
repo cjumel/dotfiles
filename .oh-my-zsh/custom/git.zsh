@@ -58,8 +58,8 @@ alias grssol='git reset --soft HEAD~1'  # Reset the last commit but keep its cha
 function grsson(){ git reset --soft HEAD~$1 }  # Reset the N last commits but keep their changes in the working tree as added
 
 alias grt='git restore'  # Restore working tree files
-alias grts='git restore --staged'  # Restore staged files
-alias grtw='git restore --worktree'  # Restore staged files
+alias grts='git restore --staged'  # Mark targeted staged files as unstaged
+alias grtw='git restore --worktree'  # Restore targeted files to the index
 
 alias grv='git revert'
 
