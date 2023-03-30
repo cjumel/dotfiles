@@ -59,6 +59,7 @@ function grsson(){ git reset --soft HEAD~$1 }  # Reset the N last commits but ke
 
 alias grt='git restore'  # Restore working tree files
 alias grts='git restore --staged'  # Restore staged files
+alias grtw='git restore --worktree'  # Restore staged files
 
 alias grv='git revert'
 
