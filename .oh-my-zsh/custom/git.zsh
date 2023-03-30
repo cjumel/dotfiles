@@ -74,5 +74,6 @@ alias gstls='git stash list'
 alias gstp='git stash pop'  # Re-apply the last stashed changes & clear them
 
 alias gsw='git switch'  # Switch branches
+alias gswm='git switch main'  # Switch branches
 
 alias gt='git tag'
