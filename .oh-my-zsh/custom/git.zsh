@@ -14,6 +14,8 @@ alias gcle='git clean'
 
 alias gclo='git clone'
 
+alias gdf='git diff' # Show changes between commits, commit and working tree, etc.
+
 alias gcm='git commit'
 alias gcm-wip='git commit --no-verify -m ":construction: WIP"'
 alias gcma='git commit --amend'
@@ -59,15 +61,15 @@ alias grt='git restore'  # Restore working tree files
 
 alias grv='git revert'
 
+alias gs='git status'
+
 alias gso='git show'  # Show various types of objects
 
-alias gst='git status'
-
-alias gsh='git stash'  # Stash the uncommited changes
-alias gsha='git stash apply'  # Re-apply the last stashed changes (don't clear them)
-alias gshclr='git stash clear'
-alias gshls='git stash list'
-alias gshp='git stash pop'  # Re-apply the last stashed changes & clear them
+alias gst='git stash'  # Stash the uncommited changes
+alias gsta='git stash apply'  # Re-apply the last stashed changes (don't clear them)
+alias gstclr='git stash clear'
+alias gstls='git stash list'
+alias gstp='git stash pop'  # Re-apply the last stashed changes & clear them
 
 alias gsw='git switch'  # Switch branches
 
