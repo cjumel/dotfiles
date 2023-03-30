@@ -1,66 +1,48 @@
 # Dotfiles
 
-To use these dotfiles, simply clone this repository in your home folder, and run the
-installation script:
+To use these dotfiles, first, simply clone this repository in your home folder.
 
 ```shell
 cd ~
 git clone https://github.com/clementjumel/dotfiles.git
-cd ~/dotfiles
-install.sh
 ```
 
-Alternatively, below is a description on how to use each individual feature.
+Then, run the installation script:
+
+```shell
+cd ~/dotfiles
+sh install.sh
+```
+
+This will link the `~/.zshrc` and `~/.gitconfig` files to the `~/dotfiles/.zshrc` and
+`~/dotfiles/.gitconfig` files, respectively.
+Therefore, you'll simply need to update the `~/dotfiles/.zshrc` and `~/dotfiles/.gitconfig` files
+depending on your own installation.
+
+Below is a description of each individual feature.
 
 ## Git
 
-To use the git configuration, simply copy the content of the `.gitconfig` file in your
-`~/.gitconfig` file, using:
+To use the custom git configuration, simply create a symlink from `~/.gitconfig` to the
+`~/dotfiles/.gitconfig` file using:
 
 ```shell
-cp ~/dotfiles/.gitconfig ~/.gitconfig
-```
-
-Alternatively, you can create a symlink from `~/.gitconfig` to the `.gitconfig` file using:
-
-```shell
-rm ~/.gitconfig
+rm -f ~/.gitconfig
 ln -s ~/dotfiles/.gitconfig ~/.gitconfig
 ```
+
+Then you might need to update the `~/dotfiles/.gitconfig` file, depending on your installation.
 
 ## Oh-my-zsh
 
 To use oh-my-zsh, first install it following the [standard method](https://ohmyz.sh/#install).
 
-### Custom theme and prompt
-
-To use the custom theme and prompt, simply copy the content of the `.zshrc` file in the
-`~/.zshrc` file, using:
+To use the custom theme, prompt and aliases, simply create a symlink from `~/.zshrc` to the
+`~/dotfiles/.zshrc` file using:
 
 ```shell
-cp ~/dotfiles/.zshrc ~/.zshrc
-```
-
-Alternatively, you can create a symlink from `~/.zshrc` to the `.zshrc` file using:
-
-```shell
-rm ~/.zshrc
+rm -f ~/.zshrc
 ln -s ~/dotfiles/.zshrc ~/.zshrc
 ```
 
-### Custom aliases
-
-To use the custom aliases, simply copy the content of the `.oh-my-zsh/custom` folder in the
-`~/oh-my-zsh/custom` folder, using:
-
-```shell
-cp -r ~/dotfiles/.oh-my-zsh/custom ~/oh-my-zsh/custom
-```
-
-Alternatively, you can create a symlink from `~/oh-my-zsh/custom` to the `.oh-my-zsh/custom`
-folder using:
-
-```shell
-rm -r ~/.oh-my-zsh/custom
-ln -s ~/dotfiles/.oh-my-zsh/custom ~/.oh-my-zsh/custom
-```
+Then you might need to update the `~/dotfiles/.zshrc` file, depending on your installation.
