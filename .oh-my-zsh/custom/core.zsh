@@ -1,12 +1,12 @@
 function al(){ alias | grep "^$1" }  # List aliases starting with the input string
 function alf(){ functions | grep "^$1" }  # List functions starting with the input string
 alias alup='
-    cd ~/dotfiles/
-    source .zshrc
-    git add .aliases
+    cd ~/dotfiles
+    git add .oh-my-zsh/custom
     git commit -m ":wrench: Update aliases"
     git push
     1
+    source ~/.zshrc
 '
 
 function bind(){ ssh -N -f -L localhost:$2:localhost:$3 $1 }
