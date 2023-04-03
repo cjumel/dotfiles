@@ -46,3 +46,20 @@ ln -s ~/dotfiles/.zshrc ~/.zshrc
 ```
 
 Then you might need to update the `~/dotfiles/.zshrc` file, depending on your installation.
+
+## Brewfile
+
+The file `~/dotfiles/Brewfile` contains a list of the packages installed with
+[brew](https://brew.sh/) or the AppStore, thanks to [mas](https://github.com/mas-cli/mas).
+To install the packages, simply run in the folder `~/dotfiles`:
+
+```shell
+brew bundle
+```
+
+To regenerate the `Brewfile`, simply run in the folder `~/dotfiles`:
+
+```shell
+rm -f Brewfile
+brew bundle dump
+```
