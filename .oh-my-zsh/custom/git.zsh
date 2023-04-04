@@ -17,11 +17,11 @@ alias gclo='git clone'
 alias gdf='git diff' # Show changes between commits, commit and working tree, etc.
 
 alias gcm='git commit'
-alias gcm-wip='git commit --no-verify -m ":construction: WIP"'
 alias gcma='git commit --amend'
 alias gcman='git commit --amend --no-edit'
 alias gcmanf='git commit --amend --no-edit --no-verify'
 alias gcmf='git commit --no-verify'
+alias gcmwip='git commit --no-verify -m ":construction: WIP"'
 
 alias gconf='git config'
 alias gconfg='git config --global'
