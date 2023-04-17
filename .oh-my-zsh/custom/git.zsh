@@ -21,6 +21,7 @@ alias gcma='git commit --amend'
 alias gcman='git commit --amend --no-edit'
 alias gcmanf='git commit --amend --no-edit --no-verify'
 alias gcmf='git commit --no-verify'
+alias gcmtosquash='git commit -m ":construction: TO-SQUASH"'
 alias gcmwip='git commit --no-verify -m ":construction: WIP"'
 
 alias gconf='git config'
