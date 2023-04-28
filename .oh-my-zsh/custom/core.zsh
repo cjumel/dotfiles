@@ -31,4 +31,3 @@ alias tch='touch'
 
 alias vi='nvim'
 alias vidot='nvim ~/dotfiles'
-alias vim='nvim'
