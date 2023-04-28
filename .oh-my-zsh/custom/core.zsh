@@ -29,5 +29,9 @@ alias src='source'
 
 alias tch='touch'
 
+alias tm='tmux'
+alias tma='tmux attach'
+alias tmls='tmux ls'
+
 alias vi='nvim'
 alias vidot='nvim ~/dotfiles'
