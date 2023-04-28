@@ -19,6 +19,8 @@ function copy-from(){ rsync -r $1:$2 $3 }  # $1: user@host; $2: remote path; $3:
 alias duh='du -d 1 -h 2>/dev/null'
 alias duhbig='du -d 1 -h -t1G 2>/dev/null'
 
+alias xt='exit'
+
 function pc(){ open -na "PyCharm.app" --args "$1" }
 alias pcdot='open -na "PyCharm.app" --args ~/dotfiles/'
 
