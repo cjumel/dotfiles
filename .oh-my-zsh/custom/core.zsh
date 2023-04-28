@@ -28,3 +28,7 @@ alias scls='screen -ls'  # List current sessions
 alias src='source'
 
 alias tch='touch'
+
+alias vi='nvim'
+alias vidot='nvim ~/dotfiles'
+alias vim='nvim'
