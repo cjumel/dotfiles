@@ -34,6 +34,7 @@ alias tch='touch'
 alias tm='tmux'
 alias tma='tmux attach'
 alias tmls='tmux ls'
+alias tmn='tmux new'
 
 alias vi='nvim'
 alias vidot='nvim ~/dotfiles'

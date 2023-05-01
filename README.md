@@ -1,25 +1,31 @@
 # Dotfiles
 
-To use these dotfiles, first, simply clone this repository in your home folder.
+To use these dotfiles, clone this repository in your home folder.
 
 ```shell
 cd ~
 git clone https://github.com/clementjumel/dotfiles.git
 ```
 
-Then, run the installation script:
+## neovim
 
-```shell
-cd ~/dotfiles
-sh install.sh
-```
+In addition to my main IDE, [Pycharm](https://www.jetbrains.com/fr-fr/pycharm/), I use
+[neovim](https://neovim.io/) with the configuration provided by [NvChad](https://nvchad.com/)
+as a secondary code editor.
+To set it up, I followed this
+[Youtube video](https://www.youtube.com/watch?v=Mtgo-nP_r8Y&ab_channel=DreamsofCode).
 
-This will link the `~/.zshrc` and `~/.gitconfig` files to the `~/dotfiles/.zshrc` and
-`~/dotfiles/.gitconfig` files, respectively.
-Therefore, you'll simply need to update the `~/dotfiles/.zshrc` and `~/dotfiles/.gitconfig` files
-depending on your own installation.
+## Tmux
 
-Below is a description of each individual feature.
+To leverage new features when using my terminal, I use [Tmux](https://doc.ubuntu-fr.org/tmux).
+To set it up, I followed this
+[Youtube video](https://www.youtube.com/watch?v=DzNmUNvnB04&ab_channel=DreamsofCode).
+
+## Iterm2
+
+In order to make both neovim and Tmux custom configurations work, I had to switch to the
+[Iterm2](https://iterm2.com/) terminal, which I also set up with the
+[catppuccin color scheme](https://github.com/catppuccin/iterm), as for neovim and Tmux.
 
 ## Git
 
