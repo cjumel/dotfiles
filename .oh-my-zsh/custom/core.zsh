@@ -23,6 +23,7 @@ alias so='source'
 alias tm='tmux'
 alias tmn='tmux new'
 alias tmrn='tmux rename'
+
 alias to='touch'
 
 alias vi='nvim'
