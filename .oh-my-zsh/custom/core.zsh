@@ -14,15 +14,9 @@ alias clr='clear'
 alias duh='du -d 1 -h 2>/dev/null'
 alias duhbig='du -d 1 -h -t1G 2>/dev/null'
 
-function pc(){ open -na "PyCharm.app" --args "$1" }
-
 alias sc='screen'
 
 alias so='source'
-
-alias tm='tmux'
-alias tmn='tmux new'
-alias tmrn='tmux rename'
 
 alias to='touch'
 
