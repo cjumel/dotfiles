@@ -7,9 +7,27 @@ cd ~
 git clone https://github.com/clementjumel/dotfiles.git
 ```
 
+## Pycharm
+
+I use [Pycharm](https://www.jetbrains.com/fr-fr/pycharm/) as my main IDE, to code with Python.
+I defined a bunch of custom keymaps, which are versioned in `.config/pycharm/keymaps`.
+
+To do so, I changed Pycharm configuration and plugins path in `Pycharm -> Help -> Edit Custom Properties...`:
+
+```
+idea.config.path=${user.home}/.config/pycharm
+idea.plugins.path=${idea.config.path}/plugins
+```
+
+Then, I created a symlink to the dotfiles directory with the command:
+
+```
+ln -s ~/dotfiles/.config/pycharm/keymaps/ ~/.config/pycharm/keymaps/
+```
+
 ## neovim
 
-In addition to my main IDE, [Pycharm](https://www.jetbrains.com/fr-fr/pycharm/), I use
+In addition to my main IDE, I use
 [neovim](https://neovim.io/) with the configuration provided by [NvChad](https://nvchad.com/)
 as a secondary code editor.
 To set it up, I followed this
