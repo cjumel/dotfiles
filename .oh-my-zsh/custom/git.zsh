@@ -14,7 +14,8 @@ alias gcle='git clean'
 
 alias gclo='git clone'
 
-alias gdf='git difftool' # Show changes between commits, commit and working tree, etc.
+alias gdf='git diff' # Show changes between commits, commit and working tree, etc.
+alias gdft='git difftool' # Show changes between commits, commit and working tree, etc. using a tool like vim
 
 alias gcm='git commit'
 alias gcma='git commit --amend'
