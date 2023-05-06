@@ -12,4 +12,10 @@
 [alias]
 	lg = log --oneline --graph --decorate --color
 [push]
-	default = current
+  default = current
+[diff]
+  tool = nvim
+[difftool "nvim"]
+  cmd = nvim -d \"$LOCAL\" \"$REMOTE\" 
+[difftool]
+  prompt = false
