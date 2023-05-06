@@ -2,12 +2,16 @@ local overrides = require("custom.configs.overrides")
 
 local plugins = {
   {
+    "nvim-tree/nvim-tree.lua",
+    opts = overrides.nvimtree,
+  },
+  {
     "christoomey/vim-tmux-navigator",
     lazy = false,
   },
   {
-    "nvim-tree/nvim-tree.lua",
-    opts = overrides.nvimtree,
+    "tpope/vim-fugitive",
+    cmd = { "G", "Git" },
   },
 }
 return plugins
