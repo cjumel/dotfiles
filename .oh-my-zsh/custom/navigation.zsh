@@ -1,5 +1,6 @@
 alias cod='cd ~/Desktop/code/'
 alias doc='cd ~/Documents/'
 alias dot='cd ~/dotfiles/'
+alias dwl='cd ~/Downloads/'
 alias dsk='cd ~/Desktop/'
 alias wrk='cd ~/Desktop/work/'
