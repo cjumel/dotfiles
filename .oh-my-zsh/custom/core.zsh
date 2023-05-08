@@ -21,5 +21,6 @@ alias so='source'
 alias to='touch'
 
 alias vi='nvim'
+alias vinote='nvim ~/Desktop/notes.txt'
 
 alias xt='exit'
