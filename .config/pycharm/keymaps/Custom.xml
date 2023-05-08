@@ -56,6 +56,7 @@
     <keyboard-shortcut first-keystroke="meta x" />
   </action>
   <action id="EditorCutLineEnd" />
+  <action id="EditorDecreaseFontSizeGlobal" />
   <action id="EditorDeleteLine">
     <keyboard-shortcut first-keystroke="ctrl back_space" />
   </action>
@@ -78,6 +79,7 @@
     <keyboard-shortcut first-keystroke="shift alt down" />
     <keyboard-shortcut first-keystroke="shift alt j" />
   </action>
+  <action id="EditorIncreaseFontSizeGlobal" />
   <action id="EditorLeft">
     <keyboard-shortcut first-keystroke="left" />
     <keyboard-shortcut first-keystroke="meta h" />
@@ -158,6 +160,7 @@
   <action id="ExpandRegion">
     <keyboard-shortcut first-keystroke="meta equals" />
   </action>
+  <action id="ExpressionTypeInfo" />
   <action id="FileChooser.TogglePathBar" />
   <action id="FindInPath">
     <keyboard-shortcut first-keystroke="meta f" />
@@ -169,7 +172,7 @@
     <keyboard-shortcut first-keystroke="meta o" />
   </action>
   <action id="Forward">
-    <keyboard-shortcut first-keystroke="ctrl n" />
+    <keyboard-shortcut first-keystroke="shift ctrl p" />
   </action>
   <action id="Generate">
     <keyboard-shortcut first-keystroke="ctrl enter" />
@@ -251,10 +254,6 @@
     <keyboard-shortcut first-keystroke="ctrl tab" />
     <keyboard-shortcut first-keystroke="ctrl j" />
   </action>
-  <action id="OpenInRightSplit">
-    <mouse-shortcut keystroke="alt button1 doubleClick" />
-    <keyboard-shortcut first-keystroke="alt enter" />
-  </action>
   <action id="OptimizeImports">
     <keyboard-shortcut first-keystroke="ctrl meta dollar" />
   </action>
@@ -314,15 +313,7 @@
   <action id="Switcher">
     <keyboard-shortcut first-keystroke="meta less" />
   </action>
-  <action id="SwitcherBackward">
-    <keyboard-shortcut first-keystroke="shift meta less" />
-  </action>
-  <action id="SwitcherForward">
-    <keyboard-shortcut first-keystroke="meta less" />
-  </action>
-  <action id="SwitcherIterateItems">
-    <keyboard-shortcut first-keystroke="alt less" />
-  </action>
+  <action id="SwitcherIterateItems" />
   <action id="SwitcherNextProblem" />
   <action id="SwitcherPreviousProblem" />
   <action id="SwitcherRecentEditedChangedToggleCheckBox" />
@@ -382,6 +373,15 @@
   <action id="ZoomCurrentWindow" />
   <action id="copilot.applyInlays">
     <keyboard-shortcut first-keystroke="shift tab" />
+  </action>
+  <action id="copilot.cycleNextInlays">
+    <keyboard-shortcut first-keystroke="ctrl semicolon" />
+  </action>
+  <action id="copilot.cyclePrevInlays">
+    <keyboard-shortcut first-keystroke="ctrl comma" />
+  </action>
+  <action id="copilot.requestCompletions">
+    <keyboard-shortcut first-keystroke="ctrl colon" />
   </action>
   <action id="hg4idea.QGotoFromPatches" />
   <action id="hg4idea.QRefresh" />
