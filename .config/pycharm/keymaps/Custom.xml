@@ -66,6 +66,7 @@
   <action id="CollapseRegion">
     <keyboard-shortcut first-keystroke="meta colon" />
   </action>
+  <action id="CollapseRegionRecursively" />
   <action id="CommentByLineComment">
     <keyboard-shortcut first-keystroke="meta ampersand" />
   </action>
@@ -205,6 +206,12 @@
     <keyboard-shortcut first-keystroke="meta equals" />
   </action>
   <action id="ExpressionTypeInfo" />
+  <action id="ExternalSystem.CollapseAll">
+    <keyboard-shortcut first-keystroke="shift meta colon" />
+  </action>
+  <action id="ExternalSystem.ExpandAll">
+    <keyboard-shortcut first-keystroke="shift meta equals" />
+  </action>
   <action id="FileChooser.TogglePathBar" />
   <action id="FindInPath">
     <keyboard-shortcut first-keystroke="alt f" />
@@ -233,10 +240,10 @@
   <action id="GotoRelated" />
   <action id="GotoSymbol" />
   <action id="HideActiveWindow">
-    <keyboard-shortcut first-keystroke="ctrl w" />
+    <keyboard-shortcut first-keystroke="alt w" />
   </action>
   <action id="HideAllWindows">
-    <keyboard-shortcut first-keystroke="shift ctrl w" />
+    <keyboard-shortcut first-keystroke="shift alt w" />
   </action>
   <action id="Images.Editor.ToggleGrid" />
   <action id="Images.Editor.ZoomIn">
@@ -451,4 +458,5 @@
   </action>
   <action id="hg4idea.QGotoFromPatches" />
   <action id="hg4idea.QRefresh" />
+  <action id="tasks.close" />
 </keymap>
