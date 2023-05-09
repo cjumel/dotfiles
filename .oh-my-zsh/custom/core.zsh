@@ -12,7 +12,6 @@ alias noclr='rm ~/Desktop/notes.txt'
 alias sc='screen'
 
 alias so='source'
-alias sozsh='source ~/.zshrc'
 
 alias to='touch'
 

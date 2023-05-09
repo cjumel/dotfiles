@@ -76,6 +76,14 @@ ln -s ~/dotfiles/.zshrc ~/.zshrc
 
 Then you might need to update the `~/dotfiles/.zshrc` file, depending on your installation.
 
+To customize my prompt, I use [Powerlevel10k](https://github.com/romkatv/powerlevel10k),
+which I installed by folloginw the installation guide and ran:
+
+```
+mv ~/.p10k.zsh ~/dotfiles/
+ln -s ~/dotfiles/.p10k.zsh ~/.p10k.zsh
+```
+
 ## Brewfile
 
 The file `~/dotfiles/Brewfile` contains a list of the packages installed with
