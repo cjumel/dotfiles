@@ -1,4 +1,5 @@
 alias tm='tmux'
 alias tmk='tmux kill-server'
+alias tmls= 'tmux ls'
 alias tmn='tmux new'
 alias tmrn='tmux rename'

@@ -49,6 +49,8 @@ alias grbc='git rebase --continue'
 alias grbm='git rebase origin/main'  # Rebase in interactive mode from the fork with main
 alias grbs='git rebase --skip'
 
+alias grm='git rm'
+
 alias grs='git reset'  # Reset commits but keep changes in the working tree as not added
 alias grsha='git reset --hard'  # Reset commits & changes in the working tree
 alias grshal='git reset --hard HEAD~1'  # Reset the last commit & its changes in the working tree
