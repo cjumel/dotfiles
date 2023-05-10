@@ -6,15 +6,16 @@ alias clr='clear'
 alias duh='du -d 1 -h 2>/dev/null'
 alias duhbig='du -d 1 -h -t1G 2>/dev/null'
 
-alias no='nvim ~/Desktop/notes.txt'
-alias noclr='rm ~/Desktop/notes.txt'
+alias qn='nvim ~/Desktop/notes.txt'
+alias qnclr='rm ~/Desktop/notes.txt'
 
 alias sc='screen'
 
+alias se='google'
+
 alias so='source'
+alias sozsh='source ~/.zshrc'
 
 alias to='touch'
 
 alias vi='nvim'
-
-alias xt='exit'
