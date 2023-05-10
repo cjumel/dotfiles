@@ -1,58 +1,117 @@
 # Dotfiles
 
-To use these dotfiles, clone this repository in your home folder.
+These files describe the tools I use to work on my computer and their configurations.
+In the following, I will describe briefly what they do and how to set them up.
+
+To use these dotfiles, first clone this repository in your home directory with git, using the
+command:
 
 ```shell
-cd ~
-git clone https://github.com/clementjumel/dotfiles.git
+git clone https://github.com/clementjumel/dotfiles.git ~/dotfiles/
 ```
 
-## Pycharm
+## Package Management System
 
-I use [Pycharm](https://www.jetbrains.com/fr-fr/pycharm/) as my main IDE, to code with Python.
-I defined a bunch of custom keymaps, which are versioned in `.config/pycharm/keymaps`.
+To manage most of my packages, being a user of macOS, I use [HomeBrew](https://brew.sh/).
+HomeBrew is a package management system for macOS, which provides a unified way of installing
+and updating almost all the packages I use.
 
-To do so, I changed Pycharm configuration and plugins path in the settings:
-`Pycharm -> Help -> Edit Custom Properties...`:
+The list of the packages I installed with brew is versioned in the file `./Brewfile`.
+Thanks to [mas](https://github.com/mas-cli/mas), this file also contains the few
+packages I installed through the App Store.
+To install these packages, make sure mas is installed (for instance by running `brew install mas`)
+and run:
 
-```
-idea.config.path=${user.home}/.config/pycharm
-idea.plugins.path=${idea.config.path}/plugins
-```
-
-Then, I created a symlink to the dotfiles directory with the command:
-
-```
-ln -s ~/dotfiles/.config/pycharm/keymaps/ ~/.config/pycharm/keymaps/
+```shell
+cd ~/dotfiles/
+brew bundle
 ```
 
-## neovim
+To regenerate the `./Brewfile`, run:
 
-In addition to my main IDE, I use
-[neovim](https://neovim.io/) with the configuration provided by [NvChad](https://nvchad.com/)
-as a secondary code editor.
+```shell
+cd ~/dotfiles/
+rm -f Brewfile
+brew bundle dump
+```
+
+In the following, if not stated otherwise, the tools I will describe should be installable with
+HomeBrew.
+
+## Terminal
+
+### Iterm2
+
+I don't use the default macOS terminal, but [Iterm2](https://iterm2.com/).
+Iterm2 is a simple alternative to the default macOS terminal which provides many additional
+features.
+
+I set it up with the [Catppuccin color scheme](https://github.com/catppuccin/iterm) and the
+`JetBrainsMono` [Nerd Font](https://www.nerdfonts.com/font-downloads).
+
+### Oh My Zsh
+
+I use [Oh My Zsh](https://ohmyz.sh) to customize my terminal prompt and define custom aliases.
+
+To install it, follow the [installation guide](https://ohmyz.sh/#install).
+To use my custom configuration, create a symlink from `~/.zshrc` to the `~/dotfiles/.zshrc` file
+using:
+
+```shell
+rm -f ~/.zshrc
+ln -s ~/dotfiles/.zshrc ~/.zshrc
+```
+
+The prompt theme I use is [powerlevel10k](https://github.com/romkatv/powerlevel10k).
+To install it for Oh My Zsh, follow this
+[installation guide](https://github.com/romkatv/powerlevel10k#oh-my-zsh).
+To use my custom configuration, create a symlink from `~/.p10k.zsh` to the `~/dotfiles/.p10k.zsh`
+file using:
+
+```shell
+rm -f ~/.p10k.zsh
+ln -s ~/dotfiles/.p10k.zsh ~/.p10k.zsh
+```
+
+### Tmux
+
+To manage work sessions, split my terminal in windows and panes, I use
+[Tmux](https://doc.ubuntu-fr.org/tmux).
 
 To set it up, I followed this
-[Youtube video](https://www.youtube.com/watch?v=Mtgo-nP_r8Y&ab_channel=DreamsofCode).
-More information is available in the
+[video](https://www.youtube.com/watch?v=DzNmUNvnB04&ab_channel=DreamsofCode).
+To use my custom configuration, create a symlink from `~/.config/tmux/tmux.conf` to the
+`~/dotfiles/.config/tmux/tmux.conf` file using:
+
+```shell
+rm -f ~/.config/tmux/tmux.conf
+ln -s ~/dotfiles/.config/tmux/tmux.conf ~/.config/tmux/tmux.conf
+```
+
+### neovim
+
+I use [neovim](https://neovim.io/) as a lightweight code editor which can be accessed through
+the terminal.
+I set it up with the configuration provided by [NvChad](https://nvchad.com/).
+
+To do so, I followed this
+[video](https://www.youtube.com/watch?v=Mtgo-nP_r8Y&ab_channel=DreamsofCode).
+More information on how to set up neovim with NvChad is available in the
 [features documentation](https://nvchad.com/docs/features) or in the
-[example configuration](https://github.com/NvChad/example_config).
+[example configuration](https://github.com/NvChad/example_config) of NvChad.
+To use my custom configuration, create a symlink from `~/.config/nvim` to the
+`~/dotfiles/.config/nvim` directory using:
 
-## Tmux
+```shell
+rm -rf ~/.config/nvim
+ln -s ~/dotfiles/.config/nvim/ ~/.config/nvim/
+```
 
-To leverage new features when using my terminal, I use [Tmux](https://doc.ubuntu-fr.org/tmux).
-To set it up, I followed this
-[Youtube video](https://www.youtube.com/watch?v=DzNmUNvnB04&ab_channel=DreamsofCode).
+### Git
 
-## Iterm2
+Git is the only version control system I use.
 
-In order to make both neovim and Tmux custom configurations work, I had to switch to the
-[Iterm2](https://iterm2.com/) terminal, which I also set up with the
-[catppuccin color scheme](https://github.com/catppuccin/iterm), as for neovim and Tmux.
-
-## Git
-
-To use the custom git configuration, simply create a symlink from `~/.gitconfig` to the
+To use my custom configuration, create a symlink from `~/.gitconfig` to the
 `~/dotfiles/.gitconfig` file using:
 
 ```shell
@@ -60,43 +119,25 @@ rm -f ~/.gitconfig
 ln -s ~/dotfiles/.gitconfig ~/.gitconfig
 ```
 
-Then you might need to update the `~/dotfiles/.gitconfig` file, depending on your installation.
+## IDE
 
-## Oh-my-zsh
+I use [PyCharm](https://www.jetbrains.com/fr-fr/pycharm/) as my IDE.
 
-To use oh-my-zsh, first install it following the [standard method](https://ohmyz.sh/#install).
+I set it up with the [Catppuccin color scheme](https://github.com/catppuccin/jetbrains) and defined
+many custom keymaps.
 
-To use the custom theme, prompt and aliases, simply create a symlink from `~/.zshrc` to the
-`~/dotfiles/.zshrc` file using:
-
-```shell
-rm -f ~/.zshrc
-ln -s ~/dotfiles/.zshrc ~/.zshrc
-```
-
-Then you might need to update the `~/dotfiles/.zshrc` file, depending on your installation.
-
-To customize my prompt, I use [Powerlevel10k](https://github.com/romkatv/powerlevel10k),
-which I installed by folloginw the installation guide and ran:
-
-```
-mv ~/.p10k.zsh ~/dotfiles/
-ln -s ~/dotfiles/.p10k.zsh ~/.p10k.zsh
-```
-
-## Brewfile
-
-The file `~/dotfiles/Brewfile` contains a list of the packages installed with
-[brew](https://brew.sh/) or the AppStore, thanks to [mas](https://github.com/mas-cli/mas).
-To install the packages, simply run in the folder `~/dotfiles`:
+To use them, change PyCharm's configuration and plugins paths directly in PyCharm, by clicking:
+`Pycharm -> Help -> Edit Custom Properties...`, and set:
 
 ```shell
-brew bundle
+idea.config.path=${user.home}/.config/pycharm
+idea.plugins.path=${idea.config.path}/plugins
 ```
 
-To regenerate the `Brewfile`, simply run in the folder `~/dotfiles`:
+Then, create a symlink from `~/.config/pycharm/keymaps` to the
+`~/dotfiles/.config/pycharm/keymaps` directory using:
 
 ```shell
-rm -f Brewfile
-brew bundle dump
+rm -rf ~/.config/pycharm/keymaps/
+ln -s ~/dotfiles/.config/pycharm/keymaps/ ~/.config/pycharm/keymaps/
 ```
