@@ -123,8 +123,9 @@ ln -s ~/dotfiles/.gitconfig ~/.gitconfig
 
 I use [PyCharm](https://www.jetbrains.com/fr-fr/pycharm/) as my IDE.
 
-I set it up with the [Catppuccin color scheme](https://github.com/catppuccin/jetbrains) and defined
-many custom keymaps.
+I set it up with the [Catppuccin color scheme](https://github.com/catppuccin/jetbrains),
+the [IdeaVim plugin](https://plugins.jetbrains.com/plugin/164-ideavim),
+and defined many custom keymaps.
 
 To use them, change PyCharm's configuration and plugins paths directly in PyCharm, by clicking:
 `Pycharm -> Help -> Edit Custom Properties...`, and set:
