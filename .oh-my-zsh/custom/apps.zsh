@@ -1,5 +1,5 @@
-alias crm='open -a "Google Chrome"'
-alias crmn='open -na "Google Chrome"'
+alias chr='open -a "Google Chrome"'
+alias chrn='open -na "Google Chrome"'
 
 alias slk='open -a "Slack"'
 
