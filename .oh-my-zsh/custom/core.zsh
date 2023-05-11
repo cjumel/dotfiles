@@ -6,6 +6,8 @@ alias clr='clear'
 alias duh='du -d 1 -h 2>/dev/null'
 alias duhbig='du -d 1 -h -t1G 2>/dev/null'
 
+function pyc(){ open -na "PyCharm" --args "$1" }
+
 alias qn='nvim ~/Desktop/notes.txt'
 alias qnclr='rm ~/Desktop/notes.txt'
 
