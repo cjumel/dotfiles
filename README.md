@@ -123,10 +123,7 @@ ln -s ~/dotfiles/.gitconfig ~/.gitconfig
 
 I use [PyCharm](https://www.jetbrains.com/fr-fr/pycharm/) as my IDE.
 
-I set it up with the [Catppuccin color scheme](https://github.com/catppuccin/jetbrains),
-the [IdeaVim plugin](https://plugins.jetbrains.com/plugin/164-ideavim),
-and defined many custom keymaps.
-
+I set up some custom keymaps to use it more efficiently.
 To use them, change PyCharm's configuration and plugins paths directly in PyCharm, by clicking:
 `Pycharm -> Help -> Edit Custom Properties...`, and set:
 
@@ -141,4 +138,14 @@ Then, create a symlink from `~/.config/pycharm/keymaps` to the
 ```shell
 rm -rf ~/.config/pycharm/keymaps/
 ln -s ~/dotfiles/.config/pycharm/keymaps/ ~/.config/pycharm/keymaps/
+```
+
+I also set PyCharm up with the [Catppuccin color scheme](https://github.com/catppuccin/jetbrains)
+and the [IdeaVim plugin](https://plugins.jetbrains.com/plugin/164-ideavim).
+To use my custom configuration, create a symlink from `~/.ideavimrc` to the
+`~/dotfiles/.ideavimrc` file using:
+
+```shell
+rm -f ~/.ideavimrc
+ln -s ~/dotfiles/.ideavimrc /.ideavimrc
 ```

@@ -32,3 +32,8 @@ Plug 'tpope/vim-commentary'
 
 "" Map \b to toggle the breakpoint on the current line
 "map \b <Action>(ToggleLineBreakpoint)
+
+"" -- Custom options --
+"" Use ctrl + b or e to move to beginning or end of line in insert mode
+inoremap <C-b> <Home>
+inoremap <C-e> <End>
