@@ -34,6 +34,10 @@ Plug 'tpope/vim-commentary'
 "map \b <Action>(ToggleLineBreakpoint)
 
 "" -- Custom options --
+"" Use relative line numbers, except for the current one
+set number
+set relativenumber
+
 "" Use ctrl + b or e to move to beginning or end of line in insert mode
 inoremap <C-b> <Home>
 inoremap <C-e> <End>
