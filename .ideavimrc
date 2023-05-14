@@ -17,9 +17,9 @@ map Q gq
 
 " --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
 
-" Highlight copied text
+" Highlight a region when yanked
 Plug 'machakann/vim-highlightedyank'
-" Commentary plugin
+" Comment stuff out with the `gc` or `gcc` commands
 Plug 'tpope/vim-commentary'
 
 
