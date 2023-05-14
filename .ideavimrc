@@ -21,7 +21,11 @@ map Q gq
 Plug 'machakann/vim-highlightedyank'
 " Comment stuff out with the `gc` or `gcc` commands
 Plug 'tpope/vim-commentary'
-
+" Provide mappings to easily manipulate parentheses,
+" brackets, etc. and their content
+Plug 'tpope/vim-surround'
+" Provide a simpler way to use motions in vim
+Plug 'easymotion/vim-easymotion'
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 "" Map \r to the Reformat Code action
@@ -41,3 +45,6 @@ set relativenumber
 "" Use ctrl + b or e to move to beginning or end of line in insert mode
 inoremap <C-b> <Home>
 inoremap <C-e> <End>
+
+"" EasyMotion search: jump to anywhere with minimal keystrokes, with `s{char}...{label}`
+map s <Plug>(easymotion-bd-f)
