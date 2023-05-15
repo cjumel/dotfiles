@@ -1,4 +1,5 @@
 alias tm='tmux'
+alias tma='tmux attach'
 alias tmk='tmux kill-server'
 alias tmls= 'tmux ls'
 alias tmn='tmux new'
