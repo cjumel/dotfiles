@@ -78,12 +78,14 @@
   <action id="CommentByLineComment">
     <keyboard-shortcut first-keystroke="meta at" />
   </action>
-  <action id="CompareTwoFiles" />
+  <action id="CompareTwoFiles">
+    <keyboard-shortcut first-keystroke="alt d" />
+  </action>
   <action id="Console.TableResult.ColumnSortDesc" />
   <action id="Console.TableResult.SetNull" />
   <action id="DatabaseView.PropertiesAction" />
   <action id="Debug">
-    <keyboard-shortcut first-keystroke="alt d" />
+    <keyboard-shortcut first-keystroke="meta alt d" />
   </action>
   <action id="Django.RunManageTaskAction" />
   <action id="EditSource">
@@ -441,14 +443,14 @@
   <action id="Refactorings.QuickListPopupAction" />
   <action id="ReformatCode" />
   <action id="RenameElement">
-    <keyboard-shortcut first-keystroke="alt n" />
+    <keyboard-shortcut first-keystroke="alt r" />
   </action>
   <action id="ReopenClosedTab">
     <keyboard-shortcut first-keystroke="shift meta t" />
   </action>
   <action id="Rerun" />
   <action id="Run">
-    <keyboard-shortcut first-keystroke="alt r" />
+    <keyboard-shortcut first-keystroke="meta alt r" />
   </action>
   <action id="ScrollPane-unitScrollDown">
     <keyboard-shortcut first-keystroke="ctrl page_down" />
