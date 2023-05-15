@@ -394,7 +394,7 @@
   <action id="OptimizeImports" />
   <action id="OverrideMethods" />
   <action id="ParameterInfo">
-    <keyboard-shortcut first-keystroke="alt p" />
+    <keyboard-shortcut first-keystroke="meta t" />
   </action>
   <action id="PopupMenu-selectChild">
     <keyboard-shortcut first-keystroke="right" />
@@ -444,7 +444,7 @@
     <keyboard-shortcut first-keystroke="alt n" />
   </action>
   <action id="ReopenClosedTab">
-    <keyboard-shortcut first-keystroke="meta t" />
+    <keyboard-shortcut first-keystroke="shift meta t" />
   </action>
   <action id="Rerun" />
   <action id="Run">
