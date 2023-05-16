@@ -65,6 +65,9 @@
   <action id="CloseAllEditorsButActive">
     <keyboard-shortcut first-keystroke="meta alt w" />
   </action>
+  <action id="CodeCompletion">
+    <keyboard-shortcut first-keystroke="shift space" />
+  </action>
   <action id="CollapseAll" />
   <action id="CollapseAllRegions">
     <keyboard-shortcut first-keystroke="shift meta colon" />
@@ -82,6 +85,7 @@
     <keyboard-shortcut first-keystroke="alt d" />
   </action>
   <action id="Console.TableResult.ColumnSortDesc" />
+  <action id="Console.TableResult.SelectRow" />
   <action id="Console.TableResult.SetNull" />
   <action id="DatabaseView.PropertiesAction" />
   <action id="Debug">
@@ -357,10 +361,10 @@
     <keyboard-shortcut first-keystroke="shift meta u" />
   </action>
   <action id="MoveTabDown">
-    <keyboard-shortcut first-keystroke="ctrl quotedbl" />
+    <keyboard-shortcut first-keystroke="ctrl space" second-keystroke="quotedbl" />
   </action>
   <action id="MoveTabRight">
-    <keyboard-shortcut first-keystroke="ctrl #10000f9" />
+    <keyboard-shortcut first-keystroke="ctrl space" second-keystroke="#10000f9" />
   </action>
   <action id="NavBar-selectDown">
     <keyboard-shortcut first-keystroke="down" />
