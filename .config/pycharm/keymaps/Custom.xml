@@ -65,6 +65,9 @@
   <action id="CloseAllEditorsButActive">
     <keyboard-shortcut first-keystroke="meta alt w" />
   </action>
+  <action id="CloseProject">
+    <keyboard-shortcut first-keystroke="ctrl space" second-keystroke="q" />
+  </action>
   <action id="CodeCompletion">
     <keyboard-shortcut first-keystroke="shift space" />
   </action>
@@ -338,6 +341,9 @@
     <keyboard-shortcut first-keystroke="up" />
     <keyboard-shortcut first-keystroke="k" />
   </action>
+  <action id="ManageRecentProjects">
+    <keyboard-shortcut first-keystroke="ctrl space" second-keystroke="c" />
+  </action>
   <action id="MethodDown">
     <keyboard-shortcut first-keystroke="alt j" />
   </action>
@@ -393,6 +399,9 @@
   </action>
   <action id="NextEditorTab" />
   <action id="NextOccurence" />
+  <action id="NextProjectWindow">
+    <keyboard-shortcut first-keystroke="ctrl space" second-keystroke="n" />
+  </action>
   <action id="NextSplitter">
     <keyboard-shortcut first-keystroke="ctrl l" />
   </action>
@@ -426,6 +435,9 @@
   </action>
   <action id="PreviousEditorTab" />
   <action id="PreviousOccurence" />
+  <action id="PreviousProjectWindow">
+    <keyboard-shortcut first-keystroke="ctrl space" second-keystroke="p" />
+  </action>
   <action id="PreviousTab">
     <keyboard-shortcut first-keystroke="ctrl k" />
     <keyboard-shortcut first-keystroke="shift ctrl tab" />
