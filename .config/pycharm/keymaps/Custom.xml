@@ -102,6 +102,9 @@
     <keyboard-shortcut first-keystroke="shift meta z" />
   </action>
   <action id="EditorAddCaretPerSelectedLine" />
+  <action id="EditorBackSpace">
+    <keyboard-shortcut first-keystroke="back_space" />
+  </action>
   <action id="EditorChooseLookupItemReplace" />
   <action id="EditorCut">
     <keyboard-shortcut first-keystroke="meta x" />
@@ -453,6 +456,7 @@
     <keyboard-shortcut first-keystroke="shift meta t" />
   </action>
   <action id="Rerun" />
+  <action id="RestoreDefaultLayout" />
   <action id="Run">
     <keyboard-shortcut first-keystroke="meta alt r" />
   </action>
@@ -474,6 +478,7 @@
   <action id="ServiceView.GroupByContributor" />
   <action id="ServiceView.GroupByServiceGroups" />
   <action id="ServiceView.ShowServices" />
+  <action id="ShowContent" />
   <action id="ShowNavBar" />
   <action id="ShowReformatFileDialog" />
   <action id="SurroundWithLiveTemplate" />
@@ -565,6 +570,7 @@
   <action id="UsageGrouping.FlattenModules" />
   <action id="UsageGrouping.Module" />
   <action id="UsageGrouping.UsageType" />
+  <action id="UsageView.Include" />
   <action id="Vcs.CopyRevisionNumberAction" />
   <action id="Vcs.EditSource" />
   <action id="Vcs.Log.FocusTextFilter" />
