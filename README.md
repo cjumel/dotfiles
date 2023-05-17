@@ -63,6 +63,17 @@ features.
 I set it up with the [Catppuccin color scheme](https://github.com/catppuccin/iterm) and the
 `JetBrainsMono` [Nerd Font](https://www.nerdfonts.com/font-downloads).
 
+### Fig
+
+I use [Fig](https://fig.io/) to add a super user-friendly completion feature to my terminal.
+
+To use my custom configuration, run:
+
+```shell
+rm -f ~/.fig/settings.json
+ln -s ~/dotfiles/.fig/settings.json ~/.fig/settings.json
+```
+
 ### Oh My Zsh
 
 I use [Oh My Zsh](https://ohmyz.sh) to customize my terminal prompt and define custom aliases.
