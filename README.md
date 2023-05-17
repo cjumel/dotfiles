@@ -38,6 +38,21 @@ brew bundle dump
 In the following, if not stated otherwise, the tools I will describe should be installable with
 HomeBrew.
 
+## Keyboard Modification Software
+
+To modify the key bindings I use, I installed
+[Karabiner-Elements](https://karabiner-elements.pqrs.org/).
+This enables me to fix some keys in my non-Apple keyboard, as well as modify keys for all keyboards
+(such as using the caps lock key as escape).
+
+To use my custom configuration, create a symlink from `~/.config/karabiner/karabiner.json` to the `~/dotfiles/.config/karabiner/karabiner.json` file
+using:
+
+```shell
+rm -f ~/.config/karabiner/karabiner.json
+ln -s ~/dotfiles/.config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
+```
+
 ## Terminal
 
 ### Iterm2
