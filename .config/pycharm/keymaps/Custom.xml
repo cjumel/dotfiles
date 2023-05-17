@@ -13,40 +13,37 @@
   <action id="ActivateDebugToolWindow" />
   <action id="ActivateFindToolWindow" />
   <action id="ActivateNotificationsToolWindow">
-    <keyboard-shortcut first-keystroke="meta exclamation_mark" />
+    <keyboard-shortcut first-keystroke="ctrl exclamation_mark" />
   </action>
   <action id="ActivateProblemsViewToolWindow">
-    <keyboard-shortcut first-keystroke="meta #10000e8" />
+    <keyboard-shortcut first-keystroke="ctrl #10000e8" />
   </action>
   <action id="ActivateProjectToolWindow">
     <keyboard-shortcut first-keystroke="ctrl n" />
-    <keyboard-shortcut first-keystroke="meta ampersand" />
+    <keyboard-shortcut first-keystroke="ctrl ampersand" />
   </action>
   <action id="ActivatePythonConsoleToolWindow">
-    <keyboard-shortcut first-keystroke="meta left_parenthesis" />
+    <keyboard-shortcut first-keystroke="ctrl left_parenthesis" />
   </action>
   <action id="ActivateRunToolWindow">
-    <keyboard-shortcut first-keystroke="meta #10000a7" />
+    <keyboard-shortcut first-keystroke="ctrl #10000a7" />
   </action>
   <action id="ActivateServicesToolWindow" />
   <action id="ActivateStructureToolWindow">
-    <keyboard-shortcut first-keystroke="meta quotedbl" />
+    <keyboard-shortcut first-keystroke="ctrl quotedbl" />
   </action>
   <action id="ActivateTODOToolWindow">
-    <keyboard-shortcut first-keystroke="meta quote" />
+    <keyboard-shortcut first-keystroke="ctrl quote" />
   </action>
   <action id="ActivateTerminalToolWindow" />
   <action id="ActivateVersionControlToolWindow">
-    <keyboard-shortcut first-keystroke="meta #10000e9" />
     <keyboard-shortcut first-keystroke="shift ctrl n" />
+    <keyboard-shortcut first-keystroke="ctrl #10000e9" />
   </action>
   <action id="Back">
     <keyboard-shortcut first-keystroke="meta p" />
   </action>
   <action id="CallHierarchy" />
-  <action id="ChangeSplitOrientation">
-    <keyboard-shortcut first-keystroke="ctrl #10000e9" />
-  </action>
   <action id="ChangesView.AddUnversioned">
     <keyboard-shortcut first-keystroke="alt a" />
   </action>
@@ -560,9 +557,6 @@
   </action>
   <action id="TypeHierarchy" />
   <action id="TypeHierarchyBase.BaseOnThisType" />
-  <action id="UnsplitAll">
-    <keyboard-shortcut first-keystroke="ctrl ampersand" />
-  </action>
   <action id="UsageFiltering.Imports" />
   <action id="UsageFiltering.ReadAccess" />
   <action id="UsageFiltering.WriteAccess" />
