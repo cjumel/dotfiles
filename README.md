@@ -45,12 +45,11 @@ To modify the key bindings I use, I installed
 This enables me to fix some keys in my non-Apple keyboard, as well as modify keys for all keyboards
 (such as using the caps lock key as escape).
 
-To use my custom configuration, create a symlink from `~/.config/karabiner/karabiner.json` to the `~/dotfiles/.config/karabiner/karabiner.json` file
-using:
+To use my custom configuration, create a symlink from `~/.config/karabiner` to the `~/dotfiles/.config/karabiner` directory using:
 
 ```shell
-rm -f ~/.config/karabiner/karabiner.json
-ln -s ~/dotfiles/.config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
+rm -rf ~/.config/karabiner
+ln -s ~/dotfiles/.config/karabiner ~/.config/karabiner
 ```
 
 ## Terminal

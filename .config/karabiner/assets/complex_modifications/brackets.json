@@ -1,0 +1,55 @@
+{
+  "title": "Better bracket keys",
+  "rules": [
+    {
+      "description": "Cmd + ( or ) to [ or ]",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "5",
+            "modifiers": {
+              "mandatory": ["command"]
+            }
+          },
+          "to": [{ "key_code": "5", "modifiers": ["option", "shift"] }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "hyphen",
+            "modifiers": {
+              "mandatory": ["command"]
+            }
+          },
+          "to": [{ "key_code": "hyphen", "modifiers": ["option", "shift"] }]
+        }
+      ]
+    },
+    {
+      "description": "Cmd + shift + ( or ) to { or }",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "5",
+            "modifiers": {
+              "mandatory": ["command", "shift"]
+            }
+          },
+          "to": [{ "key_code": "5", "modifiers": ["option"] }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "hyphen",
+            "modifiers": {
+              "mandatory": ["command", "shift"]
+            }
+          },
+          "to": [{ "key_code": "hyphen", "modifiers": ["option"] }]
+        }
+      ]
+    }
+  ]
+}
