@@ -38,6 +38,9 @@ Plug 'easymotion/vim-easymotion'
 "map \b <Action>(ToggleLineBreakpoint)
 
 " -- Custom options --
+" Set leader key to space key
+let mapleader = " "
+
 " Use relative line numbers, except for the current one
 set number
 set relativenumber
