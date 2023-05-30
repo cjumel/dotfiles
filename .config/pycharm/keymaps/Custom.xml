@@ -2,9 +2,12 @@
   <action id="$Cut">
     <keyboard-shortcut first-keystroke="meta x" />
   </action>
-  <action id="$Redo">
-    <keyboard-shortcut first-keystroke="shift meta z" />
+  <action id="$Delete">
+    <keyboard-shortcut first-keystroke="delete" />
+    <keyboard-shortcut first-keystroke="back_space" />
   </action>
+  <action id="$Redo" />
+  <action id="$Undo" />
   <action id="ActivateBigDataToolWindowToolWindow">
     <keyboard-shortcut first-keystroke="shift ctrl meta b" />
   </action>
@@ -43,8 +46,9 @@
     <keyboard-shortcut first-keystroke="shift ctrl n" />
     <keyboard-shortcut first-keystroke="ctrl #10000e9" />
   </action>
+  <action id="AutoIndentLines" />
   <action id="Back">
-    <keyboard-shortcut first-keystroke="meta b" />
+    <keyboard-shortcut first-keystroke="meta back_space" />
   </action>
   <action id="CallHierarchy" />
   <action id="ChangesView.AddUnversioned">
@@ -84,25 +88,17 @@
   <action id="CommentByLineComment">
     <keyboard-shortcut first-keystroke="meta at" />
   </action>
-  <action id="CompareTwoFiles">
-    <keyboard-shortcut first-keystroke="alt d" />
-  </action>
   <action id="Console.TableResult.ColumnSortDesc" />
   <action id="Console.TableResult.SelectRow" />
   <action id="Console.TableResult.SetNull" />
   <action id="DatabaseView.PropertiesAction" />
   <action id="Debug">
-    <keyboard-shortcut first-keystroke="meta alt d" />
+    <keyboard-shortcut first-keystroke="alt d" />
   </action>
   <action id="Django.RunManageTaskAction" />
-  <action id="EditSource">
-    <keyboard-shortcut first-keystroke="f4" />
-  </action>
+  <action id="EditSource" />
   <action id="Editor Delete">
     <keyboard-shortcut first-keystroke="back_space" />
-  </action>
-  <action id="Editor Redo">
-    <keyboard-shortcut first-keystroke="shift meta z" />
   </action>
   <action id="EditorAddCaretPerSelectedLine" />
   <action id="EditorBackSpace">
@@ -117,21 +113,13 @@
   <action id="EditorDelete">
     <keyboard-shortcut first-keystroke="back_space" />
   </action>
-  <action id="EditorDeleteLine">
-    <keyboard-shortcut first-keystroke="ctrl back_space" />
-  </action>
-  <action id="EditorDeleteToLineEnd">
-    <keyboard-shortcut first-keystroke="shift meta back_space" />
-  </action>
-  <action id="EditorDeleteToLineStart">
-    <keyboard-shortcut first-keystroke="meta back_space" />
-  </action>
-  <action id="EditorDeleteToWordEnd">
-    <keyboard-shortcut first-keystroke="shift alt back_space" />
-  </action>
+  <action id="EditorDeleteLine" />
+  <action id="EditorDeleteToWordEnd" />
+  <action id="EditorDeleteToWordStart" />
   <action id="EditorDown">
     <keyboard-shortcut first-keystroke="down" />
   </action>
+  <action id="EditorDuplicate" />
   <action id="EditorIncreaseFontSizeGlobal" />
   <action id="EditorIndentSelection" />
   <action id="EditorJoinLines" />
@@ -156,9 +144,7 @@
   <action id="EditorLookupSelectionUp">
     <keyboard-shortcut first-keystroke="shift tab" />
   </action>
-  <action id="EditorMatchBrace">
-    <keyboard-shortcut first-keystroke="meta m" />
-  </action>
+  <action id="EditorMatchBrace" />
   <action id="EditorMoveDownAndScroll">
     <keyboard-shortcut first-keystroke="meta down" />
   </action>
@@ -211,7 +197,9 @@
     <keyboard-shortcut first-keystroke="meta equals" />
   </action>
   <action id="ExportToTextFile" />
-  <action id="ExpressionTypeInfo" />
+  <action id="ExpressionTypeInfo">
+    <keyboard-shortcut first-keystroke="shift meta p" />
+  </action>
   <action id="ExternalSystem.CollapseAll">
     <keyboard-shortcut first-keystroke="shift meta colon" />
   </action>
@@ -219,21 +207,16 @@
     <keyboard-shortcut first-keystroke="shift meta equals" />
   </action>
   <action id="FileChooser.TogglePathBar" />
+  <action id="FileStructurePopup" />
   <action id="FindInPath">
     <keyboard-shortcut first-keystroke="alt f" />
-  </action>
-  <action id="FindNext">
-    <keyboard-shortcut first-keystroke="meta o" />
-  </action>
-  <action id="FindPrevious">
-    <keyboard-shortcut first-keystroke="shift meta o" />
   </action>
   <action id="FindUsages">
     <keyboard-shortcut first-keystroke="alt u" />
   </action>
   <action id="FindUsagesInFile" />
   <action id="Forward">
-    <keyboard-shortcut first-keystroke="shift meta b" />
+    <keyboard-shortcut first-keystroke="shift meta back_space" />
   </action>
   <action id="Generate">
     <keyboard-shortcut first-keystroke="ctrl enter" />
@@ -251,28 +234,29 @@
   <action id="GotoBookmark8" />
   <action id="GotoBookmark9" />
   <action id="GotoClass">
-    <keyboard-shortcut first-keystroke="shift alt o" />
+    <keyboard-shortcut first-keystroke="shift meta o" />
   </action>
   <action id="GotoDeclaration">
+    <keyboard-shortcut first-keystroke="meta b" />
     <mouse-shortcut keystroke="meta button1" />
-    <keyboard-shortcut first-keystroke="meta g" />
   </action>
   <action id="GotoFile">
-    <keyboard-shortcut first-keystroke="alt o" />
+    <keyboard-shortcut first-keystroke="meta o" />
   </action>
-  <action id="GotoImplementation" />
   <action id="GotoLine" />
   <action id="GotoNextElementUnderCaretUsage">
     <keyboard-shortcut first-keystroke="meta u" />
   </action>
+  <action id="GotoNextError" />
   <action id="GotoPrevElementUnderCaretUsage">
     <keyboard-shortcut first-keystroke="shift meta u" />
   </action>
+  <action id="GotoPreviousError" />
   <action id="GotoRelated" />
   <action id="GotoSuperMethod" />
   <action id="GotoSymbol" />
   <action id="GotoTest" />
-  <action id="GotoTypeDeclaration" />
+  <action id="GotoUrlAction" />
   <action id="HideActiveWindow">
     <keyboard-shortcut first-keystroke="meta less" />
   </action>
@@ -338,29 +322,12 @@
     <keyboard-shortcut first-keystroke="ctrl space" second-keystroke="c" />
   </action>
   <action id="MethodDown">
-    <keyboard-shortcut first-keystroke="meta n" />
+    <keyboard-shortcut first-keystroke="meta j" />
   </action>
   <action id="MethodHierarchy" />
   <action id="MethodHierarchy.BaseOnThisMethod" />
   <action id="MethodUp">
-    <keyboard-shortcut first-keystroke="meta p" />
-  </action>
-  <action id="MinimizeCurrentWindow">
-    <keyboard-shortcut first-keystroke="ctrl meta m" />
-  </action>
-  <action id="MoveElementLeft" />
-  <action id="MoveElementRight" />
-  <action id="MoveLineDown">
-    <keyboard-shortcut first-keystroke="meta j" />
-  </action>
-  <action id="MoveLineUp">
     <keyboard-shortcut first-keystroke="meta k" />
-  </action>
-  <action id="MoveStatementDown">
-    <keyboard-shortcut first-keystroke="shift meta j" />
-  </action>
-  <action id="MoveStatementUp">
-    <keyboard-shortcut first-keystroke="shift meta k" />
   </action>
   <action id="MoveTabDown">
     <keyboard-shortcut first-keystroke="ctrl space" second-keystroke="quotedbl" />
@@ -387,9 +354,6 @@
     <keyboard-shortcut first-keystroke="up" />
     <keyboard-shortcut first-keystroke="k" />
   </action>
-  <action id="NewElement">
-    <keyboard-shortcut first-keystroke="alt n" />
-  </action>
   <action id="NextEditorTab" />
   <action id="NextOccurence" />
   <action id="NextProjectWindow">
@@ -404,9 +368,6 @@
   </action>
   <action id="OptimizeImports" />
   <action id="OverrideMethods" />
-  <action id="ParameterInfo">
-    <keyboard-shortcut first-keystroke="meta h" />
-  </action>
   <action id="PopupMenu-selectChild">
     <keyboard-shortcut first-keystroke="right" />
     <keyboard-shortcut first-keystroke="l" />
@@ -436,7 +397,7 @@
     <keyboard-shortcut first-keystroke="shift ctrl tab" />
   </action>
   <action id="QuickChangeScheme">
-    <keyboard-shortcut first-keystroke="meta dead_grave" />
+    <keyboard-shortcut first-keystroke="meta t" />
   </action>
   <action id="QuickImplementations">
     <keyboard-shortcut first-keystroke="shift meta i" />
@@ -455,7 +416,7 @@
   <action id="Refactorings.QuickListPopupAction" />
   <action id="ReformatCode" />
   <action id="RenameElement">
-    <keyboard-shortcut first-keystroke="alt r" />
+    <keyboard-shortcut first-keystroke="meta r" />
   </action>
   <action id="ReopenClosedTab">
     <keyboard-shortcut first-keystroke="shift meta t" />
@@ -469,7 +430,7 @@
   <action id="Rerun" />
   <action id="RestoreDefaultLayout" />
   <action id="Run">
-    <keyboard-shortcut first-keystroke="meta alt r" />
+    <keyboard-shortcut first-keystroke="alt r" />
   </action>
   <action id="ScrollPane-unitScrollDown">
     <keyboard-shortcut first-keystroke="ctrl page_down" />
@@ -491,6 +452,7 @@
   <action id="ServiceView.GroupByServiceGroups" />
   <action id="ServiceView.ShowServices" />
   <action id="ShowContent" />
+  <action id="ShowFilePath" />
   <action id="ShowNavBar" />
   <action id="ShowReformatFileDialog" />
   <action id="ShowSettingsAndFindUsages" />
@@ -522,6 +484,7 @@
     <keyboard-shortcut first-keystroke="meta c" />
   </action>
   <action id="Terminal.NewTab" />
+  <action id="TextSearchAction" />
   <action id="TodoViewGroupByFlattenPackage" />
   <action id="TodoViewGroupByShowModules" />
   <action id="TodoViewGroupByShowPackages" />
@@ -536,9 +499,12 @@
   <action id="ToggleBookmark8" />
   <action id="ToggleBookmark9" />
   <action id="ToggleDistractionFreeMode">
-    <keyboard-shortcut first-keystroke="meta #10000f9" />
+    <keyboard-shortcut first-keystroke="meta z" />
   </action>
   <action id="ToggleFindInSelection" />
+  <action id="Tool_External Tools_Black">
+    <keyboard-shortcut first-keystroke="meta l" />
+  </action>
   <action id="Tree-selectChild">
     <keyboard-shortcut first-keystroke="right" />
     <keyboard-shortcut first-keystroke="l" />
