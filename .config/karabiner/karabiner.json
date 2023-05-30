@@ -236,7 +236,7 @@
               },
               "to": [
                 {
-                  "key_code": "caps_lock"
+                  "key_code": "right_control"
                 }
               ]
             },
@@ -257,6 +257,16 @@
               "to": [
                 {
                   "consumer_key_code": "volume_decrement"
+                }
+              ]
+            },
+            {
+              "from": {
+                "key_code": "application"
+              },
+              "to": [
+                {
+                  "key_code": "right_option"
                 }
               ]
             }
@@ -474,7 +484,7 @@
         },
         {
           "from": {
-            "key_code": "right_option"
+            "key_code": "escape"
           },
           "to": [
             {
