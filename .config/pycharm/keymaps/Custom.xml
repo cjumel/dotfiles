@@ -13,38 +13,39 @@
   </action>
   <action id="ActivateBookmarksToolWindow" />
   <action id="ActivateCommitToolWindow" />
+  <action id="ActivateDatabaseToolWindow">
+    <keyboard-shortcut first-keystroke="meta #10000a7" />
+  </action>
   <action id="ActivateDebugToolWindow" />
   <action id="ActivateFindToolWindow" />
   <action id="ActivateNotificationsToolWindow">
-    <keyboard-shortcut first-keystroke="ctrl exclamation_mark" />
+    <keyboard-shortcut first-keystroke="meta exclamation_mark" />
   </action>
   <action id="ActivateProblemsViewToolWindow">
-    <keyboard-shortcut first-keystroke="ctrl #10000e8" />
+    <keyboard-shortcut first-keystroke="meta #10000c7" />
   </action>
   <action id="ActivateProjectToolWindow">
     <keyboard-shortcut first-keystroke="ctrl n" />
-    <keyboard-shortcut first-keystroke="ctrl ampersand" />
   </action>
   <action id="ActivatePythonConsoleToolWindow">
-    <keyboard-shortcut first-keystroke="ctrl left_parenthesis" />
+    <keyboard-shortcut first-keystroke="meta quotedbl" />
   </action>
   <action id="ActivateRemoteHostToolWindow">
-    <keyboard-shortcut first-keystroke="ctrl #10000c7" />
+    <keyboard-shortcut first-keystroke="meta #10000e8" />
   </action>
   <action id="ActivateRunToolWindow">
-    <keyboard-shortcut first-keystroke="ctrl #10000a7" />
+    <keyboard-shortcut first-keystroke="meta quote" />
   </action>
   <action id="ActivateServicesToolWindow" />
   <action id="ActivateStructureToolWindow">
-    <keyboard-shortcut first-keystroke="ctrl quotedbl" />
+    <keyboard-shortcut first-keystroke="meta ampersand" />
   </action>
   <action id="ActivateTODOToolWindow">
-    <keyboard-shortcut first-keystroke="ctrl quote" />
+    <keyboard-shortcut first-keystroke="meta #10000e9" />
   </action>
   <action id="ActivateTerminalToolWindow" />
   <action id="ActivateVersionControlToolWindow">
     <keyboard-shortcut first-keystroke="shift ctrl n" />
-    <keyboard-shortcut first-keystroke="ctrl #10000e9" />
   </action>
   <action id="AutoIndentLines" />
   <action id="Back">
@@ -397,7 +398,7 @@
     <keyboard-shortcut first-keystroke="shift ctrl tab" />
   </action>
   <action id="QuickChangeScheme">
-    <keyboard-shortcut first-keystroke="meta t" />
+    <keyboard-shortcut first-keystroke="alt t" />
   </action>
   <action id="QuickImplementations">
     <keyboard-shortcut first-keystroke="shift meta i" />
@@ -419,7 +420,7 @@
     <keyboard-shortcut first-keystroke="meta r" />
   </action>
   <action id="ReopenClosedTab">
-    <keyboard-shortcut first-keystroke="shift meta t" />
+    <keyboard-shortcut first-keystroke="meta t" />
   </action>
   <action id="Replace">
     <keyboard-shortcut first-keystroke="shift meta f" />
