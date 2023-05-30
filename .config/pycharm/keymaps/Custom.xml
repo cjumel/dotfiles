@@ -6,8 +6,9 @@
     <keyboard-shortcut first-keystroke="delete" />
     <keyboard-shortcut first-keystroke="back_space" />
   </action>
-  <action id="$Redo" />
-  <action id="$Undo" />
+  <action id="$Redo">
+    <keyboard-shortcut first-keystroke="shift meta z" />
+  </action>
   <action id="ActivateBigDataToolWindowToolWindow">
     <keyboard-shortcut first-keystroke="shift ctrl meta b" />
   </action>
@@ -500,7 +501,7 @@
   <action id="ToggleBookmark8" />
   <action id="ToggleBookmark9" />
   <action id="ToggleDistractionFreeMode">
-    <keyboard-shortcut first-keystroke="meta z" />
+    <keyboard-shortcut first-keystroke="meta #10000f9" />
   </action>
   <action id="ToggleFindInSelection" />
   <action id="Tool_External Tools_Black">
