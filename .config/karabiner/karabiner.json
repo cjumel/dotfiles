@@ -51,41 +51,6 @@
                 "type": "basic"
               }
             ]
-          },
-          {
-            "description": "Cmd + shift + ( or ) to { or }",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "5",
-                  "modifiers": {
-                    "mandatory": ["command", "shift"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "5",
-                    "modifiers": ["option"]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "key_code": "hyphen",
-                  "modifiers": {
-                    "mandatory": ["command", "shift"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "hyphen",
-                    "modifiers": ["option"]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
           }
         ]
       },
@@ -130,6 +95,16 @@
           "ignore": false,
           "manipulate_caps_lock_led": true,
           "simple_modifications": [
+            {
+              "from": {
+                "key_code": "application"
+              },
+              "to": [
+                {
+                  "key_code": "right_option"
+                }
+              ]
+            },
             {
               "from": {
                 "key_code": "f9"
@@ -257,16 +232,6 @@
               "to": [
                 {
                   "consumer_key_code": "volume_decrement"
-                }
-              ]
-            },
-            {
-              "from": {
-                "key_code": "application"
-              },
-              "to": [
-                {
-                  "key_code": "right_option"
                 }
               ]
             }
