@@ -335,7 +335,7 @@
     <keyboard-shortcut first-keystroke="ctrl space" second-keystroke="quotedbl" />
   </action>
   <action id="MoveTabRight">
-    <keyboard-shortcut first-keystroke="ctrl space" second-keystroke="#10000f9" />
+    <keyboard-shortcut first-keystroke="ctrl space" second-keystroke="shift #10000f9" />
   </action>
   <action id="NavBar-selectDown">
     <keyboard-shortcut first-keystroke="down" />
