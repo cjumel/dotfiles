@@ -368,7 +368,9 @@
     <keyboard-shortcut first-keystroke="ctrl j" />
     <keyboard-shortcut first-keystroke="ctrl tab" />
   </action>
-  <action id="OptimizeImports" />
+  <action id="OptimizeImports">
+    <keyboard-shortcut first-keystroke="shift meta l" />
+  </action>
   <action id="OverrideMethods" />
   <action id="PopupMenu-selectChild">
     <keyboard-shortcut first-keystroke="right" />
