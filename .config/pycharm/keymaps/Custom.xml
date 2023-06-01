@@ -49,9 +49,7 @@
     <keyboard-shortcut first-keystroke="shift ctrl n" />
   </action>
   <action id="AutoIndentLines" />
-  <action id="Back">
-    <keyboard-shortcut first-keystroke="meta back_space" />
-  </action>
+  <action id="Back" />
   <action id="CallHierarchy" />
   <action id="ChangesView.AddUnversioned">
     <keyboard-shortcut first-keystroke="alt a" />
@@ -217,9 +215,7 @@
     <keyboard-shortcut first-keystroke="alt u" />
   </action>
   <action id="FindUsagesInFile" />
-  <action id="Forward">
-    <keyboard-shortcut first-keystroke="shift meta back_space" />
-  </action>
+  <action id="Forward" />
   <action id="Generate">
     <keyboard-shortcut first-keystroke="ctrl enter" />
   </action>
@@ -235,15 +231,13 @@
   <action id="GotoBookmark7" />
   <action id="GotoBookmark8" />
   <action id="GotoBookmark9" />
-  <action id="GotoClass">
-    <keyboard-shortcut first-keystroke="shift meta o" />
-  </action>
+  <action id="GotoClass" />
   <action id="GotoDeclaration">
     <keyboard-shortcut first-keystroke="meta b" />
     <mouse-shortcut keystroke="meta button1" />
   </action>
   <action id="GotoFile">
-    <keyboard-shortcut first-keystroke="meta o" />
+    <keyboard-shortcut first-keystroke="meta t" />
   </action>
   <action id="GotoLine" />
   <action id="GotoNextElementUnderCaretUsage">
@@ -369,7 +363,7 @@
     <keyboard-shortcut first-keystroke="ctrl tab" />
   </action>
   <action id="OptimizeImports">
-    <keyboard-shortcut first-keystroke="shift meta l" />
+    <keyboard-shortcut first-keystroke="meta o" />
   </action>
   <action id="OverrideMethods" />
   <action id="PopupMenu-selectChild">
@@ -423,7 +417,7 @@
     <keyboard-shortcut first-keystroke="meta r" />
   </action>
   <action id="ReopenClosedTab">
-    <keyboard-shortcut first-keystroke="meta t" />
+    <keyboard-shortcut first-keystroke="shift meta t" />
   </action>
   <action id="Replace">
     <keyboard-shortcut first-keystroke="shift meta f" />
