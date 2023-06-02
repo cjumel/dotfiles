@@ -37,6 +37,8 @@ alias gfp='git fetch --prune'  # Remove unused remote branches
 alias glg='git lg'
 alias glgm='git lg origin..HEAD'  # Show the log since the divergence from origin/main
 
+alias gm='gitmoji'
+
 alias gpl='git pull'
 
 alias gps='git push'
