@@ -12,8 +12,6 @@ alias qn='nvim ./notes.txt'
 
 alias sc='screen'
 
-alias se='google'
-
 alias so='source'
 alias sozsh='source ~/.zshrc'
 
