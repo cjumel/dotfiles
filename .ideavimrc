@@ -45,6 +45,10 @@ let mapleader = " "
 set number
 set relativenumber
 
+" Use tab & shift + tab to switch between tabs in normal mode
+nnoremap <TAB> :action NextTab<CR>
+nnoremap <s-TAB> :action PreviousTab<CR>
+
 " Use ctrl + b or e to move to beginning or end of line in insert mode
 inoremap <C-b> <Home>
 inoremap <C-e> <End>
