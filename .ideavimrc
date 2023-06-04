@@ -7,46 +7,34 @@
 " https://amine-elhattami.medium.com/destination-ideavim-day-1-the-basics-793a514af57f
 " and here: https://towardsdatascience.com/the-essential-ideavim-remaps-291d4cd3971b
 
-"" General settings
+""" General settings
 
 " Show a few lines of context around the cursor; note that this makes the
 " text scroll if you mouse-click near the start or end of the window
 set scrolloff=5
-
 " Do incremental searching (highlight results as you type)
 set incsearch
-
 " Use relative line numbers, except for the one under the cursor
 set number
 set relativenumber
-
 " Enable copy paste from the system and PyCharm clipboards
 set clipboard+=unnamed
 set clipboard+=ideaput
-
 " Use PyCharm lines join (with J)
 set ideajoin
 
-"" Key mappings
+""" Key mappings
 " See the documentation here: https://jb.gg/abva4t
 
 let mapleader = " "
 
-nmap <TAB> <Action>(NextTab)
-nmap <s-TAB> <Action>(PreviousTab)
-nmap <leader>x <Action>(CloseContent)
-nmap <leader>f <Action>(GotoFile)
-nmap <leader>z <Action>(ToggleDistractionFreeMode)
-
-" Use ctrl + b/e to move to beginning or end of line in insert mode
-inoremap <C-b> <Home>
-inoremap <C-e> <End>
-
-" Panes
+"" Splits management
+" Create splits
 nmap <leader>! <Action>(MoveTabRight)
 nmap <leader>- <Action>(MoveTabDown)
 nmap <leader>' <Action>(Unsplit)
 nmap <leader>m <Action>(MoveEditorToOppositeTabGroup)
+" Navigate splits
 sethandler <c-j> a:vim
 sethandler <c-k> a:vim
 nnoremap <c-h> <c-w>h
@@ -54,30 +42,39 @@ nnoremap <c-l> <c-w>l
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 
-" Projects
+"" Projects management
 nmap <leader>c <Action>(ManageRecentProjects)
 nmap <leader>q <Action>(CloseProject)
 nmap <leader>n <Action>(NextProjectWindow)
 nmap <leader>p <Action>(PreviousProjectWindow)
 
-" Tool windows
+"" Tool windows management
 nmap <leader>t <action>(JumpToLastWindow)
 nmap <leader>h <action>(HideActiveWindow)
 nmap <leader>H <action>(HideAllWindows)
 nmap <leader>e <action>(ActivateProjectToolWindow)
 
-"" IdeaVim plugins
+"" Navigation mode mappings
+nmap <TAB> <Action>(NextTab)
+nmap <s-TAB> <Action>(PreviousTab)
+nmap <leader>x <Action>(CloseContent)
+nmap <leader>f <Action>(GotoFile)
+nmap <leader>z <Action>(ToggleDistractionFreeMode)
+
+"" Insert mode mappings
+" Move to beginning or end of line
+inoremap <C-b> <Home>
+inoremap <C-e> <End>
+
+""" IdeaVim plugins
 " See the list of available plugins here: https://jb.gg/ideavim-plugins
 
 " Highlight a region when yanked
 Plug 'machakann/vim-highlightedyank'
-
 " Comment stuff out with the `gc` or `gcc` commands
 Plug 'tpope/vim-commentary'
-
 " Provide mappings to easily manipulate parentheses, brackets, etc. and their content
 Plug 'tpope/vim-surround'
-
 " Provide a simpler way to use motions in vim
 Plug 'easymotion/vim-easymotion'
 " Change the leader from <Leader><Leader> to <Leader>
