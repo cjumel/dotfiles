@@ -5,6 +5,7 @@
   <action id="$Delete">
     <keyboard-shortcut first-keystroke="delete" />
     <keyboard-shortcut first-keystroke="back_space" />
+    <keyboard-shortcut first-keystroke="d" />
   </action>
   <action id="$Redo">
     <keyboard-shortcut first-keystroke="shift meta z" />
@@ -96,6 +97,7 @@
   <action id="EditSource" />
   <action id="Editor Delete">
     <keyboard-shortcut first-keystroke="back_space" />
+    <keyboard-shortcut first-keystroke="d" />
   </action>
   <action id="EditorAddCaretPerSelectedLine" />
   <action id="EditorBackSpace">
@@ -332,6 +334,11 @@
     <keyboard-shortcut first-keystroke="up" />
     <keyboard-shortcut first-keystroke="k" />
   </action>
+  <action id="NewElement">
+    <keyboard-shortcut first-keystroke="meta n" />
+    <keyboard-shortcut first-keystroke="ctrl enter" />
+    <keyboard-shortcut first-keystroke="a" />
+  </action>
   <action id="NextEditorTab" />
   <action id="NextOccurence" />
   <action id="NextProjectWindow" />
@@ -339,6 +346,7 @@
   <action id="NextTab">
     <keyboard-shortcut first-keystroke="ctrl tab" />
   </action>
+  <action id="OpenInRightSplit" />
   <action id="OptimizeImports">
     <keyboard-shortcut first-keystroke="meta o" />
   </action>
@@ -387,6 +395,9 @@
   <action id="ReformatCode" />
   <action id="RenameElement">
     <keyboard-shortcut first-keystroke="meta r" />
+  </action>
+  <action id="RenameFile">
+    <keyboard-shortcut first-keystroke="r" />
   </action>
   <action id="ReopenClosedTab">
     <keyboard-shortcut first-keystroke="shift meta t" />
