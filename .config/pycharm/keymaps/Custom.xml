@@ -69,9 +69,6 @@
   <action id="CloseAllEditorsButActive">
     <keyboard-shortcut first-keystroke="meta alt w" />
   </action>
-  <action id="CloseProject">
-    <keyboard-shortcut first-keystroke="ctrl space" second-keystroke="q" />
-  </action>
   <action id="CodeCompletion">
     <keyboard-shortcut first-keystroke="shift space" />
   </action>
@@ -236,9 +233,7 @@
     <keyboard-shortcut first-keystroke="meta b" />
     <mouse-shortcut keystroke="meta button1" />
   </action>
-  <action id="GotoFile">
-    <keyboard-shortcut first-keystroke="meta t" />
-  </action>
+  <action id="GotoFile" />
   <action id="GotoLine" />
   <action id="GotoNextElementUnderCaretUsage">
     <keyboard-shortcut first-keystroke="meta u" />
@@ -253,12 +248,8 @@
   <action id="GotoSymbol" />
   <action id="GotoTest" />
   <action id="GotoUrlAction" />
-  <action id="HideActiveWindow">
-    <keyboard-shortcut first-keystroke="meta less" />
-  </action>
-  <action id="HideAllWindows">
-    <keyboard-shortcut first-keystroke="shift meta less" />
-  </action>
+  <action id="HideActiveWindow" />
+  <action id="HideAllWindows" />
   <action id="HighlightUsagesInFile" />
   <action id="Images.Editor.ToggleGrid" />
   <action id="Images.Editor.ZoomIn">
@@ -314,9 +305,6 @@
     <keyboard-shortcut first-keystroke="up" />
     <keyboard-shortcut first-keystroke="k" />
   </action>
-  <action id="ManageRecentProjects">
-    <keyboard-shortcut first-keystroke="ctrl space" second-keystroke="c" />
-  </action>
   <action id="MethodDown">
     <keyboard-shortcut first-keystroke="meta j" />
   </action>
@@ -324,12 +312,6 @@
   <action id="MethodHierarchy.BaseOnThisMethod" />
   <action id="MethodUp">
     <keyboard-shortcut first-keystroke="meta k" />
-  </action>
-  <action id="MoveTabDown">
-    <keyboard-shortcut first-keystroke="ctrl space" second-keystroke="quotedbl" />
-  </action>
-  <action id="MoveTabRight">
-    <keyboard-shortcut first-keystroke="ctrl space" second-keystroke="shift #10000f9" />
   </action>
   <action id="NavBar-selectDown">
     <keyboard-shortcut first-keystroke="down" />
@@ -352,9 +334,7 @@
   </action>
   <action id="NextEditorTab" />
   <action id="NextOccurence" />
-  <action id="NextProjectWindow">
-    <keyboard-shortcut first-keystroke="ctrl space" second-keystroke="n" />
-  </action>
+  <action id="NextProjectWindow" />
   <action id="NextSplitter" />
   <action id="NextTab">
     <keyboard-shortcut first-keystroke="ctrl tab" />
@@ -382,9 +362,7 @@
   <action id="PrevSplitter" />
   <action id="PreviousEditorTab" />
   <action id="PreviousOccurence" />
-  <action id="PreviousProjectWindow">
-    <keyboard-shortcut first-keystroke="ctrl space" second-keystroke="p" />
-  </action>
+  <action id="PreviousProjectWindow" />
   <action id="PreviousTab">
     <keyboard-shortcut first-keystroke="shift ctrl tab" />
   </action>
@@ -424,6 +402,7 @@
   <action id="Run">
     <keyboard-shortcut first-keystroke="alt r" />
   </action>
+  <action id="SaveAll" />
   <action id="ScrollPane-unitScrollDown">
     <keyboard-shortcut first-keystroke="ctrl page_down" />
   </action>
@@ -490,9 +469,6 @@
   <action id="ToggleBookmark7" />
   <action id="ToggleBookmark8" />
   <action id="ToggleBookmark9" />
-  <action id="ToggleDistractionFreeMode">
-    <keyboard-shortcut first-keystroke="meta #10000f9" />
-  </action>
   <action id="ToggleFindInSelection" />
   <action id="Tool_External Tools_Black">
     <keyboard-shortcut first-keystroke="meta l" />
