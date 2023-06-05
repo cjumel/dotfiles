@@ -322,6 +322,7 @@
   <action id="List-selectNextRow">
     <keyboard-shortcut first-keystroke="down" />
     <keyboard-shortcut first-keystroke="j" />
+    <keyboard-shortcut first-keystroke="meta j" />
   </action>
   <action id="List-selectPreviousColumn">
     <keyboard-shortcut first-keystroke="left" />
@@ -330,6 +331,7 @@
   <action id="List-selectPreviousRow">
     <keyboard-shortcut first-keystroke="up" />
     <keyboard-shortcut first-keystroke="k" />
+    <keyboard-shortcut first-keystroke="meta k" />
   </action>
   <action id="MethodDown">
     <keyboard-shortcut first-keystroke="meta j" />
