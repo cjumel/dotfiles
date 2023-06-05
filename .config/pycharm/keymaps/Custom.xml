@@ -1,11 +1,20 @@
 <keymap version="1" name="Custom" parent="Mac OS X 10.5+">
+  <action id="$Copy">
+    <keyboard-shortcut first-keystroke="meta c" />
+    <keyboard-shortcut first-keystroke="c" />
+  </action>
   <action id="$Cut">
     <keyboard-shortcut first-keystroke="meta x" />
+    <keyboard-shortcut first-keystroke="x" />
   </action>
   <action id="$Delete">
     <keyboard-shortcut first-keystroke="delete" />
     <keyboard-shortcut first-keystroke="back_space" />
     <keyboard-shortcut first-keystroke="d" />
+  </action>
+  <action id="$Paste">
+    <keyboard-shortcut first-keystroke="meta v" />
+    <keyboard-shortcut first-keystroke="p" />
   </action>
   <action id="$Redo">
     <keyboard-shortcut first-keystroke="shift meta z" />
@@ -95,15 +104,27 @@
   </action>
   <action id="Django.RunManageTaskAction" />
   <action id="EditSource" />
+  <action id="Editor Copy">
+    <keyboard-shortcut first-keystroke="c" />
+  </action>
+  <action id="Editor Cut">
+    <keyboard-shortcut first-keystroke="x" />
+  </action>
   <action id="Editor Delete">
     <keyboard-shortcut first-keystroke="back_space" />
     <keyboard-shortcut first-keystroke="d" />
+  </action>
+  <action id="Editor Paste">
+    <keyboard-shortcut first-keystroke="p" />
   </action>
   <action id="EditorAddCaretPerSelectedLine" />
   <action id="EditorBackSpace">
     <keyboard-shortcut first-keystroke="back_space" />
   </action>
   <action id="EditorChooseLookupItemReplace" />
+  <action id="EditorCopy">
+    <keyboard-shortcut first-keystroke="meta c" />
+  </action>
   <action id="EditorCut">
     <keyboard-shortcut first-keystroke="meta x" />
   </action>
@@ -161,6 +182,9 @@
   </action>
   <action id="EditorNextWordWithSelection">
     <keyboard-shortcut first-keystroke="shift alt right" />
+  </action>
+  <action id="EditorPaste">
+    <keyboard-shortcut first-keystroke="meta v" />
   </action>
   <action id="EditorPreviousWord">
     <keyboard-shortcut first-keystroke="alt left" />
