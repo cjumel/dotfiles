@@ -70,7 +70,7 @@ inoremap <C-e> <End>
 " See the list of available plugins here: https://jb.gg/ideavim-plugins
 
 " NerdTree-style project view
-Plug 'preservim/nerdtree`
+Plug 'preservim/nerdtree'
 " Highlight a region when yanked
 Plug 'machakann/vim-highlightedyank'
 " Comment stuff out with the `gc` or `gcc` commands
