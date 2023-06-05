@@ -371,9 +371,7 @@
     <keyboard-shortcut first-keystroke="ctrl tab" />
   </action>
   <action id="OpenInRightSplit" />
-  <action id="OptimizeImports">
-    <keyboard-shortcut first-keystroke="meta o" />
-  </action>
+  <action id="OptimizeImports" />
   <action id="OverrideMethods" />
   <action id="PopupMenu-selectChild">
     <keyboard-shortcut first-keystroke="right" />
@@ -505,9 +503,6 @@
   <action id="ToggleBookmark8" />
   <action id="ToggleBookmark9" />
   <action id="ToggleFindInSelection" />
-  <action id="Tool_External Tools_Black">
-    <keyboard-shortcut first-keystroke="meta l" />
-  </action>
   <action id="Tree-selectChild">
     <keyboard-shortcut first-keystroke="right" />
     <keyboard-shortcut first-keystroke="l" />

@@ -59,6 +59,8 @@ nmap <TAB> <Action>(NextTab)
 nmap <s-TAB> <Action>(PreviousTab)
 nmap <leader>x <Action>(CloseContent)
 nmap <leader>f <Action>(GotoFile)
+nmap <leader>l <Action>(Tool_External Tools_Black)
+nmap <leader>o <Action>(OptimizeImports)
 nmap <leader>z <Action>(ToggleDistractionFreeMode)
 
 "" Insert mode mappings
