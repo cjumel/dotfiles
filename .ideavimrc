@@ -33,7 +33,6 @@ let mapleader = " "
 nmap <leader>! <Action>(MoveTabRight)
 nmap <leader>- <Action>(MoveTabDown)
 nmap <leader>' <Action>(Unsplit)
-nmap <leader>m <Action>(MoveEditorToOppositeTabGroup)
 " Navigate splits
 sethandler <c-j> a:vim
 sethandler <c-k> a:vim
@@ -41,6 +40,7 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
+nmap <c-m> <Action>(MoveEditorToOppositeTabGroup)
 
 "" Projects management
 nmap <leader>c <Action>(ManageRecentProjects)
