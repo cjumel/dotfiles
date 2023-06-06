@@ -455,8 +455,7 @@
   <action id="Refresh">
     <keyboard-shortcut first-keystroke="alt r" />
   </action>
-  <action id="RenameElement" />
-  <action id="RenameFile">
+  <action id="RenameElement">
     <keyboard-shortcut first-keystroke="r" />
   </action>
   <action id="ReopenClosedTab">
