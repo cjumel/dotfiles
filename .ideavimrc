@@ -61,7 +61,9 @@ nmap <leader>x <Action>(CloseContent)
 nmap <leader>f <Action>(GotoFile)
 nmap <leader>l <Action>(Tool_External Tools_Black)
 nmap <leader>o <Action>(OptimizeImports)
+nmap <leader>r <Action>(RenameElement)
 nmap <leader>z <Action>(ToggleDistractionFreeMode)
+nmap gd <Action>(GotoDeclaration)
 
 "" Insert mode mappings
 " Move to beginning or end of line
