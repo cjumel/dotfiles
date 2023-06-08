@@ -82,8 +82,16 @@ Plug 'tpope/vim-commentary'
 " Provide mappings to easily manipulate parentheses, brackets, etc. and their content
 Plug 'tpope/vim-surround'
 " Provide a simpler way to use motions in vim
+" See the documentation of the original plugin here:
+" https://github.com/easymotion/vim-easymotion/blob/master/doc/easymotion.txt
 Plug 'easymotion/vim-easymotion'
+" Disable the default mappings
+let g:EasyMotion_do_mapping=0
 " Change the leader from <Leader><Leader> to <Leader>
 map <Leader> <Plug>(easymotion-prefix)
-" Jump to anywhere with `s{char}...`
+" Define EasyMotion mappings
 nmap s <Plug>(easymotion-s)
+nmap <Leader>w <Plug>(easymotion-w)
+nmap <Leader>b <Plug>(easymotion-b)
+nmap <Leader>j <Plug>(easymotion-j)
+nmap <Leader>k <Plug>(easymotion-k)
