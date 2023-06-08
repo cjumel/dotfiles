@@ -279,7 +279,9 @@
   <action id="GotoBookmark9" />
   <action id="GotoClass" />
   <action id="GotoDeclaration" />
-  <action id="GotoFile" />
+  <action id="GotoFile">
+    <keyboard-shortcut first-keystroke="meta t" />
+  </action>
   <action id="GotoLine" />
   <action id="GotoNextElementUnderCaretUsage">
     <keyboard-shortcut first-keystroke="meta u" />
@@ -438,6 +440,9 @@
   </action>
   <action id="QuickJavaDoc">
     <keyboard-shortcut first-keystroke="meta i" />
+  </action>
+  <action id="QuickPreview">
+    <keyboard-shortcut first-keystroke="tab" />
   </action>
   <action id="QuickTypeDefinition">
     <keyboard-shortcut first-keystroke="alt i" />
@@ -615,7 +620,7 @@
     <keyboard-shortcut first-keystroke="shift meta d" />
   </action>
   <action id="WD.UploadCurrentRemoteFileAction">
-    <keyboard-shortcut first-keystroke="shift meta s" />
+    <keyboard-shortcut first-keystroke="meta s" />
   </action>
   <action id="ZeppelinMergeCellsAction" />
   <action id="ZoomCurrentWindow" />
