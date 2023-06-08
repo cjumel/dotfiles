@@ -83,5 +83,3 @@ alias gsw='git switch'  # Switch branches
 alias gswm='git switch main'  # Switch branches
 
 alias gt='git tag'
-
-alias gvi='nvim -c "tab Git"'
