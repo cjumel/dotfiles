@@ -13,10 +13,5 @@ local plugins = {
     "tpope/vim-fugitive",
     cmd = { "G", "Git" },
   },
-  {
-    "sindrets/diffview.nvim",
-    cmd = { "DiffviewOpen" },
-    requires = { "nvim-lua/plenary.nvim" },
-  },
 }
 return plugins

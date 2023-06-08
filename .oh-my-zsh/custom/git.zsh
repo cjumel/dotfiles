@@ -28,8 +28,7 @@ alias gconfg='git config --global'
 alias gcp='git cherry-pick'  # Apply the changes introduced by some existing commits
 
 alias gdf='git diff' # Show changes between commits, commit and working tree, etc.
-# Overrides difftool to use diffview.nvim directly, which has a better tab integration
-alias gdft='nvim -c DiffviewOpen' # Show changes between commits, commit and working tree, etc. using nvim
+alias gdft='git difftool'
 
 alias gf='git fetch'
 alias gfp='git fetch --prune'  # Remove unused remote branches
