@@ -299,6 +299,7 @@
   <action id="HideActiveWindow" />
   <action id="HideAllWindows" />
   <action id="HighlightUsagesInFile" />
+  <action id="IdeaVim.ReloadVimRc.reload" />
   <action id="Images.Editor.ToggleGrid" />
   <action id="Images.Editor.ZoomIn">
     <keyboard-shortcut first-keystroke="meta add" />

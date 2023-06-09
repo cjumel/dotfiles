@@ -28,6 +28,10 @@ set ideajoin
 
 let mapleader = " "
 
+nmap <leader>,e :edit ~/.ideavimrc<CR>
+nmap <leader>,r <Action>(IdeaVim.ReloadVimRc.reload)
+nmap <leader>,t <Action>(VimFindActionIdAction)
+
 "" Splits management
 " Create splits
 nmap <leader>! <Action>(MoveTabRight)
