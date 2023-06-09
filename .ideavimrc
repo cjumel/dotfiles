@@ -69,6 +69,11 @@ nmap <leader>r <Action>(RenameElement)
 nmap <leader>z <Action>(ToggleDistractionFreeMode)
 nmap gd <Action>(GotoDeclaration)
 
+"" Git-related
+nmap ]c <Action>(VcsShowNextChangeMarker)
+nmap [c <Action>(VcsShowPrevChangeMarker)
+nmap <leader>rh <Action>(Vcs.RollbackChangedLines)
+
 "" Insert mode mappings
 " Move to beginning or end of line
 inoremap <C-b> <Home>
