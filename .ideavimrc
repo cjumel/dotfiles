@@ -28,6 +28,11 @@ set ideajoin
 
 let mapleader = " "
 
+" Specify which of Vim or the IDE should handle the conflicting mappings
+sethandler <c-n> a:ide
+sethandler <c-r> a:vim
+sethandler <s-TAB> n-v:vim i:ide
+
 nmap <leader>,e :edit ~/.ideavimrc<CR>
 nmap <leader>,r <Action>(IdeaVim.ReloadVimRc.reload)
 nmap <leader>,t <Action>(VimFindActionIdAction)
@@ -38,8 +43,6 @@ nmap <leader>! <Action>(MoveTabRight)
 nmap <leader>- <Action>(MoveTabDown)
 nmap <leader>' <Action>(Unsplit)
 " Navigate splits
-sethandler <c-j> a:vim
-sethandler <c-k> a:vim
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 nnoremap <c-j> <c-w>j

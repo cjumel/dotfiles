@@ -25,6 +25,8 @@
     <keyboard-shortcut first-keystroke="u" />
     <keyboard-shortcut first-keystroke="meta z" />
   </action>
+  <action id="AceAction" />
+  <action id="AceLineAction" />
   <action id="ActivateBigDataToolWindowToolWindow">
     <keyboard-shortcut first-keystroke="shift ctrl meta b" />
   </action>
@@ -398,6 +400,7 @@
   <action id="NewScratchFile" />
   <action id="NextEditorTab" />
   <action id="NextOccurence" />
+  <action id="NextParameter" />
   <action id="NextProjectWindow" />
   <action id="NextSplitter" />
   <action id="NextTab">
@@ -426,6 +429,7 @@
     <keyboard-shortcut first-keystroke="k" />
     <keyboard-shortcut first-keystroke="meta k" />
   </action>
+  <action id="PrevParameter" />
   <action id="PrevSplitter" />
   <action id="PreviousEditorTab" />
   <action id="PreviousOccurence" />
