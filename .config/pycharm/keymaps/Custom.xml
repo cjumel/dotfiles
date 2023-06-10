@@ -68,6 +68,7 @@
   </action>
   <action id="AutoIndentLines" />
   <action id="Back" />
+  <action id="BraceOrQuoteOut" />
   <action id="CallHierarchy" />
   <action id="ChangesView.AddUnversioned">
     <keyboard-shortcut first-keystroke="meta a" />
@@ -401,6 +402,9 @@
   <action id="NextTab">
     <keyboard-shortcut first-keystroke="ctrl tab" />
   </action>
+  <action id="NextTemplateVariable">
+    <keyboard-shortcut first-keystroke="enter" />
+  </action>
   <action id="OpenInRightSplit" />
   <action id="OptimizeImports" />
   <action id="OverrideMethods" />
@@ -432,6 +436,7 @@
   <action id="PreviousTab">
     <keyboard-shortcut first-keystroke="shift ctrl tab" />
   </action>
+  <action id="PreviousTemplateVariable" />
   <action id="QuickChangeScheme">
     <keyboard-shortcut first-keystroke="alt t" />
   </action>
@@ -441,9 +446,7 @@
   <action id="QuickJavaDoc">
     <keyboard-shortcut first-keystroke="meta i" />
   </action>
-  <action id="QuickPreview">
-    <keyboard-shortcut first-keystroke="tab" />
-  </action>
+  <action id="QuickPreview" />
   <action id="QuickTypeDefinition">
     <keyboard-shortcut first-keystroke="alt i" />
   </action>
@@ -479,6 +482,9 @@
   <action id="ScrollPane-unitScrollUp">
     <keyboard-shortcut first-keystroke="ctrl page_up" />
   </action>
+  <action id="SearchEverywhere.CompleteCommand" />
+  <action id="SearchEverywhere.NextTab" />
+  <action id="SearchEverywhere.PrevTab" />
   <action id="SegmentedButton-left">
     <keyboard-shortcut first-keystroke="left" />
     <keyboard-shortcut first-keystroke="h" />

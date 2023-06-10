@@ -29,8 +29,9 @@ set ideajoin
 let mapleader = " "
 
 " Specify which of Vim or the IDE should handle the conflicting mappings
-sethandler <c-n> n:ide i:vim
+sethandler <c-n> i-v:vim n:ide
 sethandler <c-r> a:vim
+sethandler <TAB> n-v:vim i:ide
 sethandler <s-TAB> n-v:vim i:ide
 
 nmap <leader>,e :edit ~/.ideavimrc<CR>
@@ -87,6 +88,10 @@ inoremap <C-e> <End>
 imap <c-SPACE> <Action>(CodeCompletion)
 imap <c-n> <Action>(EditorLookupSelectionDown)
 imap <c-p> <Action>(EditorLookupSelectionUp)
+
+"" Visual mode mappings
+vmap <TAB> <Action>(EditorIndentLineOrSelection)
+vmap <s-TAB> <Action>(EditorUnindentSelection)
 
 """ IdeaVim plugins
 " See the list of available plugins here: https://jb.gg/ideavim-plugins
