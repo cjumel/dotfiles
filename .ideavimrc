@@ -29,7 +29,7 @@ set ideajoin
 let mapleader = " "
 
 " Specify which of Vim or the IDE should handle the conflicting mappings
-sethandler <c-n> a:ide
+sethandler <c-n> n:ide i:vim
 sethandler <c-r> a:vim
 sethandler <s-TAB> n-v:vim i:ide
 
@@ -84,6 +84,9 @@ nmap <leader>rh <Action>(Vcs.RollbackChangedLines)
 " Move to beginning or end of line
 inoremap <C-b> <Home>
 inoremap <C-e> <End>
+imap <c-SPACE> <Action>(CodeCompletion)
+imap <c-n> <Action>(EditorLookupSelectionDown)
+imap <c-p> <Action>(EditorLookupSelectionUp)
 
 """ IdeaVim plugins
 " See the list of available plugins here: https://jb.gg/ideavim-plugins

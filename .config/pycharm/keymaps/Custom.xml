@@ -87,6 +87,7 @@
   <action id="CloseAllEditorsButActive">
     <keyboard-shortcut first-keystroke="meta alt w" />
   </action>
+  <action id="CodeCompletion" />
   <action id="CollapseAll">
     <keyboard-shortcut first-keystroke="meta colon" />
   </action>
@@ -178,12 +179,6 @@
   </action>
   <action id="EditorLineStartWithSelection">
     <keyboard-shortcut first-keystroke="shift meta left" />
-  </action>
-  <action id="EditorLookupSelectionDown">
-    <keyboard-shortcut first-keystroke="tab" />
-  </action>
-  <action id="EditorLookupSelectionUp">
-    <keyboard-shortcut first-keystroke="shift tab" />
   </action>
   <action id="EditorMatchBrace" />
   <action id="EditorMoveDownAndScroll">
