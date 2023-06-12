@@ -115,7 +115,7 @@ let g:EasyMotion_do_mapping=0
 map <Leader> <Plug>(easymotion-prefix)
 " Define EasyMotion mappings
 nmap s <Plug>(easymotion-s)
-nmap <Leader>w <Plug>(easymotion-w)
-nmap <Leader>b <Plug>(easymotion-b)
+nmap <Leader>w <Plug>(easymotion-wl)
+nmap <Leader>b <Plug>(easymotion-bl)
 nmap <Leader>j <Plug>(easymotion-j)
 nmap <Leader>k <Plug>(easymotion-k)
