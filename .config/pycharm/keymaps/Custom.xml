@@ -344,7 +344,7 @@
     <keyboard-shortcut first-keystroke="shift meta m" />
   </action>
   <action id="MinimizeCurrentWindow">
-    <keyboard-shortcut first-keystroke="ctrl meta alt m" />
+    <keyboard-shortcut first-keystroke="ctrl meta m" />
   </action>
   <action id="NavBar-selectDown">
     <keyboard-shortcut first-keystroke="down" />
