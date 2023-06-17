@@ -91,6 +91,8 @@ nmap <leader>fmr <Action>(ReformatCode)
 nmap <leader>r <Action>(RenameElement)
 nmap <leader>z <Action>(ToggleDistractionFreeMode)
 nmap gd <Action>(GotoDeclaration)
+nmap ]m <Action>(MethodDown)
+nmap [m <Action>(MethodUp)
 
 "" Git-related
 nmap ]c <Action>(VcsShowNextChangeMarker)

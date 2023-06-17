@@ -335,14 +335,10 @@
     <keyboard-shortcut first-keystroke="k" />
     <keyboard-shortcut first-keystroke="meta k" />
   </action>
-  <action id="MethodDown">
-    <keyboard-shortcut first-keystroke="meta m" />
-  </action>
+  <action id="MethodDown" />
   <action id="MethodHierarchy" />
   <action id="MethodHierarchy.BaseOnThisMethod" />
-  <action id="MethodUp">
-    <keyboard-shortcut first-keystroke="shift meta m" />
-  </action>
+  <action id="MethodUp" />
   <action id="MinimizeCurrentWindow">
     <keyboard-shortcut first-keystroke="ctrl meta m" />
   </action>
