@@ -477,11 +477,13 @@
   <action id="ServiceView.GroupByContributor" />
   <action id="ServiceView.GroupByServiceGroups" />
   <action id="ServiceView.ShowServices" />
+  <action id="ShowBookmarks" />
   <action id="ShowContent" />
   <action id="ShowFilePath" />
   <action id="ShowNavBar" />
   <action id="ShowReformatFileDialog" />
   <action id="ShowSettingsAndFindUsages" />
+  <action id="ShowTypeBookmarks" />
   <action id="ShowUsages" />
   <action id="SurroundWithLiveTemplate" />
   <action id="Switcher" />
@@ -519,6 +521,7 @@
   <action id="TodoViewGroupByFlattenPackage" />
   <action id="TodoViewGroupByShowModules" />
   <action id="TodoViewGroupByShowPackages" />
+  <action id="ToggleBookmark" />
   <action id="ToggleBookmark0" />
   <action id="ToggleBookmark1" />
   <action id="ToggleBookmark2" />
@@ -529,6 +532,7 @@
   <action id="ToggleBookmark7" />
   <action id="ToggleBookmark8" />
   <action id="ToggleBookmark9" />
+  <action id="ToggleBookmarkWithMnemonic" />
   <action id="ToggleFindInSelection" />
   <action id="Tree-selectChild">
     <keyboard-shortcut first-keystroke="right" />
