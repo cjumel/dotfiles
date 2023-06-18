@@ -97,6 +97,8 @@ nmap ]m <Action>(MethodDown)
 nmap [m <Action>(MethodUp)
 nmap ]u <Action>(GotoNextElementUnderCaretUsage)
 nmap [u <Action>(GotoPrevElementUnderCaretUsage)
+nmap ]d <Action>(NextDiff)
+nmap [d <Action>(PreviousDiff)
 
 "" Git-related
 nmap ]c <Action>(VcsShowNextChangeMarker)

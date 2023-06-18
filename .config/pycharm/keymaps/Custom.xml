@@ -365,6 +365,7 @@
     <keyboard-shortcut first-keystroke="a" />
   </action>
   <action id="NewScratchFile" />
+  <action id="NextDiff" />
   <action id="NextEditorTab" />
   <action id="NextOccurence" />
   <action id="NextParameter" />
@@ -404,6 +405,7 @@
   </action>
   <action id="PrevParameter" />
   <action id="PrevSplitter" />
+  <action id="PreviousDiff" />
   <action id="PreviousEditorTab" />
   <action id="PreviousOccurence" />
   <action id="PreviousProjectWindow" />
