@@ -63,31 +63,6 @@
           ]
         }
       ]
-    },
-    {
-      "description": "Cmd + shift + ( or ) to { or }",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "5",
-            "modifiers": {
-              "mandatory": ["command", "shift"]
-            }
-          },
-          "to": [{ "key_code": "5", "modifiers": ["option"] }]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "hyphen",
-            "modifiers": {
-              "mandatory": ["command", "shift"]
-            }
-          },
-          "to": [{ "key_code": "hyphen", "modifiers": ["option"] }]
-        }
-      ]
     }
   ]
 }
