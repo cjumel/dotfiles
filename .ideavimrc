@@ -97,6 +97,8 @@ nmap <D-m> <Action>(GotoNextBookmark)
 nmap <D-S-m> <Action>(GotoPreviousBookmark)
 nmap ]m <Action>(MethodDown)
 nmap [m <Action>(MethodUp)
+nmap ]u <Action>(GotoNextElementUnderCaretUsage)
+nmap [u <Action>(GotoPrevElementUnderCaretUsage)
 
 "" Git-related
 nmap ]c <Action>(VcsShowNextChangeMarker)

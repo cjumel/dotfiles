@@ -260,13 +260,9 @@
     <keyboard-shortcut first-keystroke="meta t" />
   </action>
   <action id="GotoLine" />
-  <action id="GotoNextElementUnderCaretUsage">
-    <keyboard-shortcut first-keystroke="meta u" />
-  </action>
+  <action id="GotoNextElementUnderCaretUsage" />
   <action id="GotoNextError" />
-  <action id="GotoPrevElementUnderCaretUsage">
-    <keyboard-shortcut first-keystroke="shift meta u" />
-  </action>
+  <action id="GotoPrevElementUnderCaretUsage" />
   <action id="GotoPreviousError" />
   <action id="GotoRelated" />
   <action id="GotoSuperMethod" />
