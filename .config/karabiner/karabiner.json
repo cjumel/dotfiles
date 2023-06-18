@@ -18,14 +18,12 @@
         },
         "rules": [
           {
-            "description": "Cmd + ( or ) to [ or ]",
+            "description": "Swap < and > with [ and ]",
             "manipulators": [
               {
                 "from": {
-                  "key_code": "5",
-                  "modifiers": {
-                    "mandatory": ["command"]
-                  }
+                  "key_code": "grave_accent_and_tilde",
+                  "modifiers": {}
                 },
                 "to": [
                   {
@@ -37,15 +35,80 @@
               },
               {
                 "from": {
-                  "key_code": "hyphen",
+                  "key_code": "grave_accent_and_tilde",
                   "modifiers": {
-                    "mandatory": ["command"]
+                    "mandatory": ["shift"]
                   }
                 },
                 "to": [
                   {
                     "key_code": "hyphen",
                     "modifiers": ["option", "shift"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "5",
+                  "modifiers": {
+                    "mandatory": ["option", "shift"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "grave_accent_and_tilde",
+                    "modifiers": []
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "hyphen",
+                  "modifiers": {
+                    "mandatory": ["option", "shift"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "grave_accent_and_tilde",
+                    "modifiers": ["shift"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Simpler | binding",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": ["option"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "l",
+                    "modifiers": ["option", "shift"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": ["option", "shift"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "l",
+                    "modifiers": ["option"]
                   }
                 ],
                 "type": "basic"
