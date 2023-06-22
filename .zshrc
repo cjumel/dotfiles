@@ -11,6 +11,9 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# Suggested by homebrew when installing Python
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
 # Path to your home directory.
 HOME="/Users/clement"
 
