@@ -1,22 +1,11 @@
 alias b='brew'
 alias bb='brew bundle'
-alias bbd='brew bundle dump'
-alias bbddot='
-    cd ~/dotfiles
-    rm -f Brewfile
-    brew bundle dump
-    echo "Brewfile written successfully in ~/dotfiles!"
-    1
-'
+alias bbd='brew bundle dump'  # Write the installed brew formulae & casks in a Brewfile
+alias bcl='brew cleanup'
+alias bcu='brew cu -a'  # Update all outdated casks; -a includes those with auto-update enable
 alias bi='brew install'
 alias bif='brew info'
 alias bls='brew list'
+alias bud='brew update'  # Update homebrew itself
+alias bug='brew upgrade'  # Update all outdated formulae
 alias bui='brew uninstall'
-alias bup='
-    brew update
-    brew upgrade
-    brew upgrade --cask --greedy
-    brew cleanup
-    brew cleanup -s
-    echo "Brew Formulae and Casks updated successfully!"
-'
