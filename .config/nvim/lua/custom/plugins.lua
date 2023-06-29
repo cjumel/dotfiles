@@ -14,4 +14,5 @@ local plugins = {
     cmd = { "Git" },
   },
 }
+
 return plugins
