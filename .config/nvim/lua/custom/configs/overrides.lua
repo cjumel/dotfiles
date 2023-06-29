@@ -14,4 +14,8 @@ M.nvimtree = {
   },
 }
 
+M.hop = {
+  keys = 'etovxqpdygfblzhckisuran',
+}
+
 return M

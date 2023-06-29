@@ -13,6 +13,20 @@ local plugins = {
     "tpope/vim-fugitive",
     cmd = { "Git" },
   },
+  {
+    "phaazon/hop.nvim",
+    config = function()
+      require'hop'.setup {}
+    end,
+    opts = overrides.hop,
+    cmd = {
+      "HopChar2",
+      "HopWordCurrentLineAC",
+      "HopWordCurrentLineBC",
+      "HopLineAC",
+      "HopLineBC",
+    },
+  },
 }
 
 return plugins
