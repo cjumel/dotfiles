@@ -11,7 +11,7 @@ local plugins = {
   },
   {
     "tpope/vim-fugitive",
-    cmd = { "G", "Git" },
+    cmd = { "Git" },
   },
 }
 return plugins
