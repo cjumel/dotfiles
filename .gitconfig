@@ -19,3 +19,5 @@
   cmd = nvim -d \"$LOCAL\" \"$REMOTE\" 
 [difftool]
   prompt = false
+[advice]
+	skippedCherryPicks = false
