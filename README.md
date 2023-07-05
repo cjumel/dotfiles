@@ -1,60 +1,35 @@
 # Dotfiles
 
 These files describe the tools I use to work on my computer and their configurations.
-In the following, I will describe briefly what they do and how to set them up.
-
-To use these dotfiles, first clone this repository in your home directory with git, using the
-command:
+To use them, first clone this repository in your home directory with git and go inside the
+directory:
 
 ```shell
 git clone https://github.com/clementjumel/dotfiles.git ~/dotfiles/
+cd ~/dotfiles/
 ```
 
-## Package Management System
+## HomeBrew
 
-To manage most of my packages, being a user of macOS, I use [HomeBrew](https://brew.sh/).
-HomeBrew is a package management system for macOS, which provides a unified way of installing
-and updating almost all the packages I use.
-
-The list of the packages I installed with brew is versioned in the file `./Brewfile`.
+To manage most of my packages, I use [HomeBrew](https://brew.sh/).
+The list of the packages I installed with brew can be seen in the `./Brewfile`.
 Thanks to [mas](https://github.com/mas-cli/mas), this file also contains the few
 packages I installed through the App Store.
-To install these packages, make sure mas is installed (for instance by running `brew install mas`)
-and run:
 
-```shell
-cd ~/dotfiles/
-brew bundle
-```
+To generate the `./Brewfile`, run `brew bundle`, and to install the packages, install mas if
+needed (for instance with `brew install mas`), then run `brew bundle dump`.
 
-To regenerate the `./Brewfile`, run:
+## Karabiner
 
-```shell
-cd ~/dotfiles/
-rm -f Brewfile
-brew bundle dump
-```
-
-In the following, if not stated otherwise, the tools I will describe should be installable with
-HomeBrew.
-
-## Keyboard Modification Software
-
-To modify the key bindings I use, I installed
+To modify the key bindings I use on my various keyboards, I use
 [Karabiner-Elements](https://karabiner-elements.pqrs.org/).
 This enables me to fix some keys in my non-Apple keyboard, as well as modify keys for all keyboards
-(such as using the caps lock key as escape).
+(such as using the caps lock key as escape, and the escape key as caps lock).
 
-To use my custom configuration, create a symlink from `~/.config/karabiner` to the `~/dotfiles/.config/karabiner` directory using:
+Karabiner's configuration files are in `./.config/karabiner` and can be symlinked from
+`~/.config/karabiner`.
 
-```shell
-rm -rf ~/.config/karabiner
-ln -s ~/dotfiles/.config/karabiner ~/.config/karabiner
-```
-
-## Terminal
-
-### Iterm2
+## Iterm2
 
 I don't use the default macOS terminal, but [Iterm2](https://iterm2.com/).
 Iterm2 is a simple alternative to the default macOS terminal which provides many additional
@@ -63,114 +38,71 @@ features.
 I set it up with the [Catppuccin color scheme](https://github.com/catppuccin/iterm) and the
 `JetBrainsMono` [Nerd Font](https://www.nerdfonts.com/font-downloads).
 
-### Fig
+## Fig
 
 I use [Fig](https://fig.io/) to add a super user-friendly completion feature to my terminal.
 
-To use my custom configuration, run:
+Fig's configuration files is `./.fig/settings.json` and can be symlinked from
+`~/.fig/settings.json`.
 
-```shell
-rm -f ~/.fig/settings.json
-ln -s ~/dotfiles/.fig/settings.json ~/.fig/settings.json
-```
+## Oh-My-Zsh
 
-### Oh My Zsh
-
-I use [Oh My Zsh](https://ohmyz.sh) to customize my terminal prompt and define custom aliases.
-
+I use [Oh-My-Zsh](https://ohmyz.sh) to customize my terminal prompt and define custom aliases.
 To install it, follow the [installation guide](https://ohmyz.sh/#install).
-To use my custom configuration, create a symlink from `~/.zshrc` to the `~/dotfiles/.zshrc` file
-using:
 
-```shell
-rm -f ~/.zshrc
-ln -s ~/dotfiles/.zshrc ~/.zshrc
-```
+Oh-My-Zsh's configuration files are `./.zshrc`, which can be symlinked from `~/.zshrc`, and in
+`./oh-my-zsh/custom` (no need to symlink it).
 
 The prompt theme I use is [powerlevel10k](https://github.com/romkatv/powerlevel10k).
-To install it for Oh My Zsh, follow this
+To install it for Oh-My-Zsh, follow this
 [installation guide](https://github.com/romkatv/powerlevel10k#oh-my-zsh).
-To use my custom configuration, create a symlink from `~/.p10k.zsh` to the `~/dotfiles/.p10k.zsh`
-file using:
 
-```shell
-rm -f ~/.p10k.zsh
-ln -s ~/dotfiles/.p10k.zsh ~/.p10k.zsh
-```
+powerlevel10k's configuration file is `./.p10k.zsh` and can be symlinked from `~/.p10k.zsh`.
 
-### Tmux
+## Tmux
 
 To manage work sessions, split my terminal in windows and panes, I use
 [Tmux](https://doc.ubuntu-fr.org/tmux).
-
 To set it up, I followed this
 [video](https://www.youtube.com/watch?v=DzNmUNvnB04&ab_channel=DreamsofCode).
-To use my custom configuration, create a symlink from `~/.config/tmux/tmux.conf` to the
-`~/dotfiles/.config/tmux/tmux.conf` file using:
 
-```shell
-rm -f ~/.config/tmux/tmux.conf
-ln -s ~/dotfiles/.config/tmux/tmux.conf ~/.config/tmux/tmux.conf
-```
+Tmux's configuration file is `./.config/tmux/tmux.conf` and can be symlinked from
+`~/.config/tmux/tmux.conf`.
 
-### neovim
+## neovim
 
 I use [neovim](https://neovim.io/) as a lightweight code editor which can be accessed through
 the terminal.
 I set it up with the configuration provided by [NvChad](https://nvchad.com/).
-
 To do so, I followed this
 [video](https://www.youtube.com/watch?v=Mtgo-nP_r8Y&ab_channel=DreamsofCode).
 More information on how to set up neovim with NvChad is available in the
 [features documentation](https://nvchad.com/docs/features) or in the
 [example configuration](https://github.com/NvChad/example_config) of NvChad.
-To use my custom configuration, create a symlink from `~/.config/nvim` to the
-`~/dotfiles/.config/nvim` directory using:
 
-```shell
-rm -rf ~/.config/nvim
-ln -s ~/dotfiles/.config/nvim/ ~/.config/nvim/
-```
+neovim's configuration files are in `./.config/nvim/` which can be symlinked from
+`~/.config/nvim/`.
 
-### Git
+## Git
 
-Git is the only version control system I use.
+Git is the version control system I use.
 
-To use my custom configuration, create a symlink from `~/.gitconfig` to the
-`~/dotfiles/.gitconfig` file using:
+Git's configuration file is `./.gitconfig` and can can be symlinked from `~/.gitconfig`.
 
-```shell
-rm -f ~/.gitconfig
-ln -s ~/dotfiles/.gitconfig ~/.gitconfig
-```
-
-## IDE
+## PyCharm
 
 I use [PyCharm](https://www.jetbrains.com/fr-fr/pycharm/) as my IDE.
+I set it up with the [Catppuccin color scheme](https://github.com/catppuccin/jetbrains)
+and the [IdeaVim plugin](https://plugins.jetbrains.com/plugin/164-ideavim).
 
-I set up some custom keymaps to use it more efficiently.
-To use them, change PyCharm's configuration and plugins paths directly in PyCharm, by clicking:
-`Pycharm -> Help -> Edit Custom Properties...`, and set:
+PyCharm's configuration files are `./.ideavimrc` and in `./.config/pycharm/keymaps/`,
+`./.config/pycharm/options/` and `./.config/pycharm/tools/` and can be symlinked from
+`~/.ideavimrc`, `~/.config/pycharm/keymaps/`, `~/.config/pycharm/options/` and
+`~/.config/pycharm/tools/` respectively.
+Additionally, to use the custom keymaps, change PyCharm's configuration and plugins paths
+directly in PyCharm, by clicking: `Pycharm -> Help -> Edit Custom Properties...`, and set:
 
 ```shell
 idea.config.path=${user.home}/.config/pycharm
 idea.plugins.path=${idea.config.path}/plugins
-```
-
-Then, create a symlink from `~/.config/pycharm/keymaps` to the
-`~/dotfiles/.config/pycharm/keymaps` directory using:
-
-```shell
-rm -rf ~/.config/pycharm/keymaps/
-ln -s ~/dotfiles/.config/pycharm/keymaps/ ~/.config/pycharm/keymaps/
-```
-
-I also set PyCharm up with the [Catppuccin color scheme](https://github.com/catppuccin/jetbrains)
-and the [IdeaVim plugin](https://plugins.jetbrains.com/plugin/164-ideavim).
-To use my custom configuration, create a symlink from `~/.ideavimrc` to the
-`~/dotfiles/.ideavimrc` file using:
-
-```shell
-rm -f ~/.ideavimrc
-ln -s ~/dotfiles/.ideavimrc /.ideavimrc
 ```
