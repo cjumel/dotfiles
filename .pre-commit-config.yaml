@@ -12,7 +12,7 @@ repos:
       - id: check-yaml # Check YAML files for parseable syntax
       - id: detect-private-key # Detect the presence of private keys
       - id: end-of-file-fixer # Ensures that files end with a newline
-        exclude: .config/pycharm/keymaps/
+        exclude: .config/pycharm/
 
   # Prettier is a formatting tool for many non-Python files
   - repo: https://github.com/pre-commit/mirrors-prettier
