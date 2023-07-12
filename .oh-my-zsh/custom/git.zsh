@@ -50,7 +50,8 @@ alias grbc='git rebase --continue'
 alias grbm='git rebase origin/main'  # Rebase in interactive mode from the fork with main
 alias grbs='git rebase --skip'
 
-alias grm='git rm'
+alias grm='git rm'  # Remove a file from the repository and the file system
+alias grmc='git rm --cached'  # Remove a file from the reposiory but not from the file system
 
 alias grs='git reset'  # Reset commits but keep changes in the working tree as not added
 alias grsha='git reset --hard'  # Reset commits & changes in the working tree
