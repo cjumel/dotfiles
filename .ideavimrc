@@ -37,6 +37,8 @@ sethandler <s-TAB> n-v:vim i:ide
 nmap <leader>,e :edit ~/.ideavimrc<CR>
 nmap <leader>,r <Action>(IdeaVim.ReloadVimRc.reload)
 nmap <leader>,t <Action>(VimFindActionIdAction)
+nmap <leader>,s <Action>(TogglePowerSave)
+nmap <leader>,p <Action>(PySwitchSdkAction)
 
 "" Splits management
 " Create splits
