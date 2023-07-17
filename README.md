@@ -95,14 +95,5 @@ I use [PyCharm](https://www.jetbrains.com/fr-fr/pycharm/) as my IDE.
 I set it up with the [Catppuccin color scheme](https://github.com/catppuccin/jetbrains)
 and the [IdeaVim plugin](https://plugins.jetbrains.com/plugin/164-ideavim).
 
-PyCharm's configuration files are `./.ideavimrc` and in `./.config/pycharm/keymaps/`,
-`./.config/pycharm/options/` and `./.config/pycharm/tools/` and can be symlinked from
-`~/.ideavimrc`, `~/.config/pycharm/keymaps/`, `~/.config/pycharm/options/` and
-`~/.config/pycharm/tools/` respectively.
-Additionally, to use the custom keymaps, change PyCharm's configuration and plugins paths
-directly in PyCharm, by clicking: `Pycharm -> Help -> Edit Custom Properties...`, and set:
-
-```shell
-idea.config.path=${user.home}/.config/pycharm
-idea.plugins.path=${idea.config.path}/plugins
-```
+PyCharm's configuration files are `./.ideavimrc` and in `./.config/pycharm/`,
+and can be symlinked from `~/.ideavimrc` and `~/.config/pycharm/` respectively.
