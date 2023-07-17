@@ -89,10 +89,8 @@ nmap <leader>fr <Action>(RecentFiles)
 nmap <leader>fz <Action>(Find)
 nmap <leader>fmb <Action>(Tool_External Tools_Black)
 nmap <leader>fmi <Action>(Tool_External Tools_isort)
+nmap <leader>fmo <Action>(OptimizeImports)
 nmap <leader>fmp <Action>(Tool_External Tools_Prettier)
-nmap <leader>fmc <Action>(Tool_External Tools_pre-commit)
-nmap <leader>fmr <Action>(ReformatCode)
-nmap <leader>o <Action>(OptimizeImports)
 nmap <leader>r <Action>(RenameElement)
 nmap <leader>z <Action>(ToggleDistractionFreeMode)
 nmap gd <Action>(GotoDeclaration)
@@ -110,8 +108,6 @@ nmap <leader>rh <Action>(Vcs.RollbackChangedLines)
 
 "" Insert mode mappings
 " Move to beginning or end of line
-inoremap <C-b> <Home>
-inoremap <C-e> <End>
 imap <c-SPACE> <Action>(CodeCompletion)
 imap <c-n> <Action>(EditorLookupSelectionDown)
 imap <c-p> <Action>(EditorLookupSelectionUp)
