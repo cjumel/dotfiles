@@ -23,9 +23,6 @@ set clipboard+=ideaput
 " Use PyCharm lines join (with J)
 set ideajoin
 
-""" Key mappings
-" See the documentation here: https://jb.gg/abva4t
-
 let mapleader = " "
 
 " Specify which of Vim or the IDE should handle the conflicting mappings
@@ -34,29 +31,33 @@ sethandler <c-r> a:vim
 sethandler <TAB> n-v:vim i:ide
 sethandler <s-TAB> n-v:vim i:ide
 
+""" Key mappings
+" See the documentation here: https://jb.gg/abva4t
+
+"" IdeaVim setup
 nmap <leader>,e :edit ~/.ideavimrc<CR>
 nmap <leader>,r <Action>(IdeaVim.ReloadVimRc.reload)
 nmap <leader>,t <Action>(VimFindActionIdAction)
-nmap <leader>,s <Action>(TogglePowerSave)
-nmap <leader>,p <Action>(PySwitchSdkAction)
-
-"" Splits management
-" Create splits
-nmap <leader>! <Action>(MoveTabRight)
-nmap <leader>- <Action>(MoveTabDown)
-nmap <leader>' <Action>(Unsplit)
-" Navigate splits
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nmap <c-m> <Action>(MoveEditorToOppositeTabGroup)
 
 "" Projects management
 nmap <leader>c <Action>(ManageRecentProjects)
 nmap <leader>q <Action>(CloseProject)
 nmap <leader>n <Action>(NextProjectWindow)
 nmap <leader>p <Action>(PreviousProjectWindow)
+
+"" Tabs management
+nmap <TAB> <Action>(NextTab)
+nmap <s-TAB> <Action>(PreviousTab)
+nmap <leader>x <Action>(CloseContent)
+
+"" Splits management
+nmap <leader>! <Action>(MoveTabRight)
+nmap <leader>- <Action>(MoveTabDown)
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nmap <c-m> <Action>(MoveEditorToOppositeTabGroup)
 
 "" Tool windows management
 nmap <leader>e <Action>(ActivateProjectToolWindow)
@@ -72,36 +73,43 @@ nmap <leader>tpy <Action>(ActivatePythonConsoleToolWindow)
 nmap <leader>tr <Action>(ActivateRunToolWindow)
 nmap <leader>td <Action>(ActivateDebugToolWindow)
 
-"" Navigation mode mappings
-nmap <TAB> <Action>(NextTab)
-nmap <s-TAB> <Action>(PreviousTab)
-nmap <leader>x <Action>(CloseContent)
+"" Modes & Python setups
+nmap <leader>z <Action>(ToggleDistractionFreeMode)
+nmap <leader>ps <Action>(TogglePowerSave)
+nmap <leader>py <Action>(PySwitchSdkAction)
+nmap <leader>th <Action>(QuickChangeScheme)
+
+"" Search
 nmap <leader>ff <Action>(GotoFile)
 nmap <leader>fc <Action>(GotoClass)
 nmap <leader>fa <Action>(GotoSymbol)
 nmap <leader>fr <Action>(RecentFiles)
 nmap <leader>fz <Action>(Find)
-nmap <leader>fmb <Action>(Tool_External Tools_Black)
-nmap <leader>fmi <Action>(Tool_External Tools_isort)
-nmap <leader>fmo <Action>(OptimizeImports)
-nmap <leader>fmp <Action>(Tool_External Tools_Prettier)
-nmap <leader>r <Action>(RenameElement)
-nmap <leader>z <Action>(ToggleDistractionFreeMode)
-nmap gd <Action>(GotoDeclaration)
+
+"" Bookmarks
 nmap m <Action>(ToggleBookmarkWithMnemonic)
 nmap ' <Action>(ShowBookmarks)
+
+"" Code navigation
+nmap gd <Action>(GotoDeclaration)
 nmap ]m <Action>(MethodDown)
 nmap [m <Action>(MethodUp)
 nmap ]u <Action>(GotoNextElementUnderCaretUsage)
 nmap [u <Action>(GotoPrevElementUnderCaretUsage)
-
-"" Git-related
 nmap ]c <Action>(VcsShowNextChangeMarker)
 nmap [c <Action>(VcsShowPrevChangeMarker)
+
+"" Edition
 nmap <leader>rh <Action>(Vcs.RollbackChangedLines)
+nmap <leader>rn <Action>(RenameElement)
+
+"" Formatting
+nmap <leader>fmb <Action>(Tool_External Tools_Black)
+nmap <leader>fmi <Action>(Tool_External Tools_isort)
+nmap <leader>fmo <Action>(OptimizeImports)
+nmap <leader>fmp <Action>(Tool_External Tools_Prettier)
 
 "" Insert mode mappings
-" Move to beginning or end of line
 imap <c-SPACE> <Action>(CodeCompletion)
 imap <c-n> <Action>(EditorLookupSelectionDown)
 imap <c-p> <Action>(EditorLookupSelectionUp)
