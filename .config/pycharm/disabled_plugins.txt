@@ -45,7 +45,6 @@ org.jetbrains.plugins.node-remote-interpreter
 org.jetbrains.plugins.rest
 org.jetbrains.plugins.sass
 org.jetbrains.plugins.terminal
-org.jetbrains.plugins.textmate
 org.jetbrains.plugins.vagrant
 org.jetbrains.plugins.vue
 org.jetbrains.security.package-checker
