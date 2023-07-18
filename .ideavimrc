@@ -11,7 +11,7 @@
 
 " Show a few lines of context around the cursor; note that this makes the
 " text scroll if you mouse-click near the start or end of the window
-set scrolloff=5
+set scrolloff=3
 " Do incremental searching (highlight results as you type)
 set incsearch
 " Use relative line numbers, except for the one under the cursor
