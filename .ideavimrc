@@ -100,6 +100,7 @@ nmap ]c <Action>(VcsShowNextChangeMarker)
 nmap [c <Action>(VcsShowPrevChangeMarker)
 
 "" Edition
+nmap <leader>ph <Action>(VcsShowCurrentChangeMarker)
 nmap <leader>rh <Action>(Vcs.RollbackChangedLines)
 nmap <leader>rn <Action>(RenameElement)
 
