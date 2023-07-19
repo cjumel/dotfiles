@@ -99,8 +99,12 @@ nmap [u <Action>(GotoPrevElementUnderCaretUsage)
 nmap ]c <Action>(VcsShowNextChangeMarker)
 nmap [c <Action>(VcsShowPrevChangeMarker)
 
-"" Edition
+"" Preview
+nmap <leader>pd <Action>(QuickJavaDoc)
 nmap <leader>ph <Action>(VcsShowCurrentChangeMarker)
+nmap <leader>pp <Action>(ParameterInfo)
+
+"" Edition
 nmap <leader>rh <Action>(Vcs.RollbackChangedLines)
 nmap <leader>rn <Action>(RenameElement)
 

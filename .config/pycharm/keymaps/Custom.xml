@@ -379,6 +379,7 @@
   <action id="OpenInRightSplit" />
   <action id="OptimizeImports" />
   <action id="OverrideMethods" />
+  <action id="ParameterInfo" />
   <action id="PopupMenu-selectChild">
     <keyboard-shortcut first-keystroke="right" />
     <keyboard-shortcut first-keystroke="l" />
@@ -413,9 +414,7 @@
   <action id="QuickImplementations">
     <keyboard-shortcut first-keystroke="shift meta i" />
   </action>
-  <action id="QuickJavaDoc">
-    <keyboard-shortcut first-keystroke="meta i" />
-  </action>
+  <action id="QuickJavaDoc" />
   <action id="QuickTypeDefinition">
     <keyboard-shortcut first-keystroke="alt i" />
   </action>
