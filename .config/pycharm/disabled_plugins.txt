@@ -39,6 +39,7 @@ io.fig.jetbrains
 org.editorconfig.editorconfigjetbrains
 org.intellij.plugins.postcss
 org.intellij.qodana
+org.jetbrains.plugins.github
 org.jetbrains.plugins.less
 org.jetbrains.plugins.localization
 org.jetbrains.plugins.node-remote-interpreter
