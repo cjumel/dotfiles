@@ -2,7 +2,7 @@
   <tool name="Black" showInMainMenu="false" showInEditor="false" showInProject="false" showInSearchPopup="false" disabled="false" useConsole="false" showConsoleOnStdOut="false" showConsoleOnStdErr="false" synchronizeAfterRun="true">
     <exec>
       <option name="COMMAND" value="/usr/local/bin/black" />
-      <option name="PARAMETERS" value="&quot;$FilePath$&quot;" />
+      <option name="PARAMETERS" value="&quot;$FilePath$&quot; --config &quot;$ProjectFileDir$/pyproject.toml&quot;" />
       <option name="WORKING_DIRECTORY" value="$ProjectFileDir$" />
     </exec>
   </tool>
