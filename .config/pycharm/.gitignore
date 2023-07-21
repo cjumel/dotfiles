@@ -5,6 +5,7 @@ options/*local.xml
 options/AquaOldUserFeedbackService.xml
 options/actionSummary.xml
 options/features.usage.statistics.xml
+options/find.xml
 options/jdk.table.xml
 options/other.xml
 options/pySdk.xml
