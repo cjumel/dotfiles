@@ -258,9 +258,7 @@
   <action id="GotoBookmark9" />
   <action id="GotoClass" />
   <action id="GotoDeclaration" />
-  <action id="GotoFile">
-    <keyboard-shortcut first-keystroke="meta t" />
-  </action>
+  <action id="GotoFile" />
   <action id="GotoLine" />
   <action id="GotoNextElementUnderCaretUsage" />
   <action id="GotoNextError" />
@@ -426,9 +424,7 @@
     <keyboard-shortcut first-keystroke="alt i" />
   </action>
   <action id="RecentChanges" />
-  <action id="RecentFiles">
-    <keyboard-shortcut first-keystroke="meta y" />
-  </action>
+  <action id="RecentFiles" />
   <action id="RecentLocations" />
   <action id="Refactorings.QuickListPopupAction" />
   <action id="ReformatCode" />

@@ -81,12 +81,13 @@ nmap <leader>py <Action>(PySwitchSdkAction)
 nmap <leader>th <Action>(QuickChangeScheme)
 
 "" Search
+nmap <leader>fa <Action>(SearchEverywhere)
+nmap <leader>fb <Action>(Find)
+nmap <leader>fd <Action>(FindInPath)
 nmap <leader>ff <Action>(GotoFile)
 nmap <leader>fc <Action>(GotoClass)
-nmap <leader>fib <Action>(Find)
-nmap <leader>fif <Action>(FindInPath)
-nmap <leader>fs <Action>(GotoSymbol)
 nmap <leader>fr <Action>(RecentFiles)
+nmap <leader>fs <Action>(GotoSymbol)
 
 "" Bookmarks
 nmap m <Action>(ToggleBookmarkWithMnemonic)
@@ -109,8 +110,8 @@ nmap <leader>pp <Action>(ParameterInfo)
 "" Edition
 nmap <leader>rh <Action>(Vcs.RollbackChangedLines)
 nmap <leader>rn <Action>(RenameElement)
-nmap <leader>sib <Action>(Replace)
-nmap <leader>sif <Action>(ReplaceInPath)
+nmap <leader>sb <Action>(Replace)
+nmap <leader>sd <Action>(ReplaceInPath)
 
 "" Formatting
 nmap <leader>fmb <Action>(Tool_External Tools_Black)
