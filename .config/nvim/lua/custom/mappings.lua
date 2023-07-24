@@ -8,7 +8,12 @@ M.general = {
     ["<C-j>"] = { "<cmd> TmuxNavigateDown <CR>", "Window down" },
     ["<C-k>"] = { "<cmd> TmuxNavigateUp <CR>", "Window up" },
     -- vim-fugitive
-    ["<leader>gs"] = { "<cmd> tab Git <CR>", "Git status" },
+    ["<leader>gs"] = {
+      "<cmd> tab Git <CR> \
+      <cmd> highlight diffAdded guifg=#abe9b3 <CR> \
+      <cmd> highlight diffRemoved guifg=#f38ba8 <CR>",
+      "Git status",
+    },
     -- hop.nvim
     ["s"] = {"<cmd> HopChar2 <CR>", "Jump to any combinaison of 2 keys"},
     ["<leader>w"] = { "<cmd> HopWordCurrentLineAC <CR>", "Jump to any word after the cursor" },
