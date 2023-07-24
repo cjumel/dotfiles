@@ -82,9 +82,9 @@ nmap <leader>th <Action>(QuickChangeScheme)
 "" Search
 nmap <leader>ff <Action>(GotoFile)
 nmap <leader>fc <Action>(GotoClass)
-nmap <leader>fa <Action>(GotoSymbol)
+nmap <leader>fif <Action>(FindInPath)
+nmap <leader>fs <Action>(GotoSymbol)
 nmap <leader>fr <Action>(RecentFiles)
-nmap <leader>fz <Action>(Find)
 
 "" Bookmarks
 nmap m <Action>(ToggleBookmarkWithMnemonic)
@@ -106,6 +106,7 @@ nmap <leader>pp <Action>(ParameterInfo)
 
 "" Edition
 nmap <leader>rh <Action>(Vcs.RollbackChangedLines)
+nmap <leader>rif <Action>(ReplaceInPath)
 nmap <leader>rn <Action>(RenameElement)
 
 "" Formatting
