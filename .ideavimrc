@@ -106,7 +106,7 @@ nmap <leader>pp <Action>(ParameterInfo)
 
 "" Edition
 nmap <leader>rh <Action>(Vcs.RollbackChangedLines)
-nmap <leader>rif <Action>(ReplaceInPath)
+nmap <leader>sif <Action>(ReplaceInPath)
 nmap <leader>rn <Action>(RenameElement)
 
 "" Formatting

@@ -228,7 +228,7 @@
   <action id="FileChooser.TogglePathBar" />
   <action id="FileStructurePopup" />
   <action id="FindInPath">
-    <keyboard-shortcut first-keystroke="shift f" />
+    <keyboard-shortcut first-keystroke="f" />
   </action>
   <action id="FindUsages">
     <keyboard-shortcut first-keystroke="alt u" />
@@ -432,7 +432,7 @@
     <keyboard-shortcut first-keystroke="shift meta t" />
   </action>
   <action id="ReplaceInPath">
-    <keyboard-shortcut first-keystroke="shift r" />
+    <keyboard-shortcut first-keystroke="s" />
   </action>
   <action id="Rerun" />
   <action id="RestoreDefaultLayout" />
