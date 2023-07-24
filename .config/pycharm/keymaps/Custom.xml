@@ -65,13 +65,9 @@
   <action id="CollapseAll">
     <keyboard-shortcut first-keystroke="meta colon" />
   </action>
-  <action id="CollapseAllRegions">
-    <keyboard-shortcut first-keystroke="shift meta colon" />
-  </action>
+  <action id="CollapseAllRegions" />
   <action id="CollapseExpandableComponent" />
-  <action id="CollapseRegion">
-    <keyboard-shortcut first-keystroke="meta colon" />
-  </action>
+  <action id="CollapseRegion" />
   <action id="CollapseRegionRecursively" />
   <action id="CommentByBlockComment" />
   <action id="CommentByLineComment">
@@ -203,16 +199,12 @@
   <action id="ExpandAll">
     <keyboard-shortcut first-keystroke="meta equals" />
   </action>
-  <action id="ExpandAllRegions">
-    <keyboard-shortcut first-keystroke="shift meta equals" />
-  </action>
+  <action id="ExpandAllRegions" />
   <action id="ExpandExpandableComponent">
     <keyboard-shortcut first-keystroke="shift enter" />
     <keyboard-shortcut first-keystroke="meta add" />
   </action>
-  <action id="ExpandRegion">
-    <keyboard-shortcut first-keystroke="meta equals" />
-  </action>
+  <action id="ExpandRegion" />
   <action id="ExpandRegionRecursively" />
   <action id="ExportToTextFile" />
   <action id="ExpressionTypeInfo">

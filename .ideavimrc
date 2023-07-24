@@ -119,6 +119,12 @@ nmap <leader>fmi <Action>(Tool_External Tools_isort)
 nmap <leader>fmo <Action>(OptimizeImports)
 nmap <leader>fmp <Action>(Tool_External Tools_Prettier)
 
+"" Code folding
+nmap <c-=> <Action>(ExpandRegion)
+nmap <c-s-=> <Action>(ExpandAllRegions)
+nmap <c--> <Action>(CollapseRegion)
+nmap <c-s--> <Action>(CollapseAllRegions)
+
 "" Insert mode mappings
 imap <c-SPACE> <Action>(CodeCompletion)
 imap <c-n> <Action>(EditorLookupSelectionDown)
