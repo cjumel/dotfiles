@@ -26,6 +26,7 @@ set ideajoin
 let mapleader = " "
 
 " Specify which of Vim or the IDE should handle the conflicting mappings
+sethandler <c-g> a:ide
 sethandler <c-n> i-v:vim n:ide
 sethandler <c-r> a:vim
 sethandler <TAB> n-v:vim i:ide
