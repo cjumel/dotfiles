@@ -431,6 +431,7 @@
   <action id="ReopenClosedTab">
     <keyboard-shortcut first-keystroke="shift meta t" />
   </action>
+  <action id="Replace" />
   <action id="ReplaceInPath">
     <keyboard-shortcut first-keystroke="s" />
   </action>

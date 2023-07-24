@@ -82,6 +82,7 @@ nmap <leader>th <Action>(QuickChangeScheme)
 "" Search
 nmap <leader>ff <Action>(GotoFile)
 nmap <leader>fc <Action>(GotoClass)
+nmap <leader>fib <Action>(Find)
 nmap <leader>fif <Action>(FindInPath)
 nmap <leader>fs <Action>(GotoSymbol)
 nmap <leader>fr <Action>(RecentFiles)
@@ -106,8 +107,9 @@ nmap <leader>pp <Action>(ParameterInfo)
 
 "" Edition
 nmap <leader>rh <Action>(Vcs.RollbackChangedLines)
-nmap <leader>sif <Action>(ReplaceInPath)
 nmap <leader>rn <Action>(RenameElement)
+nmap <leader>sib <Action>(Replace)
+nmap <leader>sif <Action>(ReplaceInPath)
 
 "" Formatting
 nmap <leader>fmb <Action>(Tool_External Tools_Black)
