@@ -1,13 +1,9 @@
 <application>
   <component name="com.intellij.ide.ui.customization.CustomActionsSchema">
-    <group value="SettingsEntryPoint" is_action="true" action_type="-1" position="5">
+    <group value="SettingsEntryPoint" is_action="true" action_type="-1" position="4">
       <path value="root" />
-      <path value="Main Toolbar Right" />
-      <option name="myInitialPosition" value="-1" />
-    </group>
-    <group value="SearchEverywhere" is_action="true" action_type="-1" position="4">
-      <path value="root" />
-      <path value="Main Toolbar Right" />
+      <path value="Main Toolbar" />
+      <path value="Right" />
       <option name="myInitialPosition" value="-1" />
     </group>
     <group seperator="true" action_type="-1" position="4">
@@ -15,9 +11,10 @@
       <path value="Navigation Bar Toolbar" />
       <option name="myInitialPosition" value="-1" />
     </group>
-    <group value="CodeWithMeToolbarGroupNewUi" is_group="true" forse_popup="false" action_type="-1" position="3">
+    <group value="SearchEverywhere" is_action="true" action_type="-1" position="3">
       <path value="root" />
-      <path value="Main Toolbar Right" />
+      <path value="Main Toolbar" />
+      <path value="Right" />
       <option name="myInitialPosition" value="-1" />
     </group>
     <group value="NavBarVcsGroup" is_group="true" forse_popup="false" action_type="-1" position="3">
@@ -25,34 +22,46 @@
       <path value="Navigation Bar Toolbar" />
       <option name="myInitialPosition" value="-1" />
     </group>
-    <group value="StopWithDropDown" is_action="true" action_type="-1" position="2">
+    <group value="MainToolbarGeneralActionsGroup" is_group="true" forse_popup="false" action_type="-1" position="2">
       <path value="root" />
-      <path value="Main Toolbar Right" />
+      <path value="Main Toolbar" />
+      <path value="Left" />
       <option name="myInitialPosition" value="-1" />
     </group>
-    <group value="main.toolbar.git.Branches" is_action="true" action_type="-1" position="1">
+    <group value="CodeWithMeToolbarGroupNewUi" is_group="true" forse_popup="false" action_type="-1" position="2">
       <path value="root" />
-      <path value="Main Toolbar Left" />
+      <path value="Main Toolbar" />
+      <path value="Right" />
+      <option name="myInitialPosition" value="-1" />
+    </group>
+    <group value="MainToolbarVCSGroup" is_group="true" forse_popup="false" action_type="-1" position="1">
+      <path value="root" />
+      <path value="Main Toolbar" />
+      <path value="Left" />
       <option name="myInitialPosition" value="-1" />
     </group>
     <group value="NewUiRunWidget" is_action="true" action_type="-1" position="1">
       <path value="root" />
-      <path value="Main Toolbar Right" />
+      <path value="Main Toolbar" />
+      <path value="Right" />
       <option name="myInitialPosition" value="-1" />
     </group>
     <group value="main.toolbar.Project" is_action="true" action_type="-1" position="0">
       <path value="root" />
-      <path value="Main Toolbar Left" />
+      <path value="Main Toolbar" />
+      <path value="Left" />
       <option name="myInitialPosition" value="-1" />
     </group>
     <group value="main.toolbar.Filename" is_action="true" action_type="-1" position="0">
       <path value="root" />
-      <path value="Main Toolbar Center" />
+      <path value="Main Toolbar" />
+      <path value="Center" />
       <option name="myInitialPosition" value="-1" />
     </group>
     <group value="ExecutionTargetsToolbarGroup" is_group="true" forse_popup="false" action_type="-1" position="0">
       <path value="root" />
-      <path value="Main Toolbar Right" />
+      <path value="Main Toolbar" />
+      <path value="Right" />
       <option name="myInitialPosition" value="-1" />
     </group>
   </component>
