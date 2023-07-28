@@ -27,7 +27,8 @@ let mapleader = " "
 
 " Specify which of Vim or the IDE should handle the conflicting mappings
 sethandler <c-g> a:ide
-sethandler <c-n> i-v:vim n:ide
+sethandler <c-n> a:ide
+sethandler <c-p> a:ide
 sethandler <c-r> a:vim
 sethandler <TAB> n-v:vim i:ide
 sethandler <s-TAB> n-v:vim i:ide
@@ -128,8 +129,6 @@ nmap <c-s--> <Action>(CollapseAllRegions)
 
 "" Insert mode mappings
 imap <c-SPACE> <Action>(CodeCompletion)
-imap <c-n> <Action>(EditorLookupSelectionDown)
-imap <c-p> <Action>(EditorLookupSelectionUp)
 
 "" Visual mode mappings
 vmap <TAB> <Action>(EditorIndentLineOrSelection)

@@ -35,9 +35,7 @@
   <action id="ActivateDebugToolWindow" />
   <action id="ActivateFindToolWindow" />
   <action id="ActivateProblemsViewToolWindow" />
-  <action id="ActivateProjectToolWindow">
-    <keyboard-shortcut first-keystroke="ctrl n" />
-  </action>
+  <action id="ActivateProjectToolWindow" />
   <action id="ActivateRunToolWindow" />
   <action id="ActivateServicesToolWindow" />
   <action id="ActivateStructureToolWindow" />
@@ -131,6 +129,7 @@
   <action id="EditorDown">
     <keyboard-shortcut first-keystroke="down" />
     <keyboard-shortcut first-keystroke="meta j" />
+    <keyboard-shortcut first-keystroke="ctrl n" />
   </action>
   <action id="EditorDuplicate" />
   <action id="EditorIncreaseFontSizeGlobal" />
@@ -193,6 +192,7 @@
   <action id="EditorUp">
     <keyboard-shortcut first-keystroke="up" />
     <keyboard-shortcut first-keystroke="meta k" />
+    <keyboard-shortcut first-keystroke="ctrl p" />
   </action>
   <action id="EmmetNextEditPoint" />
   <action id="EmmetPreviousEditPoint" />
