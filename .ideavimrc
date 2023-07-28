@@ -50,6 +50,7 @@ nmap <leader>p <Action>(PreviousProjectWindow)
 nmap <TAB> <Action>(NextTab)
 nmap <s-TAB> <Action>(PreviousTab)
 nmap <leader>x <Action>(CloseContent)
+nmap <leader>ro <Action>(ReopenClosedTab)
 
 "" Splits management
 nmap <leader>! <Action>(MoveTabRight)
@@ -83,9 +84,9 @@ nmap <leader>th <Action>(QuickChangeScheme)
 "" Search
 nmap <leader>fa <Action>(SearchEverywhere)
 nmap <leader>fb <Action>(Find)
-nmap <leader>fd <Action>(FindInPath)
-nmap <leader>ff <Action>(GotoFile)
 nmap <leader>fc <Action>(GotoClass)
+nmap <leader>ff <Action>(GotoFile)
+nmap <leader>fp <Action>(FindInPath)
 nmap <leader>fr <Action>(RecentFiles)
 nmap <leader>fs <Action>(GotoSymbol)
 
@@ -111,7 +112,7 @@ nmap <leader>pp <Action>(ParameterInfo)
 nmap <leader>rh <Action>(Vcs.RollbackChangedLines)
 nmap <leader>rn <Action>(RenameElement)
 nmap <leader>sb <Action>(Replace)
-nmap <leader>sd <Action>(ReplaceInPath)
+nmap <leader>sp <Action>(ReplaceInPath)
 
 "" Formatting
 nmap <leader>fmb <Action>(Tool_External Tools_Black)
