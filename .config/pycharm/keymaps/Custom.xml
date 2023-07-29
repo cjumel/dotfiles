@@ -373,7 +373,9 @@
   <action id="OpenFile">
     <keyboard-shortcut first-keystroke="meta o" />
   </action>
-  <action id="OpenInRightSplit" />
+  <action id="OpenInRightSplit">
+    <keyboard-shortcut first-keystroke="shift enter" />
+  </action>
   <action id="OptimizeImports" />
   <action id="OverrideMethods" />
   <action id="ParameterInfo" />

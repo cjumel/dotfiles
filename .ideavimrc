@@ -108,6 +108,8 @@ nmap [c <Action>(VcsShowPrevChangeMarker)
 nmap <leader>pd <Action>(QuickJavaDoc)
 nmap <leader>ph <Action>(VcsShowCurrentChangeMarker)
 nmap <leader>pp <Action>(ParameterInfo)
+nmap <leader>pmo <Action>(Markdown.Layout.EditorAndPreview)
+nmap <leader>pmc <Action>(Markdown.Layout.EditorOnly)
 
 "" Edition
 nmap <leader>rh <Action>(Vcs.RollbackChangedLines)
