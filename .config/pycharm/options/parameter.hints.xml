@@ -1,0 +1,8 @@
+<application>
+  <component name="ParameterNameHintsSettings">
+    <option id="python.show.class.constructor.call.parameter.names" value="false" />
+    <disabledLanguages>
+      <language id="Python" />
+    </disabledLanguages>
+  </component>
+</application>
