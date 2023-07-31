@@ -437,6 +437,7 @@
   <action id="Rerun" />
   <action id="RestoreDefaultLayout" />
   <action id="Run" />
+  <action id="RunClass" />
   <action id="SaveAll" />
   <action id="ScrollPane-unitScrollDown">
     <keyboard-shortcut first-keystroke="ctrl page_down" />

@@ -123,7 +123,13 @@ nmap <leader>rn <Action>(RenameElement)
 nmap <leader>sb <Action>(Replace)
 nmap <leader>sp <Action>(ReplaceInPath)
 
-"" Formatting
+"" Code running
+nmap <leader>de <Action>(DebugClass)
+nmap <leader>rde <Action>(Debug)
+nmap <leader>rru <Action>(Run)
+nmap <leader>ru <Action>(RunClass)
+
+"" Code formatting
 nmap <leader>fmb <Action>(Tool_External Tools_Black)
 nmap <leader>fmi <Action>(Tool_External Tools_isort)
 nmap <leader>fmo <Action>(OptimizeImports)
