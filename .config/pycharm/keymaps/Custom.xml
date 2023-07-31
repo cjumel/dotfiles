@@ -251,6 +251,7 @@
   <action id="GotoClass" />
   <action id="GotoDeclaration" />
   <action id="GotoFile" />
+  <action id="GotoImplementation" />
   <action id="GotoLine" />
   <action id="GotoNextElementUnderCaretUsage" />
   <action id="GotoNextError" />
@@ -260,6 +261,7 @@
   <action id="GotoSuperMethod" />
   <action id="GotoSymbol" />
   <action id="GotoTest" />
+  <action id="GotoTypeDeclaration" />
   <action id="GotoUrlAction" />
   <action id="HideActiveWindow" />
   <action id="HideAllWindows" />
