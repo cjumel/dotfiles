@@ -123,6 +123,12 @@ nmap <leader>rn <Action>(RenameElement)
 nmap <leader>sb <Action>(Replace)
 nmap <leader>sp <Action>(ReplaceInPath)
 
+"" Code commenting
+""" These keymaps are inspired from the plugin 'tpope/commentary-vim', however, the plugin
+""" emulation for IdeaVim doesn't work on my setup.
+nmap gcc <Action>(CommentByLineComment)
+vmap gc <Action>(CommentByLineComment)
+
 "" Code running
 nmap <leader>de <Action>(DebugClass)
 nmap <leader>rde <Action>(Debug)
@@ -155,8 +161,6 @@ vmap <s-TAB> <Action>(EditorUnindentSelection)
 Plug 'preservim/nerdtree'
 " Highlight a region when yanked
 Plug 'machakann/vim-highlightedyank'
-" Comment stuff out with the `gc` or `gcc` commands
-Plug 'tpope/vim-commentary'
 " Provide mappings to easily manipulate parentheses, brackets, etc. and their content
 Plug 'tpope/vim-surround'
 " Provide a simpler way to use motions in vim
