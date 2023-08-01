@@ -1,6 +1,11 @@
 alias ga='git add'
+alias gaa='git add --all'  # Add all files, both tracked & untracked
+alias gad='git add .'  # Add the files in the current directory
+alias gau='git add --update'  # Add all tracked files
 
 alias gb='git branch'
+alias gbd='git branch -D'  # Force delete a local branch
+alias gbr='git branch -r'  # Act on remote branches
 
 alias gch='git checkout'
 alias gchd='git checkout --'  # Discard local changes
@@ -26,6 +31,7 @@ alias gdf='git diff' # Show changes between commits, commit and working tree, et
 alias gdft='git difftool'
 
 alias gf='git fetch'
+alias gfp='git fetch --prune'  # Remove unused remote branches
 
 alias glg='git lg'
 alias glgm='git lg origin..HEAD'  # Show the log since the divergence from origin/main
@@ -39,9 +45,11 @@ alias gpst='git push --tags'  # Push all tags
 alias gpstd='git push --delete origin'  # Push local tags deletions
 
 alias grb='git rebase'
+alias grbm='git rebase origin/main'  # Rebase in interactive mode from the fork with main
+
+# Actions during rebase:
 alias grba='git rebase --abort'
 alias grbc='git rebase --continue'
-alias grbm='git rebase origin/main'  # Rebase in interactive mode from the fork with main
 alias grbs='git rebase --skip'
 
 alias grm='git rm'  # Remove a file from the repository and the file system
@@ -58,9 +66,11 @@ alias grsso='git reset --soft'  # Reset commits but keep changes in the working 
 alias grssol='git reset --soft HEAD~1'  # Reset the last commit but keep its changes in the working tree as added
 function grsson(){ git reset --soft HEAD~$1 }  # Reset the N last commits but keep their changes in the working tree as added
 
-alias grt='git restore'  # Restore working tree files
+alias grt='git restore'  # Restore the targeted files work tree 
+alias grts='git restore --staged'  # Unstage the targeted staged files
 
 alias grv='git revert'
+alias grvhe='git revert HEAD'  # Revert the last commit
 
 alias gs='git status'
 
