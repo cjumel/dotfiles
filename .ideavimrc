@@ -83,13 +83,14 @@ nmap <leader>py <Action>(PySwitchSdkAction)
 nmap <leader>th <Action>(QuickChangeScheme)
 
 "" Search
-nmap <leader>fa <Action>(SearchEverywhere)
-nmap <leader>fb <Action>(Find)
-nmap <leader>fc <Action>(GotoClass)
-nmap <leader>ff <Action>(GotoFile)
-nmap <leader>fp <Action>(FindInPath)
-nmap <leader>fr <Action>(RecentFiles)
-nmap <leader>fs <Action>(GotoSymbol)
+map <leader>fa <Action>(SearchEverywhere)
+map <leader>fb <Action>(Find)
+map <leader>fc <Action>(GotoClass)
+map <leader>ff <Action>(GotoFile)
+map <leader>fp <Action>(FindInPath)
+map <leader>fr <Action>(RecentFiles)
+map <leader>fs <Action>(GotoSymbol)
+map <leader>fw <Action>($SearchWeb)
 
 "" Bookmarks
 nmap m <Action>(ToggleBookmarkWithMnemonic)
@@ -172,8 +173,7 @@ let g:EasyMotion_do_mapping=0
 " Change the leader from <Leader><Leader> to <Leader>
 map <Leader> <Plug>(easymotion-prefix)
 " Define EasyMotion mappings
-nmap s <Plug>(easymotion-s)
-vmap s <Plug>(easymotion-s)
+map s <Plug>(easymotion-s)
 map <Leader>w <Plug>(easymotion-wl)
 map <Leader>b <Plug>(easymotion-bl)
 map <Leader>j <Plug>(easymotion-j)

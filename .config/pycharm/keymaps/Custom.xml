@@ -68,9 +68,7 @@
   <action id="CollapseRegion" />
   <action id="CollapseRegionRecursively" />
   <action id="CommentByBlockComment" />
-  <action id="CommentByLineComment">
-    <keyboard-shortcut first-keystroke="meta at" />
-  </action>
+  <action id="CommentByLineComment" />
   <action id="CompareTwoFiles" />
   <action id="Console.TableResult.ColumnSortDesc" />
   <action id="Console.TableResult.CompareCells" />
