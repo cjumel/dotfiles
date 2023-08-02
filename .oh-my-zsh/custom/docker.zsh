@@ -1,4 +1,3 @@
-alias dk='docker'
 alias dkapp='open -a "Docker"'
 alias dkclean='
   echo "docker stop $(docker ps -a -q)..."; docker stop $(docker ps -a -q)

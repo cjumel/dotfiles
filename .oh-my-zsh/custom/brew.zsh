@@ -1,12 +1,11 @@
-alias b='brew'
 alias bb='brew bundle'
 alias bbd='brew bundle dump'  # Write the installed brew formulae & casks in a Brewfile
-alias bcl='brew cleanup'
+alias bc='brew cleanup'
 alias bi='brew install'
 alias bic='brew install --cask'
 alias bif='brew info'
-alias bls='brew list'
-alias bod='brew outdated'
+alias bl='brew list'
+alias bo='brew outdated'
 alias bud='brew update'  # Update homebrew itself
 alias bug='brew upgrade --greedy'  # Update all outdated formulae and casks
 alias bui='brew uninstall'

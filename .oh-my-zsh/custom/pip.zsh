@@ -1,4 +1,4 @@
 alias pii='pip install'
-alias pils='pip list'
+alias pil='pip list'
 alias pis='pip show'
-alias piui='pip uninstall'
+alias piu='pip uninstall'
