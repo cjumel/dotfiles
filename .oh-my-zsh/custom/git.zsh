@@ -67,7 +67,9 @@ alias grssl='git reset --soft HEAD~1'  # Soft reset the last commit
 function grssn(){ git reset --soft HEAD~$1 }  # Soft reset the N last commits
 
 alias grt='git restore'  # Discard the changes of the targeted unstaged files
+alias grtd='git restore .'
 alias grts='git restore --staged'  # Unstage the targeted staged files
+alias grtsd='git restore --staged .' 
 
 alias grv='git revert'
 alias grvl='git revert HEAD'  # Revert the last commit
