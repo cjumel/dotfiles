@@ -137,10 +137,10 @@ nmap <leader>rru <Action>(Run)
 nmap <leader>ru <Action>(RunClass)
 
 "" Code formatting
-nmap <leader>fmb <Action>(Tool_External Tools_Black)
-nmap <leader>fmi <Action>(Tool_External Tools_isort)
-nmap <leader>fmo <Action>(OptimizeImports)
-nmap <leader>fmp <Action>(Tool_External Tools_Prettier)
+nmap <leader>fm <Action>(Tool_External Tools_Black)
+nmap <leader>im <Action>(OptimizeImports)
+nmap <leader>is <Action>(Tool_External Tools_isort)
+nmap <leader>pr <Action>(Tool_External Tools_Prettier)
 
 "" Code folding
 nmap <c-=> <Action>(ExpandRegion)
