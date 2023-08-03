@@ -87,4 +87,24 @@
       <option name="Python" value="true" />
     </context>
   </template>
+  <template name="ipath" value="from pathlib import Path" description="from pathlib import Path" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="ispacy" value="import spacy&#10;from spacy import Language&#10;from spacy.tokens import Doc, Span" description="import spacy &amp; more" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="ios" value="import os" description="import os" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="inp" value="import numpy as np" description="import numpy as np" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
 </templateSet>
