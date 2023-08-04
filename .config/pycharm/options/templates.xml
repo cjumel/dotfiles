@@ -3,6 +3,62 @@
     <option name="deletedKeys">
       <list>
         <TemplateKey>
+          <option name="groupName" value="Python" />
+          <option name="key" value="super" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Python" />
+          <option name="key" value="iter" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Python" />
+          <option name="key" value="itere" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Python" />
+          <option name="key" value="compl" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Python" />
+          <option name="key" value="compli" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Python" />
+          <option name="key" value="compg" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Python" />
+          <option name="key" value="compgi" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Python" />
+          <option name="key" value="comps" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Python" />
+          <option name="key" value="compsi" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Python" />
+          <option name="key" value="compd" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Python" />
+          <option name="key" value="compdi" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Python" />
+          <option name="key" value="prop" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Python" />
+          <option name="key" value="props" />
+        </TemplateKey>
+        <TemplateKey>
+          <option name="groupName" value="Python" />
+          <option name="key" value="propsd" />
+        </TemplateKey>
+        <TemplateKey>
           <option name="groupName" value="Shell Script Hidden" />
           <option name="key" value="shell_if" />
         </TemplateKey>
