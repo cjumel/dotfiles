@@ -74,11 +74,11 @@ nmap <leader>h <Action>(HideActiveWindow)
 nmap <leader>H <Action>(HideAllWindows)
 nmap <leader>;g <Action>(ActivateVersionControlToolWindow)
 nmap <leader>;m <Action>(ActivateBookmarksToolWindow)
-nmap <leader>;td <Action>(ActivateTODOToolWindow)
-nmap <leader>;pb <Action>(ActivateProblemsViewToolWindow)
-nmap <leader>;py <Action>(ActivatePythonConsoleToolWindow)
-nmap <leader>;ru <Action>(ActivateRunToolWindow)
-nmap <leader>;de <Action>(ActivateDebugToolWindow)
+nmap <leader>;t <Action>(ActivateTODOToolWindow)
+nmap <leader>;i <Action>(ActivateProblemsViewToolWindow)
+nmap <leader>;p <Action>(ActivatePythonConsoleToolWindow)
+nmap <leader>;r <Action>(ActivateRunToolWindow)
+nmap <leader>;d <Action>(ActivateDebugToolWindow)
 
 "" Modes & Python setups
 nmap <leader>z <Action>(ToggleDistractionFreeMode)
@@ -141,8 +141,8 @@ vmap gc <Action>(CommentByLineComment)
 
 "" Code running
 nmap <leader>de <Action>(DebugClass)
-nmap <leader>rde <Action>(Debug)
-nmap <leader>rru <Action>(Run)
+nmap <leader>rd <Action>(Debug)
+nmap <leader>rr <Action>(Run)
 nmap <leader>ru <Action>(RunClass)
 
 "" Code formatting
