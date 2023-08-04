@@ -1,8 +1,10 @@
 alias jnb='jupyter notebook'
 
+alias mkd='mkdocs serve'
+
 alias pte='pytest'
-alias ptefast='pytest -m "not slow"'
-alias pteslow='pytest -m "slow"'
+alias ptef='pytest -m "not slow"'
+alias ptes='pytest -m "slow"'
 
 alias py='python'
 

@@ -13,8 +13,10 @@ alias gcm='git commit'
 alias gcma='git commit --amend'
 alias gcman='git commit --amend --no-edit'
 alias gcmanf='git commit --amend --no-edit --no-verify'
-alias gcmf='git commit --no-verify'
-alias gcmwip='git commit --no-verify -m "🚧 WIP"'
+alias gcmm='git commit --message'
+alias gcmmf='git commit --no-verify --message'
+alias gcmw='git commit --message "🚧 WIP"'
+alias gcmwf='git commit --no-verify --message "🚧 WIP"'
 
 alias gcf='git config'
 alias gcfg='git config --global'
@@ -45,8 +47,8 @@ alias gpsu='git push --set-upstream'
 
 alias grb='git rebase'
 alias grbi='git rebase --interactive'
-alias grbim='git rebase --interactive origin/main'
-alias grbm='git rebase origin/main'  # Rebase in interactive mode from the fork with main
+alias grbm='git rebase origin/main'  # Rebase from the fork with main
+alias grbmi='git rebase origin/main --interactive'
 
 # Actions during rebase:
 alias grba='git rebase --abort'

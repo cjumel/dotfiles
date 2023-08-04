@@ -11,7 +11,7 @@ function pyc(){ open -na "PyCharm" --args "$1" }
 alias qn='nvim ./notes.txt'
 
 alias so='source'
-alias sozsh='source ~/.zshrc'
+alias soz='source ~/.zshrc'
 
 alias to='touch'
 
