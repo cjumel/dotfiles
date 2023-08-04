@@ -41,6 +41,7 @@ alias gps='git push'
 alias gpsf='git push --force'
 alias gpst='git push --tags'  # Push all tags
 alias gpstd='git push --delete origin'  # Push local tags deletions
+alias gpsu='git push --set-upstream'
 
 alias grb='git rebase'
 alias grbi='git rebase --interactive'
