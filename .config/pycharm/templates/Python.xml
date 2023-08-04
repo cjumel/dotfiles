@@ -24,4 +24,29 @@
       <option name="Python" value="true" />
     </context>
   </template>
+  <template name="ipd" value="import pandas as pd&#10;" description="import pandas as pd" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="ipytest" value="import pytest&#10;" description="import pytest" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="iabc" value="from abc import ABC, abstractmethod&#10;" description="from abc import ABC, abstractmethod" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="istreamlit" value="import streamlit as st&#10;" description="import streamlit as st" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="ifaker" value="from faker import Faker&#10;" description="from faker import Faker" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
 </templateSet>
