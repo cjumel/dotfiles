@@ -47,12 +47,6 @@ nmap <c-SPACE>q <Action>(CloseProject)
 nmap <c-SPACE>n <Action>(NextProjectWindow)
 nmap <c-SPACE>p <Action>(PreviousProjectWindow)
 
-"" Tabs management
-nmap <TAB> <Action>(NextTab)
-nmap <s-TAB> <Action>(PreviousTab)
-nmap <leader>x <Action>(CloseContent)
-nmap <leader>ro <Action>(ReopenClosedTab)
-
 "" Splits management
 nmap <c-SPACE>! <Action>(MoveTabRight)
 nmap <c-SPACE>- <Action>(MoveTabDown)
@@ -61,6 +55,17 @@ nnoremap <c-l> <c-w>l
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nmap <c-m> <Action>(MoveEditorToOppositeTabGroup)
+
+"" Tabs management
+nmap <TAB> <Action>(NextTab)
+nmap <s-TAB> <Action>(PreviousTab)
+
+"" Files management
+nmap <leader>ro <Action>(ReopenClosedTab)
+nmap <leader>sf <Action>(NewScratchFile)
+nmap <leader>x <Action>(CloseContent)
+nmap <leader>Xa <Action>(CloseAllEditors)
+nmap <leader>Xo <Action>(CloseAllEditorsButActive)
 
 "" Tool windows management
 nmap <leader>e <Action>(ActivateProjectToolWindow)
