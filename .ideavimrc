@@ -127,7 +127,11 @@ nmap <leader>rh <Action>(Vcs.RollbackChangedLines)
 nmap <leader>rn <Action>(RenameElement)
 nmap <leader>sb <Action>(Replace)
 nmap <leader>sp <Action>(ReplaceInPath)
-nmap <leader>td O# todo<esc>
+
+"" To-do insertion
+nmap to O# todo<esc>
+nmap ti I# todo <esc>
+nmap ta A # todo<esc>
 
 "" Code commenting
 """ These keymaps are inspired from the plugin 'tpope/commentary-vim', however, the plugin
