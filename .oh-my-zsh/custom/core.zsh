@@ -8,7 +8,7 @@ alias duhbig='du -d 1 -h -t1G 2>/dev/null'
 
 function pyc(){ open -na "PyCharm" --args "$1" }
 
-alias qn='nvim ./notes.txt'
+alias no='nvim ./notes.txt'
 
 alias so='source'
 alias soz='source ~/.zshrc'
