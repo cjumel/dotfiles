@@ -34,6 +34,7 @@ local plugins = {
         "black",
         "isort",
         "mypy",
+        "prettier",
         "pyright",
         "ruff",
       },
@@ -48,7 +49,12 @@ local plugins = {
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
-    ft = {"python"},
+    ft = {
+      "json",
+      "markdown",
+      "python",
+      "yaml",
+    },
     opts = function()
       return require "custom.configs.null-ls"
     end,
