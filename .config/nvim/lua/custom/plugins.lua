@@ -32,6 +32,7 @@ local plugins = {
     opts = {
       ensure_installed = {
         "black",
+        "isort",
         "mypy",
         "pyright",
         "ruff",
