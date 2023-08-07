@@ -37,6 +37,7 @@ local plugins = {
         "prettier",
         "pyright",
         "ruff",
+        "stylua",
       },
     },
   },
@@ -51,6 +52,7 @@ local plugins = {
     "jose-elias-alvarez/null-ls.nvim",
     ft = {
       "json",
+      "lua",
       "markdown",
       "python",
       "yaml",
