@@ -31,4 +31,23 @@ M.general = {
 	},
 }
 
+M.disabled = {
+	n = {
+		-- Makes <leader>w slow
+		["<leader>wa"] = "",
+		["<leader>wk"] = "",
+		["<leader>wK"] = "",
+		["<leader>wl"] = "",
+		["<leader>wr"] = "",
+	},
+	v = {
+		-- Makes <leader>w slow
+		["<leader>wa"] = "",
+		["<leader>wk"] = "",
+		["<leader>wK"] = "",
+		["<leader>wl"] = "",
+		["<leader>wr"] = "",
+	},
+}
+
 return M
