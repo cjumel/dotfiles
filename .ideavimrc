@@ -128,15 +128,14 @@ nmap <leader>rn <Action>(RenameElement)
 nmap <leader>sb <Action>(Replace)
 nmap <leader>sp <Action>(ReplaceInPath)
 
-"" To-do insertion
-nmap to O# todo<esc>
-nmap ti I# todo <esc>
-nmap ta A # todo<esc>
-
 "" Code commenting
 """ These keymaps are inspired from the plugin 'tpope/commentary-vim', however, the plugin
 """ emulation for IdeaVim doesn't work on my setup.
+nmap gca A  # <Esc>a
 nmap gcc <Action>(CommentByLineComment)
+nmap gci I#  <Esc>i
+nmap gco o# <Esc>a
+nmap gcO O# <Esc>a
 vmap gc <Action>(CommentByLineComment)
 
 "" Code running
