@@ -88,13 +88,10 @@ nmap <leader>th <Action>(QuickChangeScheme)
 
 "" Search
 map <leader>fa <Action>(SearchEverywhere)
-map <leader>fb <Action>(Find)
 map <leader>fc <Action>(GotoClass)
 map <leader>ff <Action>(GotoFile)
-map <leader>fp <Action>(FindInPath)
-map <leader>fr <Action>(RecentFiles)
 map <leader>fs <Action>(GotoSymbol)
-map <leader>fw <Action>($SearchWeb)
+vmap <leader>fw <Action>($SearchWeb)
 
 "" Bookmarks
 nmap m <Action>(ToggleBookmarkWithMnemonic)
@@ -125,8 +122,6 @@ nmap <leader>pmc <Action>(Markdown.Layout.EditorOnly)
 "" Edition
 nmap <leader>rh <Action>(Vcs.RollbackChangedLines)
 nmap <leader>rn <Action>(RenameElement)
-nmap <leader>sb <Action>(Replace)
-nmap <leader>sp <Action>(ReplaceInPath)
 
 "" Code commenting
 """ These keymaps are inspired from the plugin 'tpope/commentary-vim', however, the plugin
