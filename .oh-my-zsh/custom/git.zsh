@@ -7,7 +7,6 @@ alias gb='git branch'
 alias gba='git branch --all'
 alias gbd='git branch --delete --force'  # Force delete a local branch
 alias gbr='git branch --remote'  # Act on remote branches
-alias gbt='git branch --track'  # Create and track a new branch
 
 alias gch='git checkout'
 
@@ -47,7 +46,7 @@ alias gps='git push'
 alias gpsf='git push --force'
 alias gpst='git push --tags'  # Push all tags
 alias gpstd='git push --delete origin'  # Push local tags deletions
-alias gpsu='git push --set-upstream'
+alias gpsu='git push --set-upstream'  # Set the upstream of a local branch and push it (needed iff autoSetupRemote is not True)
 
 alias grb='git rebase'
 alias grbi='git rebase --interactive'
@@ -93,9 +92,8 @@ alias gstl='git stash list'
 alias gstp='git stash pop'  # Re-apply the last stashed changes & clear them
 
 alias gsw='git switch'  # Switch branches
-alias gswc='git switch --create'  # Create a new branch but don't track it
+alias gswc='git switch --create'  # Create a new local branch
 alias gswm='git switch main'  # Switch branches
 alias gswp='git switch -'  # Switch to the previous branch
-alias gswt='git switch --track'  # Create a new branch and track it
 
 alias gt='git tag'
