@@ -20,7 +20,6 @@
     <keyboard-shortcut first-keystroke="ctrl r" />
     <keyboard-shortcut first-keystroke="shift meta z" />
   </action>
-  <action id="$SelectAll" />
   <action id="$Undo">
     <keyboard-shortcut first-keystroke="u" />
     <keyboard-shortcut first-keystroke="meta z" />
@@ -98,6 +97,9 @@
     <keyboard-shortcut first-keystroke="ctrl r" />
     <keyboard-shortcut first-keystroke="shift meta z" />
   </action>
+  <action id="Editor SelectAll">
+    <keyboard-shortcut first-keystroke="meta a" />
+  </action>
   <action id="Editor Undo">
     <keyboard-shortcut first-keystroke="u" />
     <keyboard-shortcut first-keystroke="meta z" />
@@ -109,7 +111,6 @@
   <action id="EditorChooseLookupItemReplace" />
   <action id="EditorCopy">
     <keyboard-shortcut first-keystroke="meta c" />
-    <keyboard-shortcut first-keystroke="c" />
   </action>
   <action id="EditorCut">
     <keyboard-shortcut first-keystroke="meta x" />
