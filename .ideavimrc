@@ -157,6 +157,9 @@ nmap <c--> <Action>(CollapseRegion)
 nmap <c-s--> <Action>(CollapseAllRegions)
 
 "" Insert mode mappings
+""" <Home> goes to the very beginning of the line, including the indentation
+imap <c-b> <Esc>^i
+imap <c-e> <End>
 imap <c-SPACE> <Action>(CodeCompletion)
 
 "" Visual mode mappings
