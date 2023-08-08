@@ -4,8 +4,12 @@ alias gad='git add .'  # Add the files in the current directory
 alias gau='git add --update'  # Add all tracked files
 
 alias gb='git branch'
-alias gbd='git branch -D'  # Force delete a local branch
-alias gbr='git branch -r'  # Act on remote branches
+alias gba='git branch --all'
+alias gbd='git branch --delete --force'  # Force delete a local branch
+alias gbr='git branch --remote'  # Act on remote branches
+alias gbt='git branch --track'  # Create and track a new branch
+
+alias gch='git checkout'
 
 alias gcl='git clone'
 
@@ -89,6 +93,9 @@ alias gstl='git stash list'
 alias gstp='git stash pop'  # Re-apply the last stashed changes & clear them
 
 alias gsw='git switch'  # Switch branches
+alias gswc='git switch --create'  # Create a new branch but don't track it
 alias gswm='git switch main'  # Switch branches
+alias gswp='git switch -'  # Switch to the previous branch
+alias gswt='git switch --track'  # Create a new branch and track it
 
 alias gt='git tag'
