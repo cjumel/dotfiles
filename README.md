@@ -71,20 +71,23 @@ Tmux's configuration file is `./.config/tmux/tmux.conf` and can be symlinked fro
 
 ## neovim
 
-I use [neovim](https://neovim.io/) as a lightweight code editor which can be accessed through
-the terminal.
-I set it up with the configuration provided by [NvChad](https://nvchad.com/).
-To do so, I followed this
+I use [neovim](https://neovim.io/) as a lightweight code editor alternative.
+I set it up to edit generic configuration files, like this repository, but also to
+support coding in Python.
+
+To set it up, I used [NvChad](https://nvchad.com/), as recommanded by this
 [video](https://www.youtube.com/watch?v=Mtgo-nP_r8Y&ab_channel=DreamsofCode).
+To add features relative to Python, I also followed this
+[video](https://www.youtube.com/watch?v=4BnVeOUeZxc).
 More information on how to set up neovim with NvChad is available in the
 [features documentation](https://nvchad.com/docs/features) or in the
-[example configuration](https://github.com/NvChad/example_config) of NvChad.
-
-neovim's configuration files are in `./.config/nvim/` which can be symlinked from
-`~/.config/nvim/`.
+[example configuration](https://github.com/NvChad/example_config).
 
 To improve the use of `telescope.nvim` and as suggested by the package itself, I additionally
 installed `ripgrep` with `brew`.
+
+neovim's configuration files are in `./.config/nvim/` which can be symlinked from
+`~/.config/nvim/`.
 
 ## Git
 
