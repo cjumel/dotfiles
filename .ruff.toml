@@ -29,8 +29,7 @@ exclude = [
 # Allow autofix for all enabled rules (when `--fix`) is provided.
 fixable = ["ALL"]
 ignore = []
-# Same as Black.
-line-length = 88
+line-length = 100
 per-file-ignores = {}
 # Enable the pycodestyle (`E`) and Pyflakes (`F`) rules by default.
 # Unlike Flake8, Ruff doesn't enable pycodestyle warnings (`W`) or
