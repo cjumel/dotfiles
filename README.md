@@ -83,6 +83,9 @@ More information on how to set up neovim with NvChad is available in the
 neovim's configuration files are in `./.config/nvim/` which can be symlinked from
 `~/.config/nvim/`.
 
+To improve the use of `telescope.nvim` and as suggested by the package itself, I additionally
+installed `ripgrep` with `brew`.
+
 ## Git
 
 Git is the version control system I use.
