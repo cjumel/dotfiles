@@ -21,6 +21,10 @@ M.general = {
 			"<cmd> HopChar2 <CR>",
 			"Jump to any combinaison of 2 keys",
 		},
+		["f"] = {
+			"<cmd> HopChar1CurrentLine <CR>",
+			"Jump to any key in the same line",
+		},
 		["<leader>w"] = {
 			"<cmd> HopWordCurrentLineAC <CR>",
 			"Jump to any word beginning after the cursor",
