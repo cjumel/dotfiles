@@ -218,6 +218,16 @@
   <action id="FileChooser.GotoDesktop" />
   <action id="FileChooser.TogglePathBar" />
   <action id="FileStructurePopup" />
+  <action id="Find" />
+  <action id="FindInPath">
+    <keyboard-shortcut first-keystroke="f" second-keystroke="i" />
+  </action>
+  <action id="FindNext">
+    <keyboard-shortcut first-keystroke="ctrl g" />
+  </action>
+  <action id="FindPrevious">
+    <keyboard-shortcut first-keystroke="shift ctrl g" />
+  </action>
   <action id="FindUsages">
     <keyboard-shortcut first-keystroke="alt u" />
   </action>
@@ -419,6 +429,10 @@
   <action id="ReopenClosedTab">
     <keyboard-shortcut first-keystroke="shift meta t" />
   </action>
+  <action id="Replace" />
+  <action id="ReplaceInPath">
+    <keyboard-shortcut first-keystroke="f" second-keystroke="r" />
+  </action>
   <action id="Rerun" />
   <action id="RestoreDefaultLayout" />
   <action id="Run" />
@@ -442,7 +456,7 @@
     <keyboard-shortcut first-keystroke="meta l" />
   </action>
   <action id="SelectAllOccurrences">
-    <keyboard-shortcut first-keystroke="alt g" />
+    <keyboard-shortcut first-keystroke="ctrl a" />
   </action>
   <action id="SelectNextOccurrence" />
   <action id="SendEOF" />
