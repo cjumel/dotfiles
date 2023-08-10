@@ -5,7 +5,12 @@ local opts = {
 	sources = {
 		null_ls.builtins.diagnostics.mypy,
 		null_ls.builtins.diagnostics.ruff,
-		null_ls.builtins.formatting.black,
+		null_ls.builtins.formatting.black.with({
+			-- Using '~/.black.toml' in the configuration path below doesn't work for some reason
+			-- Once https://github.com/psf/black/issues/1826 is solved, the need for the extra arguments
+			-- and for the `~/.black.toml` file will disappear
+			extra_args = { "--config", "/Users/clement/.black.toml" },
+		}),
 		null_ls.builtins.formatting.isort,
 		null_ls.builtins.formatting.prettier.with({
 			filetypes = {
