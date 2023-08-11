@@ -138,13 +138,12 @@ nmap gcO O# <Esc>a
 vmap gc <Action>(CommentByLineComment)
 
 "" Code running and debugging
-""" "s" is for "start" and "p" for "previous"
 nmap <leader>db <Action>(ToggleLineBreakpoint)
-nmap <leader>dp <Action>(Debug)
-nmap <leader>dr <Action>(Resume)
-nmap <leader>ds <Action>(DebugClass)
-nmap <leader>rp <Action>(Run)
-nmap <leader>rs <Action>(RunClass)
+nmap <leader>de <Action>(DebugClass)
+nmap <leader>re <Action>(Resume)
+nmap <leader>rr <Action>(Rerun)
+nmap <leader>ru <Action>(RunClass)
+nmap <leader>st <Action>(Stop)
 
 "" Code formatting
 nmap <leader>fm <Action>(Tool_External Tools_Black)
