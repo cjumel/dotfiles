@@ -50,20 +50,18 @@
   <action id="ChangesView.SetDefault" />
   <action id="ChangesView.ShelveSilently" />
   <action id="CheckinProject" />
-  <action id="CloseAllEditors">
-    <keyboard-shortcut first-keystroke="shift meta w" />
+  <action id="CloseActiveTab">
+    <keyboard-shortcut first-keystroke="q" />
   </action>
-  <action id="CloseAllEditorsButActive">
-    <keyboard-shortcut first-keystroke="meta alt w" />
-  </action>
+  <action id="CloseContent" />
   <action id="CodeCompletion" />
-  <action id="CollapseAll">
-    <keyboard-shortcut first-keystroke="meta colon" />
-  </action>
+  <action id="CollapseAll" />
   <action id="CollapseAllRegions" />
+  <action id="CollapseBlock" />
   <action id="CollapseExpandableComponent" />
   <action id="CollapseRegion" />
   <action id="CollapseRegionRecursively" />
+  <action id="CollapseSelection" />
   <action id="CommentByBlockComment" />
   <action id="CommentByLineComment" />
   <action id="CompareTwoFiles" />
@@ -206,9 +204,7 @@
   <action id="ExpressionTypeInfo">
     <keyboard-shortcut first-keystroke="shift meta p" />
   </action>
-  <action id="ExternalSystem.CollapseAll">
-    <keyboard-shortcut first-keystroke="shift meta colon" />
-  </action>
+  <action id="ExternalSystem.CollapseAll" />
   <action id="ExternalSystem.ExpandAll">
     <keyboard-shortcut first-keystroke="shift meta equals" />
   </action>
@@ -259,7 +255,9 @@
   <action id="GotoTest" />
   <action id="GotoTypeDeclaration" />
   <action id="GotoUrlAction" />
-  <action id="HideActiveWindow" />
+  <action id="HideActiveWindow">
+    <keyboard-shortcut first-keystroke="h" />
+  </action>
   <action id="HideAllWindows" />
   <action id="HighlightUsagesInFile" />
   <action id="IdeaVim.ReloadVimRc.reload" />
