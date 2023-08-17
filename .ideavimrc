@@ -50,8 +50,8 @@ nmap <c-SPACE>p <Action>(PreviousProjectWindow)
 "" Splits management
 nmap <c-SPACE>v <Action>(MoveTabRight)
 nmap <c-SPACE>V <Action>(SplitVertically)
-nmap <c-SPACE>h <Action>(MoveTabDown)
-nmap <c-SPACE>H <Action>(SplitHorizontally)
+nmap <c-SPACE>s <Action>(MoveTabDown)
+nmap <c-SPACE>S <Action>(SplitHorizontally)
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 nnoremap <c-j> <c-w>j
@@ -64,7 +64,6 @@ nmap <s-TAB> <Action>(PreviousTab)
 
 "" Files management
 nmap <leader>ro <Action>(ReopenClosedTab)
-nmap <leader>sf <Action>(NewScratchFile)
 nmap <leader>x <Action>(CloseContent)
 nmap <leader>Xa <Action>(CloseAllEditors)
 nmap <leader>Xo <Action>(CloseAllEditorsButActive)
@@ -147,7 +146,7 @@ nmap <leader>de <Action>(DebugClass)
 nmap <leader>re <Action>(Resume)
 nmap <leader>rr <Action>(Rerun)
 nmap <leader>ru <Action>(RunClass)
-nmap <leader>st <Action>(Stop)
+nmap <c-c> <Action>(Stop)
 
 "" Code formatting
 nmap <leader>fm <Action>(Tool_External Tools_Black)
