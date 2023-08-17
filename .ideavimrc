@@ -48,8 +48,10 @@ nmap <c-SPACE>n <Action>(NextProjectWindow)
 nmap <c-SPACE>p <Action>(PreviousProjectWindow)
 
 "" Splits management
-nmap <c-SPACE>! <Action>(MoveTabRight)
-nmap <c-SPACE>- <Action>(MoveTabDown)
+nmap <c-SPACE>v <Action>(MoveTabRight)
+nmap <c-SPACE>V <Action>(SplitVertically)
+nmap <c-SPACE>h <Action>(MoveTabDown)
+nmap <c-SPACE>H <Action>(SplitHorizontally)
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 nnoremap <c-j> <c-w>j
