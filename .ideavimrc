@@ -174,14 +174,20 @@ vmap <s-TAB> <Action>(EditorUnindentSelection)
 """ IdeaVim plugins
 " See the list of available plugins here: https://jb.gg/ideavim-plugins
 
-" NerdTree-style project view
+"" NERDTree
+" Vim-style project view
 Plug 'preservim/nerdtree'
-" Highlight a region when yanked
+
+"" vim-highlightedyank
+" Highlight the code region when yanked
 Plug 'machakann/vim-highlightedyank'
+
+"" surround.vim
 " Provide mappings to easily manipulate parentheses, brackets, etc. and their content
 Plug 'tpope/vim-surround'
-" Provide a simpler way to use motions in vim
-" See the documentation of the original plugin here:
+
+"" EasyMotion
+" Provide simpler ways to use motions in vim; see the documentation of the original plugin:
 " https://github.com/easymotion/vim-easymotion/blob/master/doc/easymotion.txt
 Plug 'easymotion/vim-easymotion'
 " Disable the default mappings
