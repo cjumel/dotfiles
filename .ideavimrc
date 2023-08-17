@@ -42,16 +42,18 @@ nmap <leader>,r <Action>(IdeaVim.ReloadVimRc.reload)
 nmap <leader>,t <Action>(VimFindActionIdAction)
 
 "" Projects management
-nmap <c-SPACE>c <Action>(ManageRecentProjects)
-nmap <c-SPACE>q <Action>(CloseProject)
-nmap <c-SPACE>n <Action>(NextProjectWindow)
-nmap <c-SPACE>p <Action>(PreviousProjectWindow)
+nmap <leader>C <Action>(ManageRecentProjects)
+nmap <leader>N <Action>(NextProjectWindow)
+nmap <leader>P <Action>(PreviousProjectWindow)
+nmap <leader>Q <Action>(CloseProject)
 
 "" Splits management
-nmap <c-SPACE>v <Action>(MoveTabRight)
-nmap <c-SPACE>V <Action>(SplitVertically)
-nmap <c-SPACE>s <Action>(MoveTabDown)
-nmap <c-SPACE>S <Action>(SplitHorizontally)
+nmap <leader>v <Action>(MoveTabRight)
+nmap <leader>V <Action>(SplitVertically)
+nmap <leader>s <Action>(MoveTabDown)
+nmap <leader>S <Action>(SplitHorizontally)
+nmap <leader>u <Action>(Unsplit)
+nmap <leader>U <Action>(UnsplitAll)
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 nnoremap <c-j> <c-w>j
