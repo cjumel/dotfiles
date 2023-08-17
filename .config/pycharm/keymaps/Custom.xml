@@ -8,8 +8,6 @@
     <keyboard-shortcut first-keystroke="x" />
   </action>
   <action id="$Delete">
-    <keyboard-shortcut first-keystroke="delete" />
-    <keyboard-shortcut first-keystroke="back_space" />
     <keyboard-shortcut first-keystroke="d" />
   </action>
   <action id="$Paste">
@@ -87,7 +85,6 @@
     <keyboard-shortcut first-keystroke="x" />
   </action>
   <action id="Editor Delete">
-    <keyboard-shortcut first-keystroke="back_space" />
     <keyboard-shortcut first-keystroke="d" />
   </action>
   <action id="Editor Paste">
@@ -522,7 +519,6 @@
   <action id="ToggleFindInSelection" />
   <action id="Tree-selectChild">
     <keyboard-shortcut first-keystroke="right" />
-    <keyboard-shortcut first-keystroke="l" />
     <keyboard-shortcut first-keystroke="meta l" />
   </action>
   <action id="Tree-selectChildExtendSelection">
@@ -540,8 +536,8 @@
   </action>
   <action id="Tree-selectParent">
     <keyboard-shortcut first-keystroke="left" />
-    <keyboard-shortcut first-keystroke="h" />
     <keyboard-shortcut first-keystroke="meta h" />
+    <keyboard-shortcut first-keystroke="back_space" />
   </action>
   <action id="Tree-selectParentExtendSelection">
     <keyboard-shortcut first-keystroke="shift left" />

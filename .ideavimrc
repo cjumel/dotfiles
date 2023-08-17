@@ -178,6 +178,10 @@ vmap <s-TAB> <Action>(EditorUnindentSelection)
 "" NERDTree
 " Vim-style project view
 Plug 'preservim/nerdtree'
+let g:NERDTreeMapOpenSplit='s'
+let g:NERDTreeMapPreviewSplit='gs'
+let g:NERDTreeMapOpenVSplit='v'
+let g:NERDTreeMapPreviewVSplit='gv'
 
 "" vim-highlightedyank
 " Highlight the code region when yanked
