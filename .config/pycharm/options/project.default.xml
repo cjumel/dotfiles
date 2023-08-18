@@ -9,6 +9,17 @@
         <option name="hideEmptyMiddlePackages" value="true" />
         <option name="showLibraryContents" value="true" />
       </component>
+      <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "settings.editor.selected.configurable": "preferences.keymap"
+  }
+}]]></component>
+      <component name="WindowStateProjectService">
+        <state x="468" y="194" key="SettingsEditor" timestamp="1692359382509">
+          <screen x="0" y="25" width="1920" height="1055" />
+        </state>
+        <state x="468" y="194" key="SettingsEditor/0.25.1920.1055" timestamp="1692359382509" />
+      </component>
     </defaultProject>
   </component>
 </application>
