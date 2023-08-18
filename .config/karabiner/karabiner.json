@@ -114,6 +114,24 @@
                 "type": "basic"
               }
             ]
+          },
+          {
+            "description": "Fix keypad period key to use it as an actual period and not a comma",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "keypad_period",
+                  "modifiers": {}
+                },
+                "to": [
+                  {
+                    "key_code": "comma",
+                    "modifiers": ["shift"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
           }
         ]
       },
