@@ -120,18 +120,12 @@
     <keyboard-shortcut first-keystroke="meta back_space" />
   </action>
   <action id="EditorDeleteToWordEnd" />
-  <action id="EditorDown">
-    <keyboard-shortcut first-keystroke="down" />
-    <keyboard-shortcut first-keystroke="meta j" />
-    <keyboard-shortcut first-keystroke="ctrl n" />
-  </action>
   <action id="EditorDuplicate" />
   <action id="EditorIncreaseFontSizeGlobal" />
   <action id="EditorIndentSelection" />
   <action id="EditorJoinLines" />
   <action id="EditorLeft">
     <keyboard-shortcut first-keystroke="left" />
-    <keyboard-shortcut first-keystroke="meta h" />
   </action>
   <action id="EditorLineEnd">
     <keyboard-shortcut first-keystroke="meta right" />
@@ -175,7 +169,6 @@
   </action>
   <action id="EditorRight">
     <keyboard-shortcut first-keystroke="right" />
-    <keyboard-shortcut first-keystroke="meta l" />
   </action>
   <action id="EditorScrollToCenter" />
   <action id="EditorSelectWord" />
@@ -183,11 +176,6 @@
   <action id="EditorToggleCase" />
   <action id="EditorUnSelectWord" />
   <action id="EditorUnindentSelection" />
-  <action id="EditorUp">
-    <keyboard-shortcut first-keystroke="up" />
-    <keyboard-shortcut first-keystroke="meta k" />
-    <keyboard-shortcut first-keystroke="ctrl p" />
-  </action>
   <action id="EmmetNextEditPoint" />
   <action id="EmmetPreviousEditPoint" />
   <action id="ExpandAll">
@@ -300,34 +288,26 @@
   <action id="List-selectNextColumn">
     <keyboard-shortcut first-keystroke="right" />
     <keyboard-shortcut first-keystroke="l" />
-    <keyboard-shortcut first-keystroke="meta l" />
   </action>
   <action id="List-selectNextRow">
     <keyboard-shortcut first-keystroke="down" />
     <keyboard-shortcut first-keystroke="j" />
-    <keyboard-shortcut first-keystroke="meta j" />
   </action>
   <action id="List-selectPreviousColumn">
     <keyboard-shortcut first-keystroke="left" />
     <keyboard-shortcut first-keystroke="h" />
-    <keyboard-shortcut first-keystroke="meta h" />
   </action>
   <action id="List-selectPreviousRow">
     <keyboard-shortcut first-keystroke="up" />
     <keyboard-shortcut first-keystroke="k" />
-    <keyboard-shortcut first-keystroke="meta k" />
   </action>
   <action id="MethodDown" />
   <action id="MethodHierarchy" />
   <action id="MethodHierarchy.BaseOnThisMethod" />
   <action id="MethodUp" />
-  <action id="MinimizeCurrentWindow">
-    <keyboard-shortcut first-keystroke="ctrl meta m" />
-  </action>
   <action id="NavBar-selectDown">
     <keyboard-shortcut first-keystroke="down" />
     <keyboard-shortcut first-keystroke="j" />
-    <keyboard-shortcut first-keystroke="meta j" />
   </action>
   <action id="NavBar-selectHome">
     <keyboard-shortcut first-keystroke="meta left" />
@@ -335,17 +315,14 @@
   <action id="NavBar-selectLeft">
     <keyboard-shortcut first-keystroke="left" />
     <keyboard-shortcut first-keystroke="h" />
-    <keyboard-shortcut first-keystroke="meta h" />
   </action>
   <action id="NavBar-selectRight">
     <keyboard-shortcut first-keystroke="right" />
     <keyboard-shortcut first-keystroke="l" />
-    <keyboard-shortcut first-keystroke="meta l" />
   </action>
   <action id="NavBar-selectUp">
     <keyboard-shortcut first-keystroke="up" />
     <keyboard-shortcut first-keystroke="k" />
-    <keyboard-shortcut first-keystroke="meta k" />
   </action>
   <action id="NewElement">
     <keyboard-shortcut first-keystroke="a" />
@@ -378,22 +355,18 @@
   <action id="PopupMenu-selectChild">
     <keyboard-shortcut first-keystroke="right" />
     <keyboard-shortcut first-keystroke="l" />
-    <keyboard-shortcut first-keystroke="meta l" />
   </action>
   <action id="PopupMenu-selectNext">
     <keyboard-shortcut first-keystroke="down" />
     <keyboard-shortcut first-keystroke="j" />
-    <keyboard-shortcut first-keystroke="meta j" />
   </action>
   <action id="PopupMenu-selectParent">
     <keyboard-shortcut first-keystroke="left" />
     <keyboard-shortcut first-keystroke="h" />
-    <keyboard-shortcut first-keystroke="meta h" />
   </action>
   <action id="PopupMenu-selectPrevious">
     <keyboard-shortcut first-keystroke="up" />
     <keyboard-shortcut first-keystroke="k" />
-    <keyboard-shortcut first-keystroke="meta k" />
   </action>
   <action id="PrevParameter" />
   <action id="PrevSplitter" />
@@ -443,12 +416,10 @@
   <action id="SegmentedButton-left">
     <keyboard-shortcut first-keystroke="left" />
     <keyboard-shortcut first-keystroke="h" />
-    <keyboard-shortcut first-keystroke="meta h" />
   </action>
   <action id="SegmentedButton-right">
     <keyboard-shortcut first-keystroke="right" />
     <keyboard-shortcut first-keystroke="l" />
-    <keyboard-shortcut first-keystroke="meta l" />
   </action>
   <action id="SelectAllOccurrences">
     <keyboard-shortcut first-keystroke="ctrl a" />
@@ -475,22 +446,18 @@
   <action id="Table-selectNextColumn">
     <keyboard-shortcut first-keystroke="right" />
     <keyboard-shortcut first-keystroke="l" />
-    <keyboard-shortcut first-keystroke="meta l" />
   </action>
   <action id="Table-selectNextRow">
     <keyboard-shortcut first-keystroke="down" />
     <keyboard-shortcut first-keystroke="j" />
-    <keyboard-shortcut first-keystroke="meta j" />
   </action>
   <action id="Table-selectPreviousColumn">
     <keyboard-shortcut first-keystroke="left" />
     <keyboard-shortcut first-keystroke="h" />
-    <keyboard-shortcut first-keystroke="meta h" />
   </action>
   <action id="Table-selectPreviousRow">
     <keyboard-shortcut first-keystroke="up" />
     <keyboard-shortcut first-keystroke="k" />
-    <keyboard-shortcut first-keystroke="meta k" />
   </action>
   <action id="Terminal.ClearBuffer" />
   <action id="Terminal.CopySelectedText">
@@ -517,7 +484,6 @@
   <action id="ToggleFindInSelection" />
   <action id="Tree-selectChild">
     <keyboard-shortcut first-keystroke="right" />
-    <keyboard-shortcut first-keystroke="meta l" />
   </action>
   <action id="Tree-selectChildExtendSelection">
     <keyboard-shortcut first-keystroke="shift right" />
@@ -526,7 +492,6 @@
   <action id="Tree-selectNext">
     <keyboard-shortcut first-keystroke="down" />
     <keyboard-shortcut first-keystroke="j" />
-    <keyboard-shortcut first-keystroke="meta j" />
   </action>
   <action id="Tree-selectNextExtendSelection">
     <keyboard-shortcut first-keystroke="shift down" />
@@ -534,7 +499,6 @@
   </action>
   <action id="Tree-selectParent">
     <keyboard-shortcut first-keystroke="left" />
-    <keyboard-shortcut first-keystroke="meta h" />
     <keyboard-shortcut first-keystroke="back_space" />
   </action>
   <action id="Tree-selectParentExtendSelection">
@@ -544,7 +508,6 @@
   <action id="Tree-selectPrevious">
     <keyboard-shortcut first-keystroke="up" />
     <keyboard-shortcut first-keystroke="k" />
-    <keyboard-shortcut first-keystroke="meta k" />
   </action>
   <action id="Tree-selectPreviousExtendSelection">
     <keyboard-shortcut first-keystroke="shift up" />
