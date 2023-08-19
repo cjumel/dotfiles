@@ -7,5 +7,6 @@ alias bif='brew info'
 alias bl='brew list'
 alias bo='brew outdated'
 alias bud='brew update'  # Update homebrew itself
-alias bug='brew upgrade --greedy'  # Update all outdated formulae and casks
+alias bug='brew upgrade'  # Update all outdated formulae and casks
+alias bugg='brew upgrade --greedy'  # Include casks with auto-updates or version "latest"
 alias bui='brew uninstall'
