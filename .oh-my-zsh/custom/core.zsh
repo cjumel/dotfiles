@@ -18,3 +18,6 @@ alias soz='source ~/.zshrc'
 alias to='touch'
 
 alias vi='nvim'
+
+alias wi='which'
+alias we='whence'
