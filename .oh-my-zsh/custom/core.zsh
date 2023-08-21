@@ -10,7 +10,7 @@ alias fz='cd $(fd . --type d | fzf)'
 
 alias no='nvim ./notes.txt'
 
-function pyc(){ open -na "PyCharm" --args "$1" }
+alias pch='open -na PyCharm --args .'
 
 alias so='source'
 alias soz='source ~/.zshrc'
