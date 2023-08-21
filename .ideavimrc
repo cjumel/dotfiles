@@ -153,9 +153,9 @@ nmap <c-c> <Action>(Stop)
 
 "" Code formatting
 nmap <leader>fm <Action>(Tool_External Tools_Black)
-nmap <leader>im <Action>(OptimizeImports)
 nmap <leader>is <Action>(Tool_External Tools_isort)
 nmap <leader>pr <Action>(Tool_External Tools_Prettier)
+nmap <leader>rf <Action>(Tool_External Tools_Ruff)
 
 "" Code folding
 nmap <c-=> <Action>(ExpandRegion)
