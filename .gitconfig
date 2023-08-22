@@ -22,3 +22,5 @@
   prompt = false
 [advice]
 	skippedCherryPicks = false
+[status]
+	showUntrackedFiles = all
