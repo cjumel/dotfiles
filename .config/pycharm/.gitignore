@@ -8,6 +8,7 @@ options/features.usage.statistics.xml
 options/find.xml
 options/jdk.table.xml
 options/other.xml
+options/project.default.xml
 options/pySdk.xml
 options/recentProjects.xml
 options/trusted-paths.xml
