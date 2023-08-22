@@ -3,4 +3,4 @@ select = [
   "E", # pycodestyle
   "F" # Pyflakes
 ]
-target-version = "py38"
+target-version = "py39"
