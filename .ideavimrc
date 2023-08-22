@@ -65,6 +65,7 @@ nmap <TAB> <Action>(NextTab)
 nmap <s-TAB> <Action>(PreviousTab)
 
 "" Files management
+nmap <leader>a <Action>(NewElement)
 nmap <leader>ro <Action>(ReopenClosedTab)
 nmap <leader>x <Action>(CloseContent)
 nmap <leader>Xa <Action>(CloseAllEditors)
