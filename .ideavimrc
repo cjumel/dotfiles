@@ -126,9 +126,11 @@ nmap [e <Action>(GotoPreviousError)
 "" Preview
 nmap <leader>pd <Action>(QuickJavaDoc)
 nmap <leader>ph <Action>(VcsShowCurrentChangeMarker)
-nmap <leader>pp <Action>(ParameterInfo)
+nmap <leader>pi <Action>(QuickImplementations)
 nmap <leader>pmo <Action>(Markdown.Layout.EditorAndPreview)
 nmap <leader>pmc <Action>(Markdown.Layout.EditorOnly)
+nmap <leader>pp <Action>(ParameterInfo)
+nmap <leader>pt <Action>(QuickTypeDefinition)
 
 "" Edition
 nmap <leader>rh <Action>(Vcs.RollbackChangedLines)

@@ -378,13 +378,8 @@
   </action>
   <action id="PreviousTemplateVariable" />
   <action id="QuickChangeScheme" />
-  <action id="QuickImplementations">
-    <keyboard-shortcut first-keystroke="shift meta i" />
-  </action>
+  <action id="QuickImplementations" />
   <action id="QuickJavaDoc" />
-  <action id="QuickTypeDefinition">
-    <keyboard-shortcut first-keystroke="alt i" />
-  </action>
   <action id="RecentChanges" />
   <action id="RecentFiles" />
   <action id="RecentLocations" />
@@ -481,6 +476,7 @@
   <action id="ToggleBookmark9" />
   <action id="ToggleBookmarkWithMnemonic" />
   <action id="ToggleFindInSelection" />
+  <action id="ToggleLineBreakpoint" />
   <action id="Tree-selectChild">
     <keyboard-shortcut first-keystroke="right" />
   </action>
