@@ -4,7 +4,7 @@
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="ispacy" value="import spacy&#10;from spacy import Language&#10;from spacy.tokens import Doc, Span&#10;" description="import spacy &amp; more" toReformat="false" toShortenFQNames="true">
+  <template name="ispacy" value="import spacy&#10;from spacy import Language&#10;from spacy.tokens import Doc, Span, Token&#10;" description="import spacy &amp; more" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="Python" value="true" />
     </context>
@@ -19,7 +19,7 @@
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="ityping" value="from typing import Any, Callable, Iterable, Literal, Optional, Type, Union&#10;" description="from typing import ..." toReformat="false" toShortenFQNames="true">
+  <template name="ityping" value="from typing import Any, Callable, Iterable, Iterator, Literal, Optional, Type, Union&#10;" description="from typing import ..." toReformat="false" toShortenFQNames="true">
     <context>
       <option name="Python" value="true" />
     </context>
