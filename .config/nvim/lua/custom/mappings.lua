@@ -9,6 +9,10 @@ M.general = {
 		["<C-k>"] = { "<cmd> TmuxNavigateUp <CR>", "Window up" },
 		-- nvim-tree
 		["<leader>n"] = { "<cmd> NvimTreeFocus <CR>", "Focus nvim-tree" },
+		-- telescope
+		["<leader>fc"] = { "<cmd> Telescope git_commits <CR>", "Git status" },
+		["<leader>fg"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
+		["<leader>fs"] = { "<cmd> Telescope git_status <CR>", "Git commits" },
 		-- vim-fugitive
 		["<leader>gs"] = {
 			"<cmd> tab Git <CR> \
@@ -77,6 +81,10 @@ M.general = {
 
 M.disabled = {
 	n = {
+		-- telescope
+		["<leader>cm"] = "",
+		["<leader>fw"] = "",
+		["<leader>gt"] = "",
 		-- Makes <leader>w slow
 		["<leader>wa"] = "",
 		["<leader>wk"] = "",
