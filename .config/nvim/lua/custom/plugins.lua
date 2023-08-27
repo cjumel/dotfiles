@@ -10,6 +10,13 @@ local plugins = {
 		lazy = false,
 	},
 	{
+		"kylechui/nvim-surround",
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup({})
+		end,
+	},
+	{
 		"tpope/vim-fugitive",
 		cmd = { "Git" },
 	},
