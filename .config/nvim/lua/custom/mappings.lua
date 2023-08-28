@@ -10,9 +10,9 @@ M.general = {
 		-- nvim-tree
 		["<leader>n"] = { "<cmd> NvimTreeFocus <CR>", "Focus nvim-tree" },
 		-- telescope
-		["<leader>fc"] = { "<cmd> Telescope git_commits <CR>", "Git status" },
+		["<leader>fc"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
 		["<leader>fg"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
-		["<leader>fs"] = { "<cmd> Telescope git_status <CR>", "Git commits" },
+		["<leader>fs"] = { "<cmd> Telescope git_status <CR>", "Git status" },
 		-- vim-fugitive
 		["<leader>gs"] = {
 			"<cmd> tab Git <CR> \
