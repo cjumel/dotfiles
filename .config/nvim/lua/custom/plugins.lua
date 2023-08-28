@@ -6,6 +6,10 @@ local plugins = {
 		opts = overrides.nvimtree,
 	},
 	{
+		"nvim-telescope/telescope.nvim",
+		opts = overrides.telescope,
+	},
+	{
 		"christoomey/vim-tmux-navigator",
 		lazy = false,
 	},

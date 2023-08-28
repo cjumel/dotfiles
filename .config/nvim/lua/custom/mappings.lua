@@ -11,6 +11,10 @@ M.general = {
 		["<leader>n"] = { "<cmd> NvimTreeFocus <CR>", "Focus nvim-tree" },
 		-- telescope
 		["<leader>fc"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
+		["<leader>ff"] = {
+			"<cmd> lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '--glob', '!**/.git/*' } })<CR>",
+			"Find files",
+		},
 		["<leader>fg"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
 		["<leader>fs"] = { "<cmd> Telescope git_status <CR>", "Git status" },
 		-- vim-fugitive
