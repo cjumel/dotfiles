@@ -97,7 +97,78 @@ M.general = {
 			"Jump to a preceding line",
 		},
 	},
-	v = {
+	x = {
+		-- hop.nvim
+		["s"] = {
+			function()
+				require("hop").hint_char2()
+			end,
+			"Jump to a combinaison of 2 keys",
+		},
+		["f"] = {
+			function()
+				require("hop").hint_char1({
+					current_line_only = true,
+				})
+			end,
+			"Jump to a key inline",
+		},
+		["<leader>w"] = {
+			function()
+				require("hop").hint_words({
+					direction = require("hop.hint").HintDirection.AFTER_CURSOR,
+					current_line_only = true,
+				})
+			end,
+			"Jump to a following word beginning inline",
+		},
+		["<leader>b"] = {
+			function()
+				require("hop").hint_words({
+					direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
+					current_line_only = true,
+				})
+			end,
+			"Jump to a preceding word beginning inline",
+		},
+		["<leader>e"] = {
+			function()
+				require("hop").hint_words({
+					hint_position = require("hop.hint").HintPosition.END,
+					direction = require("hop.hint").HintDirection.AFTER_CURSOR,
+					current_line_only = true,
+				})
+			end,
+			"Jump to a following word end inline",
+		},
+		["<leader>ge"] = {
+			function()
+				require("hop").hint_words({
+					hint_position = require("hop.hint").HintPosition.END,
+					direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
+					current_line_only = true,
+				})
+			end,
+			"Jump to a preceding word end inline",
+		},
+		["<leader>j"] = {
+			function()
+				require("hop").hint_lines({
+					direction = require("hop.hint").HintDirection.AFTER_CURSOR,
+				})
+			end,
+			"Jump to a following line",
+		},
+		["<leader>k"] = {
+			function()
+				require("hop").hint_lines({
+					direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
+				})
+			end,
+			"Jump to a preceding line",
+		},
+	},
+	o = {
 		-- hop.nvim
 		["s"] = {
 			function()
