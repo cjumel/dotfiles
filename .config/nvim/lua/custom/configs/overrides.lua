@@ -32,7 +32,8 @@ M.telescope = {
 }
 
 M.hop = {
-	keys = "etovxqpdygfblzhckisuran",
+	keys = "hgjfkdlsmqyturieozpabvn",
+	uppercase_labels = true,
 }
 
 M.mason = {
