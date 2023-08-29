@@ -1,5 +1,6 @@
 vim.opt.relativenumber = true
 vim.opt.colorcolumn = "100"
+vim.opt.scrolloff = 3
 
 -- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
