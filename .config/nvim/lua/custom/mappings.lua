@@ -7,6 +7,9 @@ M.general = {
 		["<C-l>"] = { "<cmd> TmuxNavigateRight <CR>", "Window right" },
 		["<C-j>"] = { "<cmd> TmuxNavigateDown <CR>", "Window down" },
 		["<C-k>"] = { "<cmd> TmuxNavigateUp <CR>", "Window up" },
+		-- splits
+		["<leader>v"] = { "<cmd> vsplit <CR>", "Vertical split" },
+		["<leader>s"] = { "<cmd> split <CR>", "Horizontal split" },
 		-- nvim-tree
 		["<leader>n"] = { "<cmd> NvimTreeFocus <CR>", "Focus nvim-tree" },
 		-- telescope
