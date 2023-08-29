@@ -14,6 +14,10 @@ local plugins = {
 		lazy = false,
 	},
 	{
+		"github/copilot.vim",
+		lazy = false,
+	},
+	{
 		"kylechui/nvim-surround",
 		event = "VeryLazy",
 		config = function()
