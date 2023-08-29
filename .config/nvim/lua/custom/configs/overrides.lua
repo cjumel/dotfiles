@@ -35,4 +35,16 @@ M.hop = {
 	keys = "etovxqpdygfblzhckisuran",
 }
 
+M.mason = {
+	ensure_installed = {
+		"black",
+		"isort",
+		"mypy",
+		"prettier",
+		"pyright",
+		"ruff",
+		"stylua",
+	},
+}
+
 return M

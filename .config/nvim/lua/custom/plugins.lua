@@ -45,17 +45,7 @@ local plugins = {
 	},
 	{
 		"williamboman/mason.nvim",
-		opts = {
-			ensure_installed = {
-				"black",
-				"isort",
-				"mypy",
-				"prettier",
-				"pyright",
-				"ruff",
-				"stylua",
-			},
-		},
+		opts = overrides.mason,
 	},
 	{
 		"neovim/nvim-lspconfig",
