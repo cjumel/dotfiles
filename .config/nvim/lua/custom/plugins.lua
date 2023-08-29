@@ -30,18 +30,7 @@ local plugins = {
 	},
 	{
 		"phaazon/hop.nvim",
-		config = function()
-			require("hop").setup({})
-		end,
 		opts = overrides.hop,
-		cmd = {
-			"HopChar2",
-			"HopChar1CurrentLine",
-			"HopWordCurrentLineAC",
-			"HopWordCurrentLineBC",
-			"HopLineAC",
-			"HopLineBC",
-		},
 	},
 	{
 		"williamboman/mason.nvim",
