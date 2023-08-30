@@ -33,6 +33,14 @@ M.general = {
 			end,
 			"Live grep",
 		},
+		["<leader>fo"] = {
+			function()
+				require("telescope.builtin").oldfiles({
+					cwd_only = true,
+				})
+			end,
+			"Find old files",
+		},
 		["<leader>fs"] = {
 			function()
 				require("telescope.builtin").git_status()
