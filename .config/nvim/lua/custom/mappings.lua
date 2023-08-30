@@ -37,10 +37,40 @@ M.general = {
 		["f"] = {
 			function()
 				require("hop").hint_char1({
+					direction = require("hop.hint").HintDirection.AFTER_CURSOR,
 					current_line_only = true,
 				})
 			end,
-			"Jump to a key inline",
+			"Jump to a following key inline",
+		},
+		["F"] = {
+			function()
+				require("hop").hint_char1({
+					direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
+					current_line_only = true,
+				})
+			end,
+			"Jump to a preceding key inline",
+		},
+		["t"] = {
+			function()
+				require("hop").hint_char1({
+					direction = require("hop.hint").HintDirection.AFTER_CURSOR,
+					current_line_only = true,
+					hint_offset = -1,
+				})
+			end,
+			"Jump to before a following key inline",
+		},
+		["T"] = {
+			function()
+				require("hop").hint_char1({
+					direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
+					current_line_only = true,
+					hint_offset = 1,
+				})
+			end,
+			"Jump to after a preceding key inline",
 		},
 		["<leader>w"] = {
 			function()
@@ -108,10 +138,40 @@ M.general = {
 		["f"] = {
 			function()
 				require("hop").hint_char1({
+					direction = require("hop.hint").HintDirection.AFTER_CURSOR,
 					current_line_only = true,
 				})
 			end,
-			"Jump to a key inline",
+			"Jump to a following key inline",
+		},
+		["F"] = {
+			function()
+				require("hop").hint_char1({
+					direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
+					current_line_only = true,
+				})
+			end,
+			"Jump to a preceding key inline",
+		},
+		["t"] = {
+			function()
+				require("hop").hint_char1({
+					direction = require("hop.hint").HintDirection.AFTER_CURSOR,
+					current_line_only = true,
+					hint_offset = -1,
+				})
+			end,
+			"Jump to before a following key inline",
+		},
+		["T"] = {
+			function()
+				require("hop").hint_char1({
+					direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
+					current_line_only = true,
+					hint_offset = 1,
+				})
+			end,
+			"Jump to after a preceding key inline",
 		},
 		["<leader>w"] = {
 			function()
@@ -179,10 +239,40 @@ M.general = {
 		["f"] = {
 			function()
 				require("hop").hint_char1({
+					direction = require("hop.hint").HintDirection.AFTER_CURSOR,
 					current_line_only = true,
 				})
 			end,
-			"Jump to a key inline",
+			"Jump to a following key inline",
+		},
+		["F"] = {
+			function()
+				require("hop").hint_char1({
+					direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
+					current_line_only = true,
+				})
+			end,
+			"Jump to a preceding key inline",
+		},
+		["t"] = {
+			function()
+				require("hop").hint_char1({
+					direction = require("hop.hint").HintDirection.AFTER_CURSOR,
+					current_line_only = true,
+					hint_offset = -1,
+				})
+			end,
+			"Jump to before a following key inline",
+		},
+		["T"] = {
+			function()
+				require("hop").hint_char1({
+					direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
+					current_line_only = true,
+					hint_offset = 1,
+				})
+			end,
+			"Jump to after a preceding key inline",
 		},
 		["<leader>w"] = {
 			function()
