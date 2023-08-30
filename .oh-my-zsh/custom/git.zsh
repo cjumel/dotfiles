@@ -3,10 +3,10 @@ alias gaa='git add --all'  # Add all files, both tracked & untracked
 alias gad='git add .'  # Add the files in the current directory
 alias gau='git add --update'  # Add all tracked files
 
-alias gbr='git branch'
-alias gbra='git branch --all'
-alias gbrd='git branch --delete --force'  # Force delete a local branch
-alias gbrr='git branch --remote'  # Act on remote branches
+alias gb='git branch'
+alias gba='git branch --all'
+alias gbd='git branch --delete --force'  # Force delete a local branch
+alias gbr='git branch --remote'  # Act on remote branches
 
 alias gch='git checkout'
 
