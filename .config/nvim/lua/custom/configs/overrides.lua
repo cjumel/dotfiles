@@ -25,8 +25,9 @@ M.telescope = {
 			"--column",
 			"--smart-case",
 			"--hidden",
-			"--glob",
-			"!**/.git/*",
+		},
+		file_ignore_patterns = {
+			".git/",
 		},
 	},
 }

@@ -22,7 +22,7 @@ M.general = {
 		["<leader>ff"] = {
 			function()
 				require("telescope.builtin").find_files({
-					find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+					find_command = { "rg", "--files", "--hidden" },
 				})
 			end,
 			"Find files",
