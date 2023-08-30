@@ -3,10 +3,10 @@ alias gaa='git add --all'  # Add all files, both tracked & untracked
 alias gad='git add .'  # Add the files in the current directory
 alias gau='git add --update'  # Add all tracked files
 
-alias gb='git branch'
-alias gba='git branch --all'
-alias gbd='git branch --delete --force'  # Force delete a local branch
-alias gbr='git branch --remote'  # Act on remote branches
+alias gbr='git branch'
+alias gbra='git branch --all'
+alias gbrd='git branch --delete --force'  # Force delete a local branch
+alias gbrr='git branch --remote'  # Act on remote branches
 
 alias gch='git checkout'
 
@@ -82,14 +82,15 @@ alias grv='git revert'
 alias grvl='git revert HEAD'  # Revert the last commit
 
 alias gs='git status'
+alias gst='git status'
 
-alias gsh='git show'  # Show various types of objects
+alias gsh='git stash'  # Stash the uncommited changes
+alias gsha='git stash apply'  # Re-apply the last stashed changes (don't clear them)
+alias gshc='git stash clear'
+alias gshl='git stash list'
+alias gshp='git stash pop'  # Re-apply the last stashed changes & clear them
 
-alias gst='git stash'  # Stash the uncommited changes
-alias gsta='git stash apply'  # Re-apply the last stashed changes (don't clear them)
-alias gstc='git stash clear'
-alias gstl='git stash list'
-alias gstp='git stash pop'  # Re-apply the last stashed changes & clear them
+alias gso='git show'  # Show various types of objects
 
 alias gsw='git switch'  # Switch branches
 alias gswc='git switch --create'  # Create a new local branch
