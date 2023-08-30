@@ -13,13 +13,32 @@ M.general = {
 		-- nvim-tree
 		["<leader>n"] = { "<cmd> NvimTreeFocus <CR>", "Focus nvim-tree" },
 		-- telescope
-		["<leader>fc"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
+		["<leader>fc"] = {
+			function()
+				require("telescope.builtin").git_commits()
+			end,
+			"Git commits",
+		},
 		["<leader>ff"] = {
-			"<cmd> lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '--glob', '!**/.git/*' } })<CR>",
+			function()
+				require("telescope.builtin").find_files({
+					find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+				})
+			end,
 			"Find files",
 		},
-		["<leader>fg"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
-		["<leader>fs"] = { "<cmd> Telescope git_status <CR>", "Git status" },
+		["<leader>fg"] = {
+			function()
+				require("telescope.builtin").live_grep()
+			end,
+			"Live grep",
+		},
+		["<leader>fs"] = {
+			function()
+				require("telescope.builtin").git_status()
+			end,
+			"Git status",
+		},
 		-- vim-fugitive
 		["<leader>gs"] = {
 			"<cmd> tab Git <CR> \
