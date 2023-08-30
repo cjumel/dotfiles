@@ -20,17 +20,11 @@ M.general = {
 			"Toggle horizontal terminal",
 		},
 		-- telescope
-		["<leader>fbr"] = {
+		["<leader>fb"] = {
 			function()
 				require("telescope.builtin").git_branches()
 			end,
 			"Find git branches",
-		},
-		["<leader>fbu"] = {
-			function()
-				require("telescope.builtin").buffers()
-			end,
-			"Find buffers",
 		},
 		["<leader>fcm"] = {
 			function()
@@ -77,6 +71,12 @@ M.general = {
 				require("telescope.builtin").git_status()
 			end,
 			"Find in git status",
+		},
+		["<leader>ft"] = {
+			function()
+				require("telescope.builtin").buffers()
+			end,
+			"Find tabs",
 		},
 		["<leader>fw"] = {
 			function()
