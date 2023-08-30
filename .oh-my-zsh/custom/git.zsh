@@ -13,11 +13,15 @@ alias gch='git checkout'
 alias gcl='git clone'
 
 alias gcm='git commit'
+alias gcmf='git commit --no-verify'
+
 alias gcma='git commit --amend'
 alias gcman='git commit --amend --no-edit'
 alias gcmanf='git commit --amend --no-edit --no-verify'
+
 alias gcmm='git commit --message'
 alias gcmmf='git commit --no-verify --message'
+
 alias gcmw='git commit --message "🚧 WIP"'
 alias gcmwf='git commit --no-verify --message "🚧 WIP"'
 
