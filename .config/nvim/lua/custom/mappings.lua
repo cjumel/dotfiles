@@ -13,11 +13,23 @@ M.general = {
 		-- nvim-tree
 		["<leader>n"] = { "<cmd> NvimTreeFocus <CR>", "Focus nvim-tree" },
 		-- telescope
-		["<leader>fc"] = {
+		["<leader>fbr"] = {
+			function()
+				require("telescope.builtin").git_branches()
+			end,
+			"Find git branches",
+		},
+		["<leader>fbu"] = {
+			function()
+				require("telescope.builtin").buffers()
+			end,
+			"Find buffers",
+		},
+		["<leader>fcm"] = {
 			function()
 				require("telescope.builtin").git_commits()
 			end,
-			"Git commits",
+			"Find git commits",
 		},
 		["<leader>ff"] = {
 			function()
@@ -31,7 +43,13 @@ M.general = {
 			function()
 				require("telescope.builtin").live_grep()
 			end,
-			"Live grep",
+			"Find with live grep",
+		},
+		["<leader>fm"] = {
+			function()
+				require("telescope.builtin").marks()
+			end,
+			"Find marks",
 		},
 		["<leader>fo"] = {
 			function()
@@ -41,11 +59,23 @@ M.general = {
 			end,
 			"Find old files",
 		},
-		["<leader>fs"] = {
+		["<leader>fsh"] = {
+			function()
+				require("telescope.builtin").git_stash()
+			end,
+			"Find in git stash",
+		},
+		["<leader>fst"] = {
 			function()
 				require("telescope.builtin").git_status()
 			end,
-			"Git status",
+			"Find in git status",
+		},
+		["<leader>fw"] = {
+			function()
+				require("telescope.builtin").grep_string()
+			end,
+			"Find the word or selection under the cursor",
 		},
 		-- vim-fugitive
 		["<leader>gs"] = {
@@ -362,6 +392,7 @@ M.disabled = {
 	n = {
 		-- telescope
 		["<leader>cm"] = "",
+		["<leader>fb"] = "",
 		["<leader>fw"] = "",
 		["<leader>gt"] = "",
 		-- Makes <leader>w slow
