@@ -475,6 +475,7 @@
   <action id="ToggleLineBreakpoint" />
   <action id="Tree-selectChild">
     <keyboard-shortcut first-keystroke="right" />
+    <keyboard-shortcut first-keystroke="l" />
   </action>
   <action id="Tree-selectChildExtendSelection">
     <keyboard-shortcut first-keystroke="shift right" />
@@ -491,6 +492,7 @@
   <action id="Tree-selectParent">
     <keyboard-shortcut first-keystroke="left" />
     <keyboard-shortcut first-keystroke="back_space" />
+    <keyboard-shortcut first-keystroke="h" />
   </action>
   <action id="Tree-selectParentExtendSelection">
     <keyboard-shortcut first-keystroke="shift left" />
