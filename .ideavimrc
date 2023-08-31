@@ -73,6 +73,7 @@ nmap <leader>X <Action>(CloseAllEditorsButActive)
 "" Tool windows management
 nmap <leader>l <Action>(JumpToLastWindow)
 nmap <leader>n <Action>(ActivateProjectToolWindow)
+nmap <leader>pyc <Action>(ActivatePythonConsoleToolWindow)
 nmap <leader>q <Action>(HideActiveWindow)
 nmap <leader>Q <Action>(CloseActiveTab)
 nmap <leader>td <Action>(ActivateDebugToolWindow)
@@ -80,14 +81,13 @@ nmap <leader>te <Action>(ActivateProblemsViewToolWindow)
 nmap <leader>tf <Action>(ActivateFindToolWindow)
 nmap <leader>tg <Action>(ActivateVersionControlToolWindow)
 nmap <leader>tm <Action>(ActivateBookmarksToolWindow)
-nmap <leader>tp <Action>(ActivatePythonConsoleToolWindow)
 nmap <leader>tr <Action>(ActivateRunToolWindow)
 nmap <leader>tt <Action>(ActivateTODOToolWindow)
 
 "" Modes & Python setups
 nmap <leader>z <Action>(ToggleDistractionFreeMode)
 nmap <leader>ps <Action>(TogglePowerSave)
-nmap <leader>py <Action>(PySwitchSdkAction)
+nmap <leader>pyi <Action>(PySwitchSdkAction)
 nmap <leader>th <Action>(QuickChangeScheme)
 
 "" Search
