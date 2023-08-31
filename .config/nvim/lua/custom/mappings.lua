@@ -22,9 +22,9 @@ M.general = {
 		-- telescope
 		["<leader>fb"] = {
 			function()
-				require("telescope.builtin").git_branches()
+				require("telescope.builtin").buffers()
 			end,
-			"Find git branches",
+			"Find buffers",
 		},
 		["<leader>fcm"] = {
 			function()
@@ -71,12 +71,6 @@ M.general = {
 				require("telescope.builtin").git_status()
 			end,
 			"Find in git status",
-		},
-		["<leader>ft"] = {
-			function()
-				require("telescope.builtin").buffers()
-			end,
-			"Find tabs",
 		},
 		["<leader>fw"] = {
 			function()
@@ -408,7 +402,6 @@ M.disabled = {
 	n = {
 		-- telescope
 		["<leader>cm"] = "",
-		["<leader>fb"] = "",
 		["<leader>fw"] = "",
 		["<leader>gt"] = "",
 		-- Makes <leader>w slow
