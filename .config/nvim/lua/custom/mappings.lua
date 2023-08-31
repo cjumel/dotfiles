@@ -8,8 +8,8 @@ M.general = {
 		["<C-j>"] = { "<cmd> TmuxNavigateDown <CR>", "Window down" },
 		["<C-k>"] = { "<cmd> TmuxNavigateUp <CR>", "Window up" },
 		-- splits
-		["<leader>v"] = { "<cmd> vsplit <CR>", "Vertical split" },
-		["<leader>h"] = { "<cmd> split <CR>", "Horizontal split" },
+		["<leader>vs"] = { "<cmd> vsplit <CR>", "Vertical split" },
+		["<leader>hs"] = { "<cmd> split <CR>", "Horizontal split" },
 		-- nvim-tree
 		["<leader>n"] = { "<cmd> NvimTreeFocus <CR>", "Focus nvim-tree" },
 		-- nvterm
