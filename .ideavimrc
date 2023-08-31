@@ -72,11 +72,10 @@ nmap <leader>Xa <Action>(CloseAllEditors)
 nmap <leader>Xo <Action>(CloseAllEditorsButActive)
 
 "" Tool windows management
-nmap <leader>h <Action>(HideActiveWindow)
-nmap <leader>H <Action>(HideAllWindows)
 nmap <leader>l <Action>(JumpToLastWindow)
 nmap <leader>n <Action>(ActivateProjectToolWindow)
-nmap <leader>q <Action>(CloseActiveTab)
+nmap <leader>q <Action>(HideActiveWindow)
+nmap <leader>Q <Action>(CloseActiveTab)
 nmap <leader>td <Action>(ActivateDebugToolWindow)
 nmap <leader>tg <Action>(ActivateVersionControlToolWindow)
 nmap <leader>te <Action>(ActivateProblemsViewToolWindow)

@@ -50,9 +50,7 @@
   <action id="ChangesView.SetDefault" />
   <action id="ChangesView.ShelveSilently" />
   <action id="CheckinProject" />
-  <action id="CloseActiveTab">
-    <keyboard-shortcut first-keystroke="q" />
-  </action>
+  <action id="CloseActiveTab" />
   <action id="CodeCompletion" />
   <action id="CollapseAll" />
   <action id="CollapseAllRegions" />
@@ -243,7 +241,7 @@
   <action id="GotoTypeDeclaration" />
   <action id="GotoUrlAction" />
   <action id="HideActiveWindow">
-    <keyboard-shortcut first-keystroke="h" />
+    <keyboard-shortcut first-keystroke="q" />
   </action>
   <action id="HideAllWindows" />
   <action id="HighlightUsagesInFile" />
