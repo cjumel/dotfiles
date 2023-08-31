@@ -400,6 +400,8 @@ M.general = {
 
 M.disabled = {
 	n = {
+		-- nvim-tree
+		["<C-n>"] = "",
 		-- telescope
 		["<leader>cm"] = "",
 		["<leader>fw"] = "",
