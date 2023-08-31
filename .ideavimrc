@@ -68,8 +68,7 @@ nmap <s-TAB> <Action>(PreviousTab)
 nmap <leader>a <Action>(NewElement)
 nmap <leader>ro <Action>(ReopenClosedTab)
 nmap <leader>x <Action>(CloseContent)
-nmap <leader>Xa <Action>(CloseAllEditors)
-nmap <leader>Xo <Action>(CloseAllEditorsButActive)
+nmap <leader>X <Action>(CloseAllEditorsButActive)
 
 "" Tool windows management
 nmap <leader>l <Action>(JumpToLastWindow)
