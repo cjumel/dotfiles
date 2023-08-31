@@ -42,10 +42,10 @@ nmap <leader>,r <Action>(IdeaVim.ReloadVimRc.reload)
 nmap <leader>,t <Action>(VimFindActionIdAction)
 
 "" Projects management
-nmap <leader>C <Action>(ManageRecentProjects)
-nmap <leader>N <Action>(NextProjectWindow)
-nmap <leader>P <Action>(PreviousProjectWindow)
-nmap <leader>Q <Action>(CloseProject)
+nmap <c-SPACE>c <Action>(ManageRecentProjects)
+nmap <c-SPACE>n <Action>(NextProjectWindow)
+nmap <c-SPACE>p <Action>(PreviousProjectWindow)
+nmap <c-SPACE>q <Action>(CloseProject)
 
 "" Splits management
 nmap <leader>v <Action>(MoveTabRight)
