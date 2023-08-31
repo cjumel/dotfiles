@@ -2,6 +2,10 @@ local overrides = require("custom.configs.overrides")
 
 local plugins = {
 	{
+		"hrsh7th/nvim-cmp",
+		opts = overrides.cmp,
+	},
+	{
 		"nvim-tree/nvim-tree.lua",
 		opts = overrides.nvimtree,
 	},
