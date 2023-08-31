@@ -184,8 +184,8 @@ vmap <s-TAB> <Action>(EditorUnindentSelection)
 "" NERDTree
 " Vim-style project view
 Plug 'preservim/nerdtree'
-let g:NERDTreeMapOpenSplit='s'
-let g:NERDTreeMapPreviewSplit='gs'
+let g:NERDTreeMapOpenSplit='h'
+let g:NERDTreeMapPreviewSplit='gh'
 let g:NERDTreeMapOpenVSplit='v'
 let g:NERDTreeMapPreviewVSplit='gv'
 
