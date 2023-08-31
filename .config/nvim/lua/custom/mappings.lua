@@ -46,6 +46,12 @@ M.general = {
 			end,
 			"Find with live grep",
 		},
+		["<leader>fh"] = {
+			function()
+				require("telescope").extensions.harpoon.marks()
+			end,
+			"Find harpoon marks",
+		},
 		["<leader>fm"] = {
 			function()
 				require("telescope.builtin").marks()
@@ -183,6 +189,61 @@ M.general = {
 				})
 			end,
 			"Jump to a preceding line",
+		},
+		-- harpoon
+		["<leader>ha"] = {
+			function()
+				require("harpoon.mark").add_file()
+			end,
+			"Harpoon a file",
+		},
+		["<leader>hm"] = {
+			function()
+				require("harpoon.ui").toggle_quick_menu()
+			end,
+			"Toggle harpoon menu",
+		},
+		["gh"] = {
+			function()
+				require("harpoon.ui").nav_file(1)
+			end,
+			"Go to harpoon file 1",
+		},
+		["gj"] = {
+			function()
+				require("harpoon.ui").nav_file(2)
+			end,
+			"Go to harpoon file 2",
+		},
+		["gk"] = {
+			function()
+				require("harpoon.ui").nav_file(3)
+			end,
+			"Go to harpoon file 3",
+		},
+		["gl"] = {
+			function()
+				require("harpoon.ui").nav_file(4)
+			end,
+			"Go to harpoon file 4",
+		},
+		["gm"] = {
+			function()
+				require("harpoon.ui").nav_file(5)
+			end,
+			"Go to harpoon file 5",
+		},
+		["gn"] = {
+			function()
+				require("harpoon.ui").nav_next()
+			end,
+			"Go to next harpoon file",
+		},
+		["gp"] = {
+			function()
+				require("harpoon.ui").nav_prev()
+			end,
+			"Go to previous harpoon file",
 		},
 	},
 	x = {

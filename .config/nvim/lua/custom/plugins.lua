@@ -37,6 +37,10 @@ local plugins = {
 		opts = overrides.hop,
 	},
 	{
+		"ThePrimeagen/harpoon",
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
+	{
 		"williamboman/mason.nvim",
 		opts = overrides.mason,
 	},
