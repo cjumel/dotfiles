@@ -50,8 +50,8 @@ nmap <c-SPACE>q <Action>(CloseProject)
 "" Splits management
 nmap <leader>v <Action>(MoveTabRight)
 nmap <leader>V <Action>(SplitVertically)
-nmap <leader>s <Action>(MoveTabDown)
-nmap <leader>S <Action>(SplitHorizontally)
+nmap <leader>h <Action>(MoveTabDown)
+nmap <leader>H <Action>(SplitHorizontally)
 nmap <leader>u <Action>(Unsplit)
 nmap <leader>U <Action>(UnsplitAll)
 nnoremap <c-h> <c-w>h
