@@ -476,6 +476,9 @@ M.disabled = {
 		["<leader>cm"] = "",
 		["<leader>fw"] = "",
 		["<leader>gt"] = "",
+		-- nvterm
+		["<leader>v"] = "",
+		["<leader>h"] = "",
 		-- Makes <leader>w slow
 		["<leader>wa"] = "",
 		["<leader>wk"] = "",
