@@ -12,13 +12,6 @@ M.general = {
 		["<leader>hs"] = { "<cmd> split <CR>", "Horizontal split" },
 		-- nvim-tree
 		["<leader>n"] = { "<cmd> NvimTreeFocus <CR>", "Focus nvim-tree" },
-		-- nvterm
-		["<leader>te"] = {
-			function()
-				require("nvterm.terminal").toggle("horizontal")
-			end,
-			"Toggle horizontal terminal",
-		},
 		-- telescope
 		["<leader>fb"] = {
 			function()
@@ -455,15 +448,6 @@ M.general = {
 				})
 			end,
 			"Jump to a preceding line",
-		},
-	},
-	t = {
-		-- terminal mode
-		["<leader>x"] = {
-			function()
-				require("nvterm.terminal").toggle("horizontal")
-			end,
-			"Toggle horizontal terminal",
 		},
 	},
 }
