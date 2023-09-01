@@ -31,6 +31,9 @@ M.nvimtree = {
 			},
 		},
 	},
+	filters = {
+		custom = { ".null-ls_" },
+	},
 }
 
 M.telescope = {
