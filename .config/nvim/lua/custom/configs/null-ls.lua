@@ -16,7 +16,6 @@ local opts = {
 			-- and for the `~/.black.toml` file will disappear
 			extra_args = { "--config", "/Users/clement/.black.toml" },
 		}),
-		null_ls.builtins.formatting.isort,
 		null_ls.builtins.formatting.prettier.with({
 			filetypes = {
 				"json",

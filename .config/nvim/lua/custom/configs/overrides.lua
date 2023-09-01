@@ -59,7 +59,6 @@ M.hop = {
 M.mason = {
 	ensure_installed = {
 		"black",
-		"isort",
 		"mypy",
 		"prettier",
 		"pyright",
