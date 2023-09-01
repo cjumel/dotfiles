@@ -51,6 +51,19 @@ M.telescope = {
 	},
 }
 
+M.todocomments = {
+	search = {
+		args = {
+			"--color=never",
+			"--no-heading",
+			"--with-filename",
+			"--line-number",
+			"--column",
+			"--hidden",
+		},
+	},
+}
+
 M.hop = {
 	keys = "hgjfkdlsmqyturieozpabvn",
 	uppercase_labels = true,

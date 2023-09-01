@@ -41,6 +41,12 @@ local plugins = {
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = overrides.todocomments,
+		cmd = { "TodoQuickFix", "TodoTelescope" },
+	},
+	{
 		"williamboman/mason.nvim",
 		opts = overrides.mason,
 	},

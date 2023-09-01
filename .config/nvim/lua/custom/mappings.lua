@@ -78,6 +78,10 @@ M.general = {
 			end,
 			"Find in git status",
 		},
+		["<leader>ftd"] = {
+			"<cmd> TodoTelescope <CR>",
+			"Find todo comments",
+		},
 		["<leader>fw"] = {
 			function()
 				require("telescope.builtin").grep_string()
@@ -244,6 +248,11 @@ M.general = {
 				require("harpoon.ui").nav_prev()
 			end,
 			"Go to previous harpoon file",
+		},
+		-- todo-comments
+		["<leader>td"] = {
+			"<cmd> TodoQuickFix <CR>",
+			"Todo comments",
 		},
 	},
 	x = {
