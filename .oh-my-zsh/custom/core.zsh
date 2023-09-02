@@ -18,6 +18,7 @@ alias soz='source ~/.zshrc'
 alias to='touch'
 
 alias vi='nvim'
+alias vip='poetry run nvim'
 
 alias wi='which'
 alias we='whence'
