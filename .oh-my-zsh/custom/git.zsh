@@ -67,7 +67,7 @@ alias grmc='git rm --cached'  # Remove a file from the reposiory but not from th
 
 alias grs='git reset'  # Mixed reset: reset commits but keep their changes as unstaged
 alias grsl='git reset HEAD~1'  # Mixed reset the last commit
-function grsn(){ git reset HEAD~$1 }  # Mixed reset the N last commits 
+function grsn(){ git reset HEAD~$1 }  # Mixed reset the N last commits
 
 alias grsh='git reset --hard'  # Hard reset: reset commits and discard all their changes
 alias grshl='git reset --hard HEAD~1'  # Hard reset the last commit
@@ -80,7 +80,7 @@ function grssn(){ git reset --soft HEAD~$1 }  # Soft reset the N last commits
 alias grt='git restore'  # Discard the changes of the targeted unstaged files
 alias grtd='git restore .'
 alias grts='git restore --staged'  # Unstage the targeted staged files
-alias grtsd='git restore --staged .' 
+alias grtsd='git restore --staged .'
 
 alias grv='git revert'
 alias grvl='git revert HEAD'  # Revert the last commit

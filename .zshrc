@@ -110,7 +110,7 @@ export LANG=en_US.UTF-8
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
-# Make ctrl+p/n behave like arrow up/down (that is filter with the terminal entry when browsing 
+# Make ctrl+p/n behave like arrow up/down (that is filter with the terminal entry when browsing
 # the history)
 bindkey "^P" up-line-or-search
 bindkey "^N" down-line-or-search
