@@ -12,7 +12,14 @@ M.general = {
 		["<leader>hs"] = { "<cmd> split <CR>", "Horizontal split" },
 		-- nvim-tree
 		["<leader>n"] = { "<cmd> NvimTreeFocus <CR>", "Focus nvim-tree" },
-		-- telescope
+		-- oil.nvim
+		["-"] = {
+			function()
+				require("oil").open()
+			end,
+			"Open parent directory with oil.nvim",
+		},
+		-- telescope.nvim
 		["<leader>fb"] = {
 			function()
 				require("telescope.builtin").buffers()

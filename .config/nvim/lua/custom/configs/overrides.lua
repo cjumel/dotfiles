@@ -36,6 +36,16 @@ M.nvimtree = {
 	},
 }
 
+M.oil = {
+	view_options = {
+		show_hidden = true,
+		-- FIXME: the .git/ directory is actually not hidden
+		is_always_hidden = function(name, bufnr)
+			return vim.startswith(name, ".git/")
+		end,
+	},
+}
+
 M.telescope = {
 	defaults = {
 		vimgrep_arguments = {

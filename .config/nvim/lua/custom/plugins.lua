@@ -10,6 +10,11 @@ local plugins = {
 		opts = overrides.nvimtree,
 	},
 	{
+		"stevearc/oil.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = overrides.oil,
+	},
+	{
 		"nvim-telescope/telescope.nvim",
 		opts = overrides.telescope,
 	},
@@ -17,7 +22,7 @@ local plugins = {
 		"christoomey/vim-tmux-navigator",
 		lazy = false,
 	},
-  {
+	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = overrides.todocomments,
