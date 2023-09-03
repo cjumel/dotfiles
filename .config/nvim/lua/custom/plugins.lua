@@ -17,6 +17,12 @@ local plugins = {
 		"christoomey/vim-tmux-navigator",
 		lazy = false,
 	},
+  {
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = overrides.todocomments,
+		lazy = false,
+	},
 	{
 		"github/copilot.vim",
 		lazy = false,
@@ -39,12 +45,6 @@ local plugins = {
 	{
 		"ThePrimeagen/harpoon",
 		dependencies = { "nvim-lua/plenary.nvim" },
-	},
-	{
-		"folke/todo-comments.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = overrides.todocomments,
-		cmd = { "TodoQuickFix", "TodoTelescope" },
 	},
 	{
 		"williamboman/mason.nvim",
