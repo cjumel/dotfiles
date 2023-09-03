@@ -242,10 +242,37 @@ M.general = {
 			end,
 			"Go to previous harpoon file",
 		},
-		-- todo-comments
+		-- Comment.nvim
+		["gtc"] = {
+			function()
+				vim.api.nvim_command("normal! ITODO: ")
+				require("Comment.api").toggle.linewise.current()
+				vim.api.nvim_command("normal! 3l")
+			end,
+			"Add a TODO comment in the current line",
+		},
+		["gtO"] = {
+			-- FIXME: this is not working when the current line is a comment
+			function()
+				vim.api.nvim_command("normal! OTODO: ")
+				require("Comment.api").toggle.linewise()
+				vim.api.nvim_command("normal! 3l")
+			end,
+			"Add a TODO comment in the line above the cursor",
+		},
+		["gto"] = {
+			-- FIXME: this is not working when the current line is a comment
+			function()
+				vim.api.nvim_command("normal! oTODO: ")
+				require("Comment.api").toggle.linewise.current()
+				vim.api.nvim_command("normal! 3l")
+			end,
+			"Add a TODO comment in the line below the cursor",
+		},
+		-- todo-comments.nvim
 		["<leader>td"] = {
 			"<cmd> TodoQuickFix <CR>",
-			"Todo comments",
+			"Display the TODO comments in a quickfix tab",
 		},
 	},
 	x = {
