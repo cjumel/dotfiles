@@ -88,6 +88,13 @@ M.general = {
 			end,
 			"Find the word or selection under the cursor",
 		},
+		-- nvterm
+		["<leader>te"] = {
+			function()
+				require("nvterm.terminal").toggle("horizontal")
+			end,
+			"Toggle horizontal terminal",
+		},
 		-- vim-fugitive
 		["<leader>gs"] = {
 			"<cmd> tab Git <CR> \
@@ -482,6 +489,15 @@ M.general = {
 				})
 			end,
 			"Jump to a preceding line",
+		},
+	},
+	t = {
+		-- terminal mode
+		["<leader>x"] = {
+			function()
+				require("nvterm.terminal").toggle("horizontal")
+			end,
+			"Toggle horizontal terminal",
 		},
 	},
 }
