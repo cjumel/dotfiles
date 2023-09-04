@@ -32,7 +32,10 @@ M.nvimtree = {
 		},
 	},
 	filters = {
-		custom = { ".null-ls_" },
+		custom = {
+			"^.git$",
+			"^.null-ls_",
+		},
 	},
 }
 
