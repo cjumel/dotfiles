@@ -43,9 +43,10 @@ M.oil = {
 	default_file_explorer = false,
 	view_options = {
 		show_hidden = true,
-		-- FIXME: the .git/ directory is actually not hidden
 		is_always_hidden = function(name, bufnr)
-			return vim.startswith(name, ".git/")
+			if name == ".git" then
+				return true
+			end
 		end,
 	},
 }
