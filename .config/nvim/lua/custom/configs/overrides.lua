@@ -47,6 +47,9 @@ M.oil = {
 			if name == ".git" then
 				return true
 			end
+			if name == ".DS_Store" then
+				return true
+			end
 		end,
 	},
 }
