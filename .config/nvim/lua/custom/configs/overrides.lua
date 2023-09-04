@@ -43,7 +43,7 @@ M.oil = {
 	default_file_explorer = false,
 	view_options = {
 		show_hidden = true,
-		is_always_hidden = function(name, bufnr)
+		is_always_hidden = function(name, _)
 			if name == ".git" then
 				return true
 			end
