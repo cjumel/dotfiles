@@ -19,18 +19,7 @@ M.cmp = {
 	},
 }
 
--- git support in nvimtree
 M.nvimtree = {
-	git = {
-		enable = true,
-	},
-	renderer = {
-		icons = {
-			show = {
-				git = true,
-			},
-		},
-	},
 	filters = {
 		custom = {
 			"^.git$",
