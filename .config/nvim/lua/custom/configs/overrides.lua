@@ -40,6 +40,7 @@ M.nvimtree = {
 }
 
 M.oil = {
+	default_file_explorer = false,
 	view_options = {
 		show_hidden = true,
 		-- FIXME: the .git/ directory is actually not hidden
