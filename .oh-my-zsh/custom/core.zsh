@@ -7,6 +7,10 @@ alias duh='du -d 1 -h 2>/dev/null'
 alias duhbig='du -d 1 -h -t1G 2>/dev/null'
 
 alias fz='cd $(fd . --type d | fzf)'
+alias fzc='
+  cd ~/Code/
+  cd $(fd . --type d | fzf)
+'
 
 alias no='nvim ./notes.txt'
 
