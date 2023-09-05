@@ -27,9 +27,9 @@ I use [Neovim](https://neovim.io/) as my main code editor.
 Its configuration is versioned in a dedicated
 [repository](https://github.com/clementjumel/NvChad).
 
-## HomeBrew
+## Homebrew
 
-To manage most of my packages, I use [HomeBrew](https://brew.sh/).
+To manage most of my packages, I use [Homebrew](https://brew.sh/).
 The list of the packages I installed with brew can be seen in the `./Brewfile`.
 Thanks to [mas](https://github.com/mas-cli/mas), this file also contains the few
 packages I installed through the App Store.
