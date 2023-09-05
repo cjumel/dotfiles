@@ -12,6 +12,8 @@ alias fzc='
   cd $(fd . --type d | fzf)
 '
 
+alias lns = 'ln -s'
+
 alias lsa='ls -a'
 
 alias md='mkdir'
@@ -20,6 +22,8 @@ alias mdp='mkdir -p'
 alias no='nvim ./notes.txt'
 
 alias pch='open -na PyCharm --args .'
+
+alias rmd='rm -d'
 
 alias so='source'
 alias soz='source ~/.zshrc'
