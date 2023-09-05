@@ -8,8 +8,8 @@ To use these configuration files, first clone this repository anywhere with git,
 git clone https://github.com/clementjumel/dotfiles.git ~/your/path/dotfiles/
 ```
 
-For instance, on my machine, `~/your/path/dofiles/` is `~/Code/clementjumel/`.
-Then, create a symlink from the home directory to the dotfiles directory, with:
+For instance, on my machine, `~/your/path/dotfiles/` is `~/Code/clementjumel/dotfiles/`.
+Then, create a symlink from the home directory to the dotfiles repository, with:
 
 ```shell
 ln -s ~/your/path/dotfiles/ ~/dotfiles/
