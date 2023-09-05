@@ -1,7 +1,6 @@
-local cmp = require("cmp")
-
 local M = {}
 
+local cmp = require("cmp")
 M.cmp = {
 	mapping = {
 		["<C-p>"] = cmp.mapping.select_prev_item(),
@@ -56,8 +55,20 @@ M.oil = {
 	},
 }
 
+local actions = require("telescope.actions")
 M.telescope = {
 	defaults = {
+		mappings = {
+			i = {
+				["<C-s>"] = actions.select_horizontal,
+				["<C-v>"] = actions.select_vertical,
+			},
+			n = {
+				["<C-s>"] = actions.select_horizontal,
+				["<C-v>"] = actions.select_vertical,
+				["g?"] = actions.which_key,
+			},
+		},
 		vimgrep_arguments = {
 			"rg",
 			"--color=never",
