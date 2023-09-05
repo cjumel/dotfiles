@@ -1,12 +1,24 @@
 # Dotfiles
 
 These files describe the tools I use to work on my computer and their configurations.
-To use them, first clone this repository in your home directory with git and go inside the
-directory:
+
+To use these configuration files, first clone this repository anywhere with git, using:
 
 ```shell
-git clone https://github.com/clementjumel/dotfiles.git ~/dotfiles/
-cd ~/dotfiles/
+git clone https://github.com/clementjumel/dotfiles.git ~/your/path/dotfiles/
+```
+
+For instance, on my machine, `~/your/path/dofiles/` is `~/Code/clementjumel/`.
+Then, create a symlink from the home directory to the dotfiles directory, with:
+
+```shell
+ln -s ~/your/path/dotfiles/ ~/dotfiles/
+```
+
+For the following, you will need to go inside the `dotfiles/` directory, so run:
+
+```shell
+cd ~/your/path/dotfiles
 ```
 
 ## HomeBrew
