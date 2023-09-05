@@ -24,6 +24,8 @@ alias no='nvim ./notes.txt'
 alias pch='open -na PyCharm --args .'
 
 alias rmd='rm -d'
+alias rmr='rm -r'
+alias rmrf='rm -rf'
 
 alias so='source'
 alias soz='source ~/.zshrc'
