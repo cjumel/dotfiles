@@ -16,11 +16,28 @@ local M = {
 	view_options = {
 		show_hidden = true,
 		is_always_hidden = function(name, _)
-			if name == ".git" then
-				return true
+			local always_hidden_names = {
+				".DS_Store",
+				".git",
+				".idea",
+				".mypy_cache",
+				"__pycache__",
+				".pytest_cache",
+				".ruff_cache",
+			}
+			for _, always_hidden_name in ipairs(always_hidden_names) do
+				if name == always_hidden_name then
+					return true
+				end
 			end
-			if name == ".DS_Store" then
-				return true
+
+			local always_hidden_name_starts = {
+				".coverage",
+			}
+			for _, always_hidden_name_start in ipairs(always_hidden_name_starts) do
+				if vim.startswith(name, always_hidden_name_start) then
+					return true
+				end
 			end
 		end,
 	},
