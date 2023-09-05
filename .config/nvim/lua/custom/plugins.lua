@@ -40,7 +40,9 @@ local plugins = {
 	{
 		"stevearc/oil.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
-		opts = require("custom.configs.oil"),
+		opts = function()
+			return require("custom.configs.oil")
+		end,
 	},
 	{
 		"ThePrimeagen/harpoon",
@@ -58,12 +60,16 @@ local plugins = {
 	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = require("custom.configs.todo-comments"),
+		opts = function()
+			return require("custom.configs.todo-comments")
+		end,
 		lazy = false,
 	},
 	{
 		"phaazon/hop.nvim",
-		opts = require("custom.configs.hop"),
+		opts = function()
+			return require("custom.configs.hop")
+		end,
 	},
 	{
 		"github/copilot.vim",
