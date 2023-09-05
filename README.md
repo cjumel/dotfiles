@@ -102,9 +102,12 @@ Git's configuration file is `./.gitconfig` and can can be symlinked from `~/.git
 
 ## PyCharm
 
-I use [PyCharm](https://www.jetbrains.com/fr-fr/pycharm/) as my IDE.
+**I switched to neovim as my code editor, I don't maintain this configuration anymore.**
+
+I use to use [PyCharm](https://www.jetbrains.com/fr-fr/pycharm/) as my IDE.
 I set it up with the [Catppuccin color scheme](https://github.com/catppuccin/jetbrains)
-and the [IdeaVim plugin](https://plugins.jetbrains.com/plugin/164-ideavim).
+and, especially, the [IdeaVim plugin](https://plugins.jetbrains.com/plugin/164-ideavim) to
+transform PyCharm into a vim-like editor.
 
 PyCharm's configuration files are `./.ideavimrc` and in `./.config/pycharm/`,
 and can be symlinked from `~/.ideavimrc` and `~/.config/pycharm/` respectively.
