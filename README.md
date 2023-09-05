@@ -23,8 +23,9 @@ cd ~/your/path/dotfiles
 
 ## Neovim
 
-[Neovim](https://neovim.io/) is my main code editor.
-Its configuration is versioned in a dedicated repository.
+I use [Neovim](https://neovim.io/) as my main code editor.
+Its configuration is versioned in a dedicated
+[repository](https://github.com/clementjumel/NvChad).
 
 ## HomeBrew
 
