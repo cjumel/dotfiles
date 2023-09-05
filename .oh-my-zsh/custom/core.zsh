@@ -12,7 +12,7 @@ alias fzc='
   cd $(fd . --type d | fzf)
 '
 
-alias lns = 'ln -s'
+alias lns='ln -s'
 
 alias lsa='ls -a'
 
