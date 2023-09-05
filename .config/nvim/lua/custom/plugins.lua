@@ -95,6 +95,9 @@ local plugins = {
 	{
 		"tpope/vim-fugitive",
 		cmd = { "Git" },
+		config = function()
+			require("custom.configs.fugitive")
+		end,
 	},
 }
 
