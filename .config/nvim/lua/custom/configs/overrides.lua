@@ -65,6 +65,7 @@ M.telescope = {
 				["<C-v>"] = actions.select_vertical,
 			},
 			n = {
+				["="] = actions.select_default,
 				["<C-s>"] = actions.select_horizontal,
 				["<C-v>"] = actions.select_vertical,
 				["g?"] = actions.which_key,
