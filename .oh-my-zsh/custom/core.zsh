@@ -12,6 +12,11 @@ alias fzc='
   cd $(fd . --type d | fzf)
 '
 
+alias lsa='ls -a'
+
+alias md='mkdir'
+alias mdp='mkdir -p'
+
 alias no='nvim ./notes.txt'
 
 alias pch='open -na PyCharm --args .'
