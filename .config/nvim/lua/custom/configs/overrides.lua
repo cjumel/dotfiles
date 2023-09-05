@@ -30,6 +30,9 @@ M.cmp = {
 }
 
 M.nvimtree = {
+	git = {
+		enable = true,
+	},
 	filters = {
 		custom = {
 			"^.git$",
