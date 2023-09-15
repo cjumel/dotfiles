@@ -87,7 +87,8 @@ alias grv='git revert'
 alias grvl='git revert HEAD'  # Revert the last commit
 
 alias gs='git status'
-alias gst='git status'
+alias gsd='git status .'
+alias gst='git status'  # Alias for git status, used in some keymaps
 
 alias gsh='git stash'  # Stash the uncommited changes
 alias gsha='git stash apply'  # Re-apply the last stashed changes (don't clear them)
