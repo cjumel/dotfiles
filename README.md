@@ -24,7 +24,10 @@ cd ~/your/path/dotfiles
 ## Neovim
 
 I use [Neovim](https://neovim.io/) as my main code editor. Its configuration is versioned in a
-dedicated [repository](https://github.com/clementjumel/NvChad).
+dedicated repository. I started up by configuring it with
+[NvChad](https://github.com/clementjumel/NvChad), but I ended up using
+[kickstart.nvim](https://github.com/clementjumel/kickstart.nvim) as it gives more flexibility and
+freedom.
 
 ## Homebrew
 
