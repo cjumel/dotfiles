@@ -35,6 +35,7 @@ alias gdt='git difftool'
 
 alias gf='git fetch'
 alias gfp='git fetch --prune'  # Remove unused remote branches
+alias gfu='git fetch upstream'  # Fetch the upstream repository
 
 alias gl='git lg'
 alias glm='git lg origin..HEAD'  # Show the log since the divergence from origin/main
