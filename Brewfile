@@ -42,5 +42,6 @@ cask "slack"
 cask "spotify"
 cask "tunnelblick"
 cask "vlc"
+cask "zoom"
 cask "zotero"
 mas "Bitwarden", id: 1352778147
