@@ -30,15 +30,15 @@ alias gcfg='git config --global'
 
 alias gcp='git cherry-pick'  # Apply the changes introduced by some existing commits
 
-alias gd='git diff' # Show changes between commits, commit and working tree, etc.
-alias gdt='git difftool'
+alias gdf='git diff' # Show changes between commits, commit and working tree, etc.
+alias gdft='git difftool'
 
 alias gf='git fetch'
 alias gfp='git fetch --prune'  # Remove unused remote branches
 alias gfu='git fetch upstream'  # Fetch the upstream repository
 
 alias gl='git lg'
-alias glm='git lg origin..HEAD'  # Show the log since the divergence from origin/main
+alias glm='git lg origin..HEAD'  # Show the log since the divergence from the main branch
 
 alias gm='gitmoji'
 alias gmc='gitmoji --config'
@@ -49,14 +49,14 @@ alias gpl='git pull'
 
 alias gps='git push'
 alias gpsf='git push --force'
-alias gpst='git push --tags'  # Push all tags
-alias gpstd='git push --delete origin'  # Push local tags deletions
 alias gpsu='git push --set-upstream'  # Set the upstream of a local branch and push it (needed iff autoSetupRemote is not True)
 
 alias grb='git rebase'
 alias grbi='git rebase --interactive'
-alias grbm='git rebase origin/main'  # Rebase from the fork with main
+alias grbm='git rebase origin/main'
+alias grbms='git rebase origin/master'
 alias grbmi='git rebase origin/main --interactive'
+alias grbmsi='git rebase origin/master --interactive'
 
 # Actions during rebase:
 alias grba='git rebase --abort'
@@ -100,7 +100,11 @@ alias gso='git show'  # Show various types of objects
 
 alias gsw='git switch'  # Switch branches
 alias gswc='git switch --create'  # Create a new local branch
-alias gswm='git switch main'  # Switch branches
+alias gswm='git switch main'
+alias gswms='git switch master'
 alias gswp='git switch -'  # Switch to the previous branch
 
 alias gt='git tag'
+alias gtd='git tag --delete'  # Delete the provided tag locally
+alias gtdr='git push --delete origin'  # Delete the provided tag remotely
+alias gtp='git push --tags'  # Push all local tags
