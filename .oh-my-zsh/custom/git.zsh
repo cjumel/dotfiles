@@ -11,6 +11,7 @@ alias gbr='git branch --remote'  # Act on remote branches
 alias gch='git checkout'
 
 alias gcl='git clone'
+alias gclb='git clone --bare'  # Clone a repository without its files, only the .git content
 
 alias gcm='git commit'
 alias gcmf='git commit --no-verify'
@@ -108,3 +109,8 @@ alias gt='git tag'
 alias gtd='git tag --delete'  # Delete the provided tag locally
 alias gtdr='git push --delete origin'  # Delete the provided tag remotely
 alias gtp='git push --tags'  # Push all local tags
+
+alias gw='git worktree'
+alias gwa='git worktree add'
+alias gwl='git worktree list'
+alias gwr='git worktree remove'
