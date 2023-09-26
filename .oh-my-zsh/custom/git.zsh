@@ -51,6 +51,8 @@ alias gpsu='git push --set-upstream'  # Set the upstream of a local branch and p
 
 alias grb='git rebase'
 alias grbi='git rebase --interactive'
+alias grbm='git rebase origin/main'
+alias grbmi='git rebase origin/main --interactive'
 
 # Actions during rebase:
 alias grba='git rebase --abort'
@@ -94,7 +96,6 @@ alias gso='git show'  # Show various types of objects
 alias gsw='git switch'  # Switch branches
 alias gswc='git switch --create'  # Create a new local branch
 alias gswm='git switch main'
-alias gswms='git switch master'
 alias gswp='git switch -'  # Switch to the previous branch
 
 alias gt='git tag'
