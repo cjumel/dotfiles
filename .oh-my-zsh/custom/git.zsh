@@ -51,8 +51,8 @@ alias gpsu='git push --set-upstream'  # Set the upstream of a local branch and p
 
 alias grb='git rebase'
 alias grbi='git rebase --interactive'
-alias grbm='git rebase origin/main'
-alias grbmi='git rebase origin/main --interactive'
+alias grbm='git rebase main'
+alias grbmi='git rebase main --interactive'
 
 # Actions during rebase:
 alias grba='git rebase --abort'
