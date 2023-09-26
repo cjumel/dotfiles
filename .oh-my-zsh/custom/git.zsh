@@ -10,26 +10,23 @@ alias gbr='git branch --remote'  # Act on remote branches
 
 alias gch='git checkout'
 
-alias gcl='git clone'
-alias gclb='git clone --bare'  # Clone a repository without its files, only the .git content
-
-alias gcm='git commit'
-alias gcmf='git commit --no-verify'
-
-alias gcma='git commit --amend'
-alias gcman='git commit --amend --no-edit'
-alias gcmanf='git commit --amend --no-edit --no-verify'
-
-alias gcmm='git commit --message'
-alias gcmmf='git commit --no-verify --message'
-
-alias gcmw='git commit --message "🚧 WIP"'
-alias gcmwf='git commit --no-verify --message "🚧 WIP"'
+alias gca='git commit --amend --no-edit'  # By default, let's not edit the commit message
+alias gcaf='git commit --amend --no-edit --no-verify'  # Force commit (no hook)
+alias gcae='git commit --amend' # With commit message edition
 
 alias gcf='git config'
 alias gcfg='git config --global'
 
+alias gcl='git clone'
+alias gclb='git clone --bare'  # Clone a repository without its files, only the .git content
+
+alias gcm='git commit --no-edit'  # When using gitmoji, the commit message is created interactively
+alias gcme='git commit'  # With commit message edition
+alias gcmf='git commit --no-edit --no-verify'
+
 alias gcp='git cherry-pick'  # Apply the changes introduced by some existing commits
+
+alias gcw='git commit --no-verify --message "🚧 WIP"'
 
 alias gdf='git diff' # Show changes between commits, commit and working tree, etc.
 alias gdft='git difftool'
@@ -54,10 +51,6 @@ alias gpsu='git push --set-upstream'  # Set the upstream of a local branch and p
 
 alias grb='git rebase'
 alias grbi='git rebase --interactive'
-alias grbm='git rebase origin/main'
-alias grbms='git rebase origin/master'
-alias grbmi='git rebase origin/main --interactive'
-alias grbmsi='git rebase origin/master --interactive'
 
 # Actions during rebase:
 alias grba='git rebase --abort'
@@ -89,7 +82,6 @@ alias grvl='git revert HEAD'  # Revert the last commit
 
 alias gs='git status'
 alias gsd='git status .'
-alias gst='git status'  # Alias for git status, used in some keymaps
 
 alias gsh='git stash'  # Stash the uncommited changes
 alias gsha='git stash apply'  # Re-apply the last stashed changes (don't clear them)
