@@ -16,13 +16,9 @@ com.intellij.dev|null
 
 com.intellij.diagram|Other Tools
 
-com.intellij.jsonpath|JavaScript Frameworks and Tools
-
 com.intellij.platform.images|null
 
 com.intellij.plugins.watcher|null
-
-com.intellij.qt|null
 
 com.intellij.searcheverywhere.ml|null
 
@@ -59,8 +55,6 @@ intellij.indexing.shared|null
 org.intellij.intelliLang|Other Tools
 
 org.intellij.plugins.markdown|Languages
-
-org.jetbrains.plugins.gitlab|Version Controls
 
 org.jetbrains.plugins.textmate|Other Tools
 
