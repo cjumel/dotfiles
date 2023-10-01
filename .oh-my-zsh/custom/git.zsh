@@ -50,9 +50,9 @@ alias gpsf='git push --force'
 alias gpsu='git push --set-upstream'  # Set the upstream of a local branch and push it (needed iff autoSetupRemote is not True)
 
 alias grb='git rebase'
-alias grbi='git rebase --interactive'
 alias grbm='git rebase main'
-alias grbmi='git rebase main --interactive'
+alias grbi='git rebase --interactive'
+alias grbim='git rebase --interactive main'
 
 # Actions during rebase:
 alias grba='git rebase --abort'
