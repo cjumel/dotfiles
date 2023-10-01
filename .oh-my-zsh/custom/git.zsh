@@ -8,25 +8,23 @@ alias gba='git branch --all'
 alias gbd='git branch --delete --force'  # Force delete a local branch
 alias gbr='git branch --remote'  # Act on remote branches
 
-alias gch='git checkout'
-
 alias gca='git commit --amend --no-edit'  # By default, let's not edit the commit message
-alias gcaf='git commit --amend --no-edit --no-verify'  # Force commit (no hook)
 alias gcae='git commit --amend' # With commit message edition
-
-alias gcl='git clone'
-alias gclb='git clone --bare'  # Clone a repository without its files, only the .git content
-
+alias gcaf='git commit --amend --no-edit --no-verify'  # Force commit (no hook)
 alias gcm='git commit --no-edit'  # When using gitmoji, the commit message is created interactively
 alias gcme='git commit'  # With commit message edition
 alias gcmf='git commit --no-edit --no-verify'
+alias gcw='git commit --no-verify --message "🚧 WIP"'
+
+alias gch='git checkout'
+
+alias gcl='git clone'
+alias gclb='git clone --bare'  # Clone a repository without its files, only the .git content
 
 alias gcn='git config'
 alias gcng='git config --global'
 
 alias gcp='git cherry-pick'  # Apply the changes introduced by some existing commits
-
-alias gcw='git commit --no-verify --message "🚧 WIP"'
 
 alias gdf='git diff' # Show changes between commits, commit and working tree, etc.
 alias gdft='git difftool'
