@@ -11,9 +11,11 @@ alias gbr='git branch --remote'  # Act on remote branches
 alias gca='git commit --amend --no-edit'  # By default, let's not edit the commit message
 alias gcae='git commit --amend' # With commit message edition
 alias gcaf='git commit --amend --no-edit --no-verify'  # Force commit (no hook)
+alias gcf='git commit --message "🚧 FIXUP"'
 alias gcm='git commit --no-edit'  # When using gitmoji, the commit message is created interactively
 alias gcme='git commit'  # With commit message edition
 alias gcmf='git commit --no-edit --no-verify'
+alias gcmm='git commit --message'
 alias gcw='git commit --no-verify --message "🚧 WIP"'
 
 alias gch='git checkout'
