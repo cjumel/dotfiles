@@ -77,6 +77,11 @@ alias grtsd='git restore --staged .'
 alias grv='git revert'
 alias grvl='git revert HEAD'  # Revert the last commit
 
+# Actions during revert:
+alias grva='git revert --abort'
+alias grvc='git revert --continue'
+alias grvs='git revert --skip'
+
 alias gs='git status'
 alias gsd='git status .'
 
