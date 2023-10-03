@@ -62,17 +62,12 @@ alias grbs='git rebase --skip'
 alias grm='git rm'  # Remove a file from the repository and the file system
 alias grmc='git rm --cached'  # Remove a file from the reposiory but not from the file system
 
-alias grs='git reset'  # Mixed reset: reset commits but keep their changes as unstaged
-alias grsl='git reset HEAD~1'  # Mixed reset the last commit
-function grsn(){ git reset HEAD~$1 }  # Mixed reset the N last commits
-
+alias grsm='git reset --mixed'  # Mixed reset: reset commits but keep their changes as unstaged
+function grsml(){ git reset --mixed HEAD~$1 }  # Mixed reset the last commits
 alias grsh='git reset --hard'  # Hard reset: reset commits and discard all their changes
-alias grshl='git reset --hard HEAD~1'  # Hard reset the last commit
-function grshn(){ git reset --hard HEAD~$1 }  # Hard reset the N last commits
-
+function grshl(){ git reset --hard HEAD~$1 }  # Hard reset the last commits
 alias grss='git reset --soft'  # Soft reset: reset commits and keep their changes as staged
-alias grssl='git reset --soft HEAD~1'  # Soft reset the last commit
-function grssn(){ git reset --soft HEAD~$1 }  # Soft reset the N last commits
+function grssl(){ git reset --soft HEAD~$1 }  # Soft reset the last commits
 
 alias grt='git restore'  # Discard the changes of the targeted unstaged files
 alias grtd='git restore .'

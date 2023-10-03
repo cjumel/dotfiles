@@ -9,6 +9,9 @@ alias bic='brew install --cask'
 alias bif='brew info'
 
 alias bl='brew list'
+alias blc='brew list --cask'
+
+alias blv='brew leaves'  # List installed formulae that are not dependencies of another one
 
 alias bo='brew outdated'
 
