@@ -13,7 +13,7 @@ alias lsa='ls -a'
 alias md='mkdir'
 alias mdp='mkdir -p'
 
-alias no='nvim ./notes.txt'
+alias no='nvim ./notes.md'
 
 alias pch='open -na PyCharm --args .'
 
