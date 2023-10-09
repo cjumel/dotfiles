@@ -10,8 +10,6 @@ alias lsa='ls -a'
 alias md='mkdir'
 alias mdp='mkdir -p'
 
-alias no='nvim ./notes.md'
-
 alias pch='open -na PyCharm --args .'
 
 alias rmd='rm -d'
@@ -23,14 +21,6 @@ alias so='source'
 alias soz='source ~/.zshrc'
 
 alias to='touch'
-
-alias vi='nvim'
-alias vic='rm -rf ~/.local/share/nvim/' # Clear nvim cache
-function vil(){  # Link nvim config to the input **absolute** path
-  rm -f ~/.config/nvim
-  ln -s $1 ~/.config/nvim
-}
-alias vip='poetry run nvim'
 
 alias wi='which'
 alias we='whence'
