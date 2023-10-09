@@ -87,7 +87,6 @@ ZSH_CUSTOM=$HOME/dotfiles/.oh-my-zsh/custom/
 plugins=(
   aliases
   history
-  zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
