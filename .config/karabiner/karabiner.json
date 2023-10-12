@@ -132,6 +132,41 @@
                 "type": "basic"
               }
             ]
+          },
+          {
+            "description": "Simpler \\ binding",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "period",
+                  "modifiers": {
+                    "mandatory": ["option"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "period",
+                    "modifiers": ["option", "shift"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "period",
+                  "modifiers": {
+                    "mandatory": ["option", "shift"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "period",
+                    "modifiers": ["option"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
           }
         ]
       },
