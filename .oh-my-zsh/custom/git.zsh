@@ -28,8 +28,8 @@ alias gcng='git config --global'
 
 alias gcp='git cherry-pick'  # Apply the changes introduced by some existing commits
 
-alias gdf='git diff' # Show changes between commits, commit and working tree, etc.
-alias gdft='git difftool'
+alias gd='git diff' # Show changes between commits, commit and working tree, etc.
+alias gdt='git difftool'
 
 alias gf='git fetch'
 alias gfp='git fetch --prune'  # Remove unused remote branches
