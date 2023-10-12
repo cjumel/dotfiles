@@ -537,6 +537,16 @@
               "key_code": "caps_lock"
             }
           ]
+        },
+        {
+          "from": {
+            "key_code": "right_option"
+          },
+          "to": [
+            {
+              "key_code": "right_control"
+            }
+          ]
         }
       ],
       "virtual_hid_keyboard": {
