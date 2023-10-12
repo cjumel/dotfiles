@@ -1,0 +1,40 @@
+{
+  "title": "Improve special keys bindings",
+  "rules": [
+    {
+      "description": "Simpler | binding",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": ["option"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "l",
+              "modifiers": ["option", "shift"]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": ["option", "shift"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "l",
+              "modifiers": ["option"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
