@@ -1,7 +1,7 @@
 alias vi='nvim'
 alias vip='poetry run nvim'
 
-alias no='nvim ./notes.md'
+alias qn='nvim ./notes.md'
 
 alias vic='rm -rf ~/.local/share/nvim/' # Clear nvim cache
 function vil(){  # Link nvim config to the input **absolute** path
