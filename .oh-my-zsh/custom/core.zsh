@@ -1,3 +1,5 @@
+alias cd='HOME=~/Code/ cd'
+
 alias duh='du -d 1 -h 2>/dev/null'
 alias duhbig='du -d 1 -h -t1G 2>/dev/null'
 
