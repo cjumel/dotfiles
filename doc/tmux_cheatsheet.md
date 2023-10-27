@@ -4,6 +4,8 @@ This cheat sheet gathers the keybindings I use actively. They can be either cust
 ones. All these keybindings are only available **within** a Tmux session. I use as prefix
 `<C-Space>`.
 
+To see the list of available key bindings, you can press `<prefix>?`.
+
 ### Sessions
 
 - `<prefix>d`: dettach from session
@@ -21,6 +23,7 @@ ones. All these keybindings are only available **within** a Tmux session. I use 
 
 - `<prefix>v`: vertically split pane (custom)
 - `<prefix>s`: (horizontally) split pane (custom)
+- `<prefix><space>`: toggle between pane layouts
 - `<prefix>z`: toggle pane zoom
 - `<prefix>b`: break pane into window (custom)
 - `<prefix>x`: close pane
