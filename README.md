@@ -79,6 +79,9 @@ To manage work sessions, split my terminal in windows and panes, I use
 Tmux's configuration file is `./.config/tmux/tmux.conf` and can be symlinked from
 `~/.config/tmux/tmux.conf`.
 
+As I use some custom key bindings with Tmux, I maintain my own
+[Tmux cheat sheet](./doc/tmux_cheatsheed.md), which gathers all the key bindings I use actively.
+
 ## Git
 
 Git is the version control system I use.
