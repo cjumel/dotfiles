@@ -265,6 +265,29 @@
                 "type": "basic"
               }
             ]
+          },
+          {
+            "description": "Simpler ~ binding",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "n",
+                  "modifiers": {
+                    "mandatory": ["option"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "n",
+                    "modifiers": ["option"]
+                  },
+                  {
+                    "key_code": "spacebar"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
           }
         ]
       },

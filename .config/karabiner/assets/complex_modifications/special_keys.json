@@ -70,6 +70,29 @@
           ]
         }
       ]
+    },
+    {
+      "description": "Simpler ~ binding",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "n",
+            "modifiers": {
+              "mandatory": ["option"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "n",
+              "modifiers": ["option"]
+            },
+            {
+              "key_code": "spacebar"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
