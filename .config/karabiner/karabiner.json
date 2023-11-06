@@ -288,6 +288,37 @@
                 "type": "basic"
               }
             ]
+          },
+          {
+            "description": "Simpler % binding",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "quote"
+                },
+                "to": [
+                  {
+                    "key_code": "quote",
+                    "modifiers": ["shift"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "quote",
+                  "modifiers": {
+                    "mandatory": ["shift"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "quote"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
           }
         ]
       },

@@ -93,6 +93,37 @@
           ]
         }
       ]
+    },
+    {
+      "description": "Simpler % binding",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "quote"
+          },
+          "to": [
+            {
+              "key_code": "quote",
+              "modifiers": ["shift"]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "quote",
+            "modifiers": {
+              "mandatory": ["shift"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "quote"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
