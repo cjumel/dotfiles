@@ -1,14 +1,16 @@
-alias tm='tmux'  # Equivalent to 'tmux new'
-alias tms='tmux new -s'  # New session with name
+alias tm='tmux'
 
 alias tma='tmux attach'  # Attach to last session
-alias tmas='tmux attach -t'  # Attach to session with name
+alias tmat='tmux attach -t'  # Attach to session with target name
 
 alias tmd='tmux detach'
 
-alias tmk='tmux kill-session -t'  # Kill session with name
-alias tmK='tmux kill-server'
-
 alias tml='tmux ls'
+
+alias tmn='tmux new'
+alias tmns='tmux new -s'  # New session with name
+
+alias tmk='tmux kill-session'
+alias tmkt='tmux kill-session -t'  # Kill session with target name
 
 alias tmr='tmux rename'
