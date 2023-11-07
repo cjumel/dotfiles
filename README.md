@@ -46,8 +46,13 @@ To modify the key bindings I use on my various keyboards, I use
 non-Apple keyboard, as well as modify keys for all keyboards (such as using the caps lock key as
 escape, and the escape key as caps lock).
 
-Karabiner's configuration files are in `./.config/karabiner` and can be symlinked from
-`~/.config/karabiner`.
+Karabiner's configuration files are in `./.config/karabiner` and can be symlinked with the following
+commands:
+
+```
+ln -s <path/to/this/repository>/.config/karabiner/assets ~/.config/karabiner/assets
+ln -s <path/to/this/repository>/.config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
+```
 
 ## Iterm2
 
