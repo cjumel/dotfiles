@@ -13,8 +13,10 @@ alias fz='cd $(fdzd)'
 alias fzh='cd $(fdzdh)'
 
 # Copy but fuzzily
-alias cpf='cp $(fdz) $(fdzd)'
-alias cpfh='cp $(fdzh) $(fdzdh)'
+alias cpf='cp $(fdzf) $(fdzd)'
+alias cpfh='cp $(fdzfh) $(fdzdh)'
+alias cprf='cp -r $(fdzd) $(fdzd)'
+alias cprfh='cp -r $(fdzdh) $(fdzdh)'
 
 # Move but fuzzily
 alias mvf='mv $(fdz) $(fdzd)'
