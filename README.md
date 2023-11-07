@@ -100,4 +100,11 @@ I use to use [PyCharm](https://www.jetbrains.com/fr-fr/pycharm/) as my IDE. I se
 vim-like editor.
 
 PyCharm's configuration files are `./.ideavimrc` and in `./.config/pycharm/`, and can be symlinked
-from `~/.ideavimrc` and `~/.config/pycharm/` respectively.
+with the following commands:
+
+```
+ln -s <path/to/this/repository>/.ideavimrc ~/.ideavimrc
+ln -s <path/to/this/repository>/.config/pycharm/keymaps/ ~/.config/pycharm/keymaps/
+ln -s <path/to/this/repository>/.config/pycharm/templates ~/.config/pycharm/templates
+ln -s <path/to/this/repository>/.config/pycharm/tools ~/.config/pycharm/tools
+```
