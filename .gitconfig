@@ -1,26 +1,20 @@
-[user]
-	name = clementjumel
-	email = clement.jumel@gmail.com
-[credential]
-	helper = osxkeychain
-[core]
-	excludesfile = ~/dotfiles/.gitignore
-	autocrlf = input
-	editor = nvim
-[pull]
-	rebase = true
-[alias]
-	lg = log --oneline --graph --decorate --color
-[push]
-  default = current
-	autoSetupRemote = true
-[diff]
-  tool = nvim
-[difftool "nvim"]
-  cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
-[difftool]
-  prompt = false
 [advice]
-	skippedCherryPicks = false
+    skippedCherryPicks = false
+[alias]
+    lg = log --oneline --graph --decorate --color
+[core]
+    excludesfile = ~/dotfiles/.gitignore
+    autocrlf = input
+    editor = nvim
+[credential]
+    helper = osxkeychain
+[pull]
+    rebase = true
+[push]
+    default = current
+    autoSetupRemote = true
 [status]
-	showUntrackedFiles = all
+    showUntrackedFiles = all
+[user]
+    name = clementjumel
+    email = clement.jumel@gmail.com
