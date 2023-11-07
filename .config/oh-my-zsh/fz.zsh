@@ -3,8 +3,8 @@
 # other aliases, for instance with 'cd $(fdzd)'
 alias fdz='fd . | fzf --layout reverse'
 alias fdzh='fd . --hidden | fzf --layout reverse'
-alias fdzd='fd . --type d | fzf --layout reverse'
-alias fdzdh='fd . --type d --hidden | fzf --layout reverse'
+alias fdzd='(echo "."; fd . --type d) | fzf --layout reverse' # Extended with the current directory
+alias fdzdh='(echo "."; fd . --type d --hidden) | fzf --layout reverse' # Extended with the current directory
 alias fdzf='fd . --type f | fzf --layout reverse'
 alias fdzfh='fd . --type f --hidden | fzf --layout reverse'
 
