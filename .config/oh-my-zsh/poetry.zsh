@@ -1,10 +1,5 @@
 alias poa='poetry add'
 
-alias popb='poetry publish'
-alias popbb='poetry publish --build'
-
-alias popi='poetry pin'
-
 alias poc='poetry cache'
 alias pocc='poetry cache clear --all .'
 
@@ -18,8 +13,13 @@ alias poi='poetry install'
 
 alias poii='poetry init'
 
-alias pl='poetry lock' # Lock the dependencies of the pyproject.toml with latest versions but don't install them
-alias pln='poetry lock --no-update' # Lock without updating the dependencies to latest versions
+alias pol='poetry lock' # Lock the dependencies of the pyproject.toml with latest versions but don't install them
+alias poln='poetry lock --no-update' # Lock without updating the dependencies to latest versions
+
+alias popb='poetry publish'
+alias popbb='poetry publish --build'
+
+alias popi='poetry pin'
 
 alias por='poetry run'
 
