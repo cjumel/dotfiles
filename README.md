@@ -5,29 +5,22 @@ These files describe the tools I use to work on my computer and their configurat
 To use these configuration files, first clone this repository anywhere with git, using:
 
 ```shell
-git clone https://github.com/clementjumel/dotfiles.git ~/your/path/dotfiles/
+git clone https://github.com/clementjumel/dotfiles.git <path-to-this-repository>
 ```
 
-For instance, on my machine, `~/your/path/dotfiles/` is `~/Code/clementjumel/dotfiles/`. Then,
+For instance, on my machine, `<path-to-this-repository>` is `~/Code/clementjumel/dotfiles/`. Then,
 create a symlink from the home directory to the dotfiles repository, with:
 
 ```shell
-ln -s ~/your/path/dotfiles/ ~/dotfiles/
-```
-
-For the following, you will need to go inside the `dotfiles/` directory, so run:
-
-```shell
-cd ~/your/path/dotfiles
+ln -s <path-to-this-repository> ~/dotfiles
 ```
 
 ## Neovim
 
 I use [Neovim](https://neovim.io/) as my main code editor. Its configuration is versioned in a
-dedicated repository. I started up by configuring it with
-[NvChad](https://github.com/clementjumel/NvChad), but I ended up using
-[kickstart.nvim](https://github.com/clementjumel/kickstart.nvim) as it gives more flexibility and
-freedom.
+dedicated repository: I started up by configuring it with NvChad
+[here](https://github.com/clementjumel/NvChad), but I ended up using kickstart.nvim
+[here](https://github.com/clementjumel/kickstart.nvim) as it gives more flexibility and freedom.
 
 ## Homebrew
 
@@ -49,7 +42,7 @@ escape, and the escape key as caps lock).
 Karabiner's configuration files are in `./.config/karabiner` and can be symlinked with the following
 commands:
 
-```
+```shell
 ln -s <path/to/this/repository>/.config/karabiner/assets ~/.config/karabiner/assets
 ln -s <path/to/this/repository>/.config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
 ```
@@ -81,14 +74,22 @@ To manage work sessions, split my terminal in windows and panes, I use
 [Tmux](https://doc.ubuntu-fr.org/tmux). To set it up, I followed this
 [video](https://www.youtube.com/watch?v=DzNmUNvnB04&ab_channel=DreamsofCode).
 
-Tmux's configuration file is `./.config/tmux/tmux.conf` and can be symlinked from
-`~/.config/tmux/tmux.conf`.
+Tmux's configuration file is `./.config/tmux/tmux.conf` and can be symlinked with the following
+command:
+
+```shell
+ln -s <path-to-this-repository>/.config/tmux/tmux.conf ~/.config/tmux/tmux.conf
+```
 
 ## Git
 
 Git is the version control system I use.
 
-Git's configuration file is `./.gitconfig` and can can be symlinked from `~/.gitconfig`.
+Git's configuration file is `./.gitconfig` and can can be symlinked with the following command:
+
+```shell
+ln -s <path-to-this-repository>/.gitconfig ~/.gitconfig
+```
 
 ## PyCharm
 
@@ -102,7 +103,7 @@ vim-like editor.
 PyCharm's configuration files are `./.ideavimrc` and in `./.config/pycharm/`, and can be symlinked
 with the following commands:
 
-```
+```shell
 ln -s <path/to/this/repository>/.ideavimrc ~/.ideavimrc
 ln -s <path/to/this/repository>/.config/pycharm/keymaps/ ~/.config/pycharm/keymaps/
 ln -s <path/to/this/repository>/.config/pycharm/templates ~/.config/pycharm/templates
