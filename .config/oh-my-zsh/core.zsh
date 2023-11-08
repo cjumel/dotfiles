@@ -1,7 +1,11 @@
+function al(){ alias | grep "^$1" }  # List aliases starting with the input string
+
 alias cd='HOME=~/Code/ cd'
 
 alias duh='du -d 1 -h 2>/dev/null'
 alias duhbig='du -d 1 -h -t1G 2>/dev/null'
+
+function fu(){ functions | grep "^$1" }  # List functions starting with the input string
 
 alias lns='ln -s'
 
