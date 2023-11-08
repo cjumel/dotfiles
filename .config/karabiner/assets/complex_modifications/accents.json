@@ -56,12 +56,12 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "backslash",
+            "key_code": "non_us_pound",
             "modifiers": {}
           },
           "to": [
             {
-              "key_code": "backslash"
+              "key_code": "non_us_pound"
             },
             {
               "key_code": "spacebar"
@@ -71,28 +71,28 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "backslash",
+            "key_code": "non_us_pound",
             "modifiers": {
               "mandatory": ["shift"]
             }
           },
           "to": [
             {
-              "key_code": "backslash"
+              "key_code": "non_us_pound"
             }
           ]
         },
         {
           "type": "basic",
           "from": {
-            "key_code": "backslash",
+            "key_code": "non_us_pound",
             "modifiers": {
               "mandatory": ["option"]
             }
           },
           "to": [
             {
-              "key_code": "backslash",
+              "key_code": "non_us_pound",
               "modifiers": ["shift"]
             }
           ]
