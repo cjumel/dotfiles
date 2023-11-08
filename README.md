@@ -40,12 +40,14 @@ non-Apple keyboard, as well as modify keys for all keyboards (such as using the 
 escape, and the escape key as caps lock).
 
 Karabiner's configuration files are in `./.config/karabiner` and can be symlinked with the following
-commands:
+command:
 
 ```shell
-ln -s <path/to/this/repository>/.config/karabiner/assets ~/.config/karabiner/assets
-ln -s <path/to/this/repository>/.config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
+ln -s <path/to/this/repository>/.config/karabiner ~/.config/karabiner
 ```
+
+As mentionned [here](https://karabiner-elements.pqrs.org/docs/manual/misc/configuration-file-path/),
+the whole directory needs to be symlinked, not individual files and sub-directories.
 
 ## Iterm2
 
