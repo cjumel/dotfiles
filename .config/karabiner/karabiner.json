@@ -502,6 +502,16 @@
                   "consumer_key_code": "volume_decrement"
                 }
               ]
+            },
+            {
+              "from": {
+                "key_code": "non_us_pound"
+              },
+              "to": [
+                {
+                  "key_code": "backslash"
+                }
+              ]
             }
           ],
           "treat_as_built_in_keyboard": false
