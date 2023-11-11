@@ -31,9 +31,9 @@ alias gcp='git cherry-pick'  # Apply the changes introduced by some existing com
 alias gd='git diff' # Show changes between commits, commit and working tree, etc.
 alias gdt='git difftool'
 
-alias gf='git fetch'
-alias gfp='git fetch --prune'  # Remove unused remote branches
-alias gfu='git fetch upstream'  # Fetch the upstream repository
+alias gf='git fetch'  # Fetch the remote repository
+alias gfp='git fetch --prune'  # Fetch & remove unused remote branches
+alias gfu='git fetch upstream'  # Fetch the remote repository upstream branch (useful to update forks)
 
 alias gl='git lg'
 alias glm='git lg origin..HEAD'  # Show the log since the divergence from the main branch
@@ -50,9 +50,9 @@ alias gpsf='git push --force'
 alias gpsu='git push --set-upstream'  # Set the upstream of a local branch and push it (needed iff autoSetupRemote is not True)
 
 alias grb='git rebase'
-alias grbm='git rebase main'
 alias grbi='git rebase --interactive'
-alias grbim='git rebase --interactive main'
+alias grbo='git rebase --strategy-option=theirs'  # Rebase changes and keep ours (reversal with the option is on purpose)
+alias grbt='git rebase --strategy-option=ours'  # Rebase changes and keep theirs (reversal with the option is on purpose)
 
 # Actions during rebase:
 alias grba='git rebase --abort'

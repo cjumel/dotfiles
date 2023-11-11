@@ -13,4 +13,6 @@ alias tmns='tmux new -s'  # New session with name
 alias tmk='tmux kill-session'
 alias tmkt='tmux kill-session -t'  # Kill session with target name
 
+alias tmK='tmux kill-server'
+
 alias tmr='tmux rename'
