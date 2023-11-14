@@ -8,15 +8,19 @@ alias gba='git branch --all'
 alias gbd='git branch --delete --force'  # Force delete a local branch
 alias gbr='git branch --remote'  # Act on remote branches
 
-alias gca='git commit --amend --no-edit'  # By default, let's not edit the commit message
-alias gcae='git commit --amend' # With commit message edition
-alias gcaf='git commit --amend --no-edit --no-verify'  # Force commit (no hook)
-alias gcf='git commit --message "🚧 FIXUP"'
-alias gcm='git commit --no-edit'  # When using gitmoji, the commit message is created interactively
-alias gcme='git commit'  # With commit message edition
-alias gcmf='git commit --no-edit --no-verify'
-alias gcmm='git commit --message'
-alias gcw='git commit --no-verify --message "🚧 WIP"'
+alias gca='git commit --amend'  # Amend commit by adding the staged changes to it
+alias gcaf='git commit --no-verify'  # Amend & skip hooks
+alias gcan='git commit --amend --no-edit'  # Amend & skip commit message
+alias gcanf='git commit --amend --no-edit --no-verify'  # Amend & skip commit message & hooks
+
+alias gcc='git commit'  # Create commit
+alias gccf='git commit --no-verify'  # Create & skip hooks
+alias gccn='git commit --no-edit'  # Create & skip commit message (useful with gitmoji)
+alias gccnf='git commit --no-edit --no-verify'  # Create & skip commit message & hooks
+
+alias gcf='git commit --message "🚧 FIXUP"'  # Fixup commit (to be squashed later with another commit)
+
+alias gcw='git commit --no-verify --message "🚧 WIP"'  # WIP commit
 
 alias gch='git checkout'
 
