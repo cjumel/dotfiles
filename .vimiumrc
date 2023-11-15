@@ -1,8 +1,14 @@
-# This file contains the custom configuration I set for Vimium, a web browser extension I use
+# This file contains the custom configuration I set for Vimium, a web browser extension.
+# To actually set this configuration, go to the Vimium options page (press `?` in the web
+# browser), paste the content of this file in the "Custom key mappings" section, and click "Save".
 
-## Keymaps
-# Navigate to a link
+# Use s/S to search and click a link instead of f/F
+unmap f
+unmap F
 map s LinkHints.activateMode
 map S LinkHints.activateModeToOpenInNewTab
-# Close a tab
+
+# Disable x (close tab)/X (restore closed tab) as X doesn't work & replace x with <c-c>
+unmap x
+unmap X
 map <c-c> removeTab
