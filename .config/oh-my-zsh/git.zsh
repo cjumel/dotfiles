@@ -20,17 +20,18 @@ alias gccnf='git commit --no-edit --no-verify'  # Create & skip commit message &
 
 alias gcf='git commit --message "🚧 FIXUP"'  # Fixup commit (to be squashed later with another commit)
 
-alias gcw='git commit --no-verify --message "🚧 WIP"'  # WIP commit
-
-alias gch='git checkout'
-
 alias gcl='git clone'
 alias gclb='git clone --bare'  # Clone a repository without its files, only the .git content
 
 alias gcn='git config'
 alias gcng='git config --global'
 
+alias gco='git checkout'
+alias gcod='git checkout --' # Discard the changes of the targeted files or all of them
+
 alias gcp='git cherry-pick'  # Apply the changes introduced by some existing commits
+
+alias gcw='git commit --no-verify --message "🚧 WIP"'  # WIP commit
 
 alias gd='git diff' # Show changes between commits, commit and working tree, etc.
 alias gdt='git difftool'
@@ -40,7 +41,6 @@ alias gfp='git fetch --prune'  # Fetch & remove unused remote branches
 alias gfu='git fetch upstream'  # Fetch the remote repository upstream branch (useful to update forks)
 
 alias gl='git lg'
-alias glm='git lg origin..HEAD'  # Show the log since the divergence from the main branch
 
 alias gm='gitmoji'
 alias gmc='gitmoji --config'
@@ -97,9 +97,8 @@ alias gshp='git stash pop'  # Re-apply the last stashed changes & clear them
 
 alias gso='git show'  # Show various types of objects
 
-alias gsw='git switch'  # Switch branches
-alias gswc='git switch --create'  # Create a new local branch
-alias gswm='git switch main'
+alias gsw='git switch'  # Switch to a branch by its name
+alias gswc='git switch --create'  # Create & switch to a new branch
 alias gswp='git switch -'  # Switch to the previous branch
 
 alias gt='git tag'

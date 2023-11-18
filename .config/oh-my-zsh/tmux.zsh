@@ -16,3 +16,6 @@ alias tmkt='tmux kill-session -t'  # Kill session with target name
 alias tmK='tmux kill-server'
 
 alias tmr='tmux rename'
+
+alias tms='tmux source'
+alias tmsc='tmux source ~/.config/tmux/tmux.conf'
