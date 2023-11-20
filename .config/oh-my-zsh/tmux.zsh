@@ -1,5 +1,4 @@
 alias tm='tmux'
-alias tml='tmux -f ~/dotfiles/.config/tmux/tmux_light.conf'  # Use light configuration
 
 alias tma='tmux attach'  # Attach to last session
 alias tmat='tmux attach -t'  # Attach to session with target name
@@ -8,10 +7,10 @@ alias tmd='tmux detach'
 
 alias tml='tmux ls'
 
-alias tmn='tmux new'
-alias tmns='tmux new -s'  # New session with name
-alias tmln='tmux -f ~/dotfiles/.config/tmux/tmux_light.conf new'
-alias tmlns='tmux -f ~/dotfiles/.config/tmux/tmux_light.conf new -s'
+alias tmn='tmux new'  # New unnamed session
+alias tmnl='tmux -f ~/dotfiles/.config/tmux/tmux_light.conf new'  # New unnamed session with light theme
+alias tmns='tmux new -s'  # New named sessions
+alias tmnsl='tmux -f ~/dotfiles/.config/tmux/tmux_light.conf new -s'  # New named session with light theme
 
 alias tmk='tmux kill-session'
 alias tmkt='tmux kill-session -t'  # Kill session with target name
