@@ -22,4 +22,4 @@ alias tmr='tmux rename'
 
 alias tms='tmux source'
 alias tmsc='tmux source ~/.config/tmux/tmux.conf'  # Source default configuration
-alias tmsl='tmux source ~/.config/tmux/tmux_light.conf'  # Source light configuration
+alias tmsl='tmux source ~/dotfiles/.config/tmux/tmux_light.conf'  # Source light configuration
