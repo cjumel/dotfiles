@@ -319,6 +319,116 @@
                 "type": "basic"
               }
             ]
+          },
+          {
+            "description": "Remap <C-m> to <C-^>",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "semicolon",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "6",
+                    "modifiers": ["control", "shift"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Remap <C-%> to <C-]>",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "quote",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "close_bracket",
+                    "modifiers": ["control"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Remap <C-^> & <C-$> to <C-a> & <C-e>",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "open_bracket",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "q",
+                    "modifiers": ["control"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "close_bracket",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "e",
+                    "modifiers": ["control"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Remap <C-,> & <C-;> to <C-d> & <C-u>",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "m",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "d",
+                    "modifiers": ["control"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "comma",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "u",
+                    "modifiers": ["control"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
           }
         ]
       },
@@ -455,6 +565,16 @@
             },
             {
               "from": {
+                "key_code": "non_us_pound"
+              },
+              "to": [
+                {
+                  "key_code": "backslash"
+                }
+              ]
+            },
+            {
+              "from": {
                 "key_code": "pause"
               },
               "to": [
@@ -500,16 +620,6 @@
               "to": [
                 {
                   "consumer_key_code": "volume_decrement"
-                }
-              ]
-            },
-            {
-              "from": {
-                "key_code": "non_us_pound"
-              },
-              "to": [
-                {
-                  "key_code": "backslash"
                 }
               ]
             }
