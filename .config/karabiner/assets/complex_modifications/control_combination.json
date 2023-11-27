@@ -110,6 +110,46 @@
           ]
         }
       ]
+    },
+    {
+      "description": "Remap <C-BS> to <C-w>",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "delete_or_backspace",
+            "modifiers": {
+              "mandatory": ["control"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "z",
+              "modifiers": ["control"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Remap <C-:> to <C-c>",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "period",
+            "modifiers": {
+              "mandatory": ["control"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "c",
+              "modifiers": ["control"]
+            }
+          ]
+        }
+      ]
     }
   ]
 }
