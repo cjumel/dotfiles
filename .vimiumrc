@@ -8,6 +8,10 @@ unmap F
 map s LinkHints.activateMode
 map S LinkHints.activateModeToOpenInNewTab
 
+# Use ,/; to scroll half page up/down
+map , scrollPageDown
+map ; scrollPageUp
+
 # Disable x (close tab)/X (restore closed tab) as X doesn't work & replace x with <c-c>
 unmap x
 unmap X
