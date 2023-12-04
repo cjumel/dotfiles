@@ -469,6 +469,26 @@
                 "type": "basic"
               }
             ]
+          },
+          {
+            "description": "Remap <C-CR> to <C-_>",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "return_or_enter",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "equal_sign",
+                    "modifiers": ["control", "shift"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
           }
         ]
       },
