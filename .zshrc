@@ -117,8 +117,10 @@ export LANG=en_US.UTF-8
 bindkey "^P" up-line-or-search
 bindkey "^N" down-line-or-search
 
-# Use ctrl+o to clear the screen
-bindkey "^O" clear-screen
+# Descrease the time out after pressing a key to remove the delay after pressing escape
+KEYTIMEOUT=1
+# Use escape to clear the screen
+bindkey "\e" clear-screen
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
