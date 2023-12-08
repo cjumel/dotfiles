@@ -42,11 +42,6 @@ alias gfu='git fetch upstream'  # Fetch the remote repository upstream branch (u
 
 alias gl='git lg'
 
-alias gm='gitmoji'
-alias gmc='gitmoji --config'
-alias gmi='gitmoji --init'
-alias gmr='gitmoji --remove'
-
 alias gpl='git pull'
 
 alias gps='git push'
