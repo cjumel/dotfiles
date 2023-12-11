@@ -67,9 +67,6 @@ ln -s <path/to/this/repository>/.config/pycharm/tools ~/.config/pycharm/tools
 
 ## Terminal Tools
 
-Terminal tools are tools that are used directly within my terminal. To install them or enable my
-custom configuration, besides the provided commands, see the [installation guide](./install.sh).
-
 ### Homebrew
 
 To manage most of my packages, I use [Homebrew](https://brew.sh/). The list of the packages I
