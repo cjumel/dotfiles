@@ -1,7 +1,5 @@
 function al(){ alias | grep "^$1" }  # List aliases starting with the input string
 
-alias cd='HOME=~/Code/ cd'
-
 # Navigation with cd & fuzzy finding
 alias cf='cd $((echo "./"; fddd) | fz)'
 alias cfh='cd $((echo "./"; fdddh) | fz)'  # Include hidden files
