@@ -3,7 +3,6 @@
 [alias]
     lg = log --oneline --graph --decorate --color
 [core]
-    excludesfile = ~/dotfiles/.gitignore
     autocrlf = input
     editor = nvim
 [credential]
