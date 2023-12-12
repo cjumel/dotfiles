@@ -155,7 +155,10 @@ dedicated repository: I started up by configuring it with NvChad
 brew install ripgrep
 brew install fd
 brew install neovim
+
 # For Ubuntu with Snap
+sudo apt-get install ripgrep
+sudo apt install fd-find
 sudo snap install nvim --classic
 ```
 
