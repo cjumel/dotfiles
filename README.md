@@ -1,49 +1,61 @@
 # Dotfiles
 
-These files describe the tools I use to work on my computer and their configurations.
-
-To use these configuration files easily, first clone this repository anywhere with git, using:
-
-```shell
-git clone https://github.com/clementjumel/dotfiles.git <path-to-this-repository>
-```
-
-For instance, on my machine, `<path-to-this-repository>` is `~/Code/clementjumel/dotfiles/`. Then,
-create a symlink from the home directory to the dotfiles repository, with:
+These files describe the tools I use to work on my computer and their configurations. To use these
+configuration files, clone this repository anywhere with Git, to a path of your choice:
 
 ```shell
-ln -s <path-to-this-repository> ~/dotfiles
+git clone https://github.com/clementjumel/dotfiles.git <path/to/this/repository>
 ```
 
-Then, for each tool, some commands (often creating a symlink) can be used to enable my
-configuration.
+For instance, on my machine, `<path/to/this/repository>` is `~/Code/clementjumel/dotfiles/`.
+
+On my machine (a Macbook), I use [Homebrew](https://brew.sh/) to manage my packages. The list of the
+packages I installed with brew can be seen in the `./Brewfile`. Thanks to
+[mas](https://github.com/mas-cli/mas), this file also contains the few packages I installed through
+the App Store.
+
+To generate the `./Brewfile`, run `brew bundle dump`, and to install all the packages, install mas
+if needed (for instance with `brew install mas`), then run `brew bundle`.
 
 ## General Tools
 
 ### Karabiner
 
-To modify the key bindings I use on my various keyboards, I use
+To modify the keys I use on my keyboards, I use
 [Karabiner-Elements](https://karabiner-elements.pqrs.org/). This enables me to fix some keys in my
-non-Apple keyboard, as well as modify keys for all keyboards (such as using the caps lock key as
-escape, and the escape key as caps lock).
+non-Apple keyboard for instance, as well as modify keys for all keyboards (such as using the caps
+lock key as escape, and the escape key as caps lock). Karabiner's configuration files are located in
+`./.config/karabiner`.
 
-Karabiner's configuration files are in `./.config/karabiner` and can be symlinked with the following
-command:
+**Install:**
 
 ```shell
+# For MacOS:
+brew install --cask karabiner-elements
+
 ln -s <path/to/this/repository>/.config/karabiner ~/.config/karabiner
 ```
 
 As mentionned [here](https://karabiner-elements.pqrs.org/docs/manual/misc/configuration-file-path/),
-the whole directory needs to be symlinked, not individual files and sub-directories.
+the whole configuration directory needs to be symlinked, not individual files and sub-directories.
 
 ### Iterm2
 
-I don't use the default macOS terminal, but [Iterm2](https://iterm2.com/). Iterm2 is a simple
-alternative to the default macOS terminal which provides many additional features.
+I don't use the default macOS terminal, which didn't work for me with some features, but
+[Iterm2](https://iterm2.com/). Iterm2 is a simple alternative to the default macOS terminal, it
+provides many additional features. I set it up with the
+[Catppuccin color scheme](https://github.com/catppuccin/iterm) and the `JetBrainsMono`
+[Nerd Font](https://www.nerdfonts.com/font-downloads).
 
-I set it up with the [Catppuccin color scheme](https://github.com/catppuccin/iterm) and the
-`JetBrainsMono` [Nerd Font](https://www.nerdfonts.com/font-downloads).
+**Install:**
+
+```shell
+# For MacOS:
+brew install --cask iterm2
+```
+
+Then follow the standard installation guides to install the Catppuccin colorscheme & the
+JetBrainsMono Nerd Fond.
 
 ### PyCharm
 
@@ -53,52 +65,64 @@ the part on my Neovim configuration.**
 I used to use [PyCharm](https://www.jetbrains.com/fr-fr/pycharm/) as my IDE. I set it up with the
 [Catppuccin color scheme](https://github.com/catppuccin/jetbrains) and, especially, the
 [IdeaVim plugin](https://plugins.jetbrains.com/plugin/164-ideavim) to transform PyCharm into a
-vim-like editor.
+vim-like editor. PyCharm's configuration files are `./.ideavimrc` and in `./.config/pycharm/`.
 
-PyCharm's configuration files are `./.ideavimrc` and in `./.config/pycharm/`, and can be symlinked
-with the following commands:
+**Install:**
 
 ```shell
+# For MacOS:
+brew install --cask pycharm
+
 ln -s <path/to/this/repository>/.ideavimrc ~/.ideavimrc
 ln -s <path/to/this/repository>/.config/pycharm/keymaps/ ~/.config/pycharm/keymaps/
 ln -s <path/to/this/repository>/.config/pycharm/templates ~/.config/pycharm/templates
 ln -s <path/to/this/repository>/.config/pycharm/tools ~/.config/pycharm/tools
 ```
 
+Then follow the standard installation guides to install the Catppuccin colorscheme & the IdeaVim
+plugin.
+
 ## Terminal Tools
-
-### Homebrew
-
-To manage most of my packages, I use [Homebrew](https://brew.sh/). The list of the packages I
-installed with brew can be seen in the `./Brewfile`. Thanks to
-[mas](https://github.com/mas-cli/mas), this file also contains the few packages I installed through
-the App Store.
-
-To generate the `./Brewfile`, run `brew bundle dump`, and to install the packages, install mas if
-needed (for instance with `brew install mas`), then run `brew bundle`.
 
 ### Git
 
-Git is the version control system I use.
+Git is the version control system I use. Git's configuration file is `./.gitconfig`.
 
-Git's configuration file is `./.gitconfig` and can can be symlinked with the following command:
+**Install:**
 
 ```shell
+# For MacOS:
+brew install git
+
 ln -s <path-to-this-repository>/.gitconfig ~/.gitconfig
 ```
 
-### Oh-My-Zsh
+### Zsh, Oh-My-Zsh & powerlevel10k
 
-I use [Oh-My-Zsh](https://ohmyz.sh) to customize my terminal prompt and define custom aliases. To
-install it, follow the [installation guide](https://ohmyz.sh/#install).
+I use Zsh as terminal shell, which I set up with [Oh-My-Zsh](https://ohmyz.sh) to define custom
+aliases and introduce some plugins, and [powerlevel10k](https://github.com/romkatv/powerlevel10k) to
+customize the terminal prompt. Their configurations are defined in `./.zshrc`, `./config/oh-my-zsh/`
+& `./.p10k.zsh`.
 
-Oh-My-Zsh's configuration files are `./.zshrc`, which can be symlinked from `~/.zshrc`, and in
-`./oh-my-zsh/custom` (no need to symlink it).
+**Requirements:**
 
-The prompt theme I use is [powerlevel10k](https://github.com/romkatv/powerlevel10k). To install it
-for Oh-My-Zsh, follow this [installation guide](https://github.com/romkatv/powerlevel10k#oh-my-zsh).
+- `curl` or `wget`
+- `git`
 
-powerlevel10k's configuration file is `./.p10k.zsh` and can be symlinked from `~/.p10k.zsh`.
+**Install:**
+
+```shell
+mv .zshrc .zshrc.old
+
+# oh-my-zsh: https://ohmyz.sh/#install
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# powerlevel10k: https://github.com/romkatv/powerlevel10k#oh-my-zsh
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+ln -s clement/dotfiles/.zshrc .zshrc
+ln -s ~/clement/dotfiles/.p10k.zsh ~/.p10k.zsh
+```
 
 ### Tmux
 
@@ -119,3 +143,42 @@ I use [Neovim](https://neovim.io/) as my main code editor. Its configuration is 
 dedicated repository: I started up by configuring it with NvChad
 [here](https://github.com/clementjumel/NvChad), but I ended up using kickstart.nvim
 [here](https://github.com/clementjumel/kickstart.nvim) as it gives more flexibility and freedom.
+
+**Requirements:**
+
+- `ripgrep` & `fd` (optional, for Telescope)
+
+**Install:**
+
+```shell
+# For MaxOS:
+brew install ripgrep
+brew install fd
+brew install neovim
+# For Ubuntu with Snap
+sudo snap install nvim --classic
+```
+
+### Fzf
+
+I use [fzf](https://github.com/junegunn/fzf) to navigate in the file system through fuzzy finding.
+
+**Requirements:**
+
+- `fd`
+
+**Install:**
+
+```shell
+brew install fzf
+```
+
+### Dust
+
+I use [Dust](https://github.com/bootandy/dust) for a more user-friendly `du` command.
+
+**Install:**
+
+```shell
+brew install dust
+```
