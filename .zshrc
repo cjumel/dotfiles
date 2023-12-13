@@ -11,9 +11,6 @@ fi
 # Suggested by homebrew when installing Python
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
-# Path to your home directory.
-HOME="/Users/clement"
-
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
