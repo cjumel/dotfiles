@@ -139,6 +139,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 ln -s <path/to/this/repository>/.config/oh-my-zsh ~/.config/oh-my-zsh
 
+# To also include user/OS-specific aliases:
+cp <path/to/this/repository>/.config/oh-my-zsh/ignored/* <path/to/this/repository>/.config/oh-my-zsh
+
 ## powerlevel10k
 
 # See https://github.com/romkatv/powerlevel10k#oh-my-zsh (command below is slightly modified)

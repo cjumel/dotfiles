@@ -1,3 +1,5 @@
 plugins/
 themes/
+# Ignore user or OS specific stuff (in files prefixed with `_`), but still track them in ignored/
 _*.zsh
+!ignored/_*.zsh
