@@ -24,8 +24,7 @@ if needed (for instance with `brew install mas`), then run `brew bundle`.
 To modify the keys I use on my keyboards, I use
 [Karabiner-Elements](https://karabiner-elements.pqrs.org/). This enables me to fix some keys in my
 non-Apple keyboard for instance, as well as modify keys for all keyboards (such as using the caps
-lock key as escape, and the escape key as caps lock). Karabiner's configuration files are located in
-`./.config/karabiner`.
+lock key as escape, and the escape key as caps lock).
 
 **Install:**
 
@@ -65,7 +64,7 @@ the part on my Neovim configuration.**
 I used to use [PyCharm](https://www.jetbrains.com/fr-fr/pycharm/) as my IDE. I set it up with the
 [Catppuccin color scheme](https://github.com/catppuccin/jetbrains) and, especially, the
 [IdeaVim plugin](https://plugins.jetbrains.com/plugin/164-ideavim) to transform PyCharm into a
-vim-like editor. PyCharm's configuration files are `./.ideavimrc` and in `./.config/pycharm/`.
+vim-like editor.
 
 **Install:**
 
@@ -86,7 +85,7 @@ plugin.
 
 ### Git
 
-Git is the version control system I use. Git's configuration file is `./.gitconfig`.
+Git is the version control system I use.
 
 **Install:**
 
@@ -96,16 +95,15 @@ brew install git
 
 # For regular version:
 ln -s <path/to/this/repository>/.gitconfig ~/.gitconfig
-# For remote version (remove user/OS-specific configurations):
-ln -s <path/to/this/repository>/.gitconfig.remote ~/.gitconfig
+# or, for a remote version (without user/OS-specific configurations):
+# ln -s <path/to/this/repository>/.gitconfig.remote ~/.gitconfig
 ```
 
 ### Zsh, Oh-My-Zsh & powerlevel10k
 
 I use Zsh as terminal shell, which I set up with [Oh-My-Zsh](https://ohmyz.sh) to define custom
 aliases and introduce some plugins, and [powerlevel10k](https://github.com/romkatv/powerlevel10k) to
-customize the terminal prompt. Their configurations are defined in `./.zshrc`, `./config/oh-my-zsh/`
-& `./.p10k.zsh`.
+customize the terminal prompt.
 
 **Requirements:**
 
@@ -115,30 +113,64 @@ customize the terminal prompt. Their configurations are defined in `./.zshrc`, `
 **Install:**
 
 ```shell
-mv .zshrc .zshrc.old
+## Requirements
 
-# oh-my-zsh: https://ohmyz.sh/#install
+# No need for MacOS, for Ubuntu:
+sude apt install curl
+# or: sudo apt install wget
+sudo apt install git
+
+## Zsh
+
+# No need for MacOS, for Ubuntu:
+sudo apt install zsh
+
+# If needed, a backup of the zsh configuration file can be done:
+mv ~/.zshrc ~/.zshrc.old
+
+ln -s <path/to/this/repository>/.zshrc ~/.zshrc
+
+## Oh-my-zsh
+
+# See https://ohmyz.sh/#install
+# oh-my-zsh gets installed in ~/.oh-my-zsh/
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# or: sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 
-# powerlevel10k: https://github.com/romkatv/powerlevel10k#oh-my-zsh
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+ln -s <path/to/this/repository>/.config/oh-my-zsh ~/.config/oh-my-zsh
 
-ln -s clement/dotfiles/.zshrc .zshrc
-ln -s ~/clement/dotfiles/.p10k.zsh ~/.p10k.zsh
+## powerlevel10k
+
+# See https://github.com/romkatv/powerlevel10k#oh-my-zsh (command below is slightly modified)
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.config/oh-my-zsh/themes/powerlevel10k
+
+ln -s <path/to/this/repository>/.p10k.zsh ~/.p10k.zsh
 ```
 
 ### Tmux
 
-To manage work sessions, split my terminal in windows and panes, I use
-[Tmux](https://doc.ubuntu-fr.org/tmux). To set it up, I followed this
-[video](https://www.youtube.com/watch?v=DzNmUNvnB04&ab_channel=DreamsofCode).
+To manage work sessions, split my terminal in windows and panes and add persistency (especially
+useful on remote machines), I use [Tmux](https://doc.ubuntu-fr.org/tmux). To set it up, I followed
+this [video](https://www.youtube.com/watch?v=DzNmUNvnB04&ab_channel=DreamsofCode).
 
-Tmux's configuration file is `./.config/tmux/tmux.conf` and can be symlinked with the following
-command:
+**Install:**
 
 ```shell
-ln -s <path-to-this-repository>/.config/tmux/tmux.conf ~/.config/tmux/tmux.conf
+# For MacOS:
+brew install tmux
+# For Ubuntu:
+sudo apt install tmux
+
+# TPM (Tmux Plugin Manager):
+# See https://github.com/tmux-plugins/tpm#installation
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+ln -s <path/to/this/repository>/.config/tmux/tmux.conf ~/.config/tmux/tmux.conf
 ```
+
+Then start tmux (with the command `tmux` for instance), press `<prefix>I` to install tmux's plugins
+(prefix is `<C-space>` in this configuration), and restart tmux (with `exit` and then `tmux` for
+instance).
 
 ### Neovim
 
@@ -154,15 +186,26 @@ dedicated repository: I started up by configuring it with NvChad
 **Install:**
 
 ```shell
-# For MaxOS:
+## Requirements
+
+# For MacOS:
 brew install ripgrep
 brew install fd
-brew install neovim
-
-# For Ubuntu with Snap
+# For Ubuntu:
 sudo apt-get install ripgrep
 sudo apt install fd-find
+
+## Neovim
+
+# For MaxOS:
+brew install neovim
+# For Ubuntu with Snap
 sudo snap install nvim --classic
+# For Ubuntu without Snap
+apt install software-properties-common
+add-apt-repository ppa:neovim-ppa/unstable
+apt update
+apt install neovim
 ```
 
 ### Fzf
@@ -176,6 +219,14 @@ I use [fzf](https://github.com/junegunn/fzf) to navigate in the file system thro
 **Install:**
 
 ```shell
+## Requirements
+
+# For MacOS:
+brew install fd
+
+## Fzf
+
+# For MacOS:
 brew install fzf
 ```
 
@@ -186,5 +237,6 @@ I use [Dust](https://github.com/bootandy/dust) for a more user-friendly `du` com
 **Install:**
 
 ```shell
+# For MacOS:
 brew install dust
 ```
