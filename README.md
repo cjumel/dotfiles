@@ -197,6 +197,8 @@ brew install fd
 # For Ubuntu:
 sudo apt-get install ripgrep
 sudo apt install fd-find
+# For the following command, you might need to run `mkdir ~/.local.bin` if it fails
+ln -s $(which fdfind) ~/.local/bin/fd
 
 ## Neovim
 
@@ -210,6 +212,8 @@ add-apt-repository ppa:neovim-ppa/unstable
 apt update
 apt install neovim
 ```
+
+Then, open Neovim with `nvim` and run `:MasonInstallAll` to install Neovim external dependencies.
 
 ### Fzf
 
@@ -226,11 +230,17 @@ I use [fzf](https://github.com/junegunn/fzf) to navigate in the file system thro
 
 # For MacOS:
 brew install fd
+# For Ubuntu:
+sudo apt install fd-find
+# For the following command, you might need to run `mkdir ~/.local.bin` if it fails
+ln -s $(which fdfind) ~/.local/bin/fd
 
 ## Fzf
 
 # For MacOS:
 brew install fzf
+# For Ubuntu:
+sudo apt install fzf
 ```
 
 ### Dust
