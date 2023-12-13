@@ -94,7 +94,10 @@ Git is the version control system I use. Git's configuration file is `./.gitconf
 # For MacOS:
 brew install git
 
-ln -s <path-to-this-repository>/.gitconfig ~/.gitconfig
+# For regular version:
+ln -s <path/to/this/repository>/.gitconfig ~/.gitconfig
+# For remote version (remove user/OS-specific configurations):
+ln -s <path/to/this/repository>/.gitconfig.remote ~/.gitconfig
 ```
 
 ### Zsh, Oh-My-Zsh & powerlevel10k
