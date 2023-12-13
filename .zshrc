@@ -74,7 +74,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM=$HOME/dotfiles/.config/oh-my-zsh/
+ZSH_CUSTOM=$HOME/.config/oh-my-zsh/
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
