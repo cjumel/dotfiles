@@ -85,13 +85,18 @@ plugin.
 
 ### Git
 
-Git is the version control system I use.
+Git is the version control system I use. Along with Git, I use pre-commit to perform various checks
+before each commit.
 
 **Install:**
 
 ```shell
 # For MacOS:
 brew install git
+brew install pre-commit
+# For Ubuntu:
+sudo apt install git
+sudo apt install pre-commit
 
 # For regular version:
 ln -s <path/to/this/repository>/.gitconfig ~/.gitconfig
@@ -113,13 +118,6 @@ customize the terminal prompt.
 **Install:**
 
 ```shell
-## Requirements
-
-# No need for MacOS, for Ubuntu:
-sude apt install curl
-# or: sudo apt install wget
-sudo apt install git
-
 ## Zsh
 
 # No need for MacOS, for Ubuntu:
@@ -142,7 +140,7 @@ ln -s <path/to/this/repository>/.config/oh-my-zsh ~/.config/oh-my-zsh
 # To also include user/OS-specific aliases:
 cp <path/to/this/repository>/.config/oh-my-zsh/ignored/* <path/to/this/repository>/.config/oh-my-zsh
 
-## powerlevel10k
+## powerlevel10k (doesn't work on Ubuntu)
 
 # See https://github.com/romkatv/powerlevel10k#oh-my-zsh (command below is slightly modified)
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.config/oh-my-zsh/themes/powerlevel10k
@@ -184,62 +182,46 @@ dedicated repository: I started up by configuring it with NvChad
 
 **Requirements:**
 
+- `git`
 - `ripgrep` & `fd` (optional, for Telescope)
+- `npm` & `python3.10-venv` (optional, for external tools)
 
 **Install:**
 
 ```shell
-## Requirements
-
-# For MacOS:
-brew install ripgrep
-brew install fd
-# For Ubuntu:
-sudo apt-get install ripgrep
-sudo apt install fd-find
-# For the following command, you might need to run `mkdir ~/.local.bin` if it fails
-ln -s $(which fdfind) ~/.local/bin/fd
-
-## Neovim
-
 # For MaxOS:
 brew install neovim
-# For Ubuntu with Snap
-sudo snap install nvim --classic
-# For Ubuntu without Snap
-apt install software-properties-common
-add-apt-repository ppa:neovim-ppa/unstable
-apt update
-apt install neovim
+# For Ubuntu:
+sudo apt install software-properties-common
+sudo add-apt-repository ppa:neovim-ppa/unstable
+sudo apt update
+sudo apt install neovim
+# or with Snap: sudo snap install nvim --classic
+
+git clone https://github.com/clementjumel/kickstart.nvim <path/to/kickstart.nvim>
+ln -s <path/to/kickstart.nvim> ~/.config/nvim
+
+# Optionally, to install plugins & external tools from the command line
+nvim "+Lazy install" +MasonInstallAll +qall
 ```
 
 Then, open Neovim with `nvim` and run `:MasonInstallAll` to install Neovim external dependencies.
 
-### Fzf
+### Fd & fzf
 
-I use [fzf](https://github.com/junegunn/fzf) to navigate in the file system through fuzzy finding.
-
-**Requirements:**
-
-- `fd`
+I use [fd](https://github.com/sharkdp/fd) & [fzf](https://github.com/junegunn/fzf) to navigate in
+the file system through fuzzy finding.
 
 **Install:**
 
 ```shell
-## Requirements
-
 # For MacOS:
 brew install fd
+brew install fzf
 # For Ubuntu:
 sudo apt install fd-find
 # For the following command, you might need to run `mkdir ~/.local.bin` if it fails
 ln -s $(which fdfind) ~/.local/bin/fd
-
-## Fzf
-
-# For MacOS:
-brew install fzf
-# For Ubuntu:
 sudo apt install fzf
 ```
 
@@ -252,4 +234,43 @@ I use [Dust](https://github.com/bootandy/dust) for a more user-friendly `du` com
 ```shell
 # For MacOS:
 brew install dust
+```
+
+### Requirements Install
+
+**curl:**
+
+```shell
+# No need for MacOS, for Ubuntu:
+sudo apt install curl
+```
+
+**wget:**
+
+```shell
+# No need for MacOS, for Ubuntu:
+sudo apt install wget
+```
+
+**ripgrep:**
+
+```shell
+# For MacOS:
+brew install ripgrep
+# For Ubuntu:
+sudo apt-get install ripgrep
+```
+
+**python3.10-venv:**
+
+```shell
+# For Ubuntu:
+sudo apt install python3.10-venv
+```
+
+**npm:**
+
+```shell
+# For Ubuntu:
+sudo apt install npm
 ```
