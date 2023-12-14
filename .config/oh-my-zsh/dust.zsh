@@ -1,1 +1,1 @@
-alias du='dust'
+alias ds='dust'
