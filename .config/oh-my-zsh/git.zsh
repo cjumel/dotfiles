@@ -9,7 +9,7 @@ alias gbd='git branch --delete --force'  # Force delete a local branch
 alias gbr='git branch --remote'  # Act on remote branches
 
 alias gca='git commit --amend'  # Amend commit by adding the staged changes to it
-alias gcaf='git commit --no-verify'  # Amend & skip hooks
+alias gcaf='git commit --amend --no-verify'  # Amend & skip hooks
 alias gcan='git commit --amend --no-edit'  # Amend & skip commit message
 alias gcanf='git commit --amend --no-edit --no-verify'  # Amend & skip commit message & hooks
 
