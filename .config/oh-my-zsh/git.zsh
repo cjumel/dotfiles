@@ -13,15 +13,15 @@ alias gcaf='git commit --amend --no-verify'  # Amend & skip hooks
 alias gcan='git commit --amend --no-edit'  # Amend & skip commit message
 alias gcanf='git commit --amend --no-edit --no-verify'  # Amend & skip commit message & hooks
 
-alias gcc='git commit'  # Create commit
-alias gccf='git commit --no-verify'  # Create & skip hooks
-alias gccn='git commit --no-edit'  # Create & skip commit message (useful with gitmoji)
-alias gccnf='git commit --no-edit --no-verify'  # Create & skip commit message & hooks
-
 alias gcf='git commit --message "🚧 FIXUP"'  # Fixup commit (to be squashed later with another commit)
 
 alias gcl='git clone'
 alias gclb='git clone --bare'  # Clone a repository without its files, only the .git content
+
+alias gcm='git commit'  # Create commit
+alias gcmf='git commit --no-verify'  # Create & skip hooks
+alias gcmn='git commit --no-edit'  # Create & skip commit message (useful with gitmoji)
+alias gcmnf='git commit --no-edit --no-verify'  # Create & skip commit message & hooks
 
 alias gcn='git config'
 alias gcng='git config --global'
