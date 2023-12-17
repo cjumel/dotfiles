@@ -118,8 +118,35 @@ KEYTIMEOUT=1
 # Use escape to clear the screen
 bindkey "\e" clear-screen
 
+# Make possible to use <Alt-c> as a keymap (useful for fzf key bindings)
+bindkey "©" fzf-cd-widget
+
+# Change layout of fzf
+export FZF_DEFAULT_OPTS='--layout=reverse --border'
+
+# Use fd for the default fzf command
+export FZF_DEFAULT_COMMAND='fd . --hidden --follow --exclude .git'
+
+# Use fd for fzf key bindings
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# Change the trigger for fzf auto-completion
+export FZF_COMPLETION_TRIGGER='^'
+
+# Use fd for fzf auto-completion
+_fzf_compgen_path() {
+  fd --hidden --follow --exclude ".git" . "$1"
+}
+_fzf_compgen_dir() {
+  fd --type d --hidden --follow --exclude ".git" . "$1"
+}
+
 # Setup zoxide with zsh
 eval "$(zoxide init --cmd cd zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Setup fzf additional features like key bindings or auto-completion
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

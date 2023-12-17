@@ -240,4 +240,6 @@ apt install fd-find
 # For the following command, you might need to run `mkdir ~/.local.bin` if it fails
 ln -s $(which fdfind) ~/.local/bin/fd
 apt install fzf
+
+ln -s <path/to/this/repository>/.fzf.zsh ~/.fzf.zsh
 ```
