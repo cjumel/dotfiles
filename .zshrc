@@ -118,6 +118,10 @@ KEYTIMEOUT=1
 # Use escape to clear the screen
 bindkey "\e" clear-screen
 
+# Enable <Alt-f> and <Alt-b> to move forward and backward word by word
+bindkey "ƒ" forward-word
+bindkey "ß" backward-word
+
 # Make possible to use <Alt-c> as a keymap (useful for fzf key bindings)
 bindkey "©" fzf-cd-widget
 
