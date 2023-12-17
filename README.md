@@ -211,23 +211,33 @@ Then, open Neovim with `nvim` and run `:MasonInstallAll` to install Neovim exter
 
 I use a variety of terminal tools to improve the user-experience when navigating in the terminal.
 
+- [bat](https://github.com/sharkdp/bat) as a drop-in replacement of `cat`,
 - [dust](https://github.com/bootandy/dust) as a drop-in replacement of `du`,
+- [eza](https://github.com/eza-community/eza) as a drop-in replacement of `ls`,
 - [fd](https://github.com/sharkdp/fd) as a replacement of `find`,
 - [fzf](https://github.com/junegunn/fzf) for a variety of fuzzy finding features (including new
-  key-bindings & fuzzy completion, provided by the installation script).
+  key-bindings & fuzzy completion, provided by the installation script),
+- [zoxide](https://github.com/ajeetdsouza/zoxide) as a drop-in replacement of `cd`.
+
+Only zoxide is mandatory for this configuration to work. Besides, to use them, you need to copy the
+alias files from `./.config/.oh-my-zsh/ignored/` to `./.config/.oh-my-zsh/`
 
 **Install:**
 
 ```shell
 # For MacOS:
+brew install bat
 brew install dust
+brew install eza
 brew install fd
 brew install fzf
 $(brew --prefix)/opt/fzf/install
+brew install zoxide
 
 # For Ubuntu:
-sudo apt install fd-find
+apt install zoxide
+apt install fd-find
 # For the following command, you might need to run `mkdir ~/.local.bin` if it fails
 ln -s $(which fdfind) ~/.local/bin/fd
-sudo apt install fzf
+apt install fzf
 ```

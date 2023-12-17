@@ -120,5 +120,8 @@ KEYTIMEOUT=1
 # Use escape to clear the screen
 bindkey "\e" clear-screen
 
+# Setup zoxide with zsh
+eval "$(zoxide init --cmd cd zsh)"
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
