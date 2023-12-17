@@ -207,31 +207,27 @@ nvim "+Lazy install" +MasonInstallAll +qall
 
 Then, open Neovim with `nvim` and run `:MasonInstallAll` to install Neovim external dependencies.
 
-### Fd & fzf
+### Terminal Utilities
 
-I use [fd](https://github.com/sharkdp/fd) & [fzf](https://github.com/junegunn/fzf) to navigate in
-the file system through fuzzy finding.
+I use a variety of terminal tools to improve the user-experience when navigating in the terminal.
 
-**Install:**
-
-```shell
-# For MacOS:
-brew install fd
-brew install fzf
-# For Ubuntu:
-sudo apt install fd-find
-# For the following command, you might need to run `mkdir ~/.local.bin` if it fails
-ln -s $(which fdfind) ~/.local/bin/fd
-sudo apt install fzf
-```
-
-### Dust
-
-I use [Dust](https://github.com/bootandy/dust) for a more user-friendly `du` command.
+- [dust](https://github.com/bootandy/dust) as a drop-in replacement of `du`,
+- [fd](https://github.com/sharkdp/fd) as a replacement of `find`,
+- [fzf](https://github.com/junegunn/fzf) for a variety of fuzzy finding features (including new
+  key-bindings & fuzzy completion, provided by the installation script).
 
 **Install:**
 
 ```shell
 # For MacOS:
 brew install dust
+brew install fd
+brew install fzf
+$(brew --prefix)/opt/fzf/install
+
+# For Ubuntu:
+sudo apt install fd-find
+# For the following command, you might need to run `mkdir ~/.local.bin` if it fails
+ln -s $(which fdfind) ~/.local/bin/fd
+sudo apt install fzf
 ```
