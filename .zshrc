@@ -132,7 +132,7 @@ bindkey "©" fzf-cd-widget
 export FZF_DEFAULT_OPTS='--layout=reverse --border'
 
 # Use fd for the default fzf command
-export FZF_DEFAULT_COMMAND='fd . --hidden --follow --exclude .git'
+export FZF_DEFAULT_COMMAND='fd . --hidden --exclude .git'
 
 # Use fd for fzf key bindings
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -143,10 +143,10 @@ export FZF_COMPLETION_TRIGGER='^'
 
 # Use fd for fzf auto-completion
 _fzf_compgen_path() {
-  fd --hidden --follow --exclude ".git" . "$1"
+  fd --hidden --exclude ".git" . "$1"
 }
 _fzf_compgen_dir() {
-  fd --type d --hidden --follow --exclude ".git" . "$1"
+  fd --type d --hidden --exclude ".git" . "$1"
 }
 
 # Setup zoxide with zsh
