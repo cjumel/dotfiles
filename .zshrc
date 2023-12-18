@@ -118,10 +118,7 @@ KEYTIMEOUT=1
 # Use escape to clear the screen
 bindkey "\e" clear-screen
 
-# Enable <Alt-f> and <Alt-b> to move forward and backward word by word (builtin key bindings)
-bindkey "ƒ" forward-word
-bindkey "ß" backward-word
-# Add <C-m> & <C-%> (with Karabiner remaps) as alternative to move forward & backward word by word
+# Add <C-m> & <C-%> (with Karabiner remaps) to move forward & backward word by word
 bindkey "^]" forward-word
 bindkey "^^" backward-word
 
