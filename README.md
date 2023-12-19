@@ -58,7 +58,7 @@ JetBrainsMono Nerd Fond.
 
 ## Terminal Tools
 
-### Git
+### Git & Pre-commit
 
 Git is the version control system I use. Along with Git, I use pre-commit to perform various checks
 before each commit.
@@ -66,16 +66,15 @@ before each commit.
 **Install:**
 
 ```shell
-# For MacOS:
-brew install git
-brew install pre-commit
-# For Ubuntu:
-sudo apt install git
-sudo apt install pre-commit
+# macos
+brew install git pre-commit
 
-# For regular version:
+# ubuntu:
+apt install git pre-commit
+
+# for regular version:
 ln -s <path/to/this/repository>/.gitconfig ~/.gitconfig
-# or, for a remote version (without user/OS-specific configurations):
+# or for a remote version (without user/OS-specific configurations):
 # ln -s <path/to/this/repository>/.gitconfig.remote ~/.gitconfig
 ```
 
@@ -89,6 +88,7 @@ customize the terminal prompt.
 
 - `curl` or `wget`
 - `git`
+- `fd`, `fzf`, `zoxide` (see the Terminal Utilities section below to install them)
 
 **Install:**
 
@@ -112,10 +112,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 ln -s <path/to/this/repository>/.config/oh-my-zsh ~/.config/oh-my-zsh
 
-# To also include user/OS-specific aliases:
-cp <path/to/this/repository>/.config/oh-my-zsh/ignored/* <path/to/this/repository>/.config/oh-my-zsh
-
-## powerlevel10k (doesn't work on Ubuntu)
+## powerlevel10k (doesn't work in Docker images to the best of my knowledge)
 
 # See https://github.com/romkatv/powerlevel10k#oh-my-zsh (command below is slightly modified)
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.config/oh-my-zsh/themes/powerlevel10k
@@ -194,27 +191,22 @@ I use a variety of terminal tools to improve the user-experience when navigating
   key-bindings & fuzzy completion, provided by the installation script),
 - [zoxide](https://github.com/ajeetdsouza/zoxide) as a drop-in replacement of `cd`.
 
-Only zoxide is mandatory for this configuration to work. Besides, to use them, you need to copy the
-alias files from `./.config/.oh-my-zsh/ignored/` to `./.config/.oh-my-zsh/`
+Zoxide, fzf & fd are mandatory for the Zsh configuration to work as they are configured directly in
+`./.zshrc`.
 
 **Install:**
 
 ```shell
-# For MacOS:
-brew install bat
-brew install dust
-brew install eza
-brew install fd
-brew install fzf
+# macos
+brew install bat dust eza fd fzf zoxide
+# for fzf additional features (auto-completion, key bindings, etc.)
 $(brew --prefix)/opt/fzf/install
-brew install zoxide
+cp <path/to/this/repository>/.config/oh-my-zsh/ignored/* <path/to/this/repository>/.config/oh-my-zsh
 
-# For Ubuntu:
-apt install zoxide
-apt install fd-find
-# For the following command, you might need to run `mkdir ~/.local.bin` if it fails
+# ubuntu (without bat, dust & eza)
+apt install fd-find fzf zoxide
+mkdir -p ~/.local/bin
 ln -s $(which fdfind) ~/.local/bin/fd
-apt install fzf
 
 ln -s <path/to/this/repository>/.fzf.zsh ~/.fzf.zsh
 ```
