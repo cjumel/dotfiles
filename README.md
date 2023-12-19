@@ -56,31 +56,6 @@ brew install --cask iterm2
 Then follow the standard installation guides to install the Catppuccin colorscheme & the
 JetBrainsMono Nerd Fond.
 
-### PyCharm
-
-**I switched to Neovim as my code editor, I don't maintain this configuration anymore. See below for
-the part on my Neovim configuration.**
-
-I used to use [PyCharm](https://www.jetbrains.com/fr-fr/pycharm/) as my IDE. I set it up with the
-[Catppuccin color scheme](https://github.com/catppuccin/jetbrains) and, especially, the
-[IdeaVim plugin](https://plugins.jetbrains.com/plugin/164-ideavim) to transform PyCharm into a
-vim-like editor.
-
-**Install:**
-
-```shell
-# For MacOS:
-brew install --cask pycharm
-
-ln -s <path/to/this/repository>/.ideavimrc ~/.ideavimrc
-ln -s <path/to/this/repository>/.config/pycharm/keymaps/ ~/.config/pycharm/keymaps/
-ln -s <path/to/this/repository>/.config/pycharm/templates ~/.config/pycharm/templates
-ln -s <path/to/this/repository>/.config/pycharm/tools ~/.config/pycharm/tools
-```
-
-Then follow the standard installation guides to install the Catppuccin colorscheme & the IdeaVim
-plugin.
-
 ## Terminal Tools
 
 ### Git
