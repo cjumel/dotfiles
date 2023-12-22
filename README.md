@@ -9,14 +9,6 @@ git clone https://github.com/clementjumel/dotfiles.git <path/to/this/repository>
 
 For instance, on my machine, `<path/to/this/repository>` is `~/Code/clementjumel/dotfiles/`.
 
-On my machine (a Macbook), I use [Homebrew](https://brew.sh/) to manage my packages. The list of the
-packages I installed with brew can be seen in the `./Brewfile`. Thanks to
-[mas](https://github.com/mas-cli/mas), this file also contains the few packages I installed through
-the App Store.
-
-To generate the `./Brewfile`, run `brew bundle dump`, and to install all the packages, install mas
-if needed (for instance with `brew install mas`), then run `brew bundle`.
-
 ## General Tools
 
 ### Karabiner
