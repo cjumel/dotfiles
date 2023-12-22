@@ -175,7 +175,6 @@ Then, open Neovim with `nvim` and run `:MasonInstallAll` to install Neovim exter
 
 I use a variety of terminal tools to improve the user-experience when navigating in the terminal.
 
-- [bat](https://github.com/sharkdp/bat) as a drop-in replacement of `cat`,
 - [dust](https://github.com/bootandy/dust) as a drop-in replacement of `du`,
 - [eza](https://github.com/eza-community/eza) as a drop-in replacement of `ls`,
 - [fd](https://github.com/sharkdp/fd) as a replacement of `find`,
@@ -190,12 +189,12 @@ Zoxide, fzf & fd are mandatory for the Zsh configuration to work as they are con
 
 ```shell
 # macos
-brew install bat dust eza fd fzf zoxide
+brew install dust eza fd fzf zoxide
 # for fzf additional features (auto-completion, key bindings, etc.)
 $(brew --prefix)/opt/fzf/install
 cp <path/to/this/repository>/.config/oh-my-zsh/ignored/* <path/to/this/repository>/.config/oh-my-zsh
 
-# ubuntu (without bat, dust & eza)
+# ubuntu (without dust & eza)
 apt install fd-find fzf zoxide
 mkdir -p ~/.local/bin
 ln -s $(which fdfind) ~/.local/bin/fd
