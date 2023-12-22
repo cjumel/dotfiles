@@ -180,6 +180,7 @@ I use a variety of terminal tools to improve the user-experience when navigating
 - [fd](https://github.com/sharkdp/fd) as a replacement of `find`,
 - [fzf](https://github.com/junegunn/fzf) for a variety of fuzzy finding features (including new
   key-bindings & fuzzy completion, provided by the installation script),
+- [tldr](https://github.com/tldr-pages/tldr) as a user-friendly alternative to `man`,
 - [zoxide](https://github.com/ajeetdsouza/zoxide) as a drop-in replacement of `cd`.
 
 Zoxide, fzf & fd are mandatory for the Zsh configuration to work as they are configured directly in
@@ -189,12 +190,12 @@ Zoxide, fzf & fd are mandatory for the Zsh configuration to work as they are con
 
 ```shell
 # macos
-brew install dust eza fd fzf zoxide
+brew install dust eza fd fzf tldr zoxide
 # for fzf additional features (auto-completion, key bindings, etc.)
 $(brew --prefix)/opt/fzf/install
 cp <path/to/this/repository>/.config/oh-my-zsh/ignored/* <path/to/this/repository>/.config/oh-my-zsh
 
-# ubuntu (without dust & eza)
+# ubuntu (without all utilities)
 apt install fd-find fzf zoxide
 mkdir -p ~/.local/bin
 ln -s $(which fdfind) ~/.local/bin/fd
