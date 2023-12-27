@@ -18,6 +18,86 @@
         },
         "rules": [
           {
+            "description": "Remap <C-<> to <C-]>",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "grave_accent_and_tilde",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "close_bracket",
+                    "modifiers": ["control"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Remap <C-`> to <C-_>",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "backslash",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "equal_sign",
+                    "modifiers": ["control", "shift"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Remap <C-%> to <C-^>",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "quote",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "6",
+                    "modifiers": ["control", "shift"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Remap <C-m> to <C-\\>",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "semicolon",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "backslash",
+                    "modifiers": ["control"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
             "description": "Remap <C-CR> to <C-c>",
             "manipulators": [
               {
@@ -369,46 +449,6 @@
                 "to": [
                   {
                     "key_code": "quote"
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "Remap <C-m> to <C-^>",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "semicolon",
-                  "modifiers": {
-                    "mandatory": ["control"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "6",
-                    "modifiers": ["control", "shift"]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "Remap <C-%> to <C-]>",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "quote",
-                  "modifiers": {
-                    "mandatory": ["control"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "close_bracket",
-                    "modifiers": ["control"]
                   }
                 ],
                 "type": "basic"
