@@ -2,46 +2,6 @@
   "title": "Redefine control-combination keymaps for more terminal features",
   "rules": [
     {
-      "description": "Remap <C-m> to <C-^>",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "semicolon",
-            "modifiers": {
-              "mandatory": ["control"]
-            }
-          },
-          "to": [
-            {
-              "key_code": "6",
-              "modifiers": ["control", "shift"]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "Remap <C-%> to <C-]>",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "quote",
-            "modifiers": {
-              "mandatory": ["control"]
-            }
-          },
-          "to": [
-            {
-              "key_code": "close_bracket",
-              "modifiers": ["control"]
-            }
-          ]
-        }
-      ]
-    },
-    {
       "description": "Remap <C-^> & <C-$> to <C-a> & <C-e>",
       "manipulators": [
         {
@@ -180,6 +140,46 @@
           "to": [
             {
               "key_code": "c",
+              "modifiers": ["control"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Remap <C-m> to <C-^>",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": {
+              "mandatory": ["control"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "6",
+              "modifiers": ["control", "shift"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Remap <C-%> to <C-]>",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "quote",
+            "modifiers": {
+              "mandatory": ["control"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "close_bracket",
               "modifiers": ["control"]
             }
           ]
