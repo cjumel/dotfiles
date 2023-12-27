@@ -119,7 +119,7 @@ KEYTIMEOUT=1
 bindkey "\e" clear-screen
 
 # Add <C-m> & <C-%> (with Karabiner remaps) to move forward & backward word by word
-bindkey "^]" forward-word
+bindkey "^_" forward-word
 bindkey "^^" backward-word
 
 # Make possible to use <Alt-c> as a keymap (useful for fzf key bindings)
