@@ -202,3 +202,20 @@ ln -s $(which fdfind) ~/.local/bin/fd
 
 ln -s <path/to/this/repository>/.fzf.zsh ~/.fzf.zsh
 ```
+
+## More Vim Movements Integration
+
+### PyCharm
+
+To use vim movements in PyCharm, I use the [IdeaVim](https://github.com/JetBrains/ideavim) plugin.
+It should be installed directly from PyCharm, along with the
+[AceJump](https://github.com/acejump/AceJump) and
+[IdeaVim-EasyMotion](https://github.com/AlexPl292/IdeaVim-EasyMotion) plugins, to support
+EasyMotion-like movements. The custom configuration file is `./.ideavimrc` and it can be symlinked
+from the home directory.
+
+### Web Brower
+
+For Chromium-based web browsers, I use the [Vimium](https://github.com/philc/vimium) extension to
+use vim movements in the browser. The configuration file is `./.vimiumrc`, however its content needs
+to be copy/pasted in the extension's configuration page, it cannot be symlinked.
