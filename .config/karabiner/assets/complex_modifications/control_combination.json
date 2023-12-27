@@ -167,7 +167,7 @@
       ]
     },
     {
-      "description": "Remap <C-CR> to <C-_>",
+      "description": "Remap <C-CR> to <C-c>",
       "manipulators": [
         {
           "type": "basic",
@@ -179,8 +179,8 @@
           },
           "to": [
             {
-              "key_code": "equal_sign",
-              "modifiers": ["control", "shift"]
+              "key_code": "c",
+              "modifiers": ["control"]
             }
           ]
         }

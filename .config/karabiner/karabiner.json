@@ -18,6 +18,26 @@
         },
         "rules": [
           {
+            "description": "Remap <C-CR> to <C-c>",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "return_or_enter",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "c",
+                    "modifiers": ["control"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
             "description": "Remap <C-:> & <C-=> to <C-b> & <C-f>",
             "manipulators": [
               {
@@ -479,26 +499,6 @@
                   {
                     "key_code": "z",
                     "modifiers": ["control"]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "Remap <C-CR> to <C-_>",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "return_or_enter",
-                  "modifiers": {
-                    "mandatory": ["control"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "equal_sign",
-                    "modifiers": ["control", "shift"]
                   }
                 ],
                 "type": "basic"
