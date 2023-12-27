@@ -18,6 +18,41 @@
         },
         "rules": [
           {
+            "description": "Remap <C-:> & <C-=> to <C-b> & <C-f>",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "period",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "b",
+                    "modifiers": ["control"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "slash",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "f",
+                    "modifiers": ["control"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
             "description": "Swap < and > with [ and ]",
             "manipulators": [
               {
@@ -443,26 +478,6 @@
                 "to": [
                   {
                     "key_code": "z",
-                    "modifiers": ["control"]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "Remap <C-:> to <C-c>",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "period",
-                  "modifiers": {
-                    "mandatory": ["control"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "c",
                     "modifiers": ["control"]
                   }
                 ],
