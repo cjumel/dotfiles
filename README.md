@@ -131,11 +131,26 @@ sudo apt install tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 ln -s <path/to/this/repository>/.config/tmux/tmux.conf ~/.config/tmux/tmux.conf
+# Optionally, to support a light theme, symlink the light-theme configuration:
+ln -s <path/to/this/repository>/.config/tmux/tmux.conf.light ~/.config/tmux/tmux.conf.light
 ```
 
 Then start tmux (with the command `tmux` for instance), press `<prefix>I` to install tmux's plugins
 (prefix is `<C-space>` in this configuration), and restart tmux (with `exit` and then `tmux` for
 instance).
+
+If the light-theme configuration has been symlinked, it can be activated with the following command
+from within a Tmux session:
+
+```shell
+tmux source ~/.config/tmux/tmux.conf.light
+```
+
+and the default configuration (with a dark theme) can be re-activated with:
+
+```shell
+tmux source ~/.config/tmux/tmux.conf
+```
 
 ### Neovim
 
