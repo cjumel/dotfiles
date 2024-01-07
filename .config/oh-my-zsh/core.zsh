@@ -1,8 +1,8 @@
-function al(){ alias | grep "^$1" }  # List aliases starting with the input string
+# List aliases starting with the input string
+function alias_by_start(){ alias | grep "^$1" }
+alias al='alias_by_start'
 
 alias cdp='cd -' # Go to previous directory
-
-function fu(){ functions | grep "^$1" }  # List functions starting with the input string
 
 alias lns='ln -s'
 
