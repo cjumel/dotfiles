@@ -1,6 +1,13 @@
-alias vi='nvim'
+# Start nvim depending on the directory content
+function nvim_contextual(){
+  if [ -e poetry.lock ]
+  then
+    poetry run nvim $@
+  else
+    nvim $@
+  fi
+}
 
-alias vid='nvim .'
+alias vi='nvim_contextual'
 
-alias vip='poetry run nvim'
-alias vipd='poetry run nvim .'
+alias vid='vi .'
