@@ -3,10 +3,6 @@
 # browser), paste the content of this file in the "Custom key mappings" section, and click "Save".
 # This must be done in each different browser profile.
 
-# Switch J & K keys, as in Arc Browser, default order is counter-intuitive
-map J nextTab
-map K previousTab
-
 # Use s/S to search and click a link instead of f/F (like s key in EasyMotion or Hop.nvim)
 unmap f
 unmap F
@@ -18,6 +14,12 @@ map , scrollPageDown
 map ; scrollPageUp
 
 # Disable mappings that don't work well
+# J/K follow a kind of most recent tab behavior, see https://github.com/philc/vimium/issues/4230
+unmap J
+unmap K
+# Since I remapped J/K to <C-J>/<C-K> in the browser, let's do the same for H/L
+unmap H
+unmap L
 # x works but tabs closed with it can't be restored with neither regular keymap nor X
 unmap x
 unmap X
