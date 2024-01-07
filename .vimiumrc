@@ -3,12 +3,6 @@
 # browser), paste the content of this file in the "Custom key mappings" section, and click "Save".
 # This must be done in each different browser profile.
 
-# Use s/S to search and click a link instead of f/F (like s key in EasyMotion or Hop.nvim)
-unmap f
-unmap F
-map s LinkHints.activateMode
-map S LinkHints.activateModeToOpenInNewTab
-
 # Use ,/; to scroll half page up/down
 map , scrollPageDown
 map ; scrollPageUp
