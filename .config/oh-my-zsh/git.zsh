@@ -15,8 +15,14 @@ alias gcanf='git commit --amend --no-edit --no-verify'  # Amend & skip commit me
 
 alias gcf='git commit --message "🚧 FIXUP"'  # Fixup commit (to be squashed later with another commit)
 
-alias gcl='git clone'
-alias gclb='git clone --bare'  # Clone a repository without its files, only the .git content
+alias gcle='git clean' # Do nothing without any option
+alias gclef='git clean -f' # Clean untracked files in target directory
+alias gclefx='git clean -fx' # Clean untracked files in target directory, including ignored
+alias gclefd='git clean -fd' # Clean untracked files in target directory & sub-directories
+alias gclefdx='git clean -fdx' # Clean untracked files in target directory & sub-directories, including ignored
+
+alias gclo='git clone'
+alias gclob='git clone --bare' # Clone only the .git directory (useful for git worktrees)
 
 alias gcm='git commit'  # Create commit
 alias gcmf='git commit --no-verify'  # Create & skip hooks
