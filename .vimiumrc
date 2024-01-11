@@ -1,7 +1,17 @@
-# This file contains the custom configuration I set for Vimium, a web browser extension.
-# To actually set this configuration, go to the Vimium options page (press `?` in the web
-# browser), paste the content of this file in the "Custom key mappings" section, and click "Save".
-# This must be done in each different browser profile.
+# This file contains the custom configuration I set for Vimium.
+#
+# To use this configuration, go to the Vimium options page (e.g. by pressing `?` in the web
+# browser and then clicking on "Options"), paste the content of each section of this file in the
+# correspoinding option section and click "Save changes". This must be done in each different
+# browser profile.
+
+## Custom key mappings
+
+# Use s/S to search and click a link instead of f/F (like s key in EasyMotion or Hop.nvim)
+unmap f
+unmap F
+map s LinkHints.activateMode
+map S LinkHints.activateModeToOpenInNewTab
 
 # Use ,/; to scroll half page up/down
 map , scrollPageDown
@@ -18,3 +28,7 @@ unmap L
 unmap x
 unmap X
 unmap t
+
+## Characters used for link hints
+
+hgjfkdlsmqyturieozpabvn
