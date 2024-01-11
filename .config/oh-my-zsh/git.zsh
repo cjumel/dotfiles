@@ -28,6 +28,7 @@ alias gcng='git config --global'
 
 alias gco='git checkout'
 alias gcod='git checkout --' # Discard the changes of the targeted files or all of them
+alias gcodd='git checkout -- .' # Discard the changes in the current directory
 
 alias gcp='git cherry-pick'  # Apply the changes introduced by some existing commits
 
@@ -61,21 +62,21 @@ alias grbs='git rebase --skip'
 alias grm='git rm'  # Remove a file from the repository and the file system
 alias grmc='git rm --cached'  # Remove a file from the reposiory but not from the file system
 
-# Reset can have several forms
-# - with a path or nothing, unstage the targeted staged files or all of them
-# - with a commit, undo the targeted commit(s) & keep their changes as unstaged (mixed reset)
+# Reset have 3 modes:
+# - mixed (default): unstage & keep the changes
+# - soft: keep as staged & keep the changes
+# - hard: unstage & discard the changes
+# Reset can be used in 3 forms:
+# - with nothing, reset all the tracked files and directories in the index
+# - with a path, reset the targeted tracked files and directories
+# - with a commit, undo the targeted commit(s) & reset their changes
 alias grs='git reset'
-
-# Commit form
-# Mixed
 function git_reset_last(){ git reset --mixed HEAD~$1 }
 alias grsl='git_reset_last' # Mixed reset the last $1 commit(s)
-# Soft
-alias grss='git reset --soft' # Same as mixed reset but keep all the commit changes as staged
+alias grss='git reset --soft'
 function git_reset_soft_last(){ git reset --soft HEAD~$1 }
 alias grssl='git_reset_soft_last' # Soft reset the last $1 commit(s)
-# Hard
-alias grsh='git reset --hard' # Same as mixed reset but discard all the commit changes
+alias grsh='git reset --hard'
 function git_reset_hard_last(){ git reset --hard HEAD~$1 }
 alias grshl='git_reset_hard_last' # Hard reset the last $1 commit(s)
 
