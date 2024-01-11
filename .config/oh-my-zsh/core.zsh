@@ -11,6 +11,8 @@ alias lsa='ls -a'
 alias md='mkdir'
 alias mdp='mkdir -p'
 
+alias py='python'
+
 alias rmd='rm -d'
 alias rmf='rm -f'
 alias rmr='rm -r'
