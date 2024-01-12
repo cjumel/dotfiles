@@ -1,12 +1,12 @@
-alias pcm='pre-commit'
+alias pc='pre-commit'
 
-alias pcmi='pre-commit install'  # Install in a repository
+alias pci='pre-commit install'  # Install in a repository
 
-alias pcmr='pre-commit run'  # Run on a file
-alias pcmra='pre-commit run --all-files'  # Run on all files
-alias pcmrd='pre-commit run --files **/*'  # Run on a directory
-alias pcmrf='pre-commit run --files'  # Run on target specified files
+alias pcr='pre-commit run'  # Run on a file
+alias pcra='pre-commit run --all-files'  # Run on all files
+alias pcrd='pre-commit run --files **/*'  # Run on a directory
+alias pcrf='pre-commit run --files'  # Run on target specified files
 
-alias pcmui='pre-commit uninstall'  # Uninstall from a repository
+alias pcui='pre-commit uninstall'  # Uninstall from a repository
 
-alias pcmup='pre-commit autoupdate'  # Update the versions of the hooks
+alias pcup='pre-commit autoupdate'  # Update the versions of the hooks
