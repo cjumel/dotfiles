@@ -9,5 +9,7 @@ function nvim_contextual(){
 }
 
 alias vi='nvim_contextual'
+alias vid='nvim_contextual .' # open current directory
 
-alias vid='vi .'
+alias vis='nvim' # skip contextual setup
+alias visd='nvim .' # open current directory
