@@ -127,12 +127,32 @@
       ]
     },
     {
-      "description": "Remap <C-CR> to <C-c>",
+      "description": "Remap <C-CR> to <C-r>",
       "manipulators": [
         {
           "type": "basic",
           "from": {
             "key_code": "return_or_enter",
+            "modifiers": {
+              "mandatory": ["control"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "r",
+              "modifiers": ["control"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Remap <C-ESC> to <C-c>",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "escape",
             "modifiers": {
               "mandatory": ["control"]
             }

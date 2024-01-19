@@ -18,6 +18,46 @@
         },
         "rules": [
           {
+            "description": "Remap <C-ESC> to <C-c>",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "escape",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "c",
+                    "modifiers": ["control"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Remap <C-CR> to <C-r>",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "return_or_enter",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "r",
+                    "modifiers": ["control"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
             "description": "Remap <C-<> to <C-]>",
             "manipulators": [
               {
@@ -90,26 +130,6 @@
                 "to": [
                   {
                     "key_code": "backslash",
-                    "modifiers": ["control"]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "Remap <C-CR> to <C-c>",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "return_or_enter",
-                  "modifiers": {
-                    "mandatory": ["control"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "c",
                     "modifiers": ["control"]
                   }
                 ],
