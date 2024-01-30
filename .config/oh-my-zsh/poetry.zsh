@@ -22,6 +22,7 @@ alias popbb='poetry publish --build'
 alias popi='poetry pin'
 
 alias por='poetry run'
+alias porpy='poetry run python'
 
 alias pos='poetry shell'
 
