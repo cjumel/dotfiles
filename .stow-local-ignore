@@ -1,0 +1,19 @@
+# Some default ignores
+
+\.git
+\.gitignore
+
+^/README.*
+^/LICENSE.*
+^/COPYING
+
+# Custom ignores
+
+# Dotfiles configuration files
+\.pre-commit-config\.yaml
+\.prettierignore
+\.prettierrc
+\.prettierrc.yaml
+
+# Not actual configuration files
+\.vimiumrc

@@ -1,13 +1,26 @@
 # Dotfiles
 
-These files describe the tools I use to work on my computer and their configurations. To use these
-configuration files, clone this repository anywhere with Git, to a path of your choice:
+## Usage
+
+To use these configuration files, you need [git](https://git-scm.com/), to clone this repository,
+and I use [GNU Stow](https://www.gnu.org/software/stow/), to manage the symbolink links (this can
+also be done by hand). Hence, you can start by installing these two with your preferred package
+manager. I use [Homebrew](https://brew.sh/), so I simply ran `brew install git stow`.
+
+Once this is done, you can clone this repository in the `$HOME` directory (this is required to use
+Stow, otherwise you can clone the repository anywhere) and use Stow to create the symbolic links to
+the configuration files, with:
 
 ```shell
-git clone https://github.com/clementjumel/dotfiles.git <path/to/this/repository>
+# You can change the directory name "dotfiles" to anything you want
+git clone https://github.com/clementjumel/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+stow .
 ```
 
-For instance, on my machine, `<path/to/this/repository>` is `~/Code/clementjumel/dotfiles/`.
+If some files exist where Stow want to create the symbolic links, Stow will fail. In that case, you
+can either remove or rename the conflicting files and restart the Stow command, or add the `--adopt`
+flag to the Stow command to adopt the conflicting files.
 
 ## General Tools
 
