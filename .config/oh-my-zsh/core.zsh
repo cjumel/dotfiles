@@ -6,6 +6,8 @@ alias cdp='cd -' # Go to previous directory
 
 alias cl='clear'
 
+alias lj='luajit'
+
 alias lns='ln -s'
 
 alias lsa='ls -a'
