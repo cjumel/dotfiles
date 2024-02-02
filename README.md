@@ -3,8 +3,9 @@
 ## Usage
 
 To use these configuration files, you need [git](https://git-scm.com/), to clone this repository,
-and I use [GNU Stow](https://www.gnu.org/software/stow/), to manage the symbolink links (this can
-also be done by hand). Hence, you can start by installing these two with your preferred package
+and I use [GNU Stow](https://www.gnu.org/software/stow/), to manage the symbolink links, following
+this [video](https://www.youtube.com/watch?v=y6XCebnB9gs&ab_channel=DreamsofAutonomy), but this can
+also be done by hand. Hence, you can start by installing these two with your preferred package
 manager. I use [Homebrew](https://brew.sh/), so I simply ran `brew install git stow`.
 
 Once this is done, you can clone this repository in the `$HOME` directory (this is required to use
@@ -14,8 +15,7 @@ the configuration files, with:
 ```shell
 # You can change the directory name "dotfiles" to anything you want
 git clone https://github.com/clementjumel/dotfiles.git ~/dotfiles
-cd ~/dotfiles
-stow .
+stow ~/dotfiles
 ```
 
 If some files exist where Stow want to create the symbolic links, Stow will fail. In that case, you
@@ -26,35 +26,30 @@ flag to the Stow command to adopt the conflicting files.
 
 ### Karabiner
 
-To modify the keys I use on my keyboards, I use
-[Karabiner-Elements](https://karabiner-elements.pqrs.org/). This enables me to fix some keys in my
-non-Apple keyboard for instance, as well as modify keys for all keyboards (such as using the caps
-lock key as escape, and the escape key as caps lock).
+I use [Karabiner-Elements](https://karabiner-elements.pqrs.org/) to modify the keys I use on my
+different keyboards. This enables me to fix some keys in my non-Apple keyboard for instance, as well
+as modify keys for all keyboards (such as using the caps lock key as escape, and the escape key as
+caps lock) and create complex keymaps (like remapping several control-key combinations to make them
+easier to use).
 
 **Install:**
 
 ```shell
-# For MacOS:
+# macos
 brew install --cask karabiner-elements
-
-ln -s <path/to/this/repository>/.config/karabiner ~/.config/karabiner
 ```
-
-As mentionned [here](https://karabiner-elements.pqrs.org/docs/manual/misc/configuration-file-path/),
-the whole configuration directory needs to be symlinked, not individual files and sub-directories.
 
 ### Iterm2
 
-I don't use the default macOS terminal, which didn't work for me with some features, but
-[Iterm2](https://iterm2.com/). Iterm2 is a simple alternative to the default macOS terminal, it
-provides many additional features. I set it up with the
+I don't use the default macOS terminal, as some features didn't work for me, but
+[Iterm2](https://iterm2.com/), a quite simple alternative. I set it up with the
 [Catppuccin color scheme](https://github.com/catppuccin/iterm) and the `JetBrainsMono`
 [Nerd Font](https://www.nerdfonts.com/font-downloads).
 
 **Install:**
 
 ```shell
-# For MacOS:
+# macos
 brew install --cask iterm2
 ```
 
@@ -65,8 +60,8 @@ JetBrainsMono Nerd Fond.
 
 ### Git & Pre-commit
 
-Git is the version control system I use. Along with Git, I use pre-commit to perform various checks
-before each commit.
+Git is the Version Control System I use. Along with it, I use pre-commit to perform various checks
+before each Git commit.
 
 **Install:**
 
@@ -76,12 +71,10 @@ brew install git pre-commit
 
 # ubuntu:
 apt install git pre-commit
-
-# for regular version:
-ln -s <path/to/this/repository>/.gitconfig ~/.gitconfig
-# or for a remote version (without user/OS-specific configurations):
-# ln -s <path/to/this/repository>/.gitconfig.remote ~/.gitconfig
 ```
+
+To setup a Git configuration adapted to remote machines, you can change the symlink to use
+`./.gitconfig.remote` instead of `./.gitconfig`.
 
 ### Zsh, Oh-My-Zsh & powerlevel10k
 
@@ -98,31 +91,15 @@ customize the terminal prompt.
 **Install:**
 
 ```shell
-## Zsh
-
-# No need for MacOS, for Ubuntu:
+# ubuntu (no need for macos)
 sudo apt install zsh
 
-# If needed, a backup of the zsh configuration file can be done:
-mv ~/.zshrc ~/.zshrc.old
-
-ln -s <path/to/this/repository>/.zshrc ~/.zshrc
-
-## Oh-my-zsh
-
-# See https://ohmyz.sh/#install
-# oh-my-zsh gets installed in ~/.oh-my-zsh/
+# see https://ohmyz.sh/#install; oh-my-zsh gets installed in ~/.oh-my-zsh/
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 # or: sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 
-ln -s <path/to/this/repository>/.config/oh-my-zsh ~/.config/oh-my-zsh
-
-## powerlevel10k (doesn't work in Docker images to the best of my knowledge)
-
 # See https://github.com/romkatv/powerlevel10k#oh-my-zsh (command below is slightly modified)
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.config/oh-my-zsh/themes/powerlevel10k
-
-ln -s <path/to/this/repository>/.p10k.zsh ~/.p10k.zsh
 ```
 
 ### Tmux
@@ -134,16 +111,13 @@ this [video](https://www.youtube.com/watch?v=DzNmUNvnB04&ab_channel=DreamsofCode
 **Install:**
 
 ```shell
-# For MacOS:
+# macos
 brew install tmux
-# For Ubuntu:
+# ubuntu
 sudo apt install tmux
 
-# TPM (Tmux Plugin Manager):
-# See https://github.com/tmux-plugins/tpm#installation
+# TPM (Tmux Plugin Manager), see https://github.com/tmux-plugins/tpm#installation
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-ln -s <path/to/this/repository>/.config/tmux/tmux.conf ~/.config/tmux/tmux.conf
 ```
 
 Then start tmux (with the command `tmux` for instance), press `<prefix>I` to install tmux's plugins
@@ -156,10 +130,10 @@ installed and can be called with `sed`), and you can run the following commands 
 alternate configuration file and symlink it:
 
 ```shell
-cp <path/to/this/repository>/.config/tmux/tmux.conf <path/to/this/repository>/.config/tmux/tmux.conf.light
-gsed -i 's/mocha/latte/' <path/to/this/repository>/.config/tmux/tmux.conf.light
-# or on Linux: sed -i 's/mocha/latte/' <path/to/this/repository>/.config/tmux/tmux.conf.light
-ln -s <path/to/this/repository>/.config/tmux/tmux.conf.light ~/.config/tmux/tmux.conf.light
+cp ~/dotfiles/.config/tmux/tmux.conf ~/dotfiles/.config/tmux/tmux.conf.light
+gsed -i 's/mocha/latte/' ~/dotfiles/.config/tmux/tmux.conf.light
+# or on Linux: sed -i 's/mocha/latte/' ~/dotfiles/.config/tmux/tmux.conf.light
+ln -s ~/dotfiles/.config/tmux/tmux.conf.light ~/.config/tmux/tmux.conf.light
 ```
 
 Then, the light theme can be activated with the following command from within a Tmux session:
@@ -190,9 +164,9 @@ dedicated repository: I started up by configuring it with NvChad
 **Install:**
 
 ```shell
-# For MaxOS:
+# macos
 brew install neovim
-# For Ubuntu:
+# ubuntu
 sudo apt install software-properties-common
 sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt update
@@ -230,14 +204,12 @@ Zoxide, fzf & fd are mandatory for the Zsh configuration to work as they are con
 brew install dust eza fd fzf tldr zoxide
 # for fzf additional features (auto-completion, key bindings, etc.)
 $(brew --prefix)/opt/fzf/install
-cp <path/to/this/repository>/.config/oh-my-zsh/ignored/* <path/to/this/repository>/.config/oh-my-zsh
+cp ~/dotfiles/.config/oh-my-zsh/ignored/* ~/dotfiles/.config/oh-my-zsh
 
 # ubuntu (without all utilities)
 apt install fd-find fzf zoxide
 mkdir -p ~/.local/bin
 ln -s $(which fdfind) ~/.local/bin/fd
-
-ln -s <path/to/this/repository>/.fzf.zsh ~/.fzf.zsh
 ```
 
 ## More Vim Movements Integration
