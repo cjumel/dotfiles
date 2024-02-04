@@ -16,9 +16,11 @@ cd ~/dotfiles
 make
 ```
 
-This will automatically create some alternative configuration files (not versioned with Git) and
-create symbolink links for all the configuration files with Stow. The `make` command can also be
-used to update the alternative configuration files when their base files are updated.
+This will automatically create some alternative configuration files (not versioned with Git),
+`git clone` other configuration repositories, like my Neovim configuration, and create symbolink
+links for all the configuration files and directories with Stow. The `make` command can also be used
+to update the alternative configuration files when their base files are updated (this will also
+erase any local change from Git repositories within the `dotfiles` directory).
 
 During the `make` command, if some files exist where Stow want to create symbolic links, Stow will
 fail. In that case, you can either remove or rename the conflicting files and run `stow .` again
@@ -157,14 +159,10 @@ sudo apt update
 sudo apt install neovim
 # or with Snap: sudo snap install nvim --classic
 
-git clone https://github.com/clementjumel/kickstart.nvim <path/to/kickstart.nvim>
-ln -s <path/to/kickstart.nvim> ~/.config/nvim
-
 # Optionally, to install plugins & external tools from the command line
+# This can also be done directly within Neovim with `:MasonInstallAll`
 nvim "+Lazy install" +MasonInstallAll +qall
 ```
-
-Then, open Neovim with `nvim` and run `:MasonInstallAll` to install Neovim external dependencies.
 
 ### Terminal Utilities
 
