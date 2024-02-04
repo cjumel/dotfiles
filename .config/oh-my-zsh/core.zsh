@@ -15,6 +15,8 @@ alias lsa='ls -a'
 alias md='mkdir'
 alias mdp='mkdir -p'
 
+alias mk='make'
+
 alias py='python'
 
 alias rmd='rm -d'
