@@ -124,29 +124,11 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 Then start tmux (with the command `tmux` for instance), press `<prefix>I` to install tmux's plugins
 (prefix is `<C-space>` in this configuration), and restart tmux (with `exit` and then `tmux` for
-instance).
-
-To support a light theme that can be dynamically activated, you need GNU's sed (on MacOS, it can be
-installed with `brew install gnu-sed` and called with `gsed`, on Linux it doesn't need to be
-installed and can be called with `sed`), and you can run the following commands to create an
-alternate configuration file and symlink it:
-
-```shell
-cp ~/dotfiles/.config/tmux/tmux.conf ~/dotfiles/.config/tmux/tmux.conf.light
-gsed -i 's/mocha/latte/' ~/dotfiles/.config/tmux/tmux.conf.light
-# or on Linux: sed -i 's/mocha/latte/' ~/dotfiles/.config/tmux/tmux.conf.light
-ln -s ~/dotfiles/.config/tmux/tmux.conf.light ~/.config/tmux/tmux.conf.light
-```
-
-Then, the light theme can be activated with the following command from within a Tmux session:
+instance). The light theme can be activated/deactivated with the following commands from within a
+Tmux session:
 
 ```shell
 tmux source ~/.config/tmux/tmux.conf.light
-```
-
-and the default configuration (with a dark theme) can be re-activated with:
-
-```shell
 tmux source ~/.config/tmux/tmux.conf
 ```
 
