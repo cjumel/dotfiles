@@ -1,5 +1,7 @@
 ### Custom .gitignore ###
 
+.gitconfig.remote
+
 # Pycharm stuff
 .idea/
 

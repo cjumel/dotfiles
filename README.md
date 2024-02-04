@@ -75,8 +75,8 @@ brew install git pre-commit
 apt install git pre-commit
 ```
 
-To setup a Git configuration adapted to remote machines, you can change the symlink to use
-`./.gitconfig.remote` instead of `./.gitconfig`.
+To setup a Git configuration adapted to remote machines (typically without my personnal
+credentials), you can change the symlink to use `./.gitconfig.remote` instead of `./.gitconfig`.
 
 ### Zsh, Oh-My-Zsh & powerlevel10k
 
