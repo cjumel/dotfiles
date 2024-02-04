@@ -1,16 +1,13 @@
-# Some default ignores
-
+# Git stuff
 \.git
 \.gitignore
 
-^/README.*
-^/LICENSE.*
-^/COPYING
-
-# Custom ignores
-^/Makefile
+# File types for notes and documentation
+.*\.md
+.*\.norg
 
 # Dotfiles configuration files
+^/Makefile
 \.pre-commit-config\.yaml
 \.prettierignore
 \.prettierrc
