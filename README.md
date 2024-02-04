@@ -2,25 +2,27 @@
 
 ## Usage
 
-To use these configuration files, you need [git](https://git-scm.com/), to clone this repository,
-and I use [GNU Stow](https://www.gnu.org/software/stow/), to manage the symbolink links, following
-this [video](https://www.youtube.com/watch?v=y6XCebnB9gs&ab_channel=DreamsofAutonomy), but this can
-also be done by hand. Hence, you can start by installing these two with your preferred package
-manager. I use [Homebrew](https://brew.sh/), so I simply ran `brew install git stow`.
-
-Once this is done, you can clone this repository in the `$HOME` directory (this is required to use
-Stow, otherwise you can clone the repository anywhere) and use Stow to create the symbolic links to
-the configuration files, with:
+To use these configuration files, you need [git](https://git-scm.com/) to clone this repository,
+[GNU Stow](https://www.gnu.org/software/stow/) to manage the symbolink links, and
+[GNU sed](https://www.gnu.org/software/sed/) to perform automatic file updates. Hence, you can start
+by installing these with your preferred package manager. I use [Homebrew](https://brew.sh/), so I
+simply ran `brew install git stow gnu-sed`. Then, you can run the following commands:
 
 ```shell
-# You can change the directory name "dotfiles" to anything you want
+# you can name change the name of the dotfiles directory, but it needs to be in the $HOME directory
 git clone https://github.com/clementjumel/dotfiles.git ~/dotfiles
-stow ~/dotfiles
+cd ~/dotfiles
+# on Ubuntu, run `make init-ubuntu` instead
+make
 ```
 
-If some files exist where Stow want to create the symbolic links, Stow will fail. In that case, you
-can either remove or rename the conflicting files and restart the Stow command, or add the `--adopt`
-flag to the Stow command to adopt the conflicting files.
+This will automatically create some alternative configuration files (not versioned with Git) and
+create symbolink links for all the configuration files with Stow. The `make` command can also be
+used to update the alternative configuration files when their base files are updated.
+
+During the `make` command, if some files exist where Stow want to create symbolic links, Stow will
+fail. In that case, you can either remove or rename the conflicting files and run `stow .` again
+within this repository, or run `stow --adopt .` to adopt the conflicting files.
 
 ## General Tools
 

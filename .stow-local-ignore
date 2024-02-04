@@ -8,6 +8,7 @@
 ^/COPYING
 
 # Custom ignores
+^/Makefile
 
 # Dotfiles configuration files
 \.pre-commit-config\.yaml
