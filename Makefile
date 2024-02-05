@@ -9,9 +9,6 @@ init-macos:
 	@gsed -i 's/\[user\]//' .gitconfig.remote
 	@gsed -i 's/name = clementjumel//' .gitconfig.remote
 	@gsed -i 's/email = clement.jumel@gmail.com//' .gitconfig.remote
-	@echo "Cloning the Neovim configuration repository"
-	@rm -rf .config/nvim
-	@git clone https://github.com/clementjumel/kickstart.nvim .config/nvim
 	@echo "Creating configuration file symlinks with Stow"
 	@stow .
 
@@ -26,8 +23,5 @@ init-ubuntu:
 	@sed -i 's/\[user\]//' .gitconfig.remote
 	@sed -i 's/name = clementjumel//' .gitconfig.remote
 	@sed -i 's/email = clement.jumel@gmail.com//' .gitconfig.remote
-	@echo "Cloning the Neovim configuration repository"
-	@rm -rf .config/nvim
-	@git clone https://github.com/clementjumel/kickstart.nvim .config/nvim
 	@echo "Creating configuration file symlinks with Stow"
 	@stow .
