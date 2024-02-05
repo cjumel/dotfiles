@@ -6,6 +6,9 @@
 .*\.md
 .*\.norg
 
+# Installation scripts
+^/scripts
+
 # Dotfiles configuration files
 ^/Makefile
 \.pre-commit-config\.yaml

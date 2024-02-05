@@ -16,11 +16,7 @@ following commands:
 # you can change the name of the dotfiles directory, but it needs to be in $HOME
 git clone https://github.com/clementjumel/dotfiles.git ~/dotfiles
 cd ~/dotfiles
-
-# macos
 make
-# ubuntu
-make init-ubuntu
 ```
 
 This will automatically:
