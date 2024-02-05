@@ -5,6 +5,9 @@
 .config/oh-my-zsh/_*.zsh
 !.config/oh-my-zsh/ignored/_*.zsh
 
+# Tmux configuration for light theme (auto-generated)
+.config/tmux/tmux.conf.light
+
 # Git configuration for remote machines (auto-generated)
 .gitconfig.remote
 
