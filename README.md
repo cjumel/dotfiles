@@ -119,7 +119,7 @@ brew install tmux
 sudo apt install tmux
 
 # TPM (Tmux Plugin Manager), see https://github.com/tmux-plugins/tpm#installation
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 ```
 
 Then start tmux (with the command `tmux` for instance), press `<prefix>I` to install tmux's plugins
