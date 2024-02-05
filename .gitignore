@@ -1,5 +1,11 @@
 ### Custom .gitignore ###
 
+# Ignore user/OS specific oh-my-zsh aliases (files prefixed with `_`), but still track them
+# in ignored/
+.config/oh-my-zsh/_*.zsh
+!.config/oh-my-zsh/ignored/_*.zsh
+
+# Git configuration for remote machines (auto-generated)
 .gitconfig.remote
 
 # Pycharm stuff
