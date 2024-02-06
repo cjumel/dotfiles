@@ -56,9 +56,9 @@ alias gpsf='git push --force'
 alias gpsu='git push --set-upstream'  # Set the upstream of a local branch and push it (needed iff autoSetupRemote is not True)
 
 alias grb='git rebase'
+alias grbo='git rebase --strategy-option=theirs' # Overwrite conflicting changes (reversal with the option is on purpose)
 alias grbi='git rebase --interactive'
-alias grbo='git rebase --strategy-option=theirs'  # Rebase changes and keep ours (reversal with the option is on purpose)
-alias grbt='git rebase --strategy-option=ours'  # Rebase changes and keep theirs (reversal with the option is on purpose)
+alias grbio='git rebase --interactive --strategy-option=theirs' # Overwrite conflicting changes (reversal with the option is on purpose)
 
 # Actions during rebase:
 alias grba='git rebase --abort'
