@@ -25,3 +25,9 @@ repos:
     hooks:
       - id: toml-sort
         args: ["--all", "--in-place"]
+
+  # StyLua is an opinionated Lua formatter
+  - repo: https://github.com/JohnnyMorganz/StyLua
+    rev: v0.18.1
+    hooks:
+      - id: stylua

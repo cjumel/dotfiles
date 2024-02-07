@@ -15,6 +15,7 @@
 \.prettierignore
 \.prettierrc
 \.prettierrc.yaml
+\.stylua.toml
 
 # Not actual configuration files
 \.vimiumrc
