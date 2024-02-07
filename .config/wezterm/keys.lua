@@ -12,4 +12,9 @@ return {
     mods = "CMD|CTRL",
     action = wezterm.action.ResetFontAndWindowSize,
   },
+  {
+    key = "t",
+    mods = "LEADER",
+    action = wezterm.action.EmitEvent("toggle-transparency"),
+  },
 }
