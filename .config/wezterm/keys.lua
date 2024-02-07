@@ -17,4 +17,9 @@ return {
     mods = "LEADER",
     action = wezterm.action.EmitEvent("toggle-transparency"),
   },
+  {
+    key = "l",
+    mods = "LEADER",
+    action = wezterm.action.EmitEvent("toggle-light-theme"),
+  },
 }
