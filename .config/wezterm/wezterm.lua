@@ -17,6 +17,8 @@ config.window_background_opacity = 0.8
 -- Font
 config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Bold" })
 config.font_size = 13.0
+-- Don't use ligatures (i.e. replace for instance '!=' with an actual not-equal symbol)
+config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 
 -- Make possible to type option-key combinations, like "{" and "}"
 config.send_composed_key_when_left_alt_is_pressed = true
