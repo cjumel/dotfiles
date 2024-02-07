@@ -1,0 +1,12 @@
+Applications/
+Documents/
+Library/
+Movies/
+Music/
+Pictures/
+Public/
+Zotero/
+.azure/
+.cache/
+.idea/
+.zsh_sessions/
