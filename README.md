@@ -42,16 +42,15 @@ I use [Karabiner-Elements](https://karabiner-elements.pqrs.org/) to modify the k
 different keyboards. This enables me to fix some keys in my non-Apple keyboard for instance, as well
 as modify keys for all keyboards (such as using the caps lock key as escape, and the escape key as
 caps lock) and create complex keymaps (like remapping several control-key combinations to make them
-easier to use). With Homebrew, this can be installed with `brew install --cask karabiner-elements`.
+easier to use). With Homebrew, Karabiner-Elements can be installed with
+`brew install --cask karabiner-elements`.
 
-### Iterm2
+### WezTerm
 
-I don't use the default macOS terminal, as some features didn't work for me, but
-[Iterm2](https://iterm2.com/), a quite simple alternative. I set it up with the
-[Catppuccin color scheme](https://github.com/catppuccin/iterm) and the `JetBrainsMono`
-[Nerd Font](https://www.nerdfonts.com/font-downloads). With Homebrew, Iterm2 can be installed with
-`brew install --cask iterm2`. Then follow the standard installation guides to install the Catppuccin
-colorscheme & the JetBrainsMono Nerd Fond.
+I use [WezTerm](https://wezfurlong.org/wezterm/index.html) as my terminal emulator. The built-in
+terminal of MacOS lacks some features some tools I use need, and WezTerm is a very performant
+alternative, being written in Rust, while remaining super configurable via Lua code, just like
+Neovim. With Homebrew, WezTerm can be installed with `brew install --cask wezterm`.
 
 ## Terminal Tools
 
