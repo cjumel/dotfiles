@@ -5,6 +5,9 @@
 .config/oh-my-zsh/_*.zsh
 !.config/oh-my-zsh/ignored/_*.zsh
 
+# Ignore theme file as it can is automatically created and updated
+.config/wezterm/theme.lua
+
 # Git configuration for remote machines (auto-generated)
 .gitconfig.remote
 
