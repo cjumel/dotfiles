@@ -7,7 +7,11 @@ catppuccin-macchiato-vintage
 catppuccin-mocha
 catppuccin-mocha-vintage
 catppuccin-latte
-catppuccin-latte-vintage'
+catppuccin-latte-vintage
+nord
+rose-pine-dawn
+rose-pine-main
+rose-pine-moon'
 
 function change_theme(){
   # Make the user select a theme using fzf among the available ones
