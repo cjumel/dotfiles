@@ -117,13 +117,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 
 Then start Tmux (with the command `tmux` for instance), press `<prefix>I` to install tmux's plugins
 (prefix is `<C-space>` in this configuration), and restart Tmux (with `exit` and then `tmux` for
-instance). A light theme can be activated/deactivated with the following commands from within a Tmux
-session:
-
-```shell
-tmux source ~/.config/tmux/tmux.conf.light
-tmux source ~/.config/tmux/tmux.conf
-```
+instance).
 
 ### Neovim
 

@@ -18,5 +18,4 @@ alias tmK='tmux kill-server'
 alias tmr='tmux rename'
 
 alias tms='tmux source'
-alias tmsd='tmux source ~/.config/tmux/tmux.conf'  # Source default configuration (dark theme)
-alias tmsl='tmux source ~/.config/tmux/tmux.conf.light'  # Source light-theme configuration
+alias tmsd='tmux source ~/.config/tmux/tmux.conf'  # Source default configuration
