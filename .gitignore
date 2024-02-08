@@ -8,9 +8,6 @@
 # Ignore theme file as it can is automatically created and updated
 .config/wezterm/theme.lua
 
-# Git configuration for remote machines (auto-generated)
-.gitconfig.remote
-
 # Pycharm stuff
 .idea/
 

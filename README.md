@@ -6,10 +6,9 @@ To use these configuration files, you need:
 
 - [Git](https://git-scm.com/) to clone this repository
 - [GNU Stow](https://www.gnu.org/software/stow/) to manage the symbolink links
-- [GNU sed](https://www.gnu.org/software/sed/) to perform automatic file updates
 
 Hence, you can start by installing these with your preferred package manager. I use
-[Homebrew](https://brew.sh/), so I simply ran `brew install git stow gnu-sed`. Then, you can run the
+[Homebrew](https://brew.sh/), so I simply ran `brew install git stow`. Then, you can run the
 following commands:
 
 ```shell
@@ -19,13 +18,8 @@ cd ~/dotfiles
 make
 ```
 
-This will automatically:
-
-- create some alternative git-ignored configuration files
-- create symbolink links for all the configuration files with Stow
-
-This will **not** install any software: this needs to be done manually and depends on your operating
-system.
+This will automatically create symbolink links for all the configuration files with Stow. This will
+**not** install any software: this needs to be done manually and depends on your operating system.
 
 During the `make` command, if some files exist where Stow want to create symbolic links, Stow will
 fail. In that case, you can either remove or rename the conflicting files and run `stow .` again
@@ -68,9 +62,6 @@ brew install git pre-commit
 # ubuntu
 apt install git pre-commit
 ```
-
-To setup a Git configuration adapted to remote machines (typically without my personnal
-credentials), you can change the symlink to use `./.gitconfig.remote` instead of `./.gitconfig`.
 
 ### Zsh, Oh-My-Zsh & powerlevel10k
 
