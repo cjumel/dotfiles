@@ -13,6 +13,11 @@ return {
     action = wezterm.action.ResetFontAndWindowSize,
   },
   {
+    key = "o",
+    mods = "LEADER",
+    action = wezterm.action.EmitEvent("toggle-opacity"),
+  },
+  {
     key = "t",
     mods = "LEADER",
     action = wezterm.action.EmitEvent("toggle-transparency"),
