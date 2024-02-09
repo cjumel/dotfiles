@@ -21,6 +21,7 @@ function change_theme(){
   # Create symlinks to the selected theme (overwrite existing ones)
   ln -sf ~/.config/wezterm/themes/$selected_theme.lua ~/.config/wezterm/theme.lua
   ln -sf ~/.config/tmux/themes/$selected_theme.conf ~/.config/tmux/theme.conf
+  ln -sf ~/.config/tmux/themes/$selected_theme-post.conf ~/.config/tmux/theme-post.conf
   ln -sf ~/.config/nvim/lua/themes/$selected_theme.lua ~/.config/nvim/lua/theme.lua
 
   # WezTerm will detect the change and reload automatically; otherwise, it can be reloaded manually
