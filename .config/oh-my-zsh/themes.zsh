@@ -1,13 +1,9 @@
 # Aliases to manage terminal-wide themes for WezTerm, Tmux and Neovim.
 
 available_themes='catppuccin-frappe
-catppuccin-frappe-vintage
 catppuccin-macchiato
-catppuccin-macchiato-vintage
 catppuccin-mocha
-catppuccin-mocha-vintage
 catppuccin-latte
-catppuccin-latte-vintage
 nord
 rose-pine-dawn
 rose-pine-main
