@@ -63,11 +63,10 @@ brew install git pre-commit
 apt install git pre-commit
 ```
 
-### Zsh, Oh-My-Zsh & powerlevel10k
+### Zsh & Oh-My-Zsh
 
-I use Zsh as terminal shell, which I set up with [Oh-My-Zsh](https://ohmyz.sh) to define custom
-aliases and introduce some plugins, and [powerlevel10k](https://github.com/romkatv/powerlevel10k) to
-customize the terminal prompt.
+I use Zsh as terminal shell, which I set up with [Oh-My-Zsh](https://ohmyz.sh) especially to manage
+custom aliases.
 
 **Requirements:**
 
@@ -84,9 +83,6 @@ sudo apt install zsh
 # see https://ohmyz.sh/#install; oh-my-zsh gets installed in ~/.oh-my-zsh/
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 # or: sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
-
-# See https://github.com/romkatv/powerlevel10k#oh-my-zsh (command below is slightly modified)
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.config/oh-my-zsh/themes/powerlevel10k
 ```
 
 ### Tmux
