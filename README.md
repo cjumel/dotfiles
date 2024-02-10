@@ -63,16 +63,19 @@ brew install git pre-commit
 apt install git pre-commit
 ```
 
-### Zsh & Oh-My-Zsh
+### Zsh
 
-I use Zsh as terminal shell, which I set up with [Oh-My-Zsh](https://ohmyz.sh) especially to manage
-custom aliases.
+I use Zsh as terminal shell, which I set up with [Oh-My-Zsh](https://ohmyz.sh) especially to add a
+default terminal prompt and manage custom aliases. Additionally, I set-up a
+[starship](https://starship.rs/) terminal prompt, which can be disabled by commenting out the
+relevant line in `./.zshrc`. In that case, the terminal prompt will fallback to Oh-My-Zsh's prompt.
 
 **Requirements:**
 
 - `curl` or `wget`
 - `git`
 - `fd`, `fzf`, `zoxide` (see the Terminal Utilities section below to install them)
+- `starship` (optional)
 
 **Install:**
 
