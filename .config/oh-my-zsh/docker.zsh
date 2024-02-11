@@ -1,7 +1,5 @@
 alias dk='docker'
 
-alias dka='open -a "Docker"' # start application
-
 alias dkb='docker build'
 
 # clean docker containers, images, volumes, etc.
@@ -12,6 +10,8 @@ alias dkc='
   echo "docker image prune --all --force..."; docker image prune --all --force
   echo "docker system prune --all --force..."; docker system prune --all --force
 '
+
+alias dkd='open -a "Docker"' # Start Docker Desktop
 
 alias dkp='docker pull'
 
