@@ -6,6 +6,7 @@ catppuccin-mocha
 catppuccin-latte
 gruvbox-dark
 gruvbox-light
+kanagawa
 nord
 rose-pine
 rose-pine-dawn
