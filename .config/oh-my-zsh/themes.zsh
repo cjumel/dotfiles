@@ -5,8 +5,8 @@ catppuccin-macchiato
 catppuccin-mocha
 catppuccin-latte
 nord
+rose-pine
 rose-pine-dawn
-rose-pine-main
 rose-pine-moon'
 
 function change_theme(){
