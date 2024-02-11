@@ -7,7 +7,11 @@ catppuccin-latte
 nord
 rose-pine
 rose-pine-dawn
-rose-pine-moon'
+rose-pine-moon
+tokyonight
+tokyonight-day
+tokyonight-moon
+tokyonight-storm'
 
 function change_theme(){
   # Make the user select a theme using fzf among the available ones
