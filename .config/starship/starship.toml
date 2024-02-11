@@ -1,0 +1,24 @@
+# Starship configuration file
+# Documentation: https://starship.rs/config/
+
+# Format of the modules on the left-hand-side of the prompt
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$line_break\
+$character"""
+# Format of the modules on the right-hand-side of the prompt
+right_format = """$all""" # all the remaining modules
+
+[gcloud]
+# If it has been activated once the module is always activated which is annoying
+disabled = true
+
+[time]
+disabled = false

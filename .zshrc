@@ -143,6 +143,10 @@ eval "$(zoxide init --cmd cd zsh)"
 # Setup fzf additional features like key bindings or auto-completion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Setup starship prompt
-# Comment-out this line if starship is not installed, the prompt will fallback to oh-my-zsh's one
+# [[ Starship ]]
+
+export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
+
+# NOTE:
+# Comment-out the following line to disable the Starship prompt (e.g. if Starship is not installed)
 eval "$(starship init zsh)"
