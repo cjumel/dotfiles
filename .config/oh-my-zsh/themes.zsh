@@ -8,10 +8,7 @@ nord
 rose-pine
 rose-pine-dawn
 rose-pine-moon
-tokyonight
-tokyonight-day
-tokyonight-moon
-tokyonight-storm'
+tokyonight'
 
 function change_theme(){
   # Make the user select a theme using fzf among the available ones
