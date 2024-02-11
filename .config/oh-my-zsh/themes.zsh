@@ -4,6 +4,8 @@ available_themes='catppuccin-frappe
 catppuccin-macchiato
 catppuccin-mocha
 catppuccin-latte
+gruvbox-dark
+gruvbox-light
 nord
 rose-pine
 rose-pine-dawn
