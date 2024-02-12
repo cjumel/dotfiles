@@ -8,6 +8,12 @@ export LANG=en_US.UTF-8
 # - the `/usr/local/opt/python` part comes from brew when installing Python
 export PATH="$HOME/.local/bin:/usr/local/opt/python/libexec/bin:$PATH"
 
+# Command history settings
+# Limit number of entries in memory
+HISTSIZE=200000
+# Limit number of entries in the history file (should be equal or lower as in memory)
+SAVEHIST=100000
+
 # [[ Oh My Zsh ]]
 # See full configuration template at:
 # https://github.com/ohmyzsh/ohmyzsh/blob/master/templates/zshrc.zsh-template
