@@ -50,6 +50,13 @@ bindkey "\e" clear-screen
 bindkey "^_" forward-word
 bindkey "^^" backward-word
 
+# [[ Terminal utilities ]]
+# NOTE: remove lines of this section if the relevant tool is not installed or to disable it
+
+alias du='dust'
+alias ls='eza'
+alias tl='tldr'
+
 # [[ fzf ]]
 # NOTE: remove this section if fzf is not installed or to disable it
 
