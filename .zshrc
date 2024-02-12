@@ -53,6 +53,7 @@ bindkey "^^" backward-word
 # [[ Terminal utilities ]]
 # NOTE: remove lines of this section if the relevant tool is not installed or to disable it
 
+alias cat='bat'
 alias du='dust'
 alias ls='eza'
 alias tl='tldr'

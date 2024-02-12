@@ -145,6 +145,7 @@ nvim "+Lazy install" +MasonInstallAll +qall
 
 I use a variety of terminal tools to improve the user-experience when using the terminal.
 
+- [bat](https://github.com/sharkdp/bat) as a drop-in replacement of `cat`
 - [dust](https://github.com/bootandy/dust) as a drop-in replacement of `du`
 - [eza](https://github.com/eza-community/eza) as a drop-in replacement of `ls`
 - [fd](https://github.com/sharkdp/fd) as a replacement of `find`
@@ -160,7 +161,7 @@ Zoxide, fzf & fd are mandatory for the Zsh configuration to work as they are con
 
 ```shell
 # macos
-brew install dust eza fd fzf tldr zoxide
+brew install bat dust eza fd fzf tldr zoxide
 # for fzf additional features (auto-completion, key bindings, etc.)
 $(brew --prefix)/opt/fzf/install
 cp ~/dotfiles/.config/oh-my-zsh/ignored/* ~/dotfiles/.config/oh-my-zsh
