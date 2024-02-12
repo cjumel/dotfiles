@@ -75,7 +75,7 @@ _fzf_compgen_dir() {
 }
 
 # Setup fzf additional features like key bindings or auto-completion
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh
 # Enable the use of <Alt-c> as fzf key binding
 bindkey "©" fzf-cd-widget
 
