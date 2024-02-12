@@ -50,6 +50,44 @@ bindkey "\e" clear-screen
 bindkey "^_" forward-word
 bindkey "^^" backward-word
 
+# [[ Terminal themes ]]
+# Manage themes for WezTerm, Tmux, and Neovim at the same time
+
+TERMINAL_THEMES='catppuccin-frappe
+catppuccin-macchiato
+catppuccin-mocha
+catppuccin-latte
+gruvbox-dark
+gruvbox-light
+kanagawa
+nord
+rose-pine
+rose-pine-dawn
+rose-pine-moon
+tokyonight'
+
+function fzf_themes(){
+  # Make the user select a theme using fzf among the available ones
+  selected_theme=$(echo $TERMINAL_THEMES| fzf)
+
+  # Exit if no theme is selected, to avoid creating broken symlinks
+  if [[ -z $selected_theme ]]; then
+    return
+  fi
+
+  # Create symlinks to the selected theme (overwrite existing ones)
+  ln -sf ~/.config/wezterm/themes/$selected_theme.lua ~/.config/wezterm/theme.lua
+  ln -sf ~/.config/tmux/themes/$selected_theme.conf ~/.config/tmux/theme.conf
+  ln -sf ~/.config/tmux/themes/$selected_theme-post.conf ~/.config/tmux/theme-post.conf
+  ln -sf ~/.config/nvim/lua/themes/$selected_theme.lua ~/.config/nvim/lua/theme.lua
+
+  # WezTerm will detect the change and reload automatically; otherwise, it can be reloaded manually
+  # with Cmd+R
+  # Neovim will be updated automatically when restarting it
+  # Source tmux configuration to apply the new theme
+  tmux source ~/.config/tmux/tmux.conf
+}
+
 # [[ Terminal utilities ]]
 # NOTE: remove lines of this section if the relevant tool is not installed or to disable it
 
@@ -86,6 +124,9 @@ _fzf_compgen_dir() {
 [ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh
 # Enable the use of <Alt-c> as fzf key binding
 bindkey "©" fzf-cd-widget
+
+# Alias to fuzzy find and select a terminal theme
+alias th='fzf_themes'
 
 # [[ zoxide ]]
 # NOTE: remove this section if zoxide is not installed or to disable it
