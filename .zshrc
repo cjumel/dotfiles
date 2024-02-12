@@ -50,6 +50,15 @@ bindkey "\e" clear-screen
 bindkey "^_" forward-word
 bindkey "^^" backward-word
 
+# [[ Aliases ]]
+# Meta aliases. For other aliases, see `./config/oh-my-zsh`
+
+# List all aliases starting with a given prefix
+function alias_grep(){
+  alias | grep "^$1"
+}
+alias al='alias_grep'
+
 # [[ Terminal themes ]]
 # Manage themes for WezTerm, Tmux, and Neovim at the same time
 

@@ -1,7 +1,3 @@
-# List aliases starting with the input string
-function alias_by_start(){ alias | grep "^$1" }
-alias al='alias_by_start'
-
 alias cdp='cd -' # Go to previous directory
 
 alias cl='clear'
