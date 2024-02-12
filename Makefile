@@ -1,6 +1,6 @@
 install:
 	@echo "Creating general configuration files symbolic links with Stow"
-	@stow .
+	@stow --no-folding .
 	@echo "Creating symlinks from ~/.config to ~/ when necessary"
 	@ln -sf ~/.config/fd/.fdignore ~/.fdignore
 	@ln -sf ~/.config/git/.gitconfig ~/.gitconfig

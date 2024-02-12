@@ -30,8 +30,9 @@ However, this will **not** install anything: this needs to be done manually and 
 operating system.
 
 During the `make` command, if some files exist where Stow want to create symbolic links, Stow will
-fail. In that case, you can either remove or rename the conflicting files and run `stow .` again
-within this repository, or run `stow --adopt .` to adopt the conflicting files.
+fail. In that case, you can either remove or rename the conflicting files and run
+`stow --no-folding .` again within this repository, or directly run this command with the `--adopt`
+flag to adopt the conflicting files.
 
 The `make` command can be re-used safely to update the symbolink links, for instance when a new
 configuration file is added.
