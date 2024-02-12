@@ -1,3 +1,5 @@
+alias ca='cat'
+
 alias cdp='cd -' # Go to previous directory
 
 alias cl='clear'
