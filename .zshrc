@@ -108,31 +108,8 @@ alias tl='tldr'
 # [[ fzf ]]
 # NOTE: remove this section if fzf is not installed or to disable it
 
-# Change layout of fzf
-export FZF_DEFAULT_OPTS='--layout=reverse --border'
-
-# Use fd for the default fzf command
-export FZF_DEFAULT_COMMAND='fd . --hidden --exclude .git'
-
-# Use fd for fzf key bindings
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
-
-# Change the trigger for fzf auto-completion
-export FZF_COMPLETION_TRIGGER='^'
-
-# Use fd for fzf auto-completion
-_fzf_compgen_path() {
-  fd --hidden --exclude ".git" . "$1"
-}
-_fzf_compgen_dir() {
-  fd --type d --hidden --exclude ".git" . "$1"
-}
-
 # Setup fzf additional features like key bindings or auto-completion
 [ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh
-# Enable the use of <Alt-c> as fzf key binding
-bindkey "©" fzf-cd-widget
 
 # Alias to fuzzy find and select a terminal theme
 alias th='fzf_themes'
