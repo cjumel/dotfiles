@@ -1,6 +1,7 @@
 ### Custom .gitignore ###
 
-# Ignore theme file as it can is automatically created and updated
+# Ignore terminal theme files (automatically created and updated when managing themes)
+.config/tmux/theme.conf
 .config/wezterm/theme.lua
 
 # Pycharm stuff
