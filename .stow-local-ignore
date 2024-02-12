@@ -6,11 +6,11 @@
 .*\.md
 .*\.norg
 
-# Installation scripts
+# Installation tools
 ^/scripts
+^/Makefile
 
 # Dotfiles configuration files
-^/Makefile
 \.pre-commit-config\.yaml
 \.prettierignore
 \.prettierrc
@@ -18,4 +18,4 @@
 \.stylua.toml
 
 # Not actual configuration files
-\.vimiumrc
+\.config/vimium
