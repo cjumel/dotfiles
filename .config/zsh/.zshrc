@@ -29,7 +29,7 @@ export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 ZSH_THEME="robbyrussell" # Default theme
 
 # Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM=$HOME/.config/oh-my-zsh/
+ZSH_CUSTOM=$HOME/.config/zsh/oh-my-zsh/
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -57,7 +57,7 @@ bindkey "^_" forward-word
 bindkey "^^" backward-word
 
 # [[ Aliases ]]
-# Meta aliases. For other aliases, see in `./config/oh-my-zsh`
+# Meta aliases. For other aliases, see in `./config/zsh/oh-my-zsh`
 
 # List all aliases starting with the prefix passed as argument if any
 function alias_grep(){
