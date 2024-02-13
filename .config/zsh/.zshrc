@@ -57,9 +57,9 @@ bindkey "^_" forward-word
 bindkey "^^" backward-word
 
 # [[ Aliases ]]
-# Meta aliases. For other aliases, see `./config/oh-my-zsh`
+# Meta aliases. For other aliases, see in `./config/oh-my-zsh`
 
-# List all aliases starting with a given prefix
+# List all aliases starting with the prefix passed as argument if any
 function alias_grep(){
   alias | grep "^$1"
 }
@@ -93,7 +93,8 @@ function alias_fzf_edit(){
   vi $ZSH_CUSTOM/$selected_file
 }
 
-alias al='alias_grep'
+alias al='alias'
+alias all='alias_grep' # Alias list
 
 # [[ Terminal themes ]]
 # Manage themes for WezTerm, Tmux, and Neovim at the same time
@@ -129,7 +130,7 @@ function themes_fzf(){
   # WezTerm will detect the change and reload automatically; otherwise, it can be reloaded manually
   # with Cmd+R
   # Neovim will be updated automatically when restarting it
-  # Source tmux configuration to apply the new theme
+  # Source tmux configuration to apply the new theme (also work outside tmux)
   tmux source ~/.config/tmux/tmux.conf
 }
 
@@ -149,8 +150,8 @@ alias tl='tldr'
 
 # Custom aliases using fzf
 alias th='themes_fzf'
-alias alf='alias_fzf_select'
-alias ale='alias_fzf_edit'
+alias alf='alias_fzf_select' # Alias fuzzy-find
+alias ale='alias_fzf_edit' # Alias edit
 
 # [[ zoxide ]]
 # NOTE: remove this section if zoxide is not installed or to disable it
