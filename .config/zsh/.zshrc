@@ -126,12 +126,6 @@ function themes_fzf(){
   ln -sf ~/.config/tmux/themes/$selected_theme.conf ~/.config/tmux/theme.conf
   ln -sf ~/.config/tmux/themes/$selected_theme-post.conf ~/.config/tmux/theme-post.conf
   ln -sf ~/.config/nvim/lua/themes/$selected_theme.lua ~/.config/nvim/lua/theme.lua
-
-  # WezTerm will detect the change and reload automatically; otherwise, it can be reloaded manually
-  # with Cmd+R
-  # Neovim will be updated automatically when restarting it
-  # Source tmux configuration to apply the new theme (also work outside tmux)
-  tmux source ~/.config/tmux/tmux.conf
 }
 
 # [[ Terminal utilities ]]
