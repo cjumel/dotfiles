@@ -16,6 +16,3 @@
 \.prettierrc
 \.prettierrc.yaml
 \.stylua.toml
-
-# Not actual configuration files
-\.config/vimium
