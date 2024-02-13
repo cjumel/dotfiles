@@ -1,5 +1,6 @@
 alias ca='cat'
 
+alias c='cd'
 alias cdp='cd -' # Go to previous directory
 
 alias cl='clear'
@@ -8,7 +9,11 @@ alias lj='luajit'
 
 alias lns='ln -s'
 
-alias lsa='ls -a'
+# l & la are already aliased somewhere else, let's override them
+alias l='ls'
+alias la='ls -a'
+
+alias ma='man'
 
 alias md='mkdir'
 alias mdp='mkdir -p'
@@ -28,6 +33,8 @@ alias soz='source ~/.zshrc'
 alias to='touch'
 
 alias uln='unlink'
+
+alias v='vi'
 
 alias wi='which'
 alias we='whence'

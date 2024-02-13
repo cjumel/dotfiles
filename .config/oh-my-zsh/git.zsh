@@ -1,3 +1,5 @@
+alias g='git status'
+
 alias ga='git add'
 alias gaa='git add --all'  # Add all files, both tracked & untracked
 alias gad='git add .'  # Add the files in the current directory

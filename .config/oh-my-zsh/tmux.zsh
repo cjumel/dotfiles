@@ -1,3 +1,5 @@
+alias t='tmux new'
+
 alias tm='tmux'
 
 alias tma='tmux attach'  # Attach to last session
