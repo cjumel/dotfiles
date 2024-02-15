@@ -8,8 +8,10 @@ to use before, but it is faster and a lot easier to configure.
 **Install:**
 
 <details>
-    <summary>MacOS</summary>
-    ```shell
-    brew install starship
-    ```
+<summary>MacOS</summary>
+
+```shell
+brew install starship
+```
+
 </details>

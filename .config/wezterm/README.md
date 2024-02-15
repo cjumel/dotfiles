@@ -12,8 +12,10 @@ same language as Neovim.
 WezTerm only needs to be installed on my machine, a Macbook.
 
 <details>
-    <summary>MacOS</summary>
-    ```shell
-    brew install --cask wezterm
-    ```
+<summary>MacOS</summary>
+
+```shell
+brew install --cask wezterm
+```
+
 </details>

@@ -6,16 +6,20 @@ anything else.
 **Install:**
 
 <details>
-    <summary>MacOS</summary>
-    Git is builtin in MacOS but installing it with Brew makes easier to keep it updated.
-    ```shell
-    brew install git
-    ```
-</details>
+<summary>MacOS</summary>
 
+Git is builtin in MacOS but installing it with Brew makes easier to keep it updated.
+
+```shell
+brew install git
+```
+
+</details>
 <details>
-    <summary>MacOS</summary>
-    ```shell
-    apt install git
-    ```
+<summary>MacOS</summary>
+
+```shell
+apt install git
+```
+
 </details>

@@ -10,17 +10,20 @@ fuzzy find files and directories.
 **Install:**
 
 <details>
-    <summary>MacOS</summary>
-    ```shell
-    brew install fzf
-    # for additional auto-completion & key bindings features
-    $(brew --prefix)/opt/fzf/install
-    ```
-</details>
+<summary>MacOS</summary>
 
+```shell
+brew install fzf
+# for additional auto-completion & key bindings features
+$(brew --prefix)/opt/fzf/install
+```
+
+</details>
 <details>
-    <summary>MacOS</summary>
-    ```shell
-    apt install fzf
-    ```
+<summary>MacOS</summary>
+
+```shell
+apt install fzf
+```
+
 </details>

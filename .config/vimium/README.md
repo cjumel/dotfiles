@@ -13,33 +13,36 @@ enabled and then clicking on "Options") in the relevant section (don't forget to
 changes" afterwards). In Arc Browser, this must be done for each different profile.
 
 <details>
-    <summary>Custom key mappings</summary>
-    ```
-    # Use s/S to search and click a link instead of f/F (like s key in EasyMotion or Hop.nvim)
-    unmap f
-    unmap F
-    map s LinkHints.activateMode
-    map S LinkHints.activateModeToOpenInNewTab
-    # Use ,/; to scroll half page up/down
-    map , scrollPageDown
-    map ; scrollPageUp
-    # Disable mappings that don't work well
-    # J/K follow a kind of most recent tab behavior, see https://github.com/philc/vimium/issues/4230
-    unmap J
-    unmap K
-    # Since I remapped J/K to <C-J>/<C-K> in the browser, let's do the same for H/L
-    unmap H
-    unmap L
-    # x works but tabs closed with it can't be restored with neither regular keymap nor X
-    unmap x
-    unmap X
-    unmap t
-    ```
-</details>
+<summary>Custom key mappings</summary>
 
+```
+# Use s/S to search and click a link instead of f/F (like s key in EasyMotion or Hop.nvim)
+unmap f
+unmap F
+map s LinkHints.activateMode
+map S LinkHints.activateModeToOpenInNewTab
+# Use ,/; to scroll half page up/down
+map , scrollPageDown
+map ; scrollPageUp
+# Disable mappings that don't work well
+# J/K follow a kind of most recent tab behavior, see https://github.com/philc/vimium/issues/4230
+unmap J
+unmap K
+# Since I remapped J/K to <C-J>/<C-K> in the browser, let's do the same for H/L
+unmap H
+unmap L
+# x works but tabs closed with it can't be restored with neither regular keymap nor X
+unmap x
+unmap X
+unmap t
+```
+
+</details>
 <details>
-    <summary>Characters used for link hints</summary>
-    ```
-    hgjfkdlsmqyturieozpabvn
-    ```
+<summary>Characters used for link hints</summary>
+
+```
+hgjfkdlsmqyturieozpabvn
+```
+
 </details>

@@ -10,18 +10,22 @@ To make these configuration files directly usable, you simply need:
 **Install:**
 
 <details>
-  <summary>MacOS</summary>
-  ```shell
-  brew install git
-  brew install stow
-  ```
+<summary>MacOS</summary>
+
+```shell
+brew install git
+brew install stow
+```
+
 </details>
 <details>
-  <summary>Linux</summary>
-  ```shell
-  apt install git
-  apt install stow
-  ```
+<summary>Linux</summary>
+
+```shell
+apt install git
+apt install stow
+```
+
 </details>
 
 ## Usage
@@ -65,17 +69,17 @@ with a `README.md` explaining the role of the tool, how to install it, its requi
 
 The general tools I setup on my machine are:
 
-- [Karabiner-Elements](.config/karabiner/), an (essential) keyboard remapper
-- [WezTerm](.config/wezterm/), a terminal with plenty of features and very customizable
-- [Vimium](.config/vimium/), a web browser extension for Vim motions
-- [IdeaVim](.config/ideavim/), a plugin for Vim motions in JetBrains IDEA
+- [Karabiner-Elements](/.config/karabiner/), an (essential) keyboard remapper
+- [WezTerm](/.config/wezterm/), a terminal with plenty of features and very customizable
+- [Vimium](/.config/vimium/), a web browser extension for Vim motions
+- [IdeaVim](/.config/ideavim/), a plugin for Vim motions in JetBrains IDEA
 
 As for the terminal tools, which should be installed on whatever machine I'm working on to be
 usable, are:
 
-- [Zsh](.config/zsh/) as terminal shell
-- [Starship](.config/starship), a modern terminal prompt
-- [Tmux](.config/tmux/), an awesome terminal multiplexer
-- [Neovim](.config/nvim/) as main text & code editor
-- [Git](.config/git/), a standard & powerful version control system
-- [Fzf](.config/fzf/), a powerful fuzzy finding tool
+- [Zsh](/.config/zsh/) as terminal shell
+- [Starship](/.config/starship), a modern terminal prompt
+- [Tmux](/.config/tmux/), an awesome terminal multiplexer
+- [Neovim](/.config/nvim/) as main text & code editor
+- [Git](/.config/git/), a standard & powerful version control system
+- [Fzf](/.config/fzf/), a powerful fuzzy finding tool

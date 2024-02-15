@@ -12,23 +12,28 @@ are also accessible on remote machines if Tmux is installed and started on one.
 **Install:**
 
 <details>
-    <summary>MacOS</summary>
-    ```shell
-    brew install tmux
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-    ```
-    Then start Tmux with the command `tmux` for instance, press `<prefix>I` to install Tmux plugins
-    (prefix is `<C-space>` in this configuration), and restart Tmux with `exit` and then `tmux` for
-    instance.
-</details>
+<summary>MacOS</summary>
 
+```shell
+brew install tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+Then start Tmux with the command `tmux` for instance, press `<prefix>I` to install Tmux plugins
+(prefix is `<C-space>` in this configuration), and restart Tmux with `exit` and then `tmux` for
+instance.
+
+</details>
 <details>
-    <summary>Ubuntu</summary>
-    ```shell
-    apt install tmux
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-    ```
-    Then start Tmux with the command `tmux` for instance, press `<prefix>I` to install Tmux plugins
-    (prefix is `<C-space>` in this configuration), and restart Tmux with `exit` and then `tmux` for
-    instance.
+<summary>Ubuntu</summary>
+
+```shell
+apt install tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+Then start Tmux with the command `tmux` for instance, press `<prefix>I` to install Tmux plugins
+(prefix is `<C-space>` in this configuration), and restart Tmux with `exit` and then `tmux` for
+instance.
+
 </details>

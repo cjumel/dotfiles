@@ -14,8 +14,10 @@ workflow in order to:
 Karabiner only needs to be installed on my machine, a Macbook.
 
 <details>
-    <summary>MacOS</summary>
-    ```shell
-    brew install --cask karabiner-elements
-    ```
+<summary>MacOS</summary>
+
+```shell
+brew install --cask karabiner-elements
+```
+
 </details>

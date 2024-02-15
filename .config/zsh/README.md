@@ -21,32 +21,35 @@ are always setup on my own machine.
 **Install:**
 
 <details>
-    <summary>MacOS</summary>
-    Zsh is the default terminal shell in MacOS, there's no need to install it.
-    ```shell
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    # or: sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
-    ```
-</details>
+<summary>MacOS</summary>
 
+Zsh is the default terminal shell in MacOS, there's no need to install it.
+
+```shell
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# or: sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+```
+
+</details>
 <details>
-    <summary>Ubuntu</summary>
-    ```shell
-    apt install zsh
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    # or: sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
-    ```
+
+<summary>Ubuntu</summary>
+```shell
+apt install zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# or: sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+```
 </details>
 
 ## Optional Features
 
 ### [Starship](https://starship.rs/)
 
-See [here](.config/starship/README.md).
+See [here](/.config/starship/README.md).
 
 ### [Fzf](https://github.com/junegunn/fzf)
 
-See [here](.config/fzf/README.md).
+See [here](/.config/fzf/README.md).
 
 ### [Zoxide](https://github.com/ajeetdsouza/zoxide)
 
@@ -56,17 +59,20 @@ to jump directly to any directory visited in the past.
 **Install:**
 
 <details>
-    <summary>MacOS</summary>
-    ```shell
-    brew install zoxide
-    ```
-</details>
+<summary>MacOS</summary>
 
+```shell
+brew install zoxide
+```
+
+</details>
 <details>
-    <summary>Ubuntu</summary>
-    ```shell
-    apt install zoxide
-    ```
+<summary>Ubuntu</summary>
+
+```shell
+apt install zoxide
+```
+
 </details>
 
 ### [Eza](https://github.com/eza-community/eza)
@@ -76,10 +82,12 @@ Eza provides a drop-in replacement of the builtin `ls` with a nicer & more infor
 **Install:**
 
 <details>
-    <summary>MacOS</summary>
-    ```shell
-    brew install eza
-    ```
+<summary>MacOS</summary>
+
+```shell
+brew install eza
+```
+
 </details>
 
 ### [Bat](https://github.com/sharkdp/bat)
@@ -89,10 +97,12 @@ Bat provides a drop-in replacement of the builtin `cat` with a nicer display.
 **Install:**
 
 <details>
-    <summary>MacOS</summary>
-    ```shell
-    brew install bat
-    ```
+<summary>MacOS</summary>
+
+```shell
+brew install bat
+```
+
 </details>
 
 ### [Dust](https://github.com/bootandy/dust)
@@ -103,10 +113,12 @@ informative display, while being more user-friendly. It is now my go-to tool to 
 **Install:**
 
 <details>
-    <summary>MacOS</summary>
-    ```shell
-    brew install dust
-    ```
+<summary>MacOS</summary>
+
+```shell
+brew install dust
+```
+
 </details>
 
 ### [Tldr](https://github.com/tldr-pages/tldr)
@@ -117,8 +129,10 @@ information but it is easier to read and understand.
 **Install:**
 
 <details>
-    <summary>MacOS</summary>
-    ```shell
-    brew install tldr
-    ```
+<summary>MacOS</summary>
+
+```shell
+brew install tldr
+```
+
 </details>
