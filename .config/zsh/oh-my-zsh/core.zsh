@@ -20,6 +20,8 @@ alias mdp='mkdir -p'
 
 alias mk='make'
 
+alias p='pwd'
+
 alias py='python'
 
 alias rmd='rm -d'
