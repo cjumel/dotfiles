@@ -11,10 +11,14 @@ $git_commit\
 $git_state\
 $git_metrics\
 $git_status\
+$fill\
+$all\
 $line_break\
-$character"""
-# Format of the modules on the right-hand-side of the prompt
-right_format = """$all""" # all the remaining modules
+$character\
+"""
+
+[fill]
+symbol = " "
 
 [gcloud]
 # If it has been activated once the module is always activated which is annoying
