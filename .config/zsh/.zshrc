@@ -75,19 +75,13 @@ alias du='dust'
 alias ls='eza'
 alias tl='tldr'
 
-# [[ fzf ]]
-
-# If fzf setup file exists, setup fzf additional features like key bindings or auto-completion
-[ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh
-
 # [[ zoxide ]]
 # NOTE: remove this section if zoxide is not installed or to disable it
 
 eval "$(zoxide init --cmd cd zsh)"
 
-# [[ Starship ]]
-# NOTE: remove this section if Starship is not installed or to disable it
+# [[ Additional configuration scripts ]]
+# The following will run configuration scripts for additional tools, but only if the files exist
 
-export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
-
-eval "$(starship init zsh)"
+[ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh
+[ -f ~/.config/starship/starship.zsh ] && source ~/.config/starship/starship.zsh

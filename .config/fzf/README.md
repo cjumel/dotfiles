@@ -34,5 +34,5 @@ apt install fzf
 
 **Disable:**
 
-To disable fzf setup, simply delete the directory `.config/fzf/`. If you've run the `make` command
-already, also remove the directory `~/.config/fzf/` to remove the symlinks that have been created.
+To disable fzf setup, simply delete the `.config/fzf/` directory. If you've run the `make` command
+already, also remove the `~/.config/fzf/` directory to remove the symlinks that have been created.
