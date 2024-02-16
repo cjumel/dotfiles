@@ -54,27 +54,7 @@ See [here](/.config/fzf/README.md).
 
 ### [Zoxide](https://github.com/ajeetdsouza/zoxide)
 
-Zoxide provides a drop-in replacement of the builtin `cd`, with the additional feature of being able
-to jump directly to any directory visited in the past.
-
-**Install:**
-
-<details>
-<summary>MacOS</summary>
-
-```shell
-brew install zoxide
-```
-
-</details>
-<details>
-<summary>Ubuntu</summary>
-
-```shell
-apt install zoxide
-```
-
-</details>
+See [here](/.config/zoxide/README.md).
 
 ### [Eza](https://github.com/eza-community/eza)
 

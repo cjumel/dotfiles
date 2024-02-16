@@ -4,7 +4,7 @@ Fzf is a general-purpose command-line fuzzy finder and provides many useful feat
 fuzzy find files and directories.
 
 By default, fzf is enabled in this configuration, so you need to install it for this to work.
-Alternatively, you can entirely disable fzf setup (for instance if you're working on a remote
+Alternatively, you can entirely disable its setup (for instance if you're working on a remote
 machine and don't want to bother with this). See below for details on how to do either option.
 
 **Requirements:**

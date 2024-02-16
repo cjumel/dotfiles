@@ -75,13 +75,9 @@ alias du='dust'
 alias ls='eza'
 alias tl='tldr'
 
-# [[ zoxide ]]
-# NOTE: remove this section if zoxide is not installed or to disable it
-
-eval "$(zoxide init --cmd cd zsh)"
-
 # [[ Additional configuration scripts ]]
 # The following will run configuration scripts for additional tools, but only if the files exist
 
 [ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh
 [ -f ~/.config/starship/starship.zsh ] && source ~/.config/starship/starship.zsh
+[ -f ~/.config/zoxide/zoxide.zsh ] && source ~/.config/zoxide/zoxide.zsh
