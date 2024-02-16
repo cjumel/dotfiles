@@ -52,9 +52,9 @@ bindkey "^N" down-line-or-search
 # Use escape to clear the screen
 bindkey "\e" clear-screen
 
-# Add <C-m> & <C-%> (with Karabiner remaps) to move forward & backward word by word
-bindkey "^_" forward-word
+# Add <C-%> & <C-`> (on my keyboard) to move backward & forward word by word respectively
 bindkey "^^" backward-word
+bindkey "^_" forward-word
 
 # [[ Aliases ]]
 # Meta aliases. For other aliases, see in `./config/zsh/oh-my-zsh`
