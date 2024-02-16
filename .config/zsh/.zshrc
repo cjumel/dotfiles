@@ -64,69 +64,8 @@ function alias_grep(){
   alias | grep "^$1"
 }
 
-# Fuzzy find aliases and paste selected alias to command line
-function alias_fzf_select(){
-  selected_line=$(alias | fzf)
-
-  # Exit if nothing is selected
-  if [[ -z $selected_line ]]; then
-    return
-  fi
-
-  # Extract the alias name from the selected line (selected line has the format "alias=command")
-  selected_alias=${selected_line%%=*}
-
-  # Paste the alias to the command line
-  print -z $selected_alias
-}
-
-# Fuzzy find alias files and open the selected one with vi
-function alias_fzf_edit(){
-  # Use builtin ls even if eza is aliased to ls
-  selected_file=$(command ls $ZSH_CUSTOM | fzf)
-
-  # Exit if nothing is selected
-  if [[ -z $selected_file ]]; then
-    return
-  fi
-
-  vi $ZSH_CUSTOM/$selected_file
-}
-
 alias al='alias'
 alias all='alias_grep' # Alias list
-
-# [[ Terminal themes ]]
-# Manage themes for WezTerm, Tmux, and Neovim at the same time
-
-TERMINAL_THEMES='catppuccin-frappe
-catppuccin-macchiato
-catppuccin-mocha
-catppuccin-latte
-gruvbox-dark
-gruvbox-light
-kanagawa
-nord
-rose-pine
-rose-pine-dawn
-rose-pine-moon
-tokyonight'
-
-function themes_fzf(){
-  # Make the user select a theme using fzf among the available ones
-  selected_theme=$(echo $TERMINAL_THEMES| fzf)
-
-  # Exit if no theme is selected, to avoid creating broken symlinks
-  if [[ -z $selected_theme ]]; then
-    return
-  fi
-
-  # Create symlinks to the selected theme (overwrite existing ones)
-  ln -sf ~/.config/wezterm/themes/$selected_theme.lua ~/.config/wezterm/theme.lua
-  ln -sf ~/.config/tmux/themes/$selected_theme.conf ~/.config/tmux/theme.conf
-  ln -sf ~/.config/tmux/themes/$selected_theme-post.conf ~/.config/tmux/theme-post.conf
-  ln -sf ~/.config/nvim/lua/themes/$selected_theme.lua ~/.config/nvim/lua/theme.lua
-}
 
 # [[ Terminal utilities ]]
 # NOTE: remove lines of this section if the relevant tool is not installed or to disable it
@@ -137,15 +76,9 @@ alias ls='eza'
 alias tl='tldr'
 
 # [[ fzf ]]
-# NOTE: remove this section if fzf is not installed or to disable it
 
-# Setup fzf additional features like key bindings or auto-completion
+# If fzf setup file exists, setup fzf additional features like key bindings or auto-completion
 [ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh
-
-# Custom aliases using fzf
-alias th='themes_fzf'
-alias alf='alias_fzf_select' # Alias fuzzy-find
-alias ale='alias_fzf_edit' # Alias edit
 
 # [[ zoxide ]]
 # NOTE: remove this section if zoxide is not installed or to disable it
