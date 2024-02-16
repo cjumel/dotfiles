@@ -40,3 +40,4 @@ alias v='vi'
 
 alias wi='which'
 alias we='whence'
+alias wk='/bin/cat -v' # Which key: show which key code is received when pressing keys
