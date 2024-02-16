@@ -118,26 +118,6 @@
             ]
           },
           {
-            "description": "Remap <C-m> to <C-\\>",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "semicolon",
-                  "modifiers": {
-                    "mandatory": ["control"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "backslash",
-                    "modifiers": ["control"]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
             "description": "Remap <C-:> & <C-=> to <C-b> & <C-f>",
             "manipulators": [
               {
