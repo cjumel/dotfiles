@@ -67,17 +67,10 @@ function alias_grep(){
 alias al='alias'
 alias all='alias_grep' # Alias list
 
-# [[ Terminal utilities ]]
-# NOTE: remove lines of this section if the relevant tool is not installed or to disable it
-
-alias cat='bat'
-alias du='dust'
-alias ls='eza'
-alias tl='tldr'
-
 # [[ Additional configuration scripts ]]
 # The following will run configuration scripts for additional tools, but only if the files exist
 
 [ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh
 [ -f ~/.config/starship/starship.zsh ] && source ~/.config/starship/starship.zsh
 [ -f ~/.config/zoxide/zoxide.zsh ] && source ~/.config/zoxide/zoxide.zsh
+[ -f ~/.config/zsh/utilities.zsh ] && source ~/.config/zsh/utilities.zsh
