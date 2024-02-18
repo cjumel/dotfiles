@@ -21,6 +21,9 @@ config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 -- Make possible to type option-key combinations, like "{" and "}"
 config.send_composed_key_when_left_alt_is_pressed = true
 
+-- Disable default key bindings as I don't use most of them & some are conflicting with my own
+config.disable_default_key_bindings = true
+
 -- Set the leader key
 config.leader = {
   key = " ",
