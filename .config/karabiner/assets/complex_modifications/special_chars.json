@@ -1,8 +1,8 @@
 {
-  "title": "Improve special keys bindings",
+  "title": "Special characters",
   "rules": [
     {
-      "description": "Simpler | binding",
+      "description": "Make | two key strokes",
       "manipulators": [
         {
           "type": "basic",
@@ -37,7 +37,7 @@
       ]
     },
     {
-      "description": "Simpler \\ binding",
+      "description": "Make \\ two key strokes",
       "manipulators": [
         {
           "type": "basic",
@@ -72,7 +72,7 @@
       ]
     },
     {
-      "description": "Simpler ~ binding",
+      "description": "Make ~ two key strokes",
       "manipulators": [
         {
           "type": "basic",
@@ -95,7 +95,7 @@
       ]
     },
     {
-      "description": "Simpler % binding",
+      "description": "Make % one key stroke",
       "manipulators": [
         {
           "type": "basic",

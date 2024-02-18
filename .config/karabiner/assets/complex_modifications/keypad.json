@@ -1,8 +1,8 @@
 {
-  "title": "Fix keypad period key",
+  "title": "Keypad",
   "rules": [
     {
-      "description": "Fix keypad period key to use it as an actual period and not a comma",
+      "description": "Fix keypad period (actual period instead of comma)",
       "manipulators": [
         {
           "type": "basic",

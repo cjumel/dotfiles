@@ -18,6 +18,148 @@
         },
         "rules": [
           {
+            "description": "Make % one key stroke",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "quote"
+                },
+                "to": [
+                  {
+                    "key_code": "quote",
+                    "modifiers": ["shift"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "quote",
+                  "modifiers": {
+                    "mandatory": ["shift"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "quote"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Make ~ two key strokes",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "n",
+                  "modifiers": {
+                    "mandatory": ["option"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "n",
+                    "modifiers": ["option"]
+                  },
+                  {
+                    "key_code": "spacebar"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Make \\ two key strokes",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "period",
+                  "modifiers": {
+                    "mandatory": ["option"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "period",
+                    "modifiers": ["option", "shift"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "period",
+                  "modifiers": {
+                    "mandatory": ["option", "shift"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "period",
+                    "modifiers": ["option"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Make | two key strokes",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": ["option"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "l",
+                    "modifiers": ["option", "shift"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": ["option", "shift"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "l",
+                    "modifiers": ["option"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Fix keypad period (actual period instead of comma)",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "keypad_period",
+                  "modifiers": {}
+                },
+                "to": [
+                  {
+                    "key_code": "comma",
+                    "modifiers": ["shift"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
             "description": "Swap < and > with [ and ]",
             "manipulators": [
               {
@@ -81,144 +223,7 @@
             ]
           },
           {
-            "description": "Simpler | binding",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "l",
-                  "modifiers": {
-                    "mandatory": ["option"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "l",
-                    "modifiers": ["option", "shift"]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "key_code": "l",
-                  "modifiers": {
-                    "mandatory": ["option", "shift"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "l",
-                    "modifiers": ["option"]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "Fix keypad period key to use it as an actual period and not a comma",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "keypad_period",
-                  "modifiers": {}
-                },
-                "to": [
-                  {
-                    "key_code": "comma",
-                    "modifiers": ["shift"]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "Simpler \\ binding",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "period",
-                  "modifiers": {
-                    "mandatory": ["option"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "period",
-                    "modifiers": ["option", "shift"]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "key_code": "period",
-                  "modifiers": {
-                    "mandatory": ["option", "shift"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "period",
-                    "modifiers": ["option"]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "Simplify ^ accent",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "open_bracket",
-                  "modifiers": {}
-                },
-                "to": [
-                  {
-                    "key_code": "open_bracket"
-                  },
-                  {
-                    "key_code": "spacebar"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "key_code": "open_bracket",
-                  "modifiers": {
-                    "mandatory": ["shift"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "open_bracket"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "key_code": "open_bracket",
-                  "modifiers": {
-                    "mandatory": ["option"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "open_bracket",
-                    "modifiers": ["shift"]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "Simplify ` accent",
+            "description": "Make ` one key stroke",
             "manipulators": [
               {
                 "from": {
@@ -267,53 +272,48 @@
             ]
           },
           {
-            "description": "Simpler ~ binding",
+            "description": "Make ^ one key stroke",
             "manipulators": [
               {
                 "from": {
-                  "key_code": "n",
-                  "modifiers": {
-                    "mandatory": ["option"]
-                  }
+                  "key_code": "open_bracket",
+                  "modifiers": {}
                 },
                 "to": [
                   {
-                    "key_code": "n",
-                    "modifiers": ["option"]
+                    "key_code": "open_bracket"
                   },
                   {
                     "key_code": "spacebar"
                   }
                 ],
                 "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "Simpler % binding",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "quote"
-                },
-                "to": [
-                  {
-                    "key_code": "quote",
-                    "modifiers": ["shift"]
-                  }
-                ],
-                "type": "basic"
               },
               {
                 "from": {
-                  "key_code": "quote",
+                  "key_code": "open_bracket",
                   "modifiers": {
                     "mandatory": ["shift"]
                   }
                 },
                 "to": [
                   {
-                    "key_code": "quote"
+                    "key_code": "open_bracket"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "open_bracket",
+                  "modifiers": {
+                    "mandatory": ["option"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "open_bracket",
+                    "modifiers": ["shift"]
                   }
                 ],
                 "type": "basic"

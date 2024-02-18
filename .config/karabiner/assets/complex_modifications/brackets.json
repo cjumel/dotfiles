@@ -1,5 +1,5 @@
 {
-  "title": "Better bracket key bindings",
+  "title": "Brackets",
   "rules": [
     {
       "description": "Swap < and > with [ and ]",

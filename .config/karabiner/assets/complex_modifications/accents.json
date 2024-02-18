@@ -1,8 +1,8 @@
 {
-  "title": "Simplify accents typing",
+  "title": "Accents",
   "rules": [
     {
-      "description": "Simplify ^ accent",
+      "description": "Make ^ one key stroke",
       "manipulators": [
         {
           "type": "basic",
@@ -51,7 +51,7 @@
       ]
     },
     {
-      "description": "Simplify ` accent",
+      "description": "Make ` one key stroke",
       "manipulators": [
         {
           "type": "basic",
