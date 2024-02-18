@@ -16,33 +16,53 @@ changes" afterwards). In Arc Browser, this must be done for each different profi
 <summary>Custom key mappings</summary>
 
 ```
-# Use s/S to search and click a link instead of f/F (like s key in EasyMotion or Hop.nvim)
-unmap f
-unmap F
-map s LinkHints.activateMode
-map S LinkHints.activateModeToOpenInNewTab
-# Use ,/; to scroll half page up/down
-map , scrollPageDown
-map ; scrollPageUp
-# Disable mappings that don't work well
-# J/K follow a kind of most recent tab behavior, see https://github.com/philc/vimium/issues/4230
-unmap J
-unmap K
-# Since I remapped J/K to <C-J>/<C-K> in the browser, let's do the same for H/L
-unmap H
-unmap L
-# x works but tabs closed with it can't be restored with neither regular keymap nor X
-unmap x
-unmap X
-unmap t
+# Disable all default mappings
+# I don't use many mappings and several default mappings don't work as intented in my browser
+unmapAll
+
+# Vim-like crolling
+map j scrollDown
+map k scrollUp
+map h scrollLeft
+map l scrollRight
+map gg scrollToTop
+map G scrollToBottom
+map <C-d> scrollPageDown
+map <C-u> scrollPageUp
+map <C-f> scrollFullPageDown
+map <C-b> scrollFullPageUp
+
+# Clicking
+map <enter> LinkHints.activateMode
+map <C-m> LinkHints.activateMode
+map <S-enter> LinkHints.activateModeToOpenInNewTab
+
+# Other
+map ? showHelp
 ```
 
 </details>
+
 <details>
 <summary>Characters used for link hints</summary>
 
 ```
 hgjfkdlsmqyturieozpabvn
 ```
+
+</details>
+
+<details>
+<summary>Settings set in the web browser (Arc Browser)</summary>
+
+- `<C-j>` & `<C-k>` are mapped to next & previous tab, respectively (Vimium's `nextTab` &
+  `previousTab` follow a kind of most recent tab behavior I don't want, see this
+  [issue](https://github.com/philc/vimium/issues/4230))
+- `<C-h>` & `<C-l>` are mapped to previous & next profile, respectively
+- `<C-o>` & `<C-i>` are mapped to go back & forward, respectively
+- I use the web browser's `<M-t>` instead of Vimium's `createTab` to open a new tab, as when using
+  the latter, the new tab is blank without even a search bar
+- I use the web browser's `<M-w>` instead of Vimium's `removeTab` to close a tab, as when using the
+  latter, the tab can't be re-opened neither with the web browser feature nor with Vimium's one
 
 </details>
