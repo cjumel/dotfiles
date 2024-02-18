@@ -3,6 +3,7 @@
 -- to use MacOS native full screen mode, in addtion to WezTerm full screen mode (with opt+enter).
 
 local wezterm = require("wezterm")
+local act = wezterm.action
 
 wezterm.on("toggle-opacity", function(window, pane)
   local overrides = window:get_config_overrides() or {}
@@ -36,39 +37,46 @@ return {
   { -- From <C-%> on my keyboard to <C-_>
     key = "_",
     mods = "CTRL|SHIFT",
-    action = wezterm.action({ SendString = "\x1f" }),
+    action = act({ SendString = "\x1f" }),
   },
   { -- From <C-`> on my keyboard to <C-^>
     key = "6",
     mods = "CTRL|SHIFT",
-    action = wezterm.action({ SendString = "\x1e" }),
+    action = act({ SendString = "\x1e" }),
   },
   { -- From <C-[> on my keyboard to <C-]>
     key = "$",
     mods = "CTRL",
-    action = wezterm.action({ SendString = "\x1d" }),
+    action = act({ SendString = "\x1d" }),
   },
 
   -- [[ Control-command keymaps ]]
+  -- Keymaps similar to MacOS builtin (e.g. <C-M-f> to toggle full screen) and which should be
+  -- convenient to do with similar key strokes
 
   {
-    -- Move-to-screen keymap (control-command m) causes WezTerm's window to change size, this
-    -- keymap is convenient to reset it to the default size
+    -- Move-to-screen keymap (<C-M-m>) causes WezTerm's window to change size, this keymap is
+    -- convenient to reset it to the default size
     key = "r",
     mods = "CMD|CTRL",
-    action = wezterm.action.ResetFontAndWindowSize,
+    action = act.ResetFontAndWindowSize,
   },
 
   -- [[ Leader keymaps ]]
 
   {
+    key = "f",
+    mods = "LEADER",
+    action = act.ToggleFullScreen,
+  },
+  {
     key = "o",
     mods = "LEADER",
-    action = wezterm.action.EmitEvent("toggle-opacity"),
+    action = act.EmitEvent("toggle-opacity"),
   },
   {
     key = "t",
     mods = "LEADER",
-    action = wezterm.action.EmitEvent("toggle-transparency"),
+    action = act.EmitEvent("toggle-transparency"),
   },
 }

@@ -5,7 +5,6 @@ local act = wezterm.action
 
 return {
   keys = {
-    { key = "Enter", mods = "ALT", action = act.ToggleFullScreen },
     { key = "c", mods = "SUPER", action = act.CopyTo("Clipboard") },
     { key = "f", mods = "SUPER", action = act.Search("CurrentSelectionOrEmptyString") },
     { key = "h", mods = "SUPER", action = act.HideApplication },
