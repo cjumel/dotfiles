@@ -1,6 +1,6 @@
 -- In addition to the keymaps setup here, I introduced in MacOS system settings custom application
 -- keyboard mappings, cmd-ctrl-f for "Enter Full Screen" and "Exit Full Screen", in order
--- to use MacOS native full screen mode, in addtion to WezTerm full screen mode (with opt+enter).
+-- to use MacOS native full screen mode, in addtion to WezTerm full screen mode.
 
 local wezterm = require("wezterm")
 local act = wezterm.action
@@ -26,36 +26,12 @@ wezterm.on("toggle-transparency", function(window, pane)
 end)
 
 return {
-  -- [[ Fixes ]]
-
-  -- Fix control-key combinations with special characters
-  -- To be able to type them, these have been remapped with Karabiner, here we make the bridge
-  -- between the codes sent by Karabiner and the wanted terminal codes
-  -- Solution is inspired from here: https://github.com/wez/wezterm/issues/3180
-  -- See here for the supported terminal codes:
-  -- https://www.reddit.com/r/neovim/comments/okbag3/how_can_i_remap_ctrl_backspace_to_delete_a_word/
-  { -- From <C-%> on my keyboard to <C-_>
-    key = "_",
-    mods = "CTRL|SHIFT",
-    action = act({ SendString = "\x1f" }),
-  },
-  { -- From <C-`> on my keyboard to <C-^>
-    key = "6",
-    mods = "CTRL|SHIFT",
-    action = act({ SendString = "\x1e" }),
-  },
-  { -- From <C-[> on my keyboard to <C-]>
-    key = "$",
-    mods = "CTRL",
-    action = act({ SendString = "\x1d" }),
-  },
-
   -- [[ Control-command keymaps ]]
   -- Keymaps similar to MacOS builtin (e.g. <C-M-f> to toggle full screen) and which should be
   -- convenient to do with similar key strokes
 
   {
-    -- Move-to-screen keymap (<C-M-m>) causes WezTerm's window to change size, this keymap is
+    -- Move-to-screen keymap (ctrl-cmd-m) causes WezTerm's window to change size, this keymap is
     -- convenient to reset it to the default size
     key = "r",
     mods = "CMD|CTRL",
@@ -78,5 +54,32 @@ return {
     key = "t",
     mods = "LEADER",
     action = act.EmitEvent("toggle-transparency"),
+  },
+
+  -- [[ Control keymaps ]]
+  -- Enable some control keymaps with special characters by sending the right string given an
+  -- input sequence
+  -- This is inspired from: https://github.com/wez/wezterm/issues/3180
+  -- See here for terminal codes supported by Neovim:
+  -- https://www.reddit.com/r/neovim/comments/okbag3/how_can_i_remap_ctrl_backspace_to_delete_a_word/
+
+  -- Some control keymaps with special characters are already working:
+  -- - <C-^> on my keyboard corresponds to <C-[> (escape)
+  -- - <C-$> on my keyboard corresponds to <C-]>
+  -- - <C-`> on my keyboard corresponds to <C-\>
+  {
+    key = "phys:Quote", -- % key on my keyboard
+    mods = "CTRL",
+    action = wezterm.action({ SendString = "\x7f" }), -- <C-?> code (delete)
+  },
+  {
+    key = "phys:M", -- , key on my keyboard
+    mods = "CTRL",
+    action = wezterm.action({ SendString = "\x1e" }), -- <C-^> code
+  },
+  {
+    key = "phys:Comma", -- ; key on my keyboard
+    mods = "CTRL",
+    action = wezterm.action({ SendString = "\x1f" }), -- <C-_> code
   },
 }
