@@ -60,9 +60,9 @@ hgjfkdlsmqyturieozpabvn
   [issue](https://github.com/philc/vimium/issues/4230))
 - `<C-h>` & `<C-l>` are mapped to previous & next profile, respectively
 - `<C-o>` & `<C-i>` are mapped to go back & forward, respectively
-- I use the web browser's `<M-t>` instead of Vimium's `createTab` to open a new tab, as when using
+- I use the web browser's `<cmd-t>` instead of Vimium's `createTab` to open a new tab, as when using
   the latter, the new tab is blank without even a search bar
-- I use the web browser's `<M-w>` instead of Vimium's `removeTab` to close a tab, as when using the
-  latter, the tab can't be re-opened neither with the web browser feature nor with Vimium's one
+- I use the web browser's `<cmd-w>` instead of Vimium's `removeTab` to close a tab, as when using
+  the latter, the tab can't be re-opened neither with the web browser feature nor with Vimium's one
 
 </details>
