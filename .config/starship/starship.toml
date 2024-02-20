@@ -24,8 +24,16 @@ symbol = " "
 # If it has been activated once the module is always activated which is annoying
 disabled = true
 
+[lua]
+format = 'via [$symbol ]($style)'
+symbol = "Lua"
+
 [package]
 disabled = true
+
+[python]
+format = 'via [${symbol} (\($virtualenv\) )]($style)'
+symbol = "Python"
 
 [time]
 disabled = false
