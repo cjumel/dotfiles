@@ -24,5 +24,8 @@ symbol = " "
 # If it has been activated once the module is always activated which is annoying
 disabled = true
 
+[package]
+disabled = true
+
 [time]
 disabled = false
