@@ -15,6 +15,19 @@ wezterm.on("toggle-opacity", function(window, pane)
   window:set_config_overrides(overrides)
 end)
 
+wezterm.on("increase-opacity", function(window, pane)
+  local overrides = window:get_config_overrides() or {}
+  if not overrides.window_background_opacity then
+    overrides.window_background_opacity = 0.8
+  end
+  local new_opacity = overrides.window_background_opacity + 0.05
+  if new_opacity > 1.0 then
+    new_opacity = 1.0
+  end
+  overrides.window_background_opacity = new_opacity
+  window:set_config_overrides(overrides)
+end)
+
 wezterm.on("toggle-transparency", function(window, pane)
   local overrides = window:get_config_overrides() or {}
   if not overrides.window_background_opacity then
@@ -22,6 +35,19 @@ wezterm.on("toggle-transparency", function(window, pane)
   else
     overrides.window_background_opacity = nil
   end
+  window:set_config_overrides(overrides)
+end)
+
+wezterm.on("increase-transparency", function(window, pane)
+  local overrides = window:get_config_overrides() or {}
+  if not overrides.window_background_opacity then
+    overrides.window_background_opacity = 0.8
+  end
+  local new_opacity = overrides.window_background_opacity - 0.05
+  if new_opacity < 0.0 then
+    new_opacity = 0.0
+  end
+  overrides.window_background_opacity = new_opacity
   window:set_config_overrides(overrides)
 end)
 
@@ -36,6 +62,16 @@ return {
     key = "r",
     mods = "CMD|CTRL",
     action = act.ResetFontAndWindowSize,
+  },
+  {
+    key = "o",
+    mods = "CMD|CTRL",
+    action = act.EmitEvent("increase-opacity"),
+  },
+  {
+    key = "t",
+    mods = "CMD|CTRL",
+    action = act.EmitEvent("increase-transparency"),
   },
 
   -- [[ Leader keymaps ]]
