@@ -32,10 +32,9 @@ map <C-u> scrollPageUp
 map <C-f> scrollFullPageDown
 map <C-b> scrollFullPageUp
 
-# Clicking
-map <enter> LinkHints.activateMode
-map <C-m> LinkHints.activateMode
-map <S-enter> LinkHints.activateModeToOpenInNewTab
+# Follow link
+map f LinkHints.activateMode
+map F LinkHints.activateModeToOpenInNewTab
 
 # Other
 map ? showHelp
