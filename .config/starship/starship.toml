@@ -17,6 +17,10 @@ $line_break\
 $character\
 """
 
+[docker_context]
+format = "[$symbol]($style), "
+symbol = "🐳"
+
 [fill]
 symbol = " "
 
@@ -25,15 +29,15 @@ symbol = " "
 disabled = true
 
 [lua]
-format = 'via [$symbol ]($style)'
-symbol = "Lua"
+format = "[$symbol]($style), "
+symbol = "🌙"
 
 [package]
 disabled = true
 
 [python]
-format = 'via [${symbol} (\($virtualenv\) )]($style)'
-symbol = "Python"
+format = '[${symbol}( \($virtualenv\))]($style), '
+symbol = "🐍"
 
 [time]
 disabled = false
