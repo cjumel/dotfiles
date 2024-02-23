@@ -32,6 +32,9 @@ disabled = true
 format = "[$symbol]($style), "
 symbol = "🌙"
 
+[nodejs]
+disabled = true
+
 [package]
 disabled = true
 

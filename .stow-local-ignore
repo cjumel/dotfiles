@@ -13,6 +13,6 @@
 # Dotfiles configuration files
 \.pre-commit-config\.yaml
 \.prettierignore
-\.prettierrc
 \.prettierrc.yaml
+\.ruff.toml
 \.stylua.toml
