@@ -14,8 +14,10 @@ repos:
       - id: trailing-whitespace # Trims trailing whitespace
 
   # Prettier is a formatter for Mardown, YAML, JSON and others
+  # NOTE: upgrading until at least 4.0.0-alpha.8 causes pre-commit to create a node_modules
+  # directory in the repository
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v4.0.0-alpha.8
+    rev: v3.1.0
     hooks:
       - id: prettier
 
