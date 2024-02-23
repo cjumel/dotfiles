@@ -46,8 +46,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 I use a few main additional tools, which bring quite useful (but still optional) features & have
 their own configuration files and documentation:
 
-- [Starship](https://starship.rs/), see [here](/.config/starship/README.md)
 - [Fzf](https://github.com/junegunn/fzf), see [here](/.config/fzf/README.md)
+- [IPython](https://ipython.org/documentation.html), see [here](/.config/ipython/README.md)
+- [Starship](https://starship.rs/), see [here](/.config/starship/README.md)
 - [Zoxide](https://github.com/ajeetdsouza/zoxide), see [here](/.config/zoxide/README.md)
 
 ## Terminal Utilities

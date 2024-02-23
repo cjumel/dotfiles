@@ -24,7 +24,7 @@ $(brew --prefix)/opt/fzf/install
 
 </details>
 <details>
-<summary>MacOS</summary>
+<summary>Linux</summary>
 
 ```shell
 apt install fzf
@@ -34,5 +34,5 @@ apt install fzf
 
 **Disable:**
 
-To disable fzf setup, simply delete the `.config/fzf/` directory. If you've run the `make` command
+To disable fzf's setup, simply delete the `.config/fzf/` directory. If you've run the `make` command
 already, also remove the `~/.config/fzf/` directory to remove the symlinks that have been created.
