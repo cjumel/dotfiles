@@ -2,7 +2,6 @@ alias g='git status'
 
 alias ga='git add'
 alias gaa='git add --all'  # Add all files, both tracked & untracked
-alias gad='git add .'  # Add the files in the current directory
 alias gau='git add --update'  # Add all tracked files
 
 alias gb='git branch'
@@ -36,8 +35,7 @@ alias gcn='git config'
 alias gcng='git config --global'
 
 alias gco='git checkout'
-alias gcod='git checkout --' # Discard the changes of the targeted files or all of them
-alias gcodd='git checkout -- .' # Discard the changes in the current directory
+alias gcod='git checkout --' # Discard the changes of the targeted files
 
 alias gcp='git cherry-pick'  # Apply the changes introduced by some existing commits
 
@@ -90,9 +88,7 @@ function git_reset_hard_last(){ git reset --hard HEAD~$1 }
 alias grshl='git_reset_hard_last' # Hard reset the last $1 commit(s)
 
 alias grt='git restore'  # Discard the changes of the targeted unstaged files
-alias grtd='git restore .'
-alias grts='git restore --staged'  # Unstage the targeted staged files
-alias grtsd='git restore --staged .'
+alias grts='git restore --staged'  # Like `git restore` but unstage the targeted staged files
 
 alias grv='git revert'
 alias grvl='git revert HEAD'  # Revert the last commit
@@ -103,7 +99,6 @@ alias grvc='git revert --continue'
 alias grvs='git revert --skip'
 
 alias gs='git status'
-alias gsd='git status .'
 
 alias gsh='git stash' # Stash local changes in tracked files
 alias gsha='git stash apply' # Apply the last stash entry
