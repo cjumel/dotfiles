@@ -37,8 +37,8 @@ bindkey "©" fzf-cd-widget
 
 # [[ Alias features ]]
 
-# Fuzzy find aliases and paste selected alias to command line
-function alias_fzf_select(){
+# Use fzf to fuzzy search aliases and paste the selected one to the command line
+function alias_fzf_fuzzy_search(){
   selected_line=$(alias | fzf)
 
   # Exit if nothing is selected
@@ -53,7 +53,7 @@ function alias_fzf_select(){
   print -z $selected_alias
 }
 
-# Fuzzy find alias files and open the selected one with vi
+# Use fzf to select an alias file and edit it using vi
 function alias_fzf_edit(){
   # Use builtin ls even if eza is aliased to ls
   selected_file=$(command ls $ZSH_CUSTOM | fzf)
@@ -66,8 +66,8 @@ function alias_fzf_edit(){
   vi $ZSH_CUSTOM/$selected_file
 }
 
-alias alf='alias_fzf_select' # Alias fuzzy-find
-alias ale='alias_fzf_edit' # Alias edit
+alias alf='alias_fzf_fuzzy_search'
+alias ale='alias_fzf_edit'
 
 # [[ Theme features ]]
 # Manage themes for WezTerm, Tmux, and Neovim at the same time
@@ -85,7 +85,8 @@ rose-pine-dawn
 rose-pine-moon
 tokyonight'
 
-function themes_fzf(){
+# Pick a theme with fzf and set it up by creating the relevant symlinks
+function theme_fzf_picker(){
   # Make the user select a theme using fzf among the available ones
   selected_theme=$(echo $TERMINAL_THEMES| fzf)
 
@@ -101,4 +102,4 @@ function themes_fzf(){
   ln -sf ~/.config/nvim/lua/themes/$selected_theme.lua ~/.config/nvim/lua/theme.lua
 }
 
-alias th='themes_fzf'
+alias th='theme_fzf_picker'
