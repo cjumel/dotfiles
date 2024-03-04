@@ -7,7 +7,8 @@ alias gau='git add --update'  # Add all tracked files
 
 alias gb='git branch'
 alias gba='git branch --all'
-alias gbd='git branch --delete --force'  # Force delete a local branch
+alias gbd='git branch --delete'  # Delete a local branch
+alias gbdf='git branch --delete --force'  # Force delete a local branch (overcome warnings preventing the deletion)
 alias gbr='git branch --remote'  # Act on remote branches
 
 alias gca='git commit --amend'  # Amend commit by adding the staged changes to it
