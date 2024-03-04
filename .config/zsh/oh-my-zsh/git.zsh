@@ -104,11 +104,12 @@ alias grvs='git revert --skip'
 alias gs='git status'
 alias gsd='git status .'
 
-alias gsh='git stash'  # Stash the uncommited changes
-alias gsha='git stash apply'  # Re-apply the last stashed changes (don't clear them)
-alias gshc='git stash clear'
+alias gsh='git stash' # Stash local changes in tracked files
+alias gsha='git stash apply' # Apply the last stash entry
+alias gshc='git stash clear' # Clear all the stash entries
+alias gshi='git stash --include-untracked' # Like `git stash` but include untracked files
 alias gshl='git stash list'
-alias gshp='git stash pop'  # Re-apply the last stashed changes & clear them
+alias gshp='git stash pop' # Like `git stash apply` but remove the applied stash entry if applied without conflict
 
 alias gso='git show'  # Show various types of objects
 
