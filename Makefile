@@ -4,6 +4,7 @@ install:
 	@echo "Creating symlinks from ~/.config to ~/ when necessary"
 	@ln -sf ~/.config/git/.gitconfig ~/.gitconfig
 	@ln -sf ~/.config/ideavim/.ideavimrc ~/.ideavimrc
+	@ln -sf ~/.config/yamllint/.yamllint.yaml ~/.yamllint.yaml
 	@ln -sf ~/.config/zsh/.zshrc ~/.zshrc
 	@echo "Creating theme-related configuration files symbolink links"
 	@ln -sf ~/.config/wezterm/config/themes/catppuccin-mocha.lua ~/.config/wezterm/theme.lua
