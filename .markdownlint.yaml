@@ -1,0 +1,4 @@
+MD013:  # Line length
+  line_length: 100
+MD033:  # Inline HTML
+  allowed_elements: ["details", "summary"]
