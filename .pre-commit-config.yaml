@@ -1,32 +1,18 @@
 repos:
+
   # Base pre-commit hook for simple checks & fixes
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.5.0
     hooks:
-      - id: check-added-large-files # Prevent giant files from being committed
-      - id: check-docstring-first # Checks a common error of defining a docstring after code
-      - id: check-json # Check JSON files for parseable syntax
-      - id: check-merge-conflict # Check for files that contain merge conflict strings
-      - id: check-toml # Checks TOML files for parseable syntax
-      - id: check-yaml # Check YAML files for parseable syntax
-      - id: detect-private-key # Detect the presence of private keys
-      - id: end-of-file-fixer # Ensures that files end with a newline
-      - id: trailing-whitespace # Trims trailing whitespace
-
-  # Prettier is a formatter for Mardown, YAML, JSON and others
-  # NOTE: upgrading until at least 4.0.0-alpha.8 causes pre-commit to create a node_modules
-  # directory in the repository
-  - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v3.1.0
-    hooks:
-      - id: prettier
-
-  # TOML-sort sorts TOML files alphabetically
-  - repo: https://github.com/pappasam/toml-sort
-    rev: v0.23.1
-    hooks:
-      - id: toml-sort
-        args: ["--all", "--in-place"]
+      - id: check-added-large-files  # Prevent giant files from being committed
+      - id: check-docstring-first  # Checks a common error of defining a docstring after code
+      - id: check-json  # Check JSON files for parseable syntax
+      - id: check-merge-conflict  # Check for files that contain merge conflict strings
+      - id: check-toml  # Checks TOML files for parseable syntax
+      - id: check-yaml  # Check YAML files for parseable syntax
+      - id: detect-private-key  # Detect the presence of private keys
+      - id: end-of-file-fixer  # Ensures that files end with a newline
+      - id: trailing-whitespace  # Trims trailing whitespace
 
   # StyLua is an opinionated Lua formatter
   - repo: https://github.com/JohnnyMorganz/StyLua
