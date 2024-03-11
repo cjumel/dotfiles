@@ -1,6 +1,7 @@
-# Git stuff
+# Git stuff & related
 \.git
 \.gitignore
+\.pre-commit-config\.yaml
 
 # Cache stuff
 \.ruff_cache
@@ -12,10 +13,3 @@
 # Installation tools
 ^/scripts
 ^/Makefile
-
-# Dotfiles configuration files
-\.pre-commit-config\.yaml
-\.prettierignore
-\.prettierrc.yaml
-\.ruff.toml
-\.stylua.toml
