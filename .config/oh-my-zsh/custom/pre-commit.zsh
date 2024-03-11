@@ -7,7 +7,7 @@ function pre_commit_run_directory() {
     if [ -z "$1" ]; then # No argument provided
         pre-commit run --files ./**/*
     else
-        pre-commit run --files $1/**/*
+        pre-commit run --files "$1"/**/*
     fi
 }
 

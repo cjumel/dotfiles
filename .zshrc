@@ -1,3 +1,6 @@
+# Disable unused variables diagnostics (used by zsh)
+# shellcheck disable=SC2034
+
 # [[ General ]]
 
 # Manually set language environment

@@ -1,3 +1,6 @@
+# Disable unused variables diagnostics (used by oh-my-zsh)
+# shellcheck disable=SC2034
+
 # See full configuration template at:
 # https://github.com/ohmyzsh/ohmyzsh/blob/master/templates/zshrc.zsh-template
 
@@ -21,4 +24,4 @@ ZSH_CUSTOM=$HOME/.config/oh-my-zsh/custom/
 # Add wisely, as too many plugins slow down shell startup.
 plugins=()
 
-source $ZSH/oh-my-zsh.sh
+source "$ZSH"/oh-my-zsh.sh

@@ -79,17 +79,17 @@ alias grmc='git rm --cached' # Remove a file from the reposiory but not from the
 # - with a commit, undo the targeted commit(s) & reset their changes
 alias grs='git reset'
 function git_reset_last() {
-    git reset --mixed HEAD~$1
+    git reset --mixed HEAD~"$1"
 }
 alias grsl='git_reset_last' # Mixed reset the last $1 commit(s)
 alias grss='git reset --soft'
 function git_reset_soft_last() {
-    git reset --soft HEAD~$1
+    git reset --soft HEAD~"$1"
 }
 alias grssl='git_reset_soft_last' # Soft reset the last $1 commit(s)
 alias grsh='git reset --hard'
 function git_reset_hard_last() {
-    git reset --hard HEAD~$1
+    git reset --hard HEAD~"$1"
 }
 alias grshl='git_reset_hard_last' # Hard reset the last $1 commit(s)
 
