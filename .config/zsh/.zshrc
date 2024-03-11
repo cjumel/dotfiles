@@ -60,8 +60,8 @@ bindkey "^_" forward-word
 # Meta aliases. For other aliases, see in `./config/zsh/oh-my-zsh`
 
 # List all aliases starting with the prefix passed as argument using grep
-function alias_grep_list(){
-  alias | grep "^$1"
+function alias_grep_list() {
+    alias | grep "^$1"
 }
 
 alias al='alias' # Without argument, list all aliases, otherwise define a new alias

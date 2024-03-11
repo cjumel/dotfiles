@@ -12,5 +12,5 @@ alias ptnf='pytest --new-first' # Run the tests that have been added most recent
 
 alias pts='pytest -s' # Show output
 
-alias ptx='pytest --exitfirst' # Stop on first failure
+alias ptx='pytest --exitfirst'     # Stop on first failure
 alias ptxs='pytest --exitfirst -s' # Stop on first failure & show output
