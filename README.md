@@ -76,8 +76,14 @@ The general tools I setup on my machine are:
 As for the terminal tools, which should be installed on whatever machine I'm working on to be
 usable, are:
 
-- [Zsh](/.config/zsh/) as terminal shell
-- [Starship](/.config/starship), a modern terminal prompt
-- [Tmux](/.config/tmux/), an awesome terminal multiplexer
-- [Neovim](/.config/nvim/) as main text & code editor
+- [Bat](/.config/bat/), a drop-in replacement for `cat`
+- [Dust](/.config/dust/), a drop-in replacement for `du`
+- [Eza](/.config/eza/), a drop-in replacement for `ls`
 - [Fzf](/.config/fzf/), a powerful fuzzy finding tool
+- [IPython](/.config/ipython/), an enhanced Python shell
+- [Neovim](/.config/nvim/) as main text & code editor
+- [Oh-my-zsh](/.config/oh-my-zsh/), a standard Zsh configuration framework
+- [Starship](/.config/starship/), a modern terminal prompt
+- [Tldr](/.config/tldr/), a simpler alternative to `man`
+- [Tmux](/.config/tmux/), an awesome terminal multiplexer
+- [Zoxide](/.config/zoxide/), a drop-in replacement for `cd`
