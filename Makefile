@@ -1,8 +1,6 @@
 install:
 	@echo "Creating general configuration files symbolic links with Stow"
 	@stow --no-folding .
-	@echo "Creating symlinks from ~/.config to ~/ when necessary"
-	@ln -sf ~/.config/zsh/.zshrc ~/.zshrc
 	@echo "Creating theme-related configuration files symbolink links"
 	@ln -sf ~/.config/wezterm/config/themes/catppuccin-mocha.lua ~/.config/wezterm/theme.lua
 	@ln -sf ~/.config/tmux/themes/tmux-catppuccin-mocha.conf ~/.config/tmux/tmux-theme.conf
