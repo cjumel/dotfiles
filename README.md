@@ -73,6 +73,19 @@ directly for more details.
 Some configuration files need to live in the root of the user directory, such as `.zshrc` or
 `.gitconfig`, hence they are located in the root of this repository, to avoid any additional setup.
 
+#### [Vimium](https://github.com/philc/vimium)
+
+For Chromium-based web browsers (like Google Chrome or Arc Browser), I use the Vimium extension to
+enable Vim motions. This enables me to switch from Neovim to a web browser and keep using the same
+keymaps for simple navigation. I don't use it for longer/more complex navigation, like when I'm
+simply scrolling the web, though, as the mouse is still more convenient in this case.
+
+My configuration is located in a `.vimiumrc`, just like a `.vimrc`. However Vimium doesn't support
+confiuration file, therefore the confiuration needs to be manually copy & pasted to the extension's
+option page (e.g. by pressing `?` in the web browser if the extension is enabled and then clicking
+on "Options") in the relevant section (don't forget to click on "Save changes" afterwards). In Arc
+Browser, this must be done for each different profile.
+
 ### Other
 
 Some tools I use & which have a configuration don't live in this repository.
