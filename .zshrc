@@ -70,9 +70,11 @@ alias all='alias_grep_list'
 # [[ Additional configuration scripts ]]
 # The following will run configuration scripts for additional tools, but only if the files exist
 
-[ -f ~/.config/zsh/utilities.zsh ] && source ~/.config/zsh/utilities.zsh
-
+[ -f ~/.config/bat/bat.zsh ] && source ~/.config/bat/bat.zsh
+[ -f ~/.config/dust/dust.zsh ] && source ~/.config/dust/dust.zsh
+[ -f ~/.config/eza/eza.zsh ] && source ~/.config/eza/eza.zsh
 [ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh
 [ -f ~/.config/ipython/ipython.zsh ] && source ~/.config/ipython/ipython.zsh
 [ -f ~/.config/starship/starship.zsh ] && source ~/.config/starship/starship.zsh
+[ -f ~/.config/tldr/tldr.zsh ] && source ~/.config/tldr/tldr.zsh
 [ -f ~/.config/zoxide/zoxide.zsh ] && source ~/.config/zoxide/zoxide.zsh

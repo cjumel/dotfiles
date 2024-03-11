@@ -46,40 +46,11 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 I use a few main additional tools, which bring quite useful (but still optional) features & have
 their own configuration files and documentation:
 
+- [Bat](https://github.com/sharkdp/bat), see [here](/.config/bat/README.md)
+- [Dust](https://github.com/bootandy/dust), see [here](/.config/dust/README.md)
+- [Eza](https://github.com/eza-community/eza), see [here](/.config/eza/README.md)
 - [Fzf](https://github.com/junegunn/fzf), see [here](/.config/fzf/README.md)
 - [IPython](https://ipython.org/documentation.html), see [here](/.config/ipython/README.md)
 - [Starship](https://starship.rs/), see [here](/.config/starship/README.md)
 - [Zoxide](https://github.com/ajeetdsouza/zoxide), see [here](/.config/zoxide/README.md)
-
-## Terminal Utilities
-
-Besides the main tools listed above, I also use several terminal utilities to improve the user
-experience, but they do not bring super useful features:
-
-- [Bat](https://github.com/sharkdp/bat), a drop-in replacement of the builtin `cat`
-- [Dust](https://github.com/bootandy/dust), a drop-in replacement of the builtin `du` (my go-to tool
-  to clean up disk space)
-- [Eza](https://github.com/eza-community/eza), a drop-in replacement of the builtin `ls`
-- [Tldr](https://github.com/tldr-pages/tldr), a more user-friendly variant to the builtin `man`
-
-**Install:**
-
-I usually only install the terminal utilities on my machine, a MacOS.
-
-<details>
-<summary>MacOS</summary>
-
-```shell
-brew install bat
-brew install dust
-brew install eza
-brew install tldr
-```
-
-</details>
-
-**Disable:**
-
-To disable the terminal utilities setup, simply delete the `.config/zsh/utilities.zsh` file. If
-you've run the `make` command already, also remove the `~/.config/zsh/utilities.zsh` symlink that
-have been created.
+- [Tldr](https://github.com/tldr-pages/tldr), see [here](/.config/tldr/README.md)
