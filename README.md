@@ -44,8 +44,6 @@ This will:
 
 - clone this repository in `~/dotfiles` (or in a directory of your choice)
 - create symbolic links in `~/.config` for all the configuration files with Stow
-- create additional symbolic links in `~/` for configuration files where the `~/.config` location is
-  not supported or implemented
 - create additional symbolic links for terminal-wide theme management (shared theme between WezTerm,
   Tmux and Neovim)
 
@@ -64,26 +62,31 @@ configuration file is added.
 
 ## Content
 
-All the actual configuration files are in the `.config/` directory. Each tool configuration comes
-with a `README.md` explaining the role of the tool, how to install it, its requirements, etc.
+### `.config/` directory
 
-The general tools I setup on my machine are:
+Many configuration files are in the `.config/` directory. Each directory comes with a `README.md`
+explaining the role of the tool, how to install it, its requirements, etc. You can check them
+directly for more details.
 
-- [Karabiner-Elements](/.config/karabiner/), an (essential) keyboard remapper
-- [WezTerm](/.config/wezterm/), a terminal with plenty of features and very customizable
-- [Vimium](/.config/vimium/), a web browser extension for Vim motions
+### Root directory
 
-As for the terminal tools, which should be installed on whatever machine I'm working on to be
-usable, are:
+Some configuration files need to live in the root of the user directory, such as `.zshrc` or
+`.gitconfig`, hence they are located in the root of this repository, to avoid any additional setup.
 
-- [Bat](/.config/bat/), a drop-in replacement for `cat`
-- [Dust](/.config/dust/), a drop-in replacement for `du`
-- [Eza](/.config/eza/), a drop-in replacement for `ls`
-- [Fzf](/.config/fzf/), a powerful fuzzy finding tool
-- [IPython](/.config/ipython/), an enhanced Python shell
-- [Neovim](/.config/nvim/) as main text & code editor
-- [Oh-my-zsh](/.config/oh-my-zsh/), a standard Zsh configuration framework
-- [Starship](/.config/starship/), a modern terminal prompt
-- [Tldr](/.config/tldr/), a simpler alternative to `man`
-- [Tmux](/.config/tmux/), an awesome terminal multiplexer
-- [Zoxide](/.config/zoxide/), a drop-in replacement for `cd`
+### Other
+
+Some tools I use & which have a configuration don't live in this repository.
+
+#### [Neovim](https://neovim.io/)
+
+I use Neovim as my main text & code editor. Given some efforts to configure it & get the hang of it,
+it comes with all the features of modern IDEs, while being very light-weight, almost infinitly
+customizable, and living in the terminal (meaning it can be installed and used directly through SSH
+on remote machines).
+
+Being a fork of a public repository, its configuration is versioned in a dedicated repository. I
+first started with a full-feature distribution of Neovim, installable with a one-liner, called
+[NvChad](https://nvchad.com/), and developped in this
+[repository](https://github.com/clementjumel/NvChad). However, I ended switching to a smaller but
+more customizable distribution, called [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim),
+in this [repository](https://github.com/clementjumel/kickstart.nvim).
