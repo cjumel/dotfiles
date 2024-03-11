@@ -1,2 +1,6 @@
+extend-select = [
+  "E", # pycodestyle
+  "I", # isort
+]
 line-length = 100
 target-version = "py311"
