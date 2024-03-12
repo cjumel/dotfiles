@@ -4,11 +4,11 @@ alias ga='git add'
 alias gaa='git add --all'    # Add all files, both tracked & untracked
 alias gau='git add --update' # Add all tracked files
 
-alias gb='git branch'
-alias gba='git branch --all'
-alias gbd='git branch --delete'          # Delete a local branch
-alias gbdf='git branch --delete --force' # Force delete a local branch (overcome warnings preventing the deletion)
-alias gbr='git branch --remote'          # Act on remote branches
+alias gb='git branch'           # List local branches
+alias gba='git branch --all'    # List both local & remote branches
+alias gbd='git branch -d'       # Delete a local branch but fail if not merged
+alias gbD='git branch -D'       # Delete a local branch even if not merged
+alias gbr='git branch --remote' # List remote branches
 
 alias gca='git commit --amend'                         # Amend commit by adding the staged changes to it
 alias gcaf='git commit --amend --no-verify'            # Amend & skip hooks
