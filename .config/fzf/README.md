@@ -9,7 +9,10 @@ machine and don't want to bother with this). See below for details on how to do 
 
 **Requirements:**
 
-- `fd` (or `fd-find` on Ubuntu) as source for `fzf`
+- `fd` (or `fd-find` on Ubuntu) as search source, as it's fast & already integrated with other tools
+  I use, like the Neovim plugin `telescope.nvim`
+- `bat` as file previewer
+- `eza` as directory previewer
 
 **Install:**
 

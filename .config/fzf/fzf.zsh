@@ -1,19 +1,54 @@
-# [[ Options ]]
+# [[ General options ]]
 
-# Change layout of fzf
-export FZF_DEFAULT_OPTS='--layout=reverse --border'
+# External tools' commands
+export FZF_FILE_PROMPT='Files > '
+export FZF_DIR_PROMPT='Directories > '
+export FZF_FD_COMMAND='fd . --hidden --exclude .git'
+export FZF_FD_FILE_COMMAND='fd . --hidden --exclude .git --type f'
+export FZF_FD_DIR_COMMAND='fd . --hidden --exclude .git --type d'
+export FZF_FILE_PREVIEW='bat --color=always {}'
+export FZF_DIR_PREVIEW='eza -la --color=always {}'
 
-# Use fd for the default fzf command
-export FZF_DEFAULT_COMMAND='fd . --hidden --exclude .git'
+# General `fzf` options
+export FZF_DEFAULT_COMMAND="$FZF_FD_COMMAND"
+export FZF_DEFAULT_OPTS='--layout=reverse --height=100% --border'
 
-# Use fd for fzf key bindings
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
+# [[ Key bindings ]]
+# `fzf` define 3 key bindings:
+#  - <Ctrl-T> to insert a file or directory path in the command line
+#  - <Ctrl-R> to insert a command from the command history
+#  - <Alt-C> to `cd` to a directory
 
-# Change the trigger for fzf auto-completion
+# <Ctrl-T>
+# Use <Ctrl-T> once to search for files or twice to search for directories
+# When searching for directories, use <Ctrl-R> (revert) to revert the search to files
+# Not using <Ctrl-F> & <Ctrl-D> makes <Ctrl-D> available to exit `fzf`
+export FZF_CTRL_T_COMMAND="$FZF_FD_FILE_COMMAND"
+export FZF_CTRL_T_OPTS="
+    --prompt '$FZF_FILE_PROMPT'
+    --preview '$FZF_FILE_PREVIEW'
+    --bind 'ctrl-t:reload(eval $FZF_FD_DIR_COMMAND)+change-preview($FZF_DIR_PREVIEW)+change-prompt($FZF_DIR_PROMPT)'
+    --bind 'ctrl-r:reload(eval $FZF_FD_FILE_COMMAND)+change-preview($FZF_FILE_PREVIEW)+change-prompt($FZF_FILE_PROMPT)'
+    --bind 'ctrl-i:toggle-preview'
+"
+
+# <Alt-C>
+export FZF_ALT_C_COMMAND="$FZF_FD_DIR_COMMAND"
+export FZF_ALT_C_OPTS="
+    --prompt '$FZF_DIR_PROMPT'
+    --preview '$FZF_DIR_PREVIEW'
+"
+
+# [[ Completion ]]
+# `fzf` defines command line completion by entering a trigger character and then <Tab> or <Ctrl-I>
+# Completion is contextual, that is in some cases it can detect wether a file or a directory is expected for instance
+
+# Default trigger completion is `**`
+# Let's change it to `^`, a one key-stroke character (against 3 for `**`)
 export FZF_COMPLETION_TRIGGER='^'
 
-# Use fd for fzf auto-completion
+# Override the default completion functions to customize the completion behavior
+# In the following functions, $1 is the base path to start traversal
 _fzf_compgen_path() {
     fd --hidden --exclude ".git" . "$1"
 }
