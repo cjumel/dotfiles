@@ -27,9 +27,9 @@ export FZF_CTRL_T_COMMAND="$FZF_FD_FILE_COMMAND"
 export FZF_CTRL_T_OPTS="
     --prompt '$FZF_FILE_PROMPT'
     --preview '$FZF_FILE_PREVIEW'
+    --bind 'ctrl-i:toggle-preview'
     --bind 'ctrl-t:reload(eval $FZF_FD_DIR_COMMAND)+change-preview($FZF_DIR_PREVIEW)+change-prompt($FZF_DIR_PROMPT)'
     --bind 'ctrl-r:reload(eval $FZF_FD_FILE_COMMAND)+change-preview($FZF_FILE_PREVIEW)+change-prompt($FZF_FILE_PROMPT)'
-    --bind 'ctrl-i:toggle-preview'
 "
 
 # <Alt-C>
@@ -37,6 +37,7 @@ export FZF_ALT_C_COMMAND="$FZF_FD_DIR_COMMAND"
 export FZF_ALT_C_OPTS="
     --prompt '$FZF_DIR_PROMPT'
     --preview '$FZF_DIR_PREVIEW'
+    --bind 'ctrl-i:toggle-preview'
 "
 
 # [[ Completion ]]
