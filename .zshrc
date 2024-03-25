@@ -55,6 +55,7 @@ alias all='alias_grep_list'
 [ -f ~/.config/eza/eza.zsh ] && source ~/.config/eza/eza.zsh
 [ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh
 [ -f ~/.config/ipython/ipython.zsh ] && source ~/.config/ipython/ipython.zsh
+[ -f ~/.config/ripgrep/ripgrep.zsh ] && source ~/.config/ripgrep/ripgrep.zsh
 [ -f ~/.config/starship/starship.zsh ] && source ~/.config/starship/starship.zsh
 [ -f ~/.config/tldr/tldr.zsh ] && source ~/.config/tldr/tldr.zsh
 [ -f ~/.config/zoxide/zoxide.zsh ] && source ~/.config/zoxide/zoxide.zsh
