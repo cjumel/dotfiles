@@ -10,7 +10,6 @@ machine and don't want to bother with this). See below for details on how to do 
 **Requirements:**
 
 - `fd` as search source
-- `bat` as file previewer
 - `eza` as directory previewer
 
 **Install:**

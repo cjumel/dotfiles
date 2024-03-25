@@ -1,12 +1,23 @@
 # [[ General options ]]
 
-# External tools' commands
-export FZF_FILE_PROMPT='Files > '
-export FZF_DIR_PROMPT='Directories > '
-export FZF_FD_COMMAND='fd --hidden .'
-export FZF_FD_FILE_COMMAND='fd --type f --hidden .'
-export FZF_FD_DIR_COMMAND='fd --type d --hidden .'
-export FZF_FILE_PREVIEW='bat --color=always {}'
+# Prompts
+export FZF_CTRL_T_PROMPT='Ctrl-T > '
+export FZF_CTRL_T_PROMPT_1='Ctrl-T (*) > '
+export FZF_CTRL_T_PROMPT_2='Ctrl-T (**) > '
+export FZF_CTRL_R_PROMPT='Ctrl-R > '
+export FZF_ALT_C_PROMPT='Alt-C > '
+export FZF_ALT_C_PROMPT_1='Alt-C (*) > '
+export FZF_ALT_C_PROMPT_2='Alt-C (**) > '
+
+# `fd` commands
+export FZF_FD_COMMAND='fd .'
+export FZF_FD_COMMAND_1='fd --hidden .'
+export FZF_FD_COMMAND_2='fd --hidden --no-ignore --exclude .git .'
+export FZF_FD_DIR_COMMAND='fd --type d .'
+export FZF_FD_DIR_COMMAND_1='fd --type d --hidden .'
+export FZF_FD_DIR_COMMAND_2='fd --type d --hidden --no-ignore --exclude .git .'
+
+# Previewers
 export FZF_DIR_PREVIEW='eza -la --color=always {}'
 
 # General `fzf` options
@@ -15,29 +26,43 @@ export FZF_DEFAULT_OPTS='--layout=reverse --height=100% --border'
 
 # [[ Key bindings ]]
 # `fzf` define 3 key bindings:
-#  - <Ctrl-T> to insert a file or directory path in the command line
-#  - <Ctrl-R> to insert a command from the command history
-#  - <Alt-C> to `cd` to a directory
+# - <Ctrl-T> to insert a file or directory path in the command line
+# - <Ctrl-R> to insert a command from the command history
+# - <Alt-C> to `cd` to a directory
+# For some of these, alternate versions are available by pressing <C-j> & <C-k>
+# To revert to the initial version, press <C-h>
 
 # <Ctrl-T>
-# Use <Ctrl-T> once to search for files or twice to search for directories
-# When searching for directories, use <Ctrl-R> (revert) to revert the search to files
-# Not using <Ctrl-F> & <Ctrl-D> makes <Ctrl-D> available to exit `fzf`
-export FZF_CTRL_T_COMMAND="$FZF_FD_FILE_COMMAND"
+# Regular version: search for regular files and directories
+# 1st alternate version: search for regular and hidden files and directories
+# 2nd alternate version: search for regular, hidden & ignored files and directories
+export FZF_CTRL_T_COMMAND="$FZF_FD_COMMAND"
 export FZF_CTRL_T_OPTS="
-    --prompt '$FZF_FILE_PROMPT'
-    --preview '$FZF_FILE_PREVIEW'
+    --prompt '$FZF_CTRL_T_PROMPT'
+    --preview '$FZF_DIR_PREVIEW'
     --bind 'ctrl-i:toggle-preview'
-    --bind 'ctrl-t:reload(eval $FZF_FD_DIR_COMMAND)+change-preview($FZF_DIR_PREVIEW)+change-prompt($FZF_DIR_PROMPT)'
-    --bind 'ctrl-r:reload(eval $FZF_FD_FILE_COMMAND)+change-preview($FZF_FILE_PREVIEW)+change-prompt($FZF_FILE_PROMPT)'
+    --bind 'ctrl-h:reload(eval $FZF_FD_COMMAND)+change-prompt($FZF_CTRL_T_PROMPT)'
+    --bind 'ctrl-j:reload(eval $FZF_FD_COMMAND_1)+change-prompt($FZF_CTRL_T_PROMPT_1)'
+    --bind 'ctrl-k:reload(eval $FZF_FD_COMMAND_2)+change-prompt($FZF_CTRL_T_PROMPT_2)'
+"
+
+# <Ctrl-R>
+export FZF_CTRL_R_OPTS="
+    --prompt '$FZF_CTRL_R_PROMPT'
 "
 
 # <Alt-C>
+# Regular version: search for regular directories
+# 1st alternate version: search for regular and hidden directories
+# 2nd alternate version: search for regular, hidden & ignored directories
 export FZF_ALT_C_COMMAND="$FZF_FD_DIR_COMMAND"
 export FZF_ALT_C_OPTS="
-    --prompt '$FZF_DIR_PROMPT'
+    --prompt '$FZF_ALT_C_PROMPT'
     --preview '$FZF_DIR_PREVIEW'
     --bind 'ctrl-i:toggle-preview'
+    --bind 'ctrl-h:reload(eval $FZF_FD_DIR_COMMAND)+change-prompt($FZF_ALT_C_PROMPT)'
+    --bind 'ctrl-j:reload(eval $FZF_FD_DIR_COMMAND_1)+change-prompt($FZF_ALT_C_PROMPT_1)'
+    --bind 'ctrl-k:reload(eval $FZF_FD_DIR_COMMAND_2)+change-prompt($FZF_ALT_C_PROMPT_2)'
 "
 
 # [[ Completion ]]
