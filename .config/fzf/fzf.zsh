@@ -3,9 +3,9 @@
 # External tools' commands
 export FZF_FILE_PROMPT='Files > '
 export FZF_DIR_PROMPT='Directories > '
-export FZF_FD_COMMAND='fd . --hidden --exclude .git'
-export FZF_FD_FILE_COMMAND='fd . --hidden --exclude .git --type f'
-export FZF_FD_DIR_COMMAND='fd . --hidden --exclude .git --type d'
+export FZF_FD_COMMAND='fd --hidden .'
+export FZF_FD_FILE_COMMAND='fd --type f --hidden .'
+export FZF_FD_DIR_COMMAND='fd --type d --hidden .'
 export FZF_FILE_PREVIEW='bat --color=always {}'
 export FZF_DIR_PREVIEW='eza -la --color=always {}'
 
@@ -51,10 +51,10 @@ export FZF_COMPLETION_TRIGGER='^'
 # Override the default completion functions to customize the completion behavior
 # In the following functions, $1 is the base path to start traversal
 _fzf_compgen_path() {
-    fd --hidden --exclude ".git" . "$1"
+    fd --hidden . "$1"
 }
 _fzf_compgen_dir() {
-    fd --type d --hidden --exclude ".git" . "$1"
+    fd --type d --hidden . "$1"
 }
 
 # [[ Setup ]]

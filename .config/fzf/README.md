@@ -9,8 +9,7 @@ machine and don't want to bother with this). See below for details on how to do 
 
 **Requirements:**
 
-- `fd` (or `fd-find` on Ubuntu) as search source, as it's fast & already integrated with other tools
-  I use, like the Neovim plugin `telescope.nvim`
+- `fd` as search source
 - `bat` as file previewer
 - `eza` as directory previewer
 
