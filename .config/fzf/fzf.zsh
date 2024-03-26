@@ -22,7 +22,12 @@ export FZF_DIR_PREVIEW='eza -la --color=always {}'
 
 # General `fzf` options
 export FZF_DEFAULT_COMMAND="$FZF_FD_COMMAND"
-export FZF_DEFAULT_OPTS='--layout=reverse --height=100% --border'
+export FZF_DEFAULT_OPTS="
+    --layout=reverse
+    --height=100%
+    --border
+    --preview-window 'hidden'
+"
 
 # [[ Key bindings ]]
 # `fzf` define 3 key bindings:
