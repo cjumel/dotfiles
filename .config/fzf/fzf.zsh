@@ -27,11 +27,15 @@ export FZF_DIR_PREVIEW_ESCAPED='eza -la --color=always \{}'
 
 # General `fzf` options
 export FZF_DEFAULT_COMMAND="$FZF_FD_COMMAND"
+# ctrl-] is actually ctrl-$ on my keyboard; rationale for this binding is that mapping it to a
+# Tab-like feature is similar to neighboring keys (e.g. ctrl-[, ctrl-^ on my keyboard, is mapped to
+# Esc)
 export FZF_DEFAULT_OPTS="
     --layout=reverse
     --height=100%
     --border
     --preview-window 'hidden'
+    --bind 'ctrl-]:toggle-preview'
 "
 
 # [[ Key bindings ]]
@@ -47,7 +51,6 @@ export FZF_CTRL_T_OPTS="
     --prompt '$FZF_FILE_PROMPT'
     --header '$FZF_CTRL_T_DEFAULT_HEADER'
     --preview '$FZF_FILE_PREVIEW'
-    --bind 'ctrl-i:toggle-preview'
     --bind 'ctrl-t:transform: \
         [[ {fzf:prompt} = \"$FZF_FILE_PROMPT\" ]] \
             && echo \"change-prompt($FZF_DIR_PROMPT)+reload($FZF_FD_DIR_COMMAND)+change-header($FZF_CTRL_T_DEFAULT_HEADER)+change-preview($FZF_DIR_PREVIEW_ESCAPED)\" \
@@ -79,7 +82,6 @@ export FZF_ALT_C_OPTS="
     --prompt '$FZF_DIR_PROMPT'
     --header '$FZF_ALT_C_DEFAULT_HEADER'
     --preview '$FZF_DIR_PREVIEW'
-    --bind 'ctrl-i:toggle-preview'
     --bind 'ctrl-j:reload(eval $FZF_FD_DIR_COMMAND)+change-header($FZF_ALT_C_DEFAULT_HEADER)'
     --bind 'ctrl-k:reload(eval $FZF_FD_DIR_COMMAND_HIDDEN)+change-header($FZF_ALT_C_DEFAULT_HEADER (include hidden))'
     --bind 'ctrl-l:reload(eval $FZF_FD_DIR_COMMAND_ALL)+change-header($FZF_ALT_C_DEFAULT_HEADER (include hidden & ignored))'
