@@ -1,24 +1,29 @@
 # [[ General options ]]
 
 # Prompts
-export FZF_CTRL_T_PROMPT='Ctrl-T > '
-export FZF_CTRL_T_PROMPT_1='Ctrl-T (*) > '
-export FZF_CTRL_T_PROMPT_2='Ctrl-T (**) > '
-export FZF_CTRL_R_PROMPT='Ctrl-R > '
-export FZF_ALT_C_PROMPT='Alt-C > '
-export FZF_ALT_C_PROMPT_1='Alt-C (*) > '
-export FZF_ALT_C_PROMPT_2='Alt-C (**) > '
+export FZF_FILE_PROMPT='File > '
+export FZF_DIR_PROMPT='Directory > '
+export FZF_CMD_PROMPT='Command > '
+export FZF_ALIAS_PROMPT='Alias > '
+export FZF_THEME_PROMPT='Theme > '
 
 # `fd` commands
 export FZF_FD_COMMAND='fd .'
-export FZF_FD_COMMAND_1='fd --hidden .'
-export FZF_FD_COMMAND_2='fd --hidden --no-ignore --exclude .git .'
+export FZF_FD_COMMAND_HIDDEN='fd --hidden .'
+export FZF_FD_COMMAND_ALL='fd --hidden --no-ignore --exclude .git .'
+export FZF_FD_FILE_COMMAND='fd --type f .'
+export FZF_FD_FILE_COMMAND_HIDDEN='fd --type f --hidden .'
+export FZF_FD_FILE_COMMAND_ALL='fd --type f --hidden --no-ignore --exclude .git .'
 export FZF_FD_DIR_COMMAND='fd --type d .'
-export FZF_FD_DIR_COMMAND_1='fd --type d --hidden .'
-export FZF_FD_DIR_COMMAND_2='fd --type d --hidden --no-ignore --exclude .git .'
+export FZF_FD_DIR_COMMAND_HIDDEN='fd --type d --hidden .'
+export FZF_FD_DIR_COMMAND_ALL='fd --type d --hidden --no-ignore --exclude .git .'
 
 # Previewers
+# Escaped versions are necessary to change the preview in transform actions
+export FZF_FILE_PREVIEW='bat --color=always {}'
+export FZF_FILE_PREVIEW_ESCAPED='bat --color=always \{}'
 export FZF_DIR_PREVIEW='eza -la --color=always {}'
+export FZF_DIR_PREVIEW_ESCAPED='eza -la --color=always \{}'
 
 # General `fzf` options
 export FZF_DEFAULT_COMMAND="$FZF_FD_COMMAND"
@@ -34,40 +39,50 @@ export FZF_DEFAULT_OPTS="
 # - <Ctrl-T> to insert a file or directory path in the command line
 # - <Ctrl-R> to insert a command from the command history
 # - <Alt-C> to `cd` to a directory
-# For some of these, alternate versions are available by pressing <C-j> & <C-k>
-# To revert to the initial version, press <C-h>
 
 # <Ctrl-T>
-# Regular version: search for regular files and directories
-# 1st alternate version: search for regular and hidden files and directories
-# 2nd alternate version: search for regular, hidden & ignored files and directories
-export FZF_CTRL_T_COMMAND="$FZF_FD_COMMAND"
+export FZF_CTRL_T_COMMAND="$FZF_FD_FILE_COMMAND"
+export FZF_CTRL_T_DEFAULT_HEADER='Paste path in command line'
 export FZF_CTRL_T_OPTS="
-    --prompt '$FZF_CTRL_T_PROMPT'
-    --preview '$FZF_DIR_PREVIEW'
+    --prompt '$FZF_FILE_PROMPT'
+    --header '$FZF_CTRL_T_DEFAULT_HEADER'
+    --preview '$FZF_FILE_PREVIEW'
     --bind 'ctrl-i:toggle-preview'
-    --bind 'ctrl-h:reload(eval $FZF_FD_COMMAND)+change-prompt($FZF_CTRL_T_PROMPT)'
-    --bind 'ctrl-j:reload(eval $FZF_FD_COMMAND_1)+change-prompt($FZF_CTRL_T_PROMPT_1)'
-    --bind 'ctrl-k:reload(eval $FZF_FD_COMMAND_2)+change-prompt($FZF_CTRL_T_PROMPT_2)'
+    --bind 'ctrl-t:transform: \
+        [[ {fzf:prompt} = \"$FZF_FILE_PROMPT\" ]] \
+            && echo \"change-prompt($FZF_DIR_PROMPT)+reload($FZF_FD_DIR_COMMAND)+change-header($FZF_CTRL_T_DEFAULT_HEADER)+change-preview($FZF_DIR_PREVIEW_ESCAPED)\" \
+            || echo \"change-prompt($FZF_FILE_PROMPT)+reload($FZF_FD_FILE_COMMAND)+change-header($FZF_CTRL_T_DEFAULT_HEADER)+change-preview($FZF_FILE_PREVIEW_ESCAPED)\"'
+    --bind 'ctrl-j:transform: \
+        [[ {fzf:prompt} = \"$FZF_FILE_PROMPT\" ]] \
+            && echo \"reload(eval $FZF_FD_FILE_COMMAND)+change-header($FZF_CTRL_T_DEFAULT_HEADER)\" \
+            || echo \"reload(eval $FZF_FD_DIR_COMMAND)+change-header($FZF_CTRL_T_DEFAULT_HEADER)\"'
+    --bind 'ctrl-k:transform: \
+        [[ {fzf:prompt} = \"$FZF_FILE_PROMPT\" ]] \
+            && echo \"reload(eval $FZF_FD_FILE_COMMAND_HIDDEN)+change-header($FZF_CTRL_T_DEFAULT_HEADER (include hidden))\" \
+            || echo \"reload(eval $FZF_FD_DIR_COMMAND_HIDDEN)+change-header($FZF_CTRL_T_DEFAULT_HEADER (include hidden))\"'
+    --bind 'ctrl-l:transform: \
+        [[ {fzf:prompt} = \"$FZF_FILE_PROMPT\" ]] \
+            && echo \"reload(eval $FZF_FD_FILE_COMMAND_ALL)+change-header($FZF_CTRL_T_DEFAULT_HEADER (include hidden & ignored))\" \
+            || echo \"reload(eval $FZF_FD_DIR_COMMAND_ALL)+change-header($FZF_CTRL_T_DEFAULT_HEADER (include hidden & ignored))\"'
 "
 
 # <Ctrl-R>
 export FZF_CTRL_R_OPTS="
-    --prompt '$FZF_CTRL_R_PROMPT'
+    --prompt '$FZF_CMD_PROMPT'
+    --header 'Past command in command line'
 "
 
 # <Alt-C>
-# Regular version: search for regular directories
-# 1st alternate version: search for regular and hidden directories
-# 2nd alternate version: search for regular, hidden & ignored directories
 export FZF_ALT_C_COMMAND="$FZF_FD_DIR_COMMAND"
+export FZF_ALT_C_DEFAULT_HEADER='Change directory'
 export FZF_ALT_C_OPTS="
-    --prompt '$FZF_ALT_C_PROMPT'
+    --prompt '$FZF_DIR_PROMPT'
+    --header '$FZF_ALT_C_DEFAULT_HEADER'
     --preview '$FZF_DIR_PREVIEW'
     --bind 'ctrl-i:toggle-preview'
-    --bind 'ctrl-h:reload(eval $FZF_FD_DIR_COMMAND)+change-prompt($FZF_ALT_C_PROMPT)'
-    --bind 'ctrl-j:reload(eval $FZF_FD_DIR_COMMAND_1)+change-prompt($FZF_ALT_C_PROMPT_1)'
-    --bind 'ctrl-k:reload(eval $FZF_FD_DIR_COMMAND_2)+change-prompt($FZF_ALT_C_PROMPT_2)'
+    --bind 'ctrl-j:reload(eval $FZF_FD_DIR_COMMAND)+change-header($FZF_ALT_C_DEFAULT_HEADER)'
+    --bind 'ctrl-k:reload(eval $FZF_FD_DIR_COMMAND_HIDDEN)+change-header($FZF_ALT_C_DEFAULT_HEADER (include hidden))'
+    --bind 'ctrl-l:reload(eval $FZF_FD_DIR_COMMAND_ALL)+change-header($FZF_ALT_C_DEFAULT_HEADER (include hidden & ignored))'
 "
 
 # [[ Completion ]]
@@ -105,7 +120,7 @@ bindkey "©" fzf-cd-widget
 
 # Use fzf to fuzzy search aliases and paste the selected one to the command line
 function alias_fzf_fuzzy_search() {
-    selected_line=$(alias | fzf)
+    selected_line=$(alias | fzf --prompt="$FZF_ALIAS_PROMPT" --header="Past alias in command line")
 
     # Exit if nothing is selected
     if [[ -z $selected_line ]]; then
@@ -122,7 +137,7 @@ function alias_fzf_fuzzy_search() {
 # Use fzf to select an alias file and edit it using vi
 function alias_fzf_edit() {
     # Use builtin ls even if eza is aliased to ls
-    selected_file=$(command ls "$ZSH_CUSTOM" | fzf)
+    selected_file=$(command ls "$ZSH_CUSTOM" | fzf --prompt="$FZF_FILE_PROMPT" --header="Edit an alias file")
 
     # Exit if nothing is selected
     if [[ -z $selected_file ]]; then
@@ -154,7 +169,7 @@ tokyonight'
 # Pick a theme with fzf and set it up by creating the relevant symlinks
 function theme_fzf_picker() {
     # Make the user select a theme using fzf among the available ones
-    selected_theme=$(echo "$TERMINAL_THEMES" | fzf)
+    selected_theme=$(echo "$TERMINAL_THEMES" | fzf --prompt="$FZF_THEME_PROMPT" --header="Change terminal theme")
 
     # Exit if no theme is selected, to avoid creating broken symlinks
     if [[ -z $selected_theme ]]; then
