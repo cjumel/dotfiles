@@ -57,15 +57,15 @@ export FZF_CTRL_T_OPTS="
         [[ {fzf:prompt} = \"$FZF_FILE_PROMPT\" ]] \
             && echo \"change-prompt($FZF_DIR_PROMPT)+reload($FZF_FD_DIR_COMMAND)+change-header($FZF_CTRL_T_DEFAULT_HEADER)+change-preview($FZF_DIR_PREVIEW_ESCAPED)\" \
             || echo \"change-prompt($FZF_FILE_PROMPT)+reload($FZF_FD_FILE_COMMAND)+change-header($FZF_CTRL_T_DEFAULT_HEADER)+change-preview($FZF_FILE_PREVIEW_ESCAPED)\"'
-    --bind 'ctrl-j:transform: \
+    --bind 'ctrl-z:transform: \
         [[ {fzf:prompt} = \"$FZF_FILE_PROMPT\" ]] \
             && echo \"reload(eval $FZF_FD_FILE_COMMAND)+change-header($FZF_CTRL_T_DEFAULT_HEADER)\" \
             || echo \"reload(eval $FZF_FD_DIR_COMMAND)+change-header($FZF_CTRL_T_DEFAULT_HEADER)\"'
-    --bind 'ctrl-k:transform: \
+    --bind 'ctrl-^:transform: \
         [[ {fzf:prompt} = \"$FZF_FILE_PROMPT\" ]] \
             && echo \"reload(eval $FZF_FD_FILE_COMMAND_HIDDEN)+change-header($FZF_CTRL_T_DEFAULT_HEADER (include hidden))\" \
             || echo \"reload(eval $FZF_FD_DIR_COMMAND_HIDDEN)+change-header($FZF_CTRL_T_DEFAULT_HEADER (include hidden))\"'
-    --bind 'ctrl-l:transform: \
+    --bind 'ctrl-_:transform: \
         [[ {fzf:prompt} = \"$FZF_FILE_PROMPT\" ]] \
             && echo \"reload(eval $FZF_FD_FILE_COMMAND_ALL)+change-header($FZF_CTRL_T_DEFAULT_HEADER (include hidden & ignored))\" \
             || echo \"reload(eval $FZF_FD_DIR_COMMAND_ALL)+change-header($FZF_CTRL_T_DEFAULT_HEADER (include hidden & ignored))\"'
@@ -84,9 +84,9 @@ export FZF_ALT_C_OPTS="
     --prompt '$FZF_DIR_PROMPT'
     --header '$FZF_ALT_C_DEFAULT_HEADER'
     --preview '$FZF_DIR_PREVIEW'
-    --bind 'ctrl-j:reload(eval $FZF_FD_DIR_COMMAND)+change-header($FZF_ALT_C_DEFAULT_HEADER)'
-    --bind 'ctrl-k:reload(eval $FZF_FD_DIR_COMMAND_HIDDEN)+change-header($FZF_ALT_C_DEFAULT_HEADER (include hidden))'
-    --bind 'ctrl-l:reload(eval $FZF_FD_DIR_COMMAND_ALL)+change-header($FZF_ALT_C_DEFAULT_HEADER (include hidden & ignored))'
+    --bind 'ctrl-z:reload(eval $FZF_FD_DIR_COMMAND)+change-header($FZF_ALT_C_DEFAULT_HEADER)'
+    --bind 'ctrl-^:reload(eval $FZF_FD_DIR_COMMAND_HIDDEN)+change-header($FZF_ALT_C_DEFAULT_HEADER (include hidden))'
+    --bind 'ctrl-_:reload(eval $FZF_FD_DIR_COMMAND_ALL)+change-header($FZF_ALT_C_DEFAULT_HEADER (include hidden & ignored))'
 "
 
 # [[ Completion ]]
