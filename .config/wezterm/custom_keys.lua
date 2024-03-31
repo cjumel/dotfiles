@@ -31,6 +31,16 @@ return {
       mods = "CMD|CTRL",
       action = act.EmitEvent("increase-transparency"),
     },
+    {
+      key = "b", -- Bigger font
+      mods = "CMD|CTRL",
+      action = act.IncreaseFontSize,
+    },
+    {
+      key = "s", -- Smaller font
+      mods = "CMD|CTRL",
+      action = act.DecreaseFontSize,
+    },
 
     -- [[ Leader keymaps ]]
 
