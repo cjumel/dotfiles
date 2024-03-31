@@ -12,9 +12,12 @@ return {
     -- convenient to do with similar key strokes
 
     {
-      -- Move-to-screen keymap (ctrl-cmd-m) causes WezTerm's window to change size, this keymap is
-      -- convenient to reset it to the default size
-      key = "r",
+      key = "e", -- Enter Wezterm's full screen mode
+      mods = "CMD|CTRL",
+      action = act.ToggleFullScreen,
+    },
+    {
+      key = "r", -- Reset font size, window size and transparency
       mods = "CMD|CTRL",
       action = act.Multiple({
         act.ResetFontAndWindowSize,
@@ -22,14 +25,14 @@ return {
       }),
     },
     {
-      key = "t",
-      mods = "CMD|CTRL|SHIFT",
-      action = act.EmitEvent("decrease-transparency"),
-    },
-    {
-      key = "t",
+      key = "t", -- More transparency
       mods = "CMD|CTRL",
       action = act.EmitEvent("increase-transparency"),
+    },
+    {
+      key = "o", -- More opacity
+      mods = "CMD|CTRL",
+      action = act.EmitEvent("decrease-transparency"),
     },
     {
       key = "b", -- Bigger font
@@ -40,14 +43,6 @@ return {
       key = "s", -- Smaller font
       mods = "CMD|CTRL",
       action = act.DecreaseFontSize,
-    },
-
-    -- [[ Leader keymaps ]]
-
-    {
-      key = "f",
-      mods = "LEADER",
-      action = act.ToggleFullScreen,
     },
 
     -- [[ Control keymaps ]]
