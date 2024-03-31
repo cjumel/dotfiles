@@ -25,3 +25,9 @@ wezterm.on("decrease-transparency", function(window, _)
   overrides.window_background_opacity = new_opacity
   window:set_config_overrides(overrides)
 end)
+
+wezterm.on("reset-transparency", function(window, _)
+  local overrides = window:get_config_overrides() or {}
+  overrides.window_background_opacity = 0.8
+  window:set_config_overrides(overrides)
+end)

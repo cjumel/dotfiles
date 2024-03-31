@@ -16,7 +16,10 @@ return {
       -- convenient to reset it to the default size
       key = "r",
       mods = "CMD|CTRL",
-      action = act.ResetFontAndWindowSize,
+      action = act.Multiple({
+        act.ResetFontAndWindowSize,
+        act.EmitEvent("reset-transparency"),
+      }),
     },
     {
       key = "t",
