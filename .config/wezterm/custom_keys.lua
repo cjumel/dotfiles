@@ -19,9 +19,9 @@ return {
       action = act.ResetFontAndWindowSize,
     },
     {
-      key = "o",
-      mods = "CMD|CTRL",
-      action = act.EmitEvent("increase-opacity"),
+      key = "t",
+      mods = "CMD|CTRL|SHIFT",
+      action = act.EmitEvent("decrease-transparency"),
     },
     {
       key = "t",
@@ -35,16 +35,6 @@ return {
       key = "f",
       mods = "LEADER",
       action = act.ToggleFullScreen,
-    },
-    {
-      key = "o",
-      mods = "LEADER",
-      action = act.EmitEvent("toggle-opacity"),
-    },
-    {
-      key = "t",
-      mods = "LEADER",
-      action = act.EmitEvent("toggle-transparency"),
     },
 
     -- [[ Control keymaps ]]
