@@ -189,4 +189,4 @@ function theme_fzf_picker() {
     ln -sf ~/.config/nvim/lua/themes/"$selected_theme".lua ~/.config/nvim/lua/theme.lua
 }
 
-alias th='theme_fzf_picker'
+alias ct='theme_fzf_picker' # Change theme
