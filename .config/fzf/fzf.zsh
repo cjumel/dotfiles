@@ -90,12 +90,15 @@ export FZF_ALT_C_OPTS="
 "
 
 # [[ Completion ]]
-# `fzf` defines command line completion by entering a trigger character and then <Tab> or <Ctrl-I>
-# Completion is contextual, that is in some cases it can detect wether a file or a directory is expected for instance
+# `fzf` triggers command line completion by entering trigger characters and then <Tab> or <Ctrl-I>
+# or directly by entering a fuzzy completion keybinding
+# Completion is contextual, that is in some cases it can detect wether a file or a directory is
+# expected for instance.
 
-# Default trigger completion is `**`
-# Let's change it to `^`, a one key-stroke character (against 3 for `**`)
-export FZF_COMPLETION_TRIGGER='^'
+# Default trigger is `**` as completion trigger characters
+# Let's change it to no completion trigger to define a fuzzy completion keybinding below (must
+# be done after sourcing the fuzzy auto-completion script)
+export FZF_COMPLETION_TRIGGER=''
 
 # Override the default completion functions to customize the completion behavior
 # In the following functions, $1 is the base path to start traversal
@@ -119,6 +122,12 @@ source "/usr/local/opt/fzf/shell/completion.zsh"
 source "/usr/local/opt/fzf/shell/key-bindings.zsh"
 # Enable the use of <Alt-c> as fzf key binding
 bindkey "©" fzf-cd-widget
+
+# Define fuzzy auto-completion keybindings
+# By default, '^O' is equivalent to '^M' or '<CR>', and it's next to '^I', the regular completion key
+# Re-mapping '^I' is necessary to keep it as regular completion
+bindkey '^O' fzf-completion
+bindkey '^I' $fzf_default_completion
 
 # [[ Alias features ]]
 
