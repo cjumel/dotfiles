@@ -49,26 +49,36 @@ export FZF_DEFAULT_OPTS="
 # <Ctrl-T>
 export FZF_CTRL_T_COMMAND="$FZF_FD_FILE_COMMAND"
 export FZF_CTRL_T_DEFAULT_HEADER='Paste path in command line'
+
+export FZF_CTRL_T_TOGGLE_TRANSFORMER="
+    if [[ {fzf:prompt} = \"$FZF_FILE_PROMPT\" ]]; then
+        echo \"change-prompt($FZF_DIR_PROMPT)+reload($FZF_FD_DIR_COMMAND)+change-header($FZF_CTRL_T_DEFAULT_HEADER)+change-preview($FZF_DIR_PREVIEW_ESCAPED)\"
+    else
+        echo \"change-prompt($FZF_FILE_PROMPT)+reload($FZF_FD_FILE_COMMAND)+change-header($FZF_CTRL_T_DEFAULT_HEADER)+change-preview($FZF_FILE_PREVIEW_ESCAPED)\"
+    fi
+"
+export FZF_CTRL_HIDDEN_TRANSFORMER="
+    if [[ {fzf:prompt} = \"$FZF_FILE_PROMPT\" ]]; then
+        echo \"reload(eval $FZF_FD_FILE_COMMAND_HIDDEN)+change-header($FZF_CTRL_T_DEFAULT_HEADER (include hidden))\"
+    else
+        echo \"reload(eval $FZF_FD_DIR_COMMAND_HIDDEN)+change-header($FZF_CTRL_T_DEFAULT_HEADER (include hidden))\"
+    fi
+"
+export FZF_CTRL_HIDDEN_AND_IGNORE_TRANSFORMER="
+    if [[ {fzf:prompt} = \"$FZF_FILE_PROMPT\" ]]; then
+        echo \"reload(eval $FZF_FD_FILE_COMMAND_ALL)+change-header($FZF_CTRL_T_DEFAULT_HEADER (include hidden & ignored))\"
+    else
+        echo \"reload(eval $FZF_FD_DIR_COMMAND_ALL)+change-header($FZF_CTRL_T_DEFAULT_HEADER (include hidden & ignored))\"
+    fi
+"
+
 export FZF_CTRL_T_OPTS="
     --prompt '$FZF_FILE_PROMPT'
     --header '$FZF_CTRL_T_DEFAULT_HEADER'
     --preview '$FZF_FILE_PREVIEW'
-    --bind 'ctrl-t:transform: \
-        [[ {fzf:prompt} = \"$FZF_FILE_PROMPT\" ]] \
-            && echo \"change-prompt($FZF_DIR_PROMPT)+reload($FZF_FD_DIR_COMMAND)+change-header($FZF_CTRL_T_DEFAULT_HEADER)+change-preview($FZF_DIR_PREVIEW_ESCAPED)\" \
-            || echo \"change-prompt($FZF_FILE_PROMPT)+reload($FZF_FD_FILE_COMMAND)+change-header($FZF_CTRL_T_DEFAULT_HEADER)+change-preview($FZF_FILE_PREVIEW_ESCAPED)\"'
-    --bind 'ctrl-z:transform: \
-        [[ {fzf:prompt} = \"$FZF_FILE_PROMPT\" ]] \
-            && echo \"reload(eval $FZF_FD_FILE_COMMAND)+change-header($FZF_CTRL_T_DEFAULT_HEADER)\" \
-            || echo \"reload(eval $FZF_FD_DIR_COMMAND)+change-header($FZF_CTRL_T_DEFAULT_HEADER)\"'
-    --bind 'ctrl-^:transform: \
-        [[ {fzf:prompt} = \"$FZF_FILE_PROMPT\" ]] \
-            && echo \"reload(eval $FZF_FD_FILE_COMMAND_HIDDEN)+change-header($FZF_CTRL_T_DEFAULT_HEADER (include hidden))\" \
-            || echo \"reload(eval $FZF_FD_DIR_COMMAND_HIDDEN)+change-header($FZF_CTRL_T_DEFAULT_HEADER (include hidden))\"'
-    --bind 'ctrl-_:transform: \
-        [[ {fzf:prompt} = \"$FZF_FILE_PROMPT\" ]] \
-            && echo \"reload(eval $FZF_FD_FILE_COMMAND_ALL)+change-header($FZF_CTRL_T_DEFAULT_HEADER (include hidden & ignored))\" \
-            || echo \"reload(eval $FZF_FD_DIR_COMMAND_ALL)+change-header($FZF_CTRL_T_DEFAULT_HEADER (include hidden & ignored))\"'
+    --bind 'ctrl-t:transform: $FZF_CTRL_T_TOGGLE_TRANSFORMER'
+    --bind 'ctrl-^:transform: $FZF_CTRL_HIDDEN_TRANSFORMER'
+    --bind 'ctrl-_:transform: $FZF_CTRL_HIDDEN_AND_IGNORE_TRANSFORMER'
 "
 
 # <Ctrl-R>
@@ -80,13 +90,20 @@ export FZF_CTRL_R_OPTS="
 # <Alt-C>
 export FZF_ALT_C_COMMAND="$FZF_FD_DIR_COMMAND"
 export FZF_ALT_C_DEFAULT_HEADER='Change directory'
+
+export FZF_ALT_C_HIDDEN_TRANSFORMER="
+    echo \"reload(eval $FZF_FD_DIR_COMMAND_HIDDEN)+change-header($FZF_ALT_C_DEFAULT_HEADER (include hidden))\"
+"
+export FZF_ALT_C_HIDDEN_AND_IGNORE_TRANSFORMER="
+    echo \"reload(eval $FZF_FD_DIR_COMMAND_ALL)+change-header($FZF_ALT_C_DEFAULT_HEADER (include hidden & ignored))\"
+"
+
 export FZF_ALT_C_OPTS="
     --prompt '$FZF_DIR_PROMPT'
     --header '$FZF_ALT_C_DEFAULT_HEADER'
     --preview '$FZF_DIR_PREVIEW'
-    --bind 'ctrl-z:reload(eval $FZF_FD_DIR_COMMAND)+change-header($FZF_ALT_C_DEFAULT_HEADER)'
-    --bind 'ctrl-^:reload(eval $FZF_FD_DIR_COMMAND_HIDDEN)+change-header($FZF_ALT_C_DEFAULT_HEADER (include hidden))'
-    --bind 'ctrl-_:reload(eval $FZF_FD_DIR_COMMAND_ALL)+change-header($FZF_ALT_C_DEFAULT_HEADER (include hidden & ignored))'
+    --bind 'ctrl-^:transform: $FZF_ALT_C_HIDDEN_TRANSFORMER'
+    --bind 'ctrl-_:transform: $FZF_ALT_C_HIDDEN_AND_IGNORE_TRANSFORMER'
 "
 
 # [[ Completion ]]
