@@ -33,7 +33,7 @@ export FZF_DEFAULT_COMMAND="$FZF_FD_COMMAND"
 # Esc)
 export FZF_DEFAULT_OPTS="
     --layout=reverse
-    --height=100%
+    --height=50%
     --border
     --preview-window 'hidden'
     --bind 'ctrl-g:top'
