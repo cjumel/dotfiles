@@ -47,7 +47,15 @@ export FZF_DEFAULT_OPTS="
 # - <Alt-C> to `cd` to a directory
 
 # <Ctrl-T>
-export FZF_CTRL_T_COMMAND="$FZF_FD_FILE_COMMAND"
+# By default, start with directory search as looking for a file naturally starts by looking for its parent directory anyway
+export FZF_CTRL_T_COMMAND="$FZF_FD_DIR_COMMAND"
+export FZF_CTRL_T_OPTS="
+    --prompt '$FZF_DIR_PROMPT'
+    --preview '$FZF_DIR_PREVIEW'
+    --bind 'ctrl-t:transform: $FZF_CTRL_T_TOGGLE_TRANSFORMER'
+    --bind 'ctrl-^:transform: $FZF_CTRL_T_HIDDEN_TRANSFORMER'
+    --bind 'ctrl-_:transform: $FZF_CTRL_T_ALL_TRANSFORMER'
+"
 
 export FZF_CTRL_T_TOGGLE_TRANSFORMER="
     if [[ {fzf:prompt} = \"File > \" ]]; then
@@ -85,14 +93,6 @@ export FZF_CTRL_T_ALL_TRANSFORMER="
     elif [[ {fzf:prompt} = \"Directory (all) > \" ]]; then
         echo \"reload(eval $FZF_FD_DIR_COMMAND)+change-prompt(Directory > )\"
     fi
-"
-
-export FZF_CTRL_T_OPTS="
-    --prompt '$FZF_FILE_PROMPT'
-    --preview '$FZF_FILE_PREVIEW'
-    --bind 'ctrl-t:transform: $FZF_CTRL_T_TOGGLE_TRANSFORMER'
-    --bind 'ctrl-^:transform: $FZF_CTRL_T_HIDDEN_TRANSFORMER'
-    --bind 'ctrl-_:transform: $FZF_CTRL_T_ALL_TRANSFORMER'
 "
 
 # <Ctrl-R>
