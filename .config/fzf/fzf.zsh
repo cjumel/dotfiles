@@ -153,6 +153,15 @@ _fzf_compgen_dir() {
     fd --hidden --no-ignore --follow --type d . "$1"
 }
 
+# Specify the commands which trigger directory completion for fzf
+export FZF_COMPLETION_DIR_COMMANDS='
+    cd
+    c
+    ls
+    l
+    la
+'
+
 # [[ Setup ]]
 
 if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
