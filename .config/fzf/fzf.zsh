@@ -155,11 +155,22 @@ _fzf_compgen_dir() {
 
 # Specify the commands which trigger directory completion for fzf
 export FZF_COMPLETION_DIR_COMMANDS='
-    cd
     c
-    ls
+    cd
+    du
     l
     la
+    ls
+    lsa
+    md
+    mdp
+    mkdir
+    rm -r
+    rm -rf
+    rmr
+    rmrf
+    to
+    touch
 '
 
 # [[ Setup ]]
