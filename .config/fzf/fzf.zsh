@@ -141,16 +141,13 @@ export FZF_ALT_C_OPTS="
 # be done after sourcing the fuzzy auto-completion script)
 export FZF_COMPLETION_TRIGGER=''
 
-# Override the default completion functions to customize the completion behavior:
-#   `--hidden` & `--follow` are the default parameters
-#   Let's add `--no-ignore`, to have a consistent behavior with the default completion & since I can
-#   use the default completion for parts with many ignored files and then switch to fzf completion
-# In the following functions, $1 is the base path to start traversal
+# Use `fd` to generate completion candidates
+# In the following functions, `$1` is the base path to start traversal
 _fzf_compgen_path() {
-    fd --hidden --no-ignore --follow . "$1"
+    fd --hidden --follow . "$1"
 }
 _fzf_compgen_dir() {
-    fd --hidden --no-ignore --follow --type d . "$1"
+    fd --hidden --follow --type d . "$1"
 }
 
 # Specify the commands which trigger directory completion for fzf
