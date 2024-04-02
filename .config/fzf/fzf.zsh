@@ -51,24 +51,40 @@ export FZF_CTRL_T_COMMAND="$FZF_FD_FILE_COMMAND"
 export FZF_CTRL_T_DEFAULT_HEADER='Paste path in command line'
 
 export FZF_CTRL_T_TOGGLE_TRANSFORMER="
-    if [[ {fzf:prompt} = \"$FZF_FILE_PROMPT\" ]]; then
-        echo \"change-prompt($FZF_DIR_PROMPT)+reload($FZF_FD_DIR_COMMAND)+change-header($FZF_CTRL_T_DEFAULT_HEADER)+change-preview($FZF_DIR_PREVIEW_ESCAPED)\"
-    else
-        echo \"change-prompt($FZF_FILE_PROMPT)+reload($FZF_FD_FILE_COMMAND)+change-header($FZF_CTRL_T_DEFAULT_HEADER)+change-preview($FZF_FILE_PREVIEW_ESCAPED)\"
+    if [[ {fzf:prompt} = \"File > \" ]]; then
+        echo \"change-prompt(Directory > )+reload($FZF_FD_DIR_COMMAND)+change-preview($FZF_DIR_PREVIEW_ESCAPED)\"
+    elif [[ {fzf:prompt} = \"File (w/ hidden) > \" ]]; then
+        echo \"change-prompt(Directory (w/ hidden) > )+reload($FZF_FD_DIR_COMMAND_HIDDEN)+change-preview($FZF_DIR_PREVIEW_ESCAPED)\"
+    elif [[ {fzf:prompt} = \"File (w/ hidden & ignored) > \" ]]; then
+        echo \"change-prompt(Directory (w/ hidden & ignored) > )+reload($FZF_FD_DIR_COMMAND_ALL)+change-preview($FZF_DIR_PREVIEW_ESCAPED)\"
+    elif [[ {fzf:prompt} = \"Directory > \" ]]; then
+        echo \"change-prompt(File > )+reload($FZF_FD_FILE_COMMAND)+change-preview($FZF_FILE_PREVIEW_ESCAPED)\"
+    elif [[ {fzf:prompt} = \"Directory (w/ hidden) > \" ]]; then
+        echo \"change-prompt(File (w/ hidden) > )+reload($FZF_FD_FILE_COMMAND_HIDDEN)+change-preview($FZF_FILE_PREVIEW_ESCAPED)\"
+    elif [[ {fzf:prompt} = \"Directory (w/ hidden & ignored) > \" ]]; then
+        echo \"change-prompt(File (w/ hidden & ignored) > )+reload($FZF_FD_FILE_COMMAND_ALL)+change-preview($FZF_FILE_PREVIEW_ESCAPED)\"
     fi
 "
-export FZF_CTRL_HIDDEN_TRANSFORMER="
-    if [[ {fzf:prompt} = \"$FZF_FILE_PROMPT\" ]]; then
-        echo \"reload(eval $FZF_FD_FILE_COMMAND_HIDDEN)+change-header($FZF_CTRL_T_DEFAULT_HEADER (include hidden))\"
-    else
-        echo \"reload(eval $FZF_FD_DIR_COMMAND_HIDDEN)+change-header($FZF_CTRL_T_DEFAULT_HEADER (include hidden))\"
+export FZF_CTRL_T_HIDDEN_TRANSFORMER="
+    if [[ {fzf:prompt} = \"File > \" ]] || [[ {fzf:prompt} = \"File (w/ hidden & ignored) > \" ]]; then
+        echo \"reload(eval $FZF_FD_FILE_COMMAND_HIDDEN)+change-prompt(File (w/ hidden) > )\"
+    elif [[ {fzf:prompt} = \"Directory > \" ]] || [[ {fzf:prompt} = \"Directory (w/ hidden & ignored) > \" ]]; then
+        echo \"reload(eval $FZF_FD_DIR_COMMAND_HIDDEN)+change-prompt(Directory (w/ hidden) > )\"
+    elif [[ {fzf:prompt} = \"File (w/ hidden) > \" ]]; then
+        echo \"reload(eval $FZF_FD_FILE_COMMAND)+change-prompt(File > )\"
+    elif [[ {fzf:prompt} = \"Directory (w/ hidden) > \" ]]; then
+        echo \"reload(eval $FZF_FD_DIR_COMMAND)+change-prompt(Directory > )\"
     fi
 "
-export FZF_CTRL_HIDDEN_AND_IGNORE_TRANSFORMER="
-    if [[ {fzf:prompt} = \"$FZF_FILE_PROMPT\" ]]; then
-        echo \"reload(eval $FZF_FD_FILE_COMMAND_ALL)+change-header($FZF_CTRL_T_DEFAULT_HEADER (include hidden & ignored))\"
-    else
-        echo \"reload(eval $FZF_FD_DIR_COMMAND_ALL)+change-header($FZF_CTRL_T_DEFAULT_HEADER (include hidden & ignored))\"
+export FZF_CTRL_T_ALL_TRANSFORMER="
+    if [[ {fzf:prompt} = \"File > \" ]] || [[ {fzf:prompt} = \"File (w/ hidden) > \" ]]; then
+        echo \"reload(eval $FZF_FD_FILE_COMMAND_ALL)+change-prompt(File (w/ hidden & ignored) > )\"
+    elif [[ {fzf:prompt} = \"Directory > \" ]] || [[ {fzf:prompt} = \"Directory (w/ hidden) > \" ]]; then
+        echo \"reload(eval $FZF_FD_DIR_COMMAND_ALL)+change-prompt(Directory (w/ hidden & ignored) > )\"
+    elif [[ {fzf:prompt} = \"File (w/ hidden & ignored) > \" ]]; then
+        echo \"reload(eval $FZF_FD_FILE_COMMAND)+change-prompt(File > )\"
+    elif [[ {fzf:prompt} = \"Directory (w/ hidden & ignored) > \" ]]; then
+        echo \"reload(eval $FZF_FD_DIR_COMMAND)+change-prompt(Directory > )\"
     fi
 "
 
@@ -77,8 +93,8 @@ export FZF_CTRL_T_OPTS="
     --header '$FZF_CTRL_T_DEFAULT_HEADER'
     --preview '$FZF_FILE_PREVIEW'
     --bind 'ctrl-t:transform: $FZF_CTRL_T_TOGGLE_TRANSFORMER'
-    --bind 'ctrl-^:transform: $FZF_CTRL_HIDDEN_TRANSFORMER'
-    --bind 'ctrl-_:transform: $FZF_CTRL_HIDDEN_AND_IGNORE_TRANSFORMER'
+    --bind 'ctrl-^:transform: $FZF_CTRL_T_HIDDEN_TRANSFORMER'
+    --bind 'ctrl-_:transform: $FZF_CTRL_T_ALL_TRANSFORMER'
 "
 
 # <Ctrl-R>
@@ -92,10 +108,18 @@ export FZF_ALT_C_COMMAND="$FZF_FD_DIR_COMMAND"
 export FZF_ALT_C_DEFAULT_HEADER='Change directory'
 
 export FZF_ALT_C_HIDDEN_TRANSFORMER="
-    echo \"reload(eval $FZF_FD_DIR_COMMAND_HIDDEN)+change-header($FZF_ALT_C_DEFAULT_HEADER (include hidden))\"
+    if [[ {fzf:prompt} = \"Directory > \" ]] || [[ {fzf:prompt} = \"Directory (w/ hidden & ignored) > \" ]]; then
+        echo \"reload(eval $FZF_FD_DIR_COMMAND_HIDDEN)+change-prompt(Directory (w/ hidden) > )\"
+    elif [[ {fzf:prompt} = \"Directory (w/ hidden) > \" ]]; then
+        echo \"reload(eval $FZF_FD_DIR_COMMAND)+change-prompt(Directory > )\"
+    fi
 "
 export FZF_ALT_C_HIDDEN_AND_IGNORE_TRANSFORMER="
-    echo \"reload(eval $FZF_FD_DIR_COMMAND_ALL)+change-header($FZF_ALT_C_DEFAULT_HEADER (include hidden & ignored))\"
+    if [[ {fzf:prompt} = \"Directory > \" ]] || [[ {fzf:prompt} = \"Directory (w/ hidden) > \" ]]; then
+        echo \"reload(eval $FZF_FD_DIR_COMMAND_ALL)+change-prompt(Directory (w/ hidden & ignored) > )\"
+    elif [[ {fzf:prompt} = \"Directory (w/ hidden & ignored) > \" ]]; then
+        echo \"reload(eval $FZF_FD_DIR_COMMAND)+change-prompt(Directory > )\"
+    fi
 "
 
 export FZF_ALT_C_OPTS="
