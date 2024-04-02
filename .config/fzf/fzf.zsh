@@ -188,7 +188,7 @@ bindkey '^I' $fzf_default_completion
 # [[ Alias features ]]
 
 # Use fzf to fuzzy search aliases and paste the selected one to the command line
-function alias_fzf_fuzzy_search() {
+function alias_fzf_search() {
     selected_line=$(alias | fzf --prompt="$FZF_ALIAS_PROMPT")
 
     # Exit if nothing is selected
@@ -216,7 +216,7 @@ function alias_fzf_edit() {
     vi "$ZSH_CUSTOM/$selected_file"
 }
 
-alias alf='alias_fzf_fuzzy_search'
+alias als='alias_fzf_search'
 alias ale='alias_fzf_edit'
 
 # [[ Theme features ]]
