@@ -54,20 +54,20 @@ export FZF_CTRL_T_TOGGLE_TRANSFORMER="
         echo \"change-prompt(Directory > )+reload($FZF_FD_DIR_COMMAND)+change-preview($FZF_DIR_PREVIEW_ESCAPED)\"
     elif [[ {fzf:prompt} = \"File (w/ hidden) > \" ]]; then
         echo \"change-prompt(Directory (w/ hidden) > )+reload($FZF_FD_DIR_COMMAND_HIDDEN)+change-preview($FZF_DIR_PREVIEW_ESCAPED)\"
-    elif [[ {fzf:prompt} = \"File (w/ hidden & ignored) > \" ]]; then
-        echo \"change-prompt(Directory (w/ hidden & ignored) > )+reload($FZF_FD_DIR_COMMAND_ALL)+change-preview($FZF_DIR_PREVIEW_ESCAPED)\"
+    elif [[ {fzf:prompt} = \"File (all) > \" ]]; then
+        echo \"change-prompt(Directory (all) > )+reload($FZF_FD_DIR_COMMAND_ALL)+change-preview($FZF_DIR_PREVIEW_ESCAPED)\"
     elif [[ {fzf:prompt} = \"Directory > \" ]]; then
         echo \"change-prompt(File > )+reload($FZF_FD_FILE_COMMAND)+change-preview($FZF_FILE_PREVIEW_ESCAPED)\"
     elif [[ {fzf:prompt} = \"Directory (w/ hidden) > \" ]]; then
         echo \"change-prompt(File (w/ hidden) > )+reload($FZF_FD_FILE_COMMAND_HIDDEN)+change-preview($FZF_FILE_PREVIEW_ESCAPED)\"
-    elif [[ {fzf:prompt} = \"Directory (w/ hidden & ignored) > \" ]]; then
-        echo \"change-prompt(File (w/ hidden & ignored) > )+reload($FZF_FD_FILE_COMMAND_ALL)+change-preview($FZF_FILE_PREVIEW_ESCAPED)\"
+    elif [[ {fzf:prompt} = \"Directory (all) > \" ]]; then
+        echo \"change-prompt(File (all) > )+reload($FZF_FD_FILE_COMMAND_ALL)+change-preview($FZF_FILE_PREVIEW_ESCAPED)\"
     fi
 "
 export FZF_CTRL_T_HIDDEN_TRANSFORMER="
-    if [[ {fzf:prompt} = \"File > \" ]] || [[ {fzf:prompt} = \"File (w/ hidden & ignored) > \" ]]; then
+    if [[ {fzf:prompt} = \"File > \" ]] || [[ {fzf:prompt} = \"File (all) > \" ]]; then
         echo \"reload(eval $FZF_FD_FILE_COMMAND_HIDDEN)+change-prompt(File (w/ hidden) > )\"
-    elif [[ {fzf:prompt} = \"Directory > \" ]] || [[ {fzf:prompt} = \"Directory (w/ hidden & ignored) > \" ]]; then
+    elif [[ {fzf:prompt} = \"Directory > \" ]] || [[ {fzf:prompt} = \"Directory (all) > \" ]]; then
         echo \"reload(eval $FZF_FD_DIR_COMMAND_HIDDEN)+change-prompt(Directory (w/ hidden) > )\"
     elif [[ {fzf:prompt} = \"File (w/ hidden) > \" ]]; then
         echo \"reload(eval $FZF_FD_FILE_COMMAND)+change-prompt(File > )\"
@@ -77,12 +77,12 @@ export FZF_CTRL_T_HIDDEN_TRANSFORMER="
 "
 export FZF_CTRL_T_ALL_TRANSFORMER="
     if [[ {fzf:prompt} = \"File > \" ]] || [[ {fzf:prompt} = \"File (w/ hidden) > \" ]]; then
-        echo \"reload(eval $FZF_FD_FILE_COMMAND_ALL)+change-prompt(File (w/ hidden & ignored) > )\"
+        echo \"reload(eval $FZF_FD_FILE_COMMAND_ALL)+change-prompt(File (all) > )\"
     elif [[ {fzf:prompt} = \"Directory > \" ]] || [[ {fzf:prompt} = \"Directory (w/ hidden) > \" ]]; then
-        echo \"reload(eval $FZF_FD_DIR_COMMAND_ALL)+change-prompt(Directory (w/ hidden & ignored) > )\"
-    elif [[ {fzf:prompt} = \"File (w/ hidden & ignored) > \" ]]; then
+        echo \"reload(eval $FZF_FD_DIR_COMMAND_ALL)+change-prompt(Directory (all) > )\"
+    elif [[ {fzf:prompt} = \"File (all) > \" ]]; then
         echo \"reload(eval $FZF_FD_FILE_COMMAND)+change-prompt(File > )\"
-    elif [[ {fzf:prompt} = \"Directory (w/ hidden & ignored) > \" ]]; then
+    elif [[ {fzf:prompt} = \"Directory (all) > \" ]]; then
         echo \"reload(eval $FZF_FD_DIR_COMMAND)+change-prompt(Directory > )\"
     fi
 "
@@ -104,7 +104,7 @@ export FZF_CTRL_R_OPTS="
 export FZF_ALT_C_COMMAND="$FZF_FD_DIR_COMMAND"
 
 export FZF_ALT_C_HIDDEN_TRANSFORMER="
-    if [[ {fzf:prompt} = \"Directory > \" ]] || [[ {fzf:prompt} = \"Directory (w/ hidden & ignored) > \" ]]; then
+    if [[ {fzf:prompt} = \"Directory > \" ]] || [[ {fzf:prompt} = \"Directory (all) > \" ]]; then
         echo \"reload(eval $FZF_FD_DIR_COMMAND_HIDDEN)+change-prompt(Directory (w/ hidden) > )\"
     elif [[ {fzf:prompt} = \"Directory (w/ hidden) > \" ]]; then
         echo \"reload(eval $FZF_FD_DIR_COMMAND)+change-prompt(Directory > )\"
@@ -112,8 +112,8 @@ export FZF_ALT_C_HIDDEN_TRANSFORMER="
 "
 export FZF_ALT_C_HIDDEN_AND_IGNORE_TRANSFORMER="
     if [[ {fzf:prompt} = \"Directory > \" ]] || [[ {fzf:prompt} = \"Directory (w/ hidden) > \" ]]; then
-        echo \"reload(eval $FZF_FD_DIR_COMMAND_ALL)+change-prompt(Directory (w/ hidden & ignored) > )\"
-    elif [[ {fzf:prompt} = \"Directory (w/ hidden & ignored) > \" ]]; then
+        echo \"reload(eval $FZF_FD_DIR_COMMAND_ALL)+change-prompt(Directory (all) > )\"
+    elif [[ {fzf:prompt} = \"Directory (all) > \" ]]; then
         echo \"reload(eval $FZF_FD_DIR_COMMAND)+change-prompt(Directory > )\"
     fi
 "
