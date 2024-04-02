@@ -48,7 +48,6 @@ export FZF_DEFAULT_OPTS="
 
 # <Ctrl-T>
 export FZF_CTRL_T_COMMAND="$FZF_FD_FILE_COMMAND"
-export FZF_CTRL_T_DEFAULT_HEADER='Paste path in command line'
 
 export FZF_CTRL_T_TOGGLE_TRANSFORMER="
     if [[ {fzf:prompt} = \"File > \" ]]; then
@@ -90,7 +89,6 @@ export FZF_CTRL_T_ALL_TRANSFORMER="
 
 export FZF_CTRL_T_OPTS="
     --prompt '$FZF_FILE_PROMPT'
-    --header '$FZF_CTRL_T_DEFAULT_HEADER'
     --preview '$FZF_FILE_PREVIEW'
     --bind 'ctrl-t:transform: $FZF_CTRL_T_TOGGLE_TRANSFORMER'
     --bind 'ctrl-^:transform: $FZF_CTRL_T_HIDDEN_TRANSFORMER'
@@ -100,12 +98,10 @@ export FZF_CTRL_T_OPTS="
 # <Ctrl-R>
 export FZF_CTRL_R_OPTS="
     --prompt '$FZF_CMD_PROMPT'
-    --header 'Past command in command line'
 "
 
 # <Alt-C>
 export FZF_ALT_C_COMMAND="$FZF_FD_DIR_COMMAND"
-export FZF_ALT_C_DEFAULT_HEADER='Change directory'
 
 export FZF_ALT_C_HIDDEN_TRANSFORMER="
     if [[ {fzf:prompt} = \"Directory > \" ]] || [[ {fzf:prompt} = \"Directory (w/ hidden & ignored) > \" ]]; then
@@ -124,7 +120,6 @@ export FZF_ALT_C_HIDDEN_AND_IGNORE_TRANSFORMER="
 
 export FZF_ALT_C_OPTS="
     --prompt '$FZF_DIR_PROMPT'
-    --header '$FZF_ALT_C_DEFAULT_HEADER'
     --preview '$FZF_DIR_PREVIEW'
     --bind 'ctrl-^:transform: $FZF_ALT_C_HIDDEN_TRANSFORMER'
     --bind 'ctrl-_:transform: $FZF_ALT_C_HIDDEN_AND_IGNORE_TRANSFORMER'
@@ -194,7 +189,7 @@ bindkey '^I' $fzf_default_completion
 
 # Use fzf to fuzzy search aliases and paste the selected one to the command line
 function alias_fzf_fuzzy_search() {
-    selected_line=$(alias | fzf --prompt="$FZF_ALIAS_PROMPT" --header="Past alias in command line")
+    selected_line=$(alias | fzf --prompt="$FZF_ALIAS_PROMPT")
 
     # Exit if nothing is selected
     if [[ -z $selected_line ]]; then
@@ -211,7 +206,7 @@ function alias_fzf_fuzzy_search() {
 # Use fzf to select an alias file and edit it using vi
 function alias_fzf_edit() {
     # Use builtin ls even if eza is aliased to ls
-    selected_file=$(command ls "$ZSH_CUSTOM" | fzf --prompt="$FZF_FILE_PROMPT" --header="Edit an alias file")
+    selected_file=$(command ls "$ZSH_CUSTOM" | fzf --prompt="$FZF_FILE_PROMPT")
 
     # Exit if nothing is selected
     if [[ -z $selected_file ]]; then
@@ -245,7 +240,7 @@ tokyonight'
 # Pick a theme with fzf and set it up by creating the relevant symlinks
 function theme_fzf_picker() {
     # Make the user select a theme using fzf among the available ones
-    selected_theme=$(echo "$TERMINAL_THEMES" | fzf --prompt="$FZF_THEME_PROMPT" --header="Change terminal theme")
+    selected_theme=$(echo "$TERMINAL_THEMES" | fzf --prompt="$FZF_THEME_PROMPT")
 
     # Exit if no theme is selected, to avoid creating broken symlinks
     if [[ -z $selected_theme ]]; then
