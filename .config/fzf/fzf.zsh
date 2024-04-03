@@ -49,14 +49,6 @@ export FZF_DEFAULT_OPTS="
 # <Ctrl-T>
 # By default, start with directory search as looking for a file naturally starts by looking for its parent directory anyway
 export FZF_CTRL_T_COMMAND="$FZF_FD_DIR_COMMAND"
-export FZF_CTRL_T_OPTS="
-    --prompt '$FZF_DIR_PROMPT'
-    --preview '$FZF_DIR_PREVIEW'
-    --bind 'ctrl-t:transform: $FZF_CTRL_T_TOGGLE_TRANSFORMER'
-    --bind 'ctrl-^:transform: $FZF_CTRL_T_HIDDEN_TRANSFORMER'
-    --bind 'ctrl-_:transform: $FZF_CTRL_T_ALL_TRANSFORMER'
-"
-
 export FZF_CTRL_T_TOGGLE_TRANSFORMER="
     if [[ {fzf:prompt} = \"File > \" ]]; then
         echo \"change-prompt(Directory > )+reload($FZF_FD_DIR_COMMAND)+change-preview($FZF_DIR_PREVIEW_ESCAPED)\"
@@ -95,14 +87,24 @@ export FZF_CTRL_T_ALL_TRANSFORMER="
     fi
 "
 
+export FZF_CTRL_T_OPTS="
+    --prompt '$FZF_DIR_PROMPT'
+    --preview '$FZF_DIR_PREVIEW'
+    --bind 'ctrl-t:transform: $FZF_CTRL_T_TOGGLE_TRANSFORMER'
+    --bind 'ctrl-^:transform: $FZF_CTRL_T_HIDDEN_TRANSFORMER'
+    --bind 'ctrl-_:transform: $FZF_CTRL_T_ALL_TRANSFORMER'
+"
+
 # <Ctrl-R>
 export FZF_CTRL_R_OPTS="
     --prompt '$FZF_CMD_PROMPT'
 "
 
 # <Alt-C>
-export FZF_ALT_C_COMMAND="$FZF_FD_DIR_COMMAND"
+# I actually prefer to map the <Alt-C> feature to <Ctrl-G> (like "go"), it's a lot more convenient to type for me
+bindkey "^g" fzf-cd-widget
 
+export FZF_ALT_C_COMMAND="$FZF_FD_DIR_COMMAND"
 export FZF_ALT_C_HIDDEN_TRANSFORMER="
     if [[ {fzf:prompt} = \"Directory > \" ]] || [[ {fzf:prompt} = \"Directory (all) > \" ]]; then
         echo \"reload(eval $FZF_FD_DIR_COMMAND_HIDDEN)+change-prompt(Directory (w/ hidden) > )\"
@@ -126,15 +128,13 @@ export FZF_ALT_C_OPTS="
 "
 
 # [[ Completion ]]
-# `fzf` triggers command line completion by entering trigger characters and then <Tab> or <Ctrl-I>
-# or directly by entering a fuzzy completion keybinding
-# Completion is contextual, that is in some cases it can detect wether a file or a directory is
-# expected for instance.
+# `fzf` completion is triggered by using specific characters (`**` by default) and then <Tab> or <Ctrl-I> or directly with a keybinding
+# Completion is contextual: in some cases it can detect wether a file or a directory is expected
 
-# Default trigger is `**` as completion trigger characters
-# Let's change it to no completion trigger to define a fuzzy completion keybinding below (must
-# be done after sourcing the fuzzy auto-completion script)
+# Let's define a keybinding to trigger completion instead of characters
+# Builtin `^O` is useless and it's next to `^I`, the builtin completion key, so let's use it for fuzzy completion
 export FZF_COMPLETION_TRIGGER=''
+bindkey '^O' fzf-completion
 
 # Use `fd` to generate completion candidates
 # In the following functions, `$1` is the base path to start traversal
@@ -176,13 +176,9 @@ source "/usr/local/opt/fzf/shell/completion.zsh"
 
 # Key bindings
 source "/usr/local/opt/fzf/shell/key-bindings.zsh"
-# Enable the use of <Alt-c> as fzf key binding
-bindkey "©" fzf-cd-widget
 
-# Define fuzzy auto-completion keybindings
-# By default, '^O' is equivalent to '^M' or '<CR>', and it's next to '^I', the regular completion key
-# Re-mapping '^I' is necessary to keep it as regular completion
-bindkey '^O' fzf-completion
+# Since above is defined a custom keybinding for completion, remapping `^I` is necessary to keep it as regular completion
+# This must be done after sourcing the setup scripts
 bindkey '^I' $fzf_default_completion
 
 # [[ Alias features ]]
