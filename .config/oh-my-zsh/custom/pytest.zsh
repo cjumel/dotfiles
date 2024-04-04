@@ -4,6 +4,8 @@
 
 alias pt='pytest'
 
+alias ptc='pytest --cov' # Show coverage on a target or on the source of the coverage config
+
 alias ptff='pytest --failed-first' # Run the tests that failed last time first
 
 alias ptlf='pytest --last-failed' # Run only the tests that failed last time
