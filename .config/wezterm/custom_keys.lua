@@ -71,6 +71,18 @@ return {
       mods = "CTRL",
       action = wezterm.action({ SendString = "\x1f" }), -- <C-_> code
     },
+
+    -- Map unused control keymaps to the corresponding (but usable) alt keymaps
+    {
+      key = "Backspace",
+      mods = "CTRL",
+      action = wezterm.action({
+        SendKey = {
+          key = "Backspace",
+          mods = "ALT",
+        },
+      }),
+    },
   },
   key_tables = {},
 }
