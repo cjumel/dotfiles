@@ -17,11 +17,17 @@ alias gcanf='git commit --amend --no-edit --no-verify' # Amend & skip commit mes
 
 alias gcf='git commit --message "🚧 FIXUP"' # Fixup commit (to be squashed later with another commit)
 
-alias gcle='git clean'         # Do nothing without any option
-alias gclef='git clean -f'     # Clean untracked files in target directory
-alias gclefx='git clean -fx'   # Clean untracked files in target directory, including ignored
-alias gclefd='git clean -fd'   # Clean untracked files in target directory & sub-directories
-alias gclefdx='git clean -fdx' # Clean untracked files in target directory & sub-directories, including ignored
+# Clean files: remove untracked files from the working directory
+# Without any argument, this command does nothing, it requires one of `-f` (force), `-i` (interactive) or `-n` (dry-run) to select the
+# main behavior, and can take additional like `-x` to also remove ignored files, `-X` to only remove ignored files or `-d` to also
+# remove whole directories, for instance
+alias gcle='git clean'        # Base command, do nothing without any option
+alias gclef='git clean -f'    # Force clean files (don't ask for confirmation)
+alias gclefa='git clean -fdx' # Force clean all files
+alias gclei='git clean -i'    # Interactively clean files (ask for confirmation)
+alias gcleia='git clean -idx' # Interactively clean all files
+alias gclen='git clean -n'    # Dry run on files (don't actually clean them)
+alias gclena='git clean -ndx' # Dry run on all files
 
 alias gclo='git clone'
 alias gclob='git clone --bare' # Clone only the .git directory (useful for git worktrees)
