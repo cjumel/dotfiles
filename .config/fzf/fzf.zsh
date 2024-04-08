@@ -28,16 +28,13 @@ export FZF_DIR_PREVIEW_ESCAPED='eza -la --color=always \{}'
 # General `fzf` options
 export FZF_DEFAULT_COMMAND="$FZF_FD_COMMAND"
 # ctrl-g is chosen for "go to top", like (Neo)vim's `gg`
-# ctrl-] is actually ctrl-$ on my keyboard; rationale for this binding is that mapping it to a
-# Tab-like feature is similar to neighboring keys (e.g. ctrl-[, ctrl-^ on my keyboard, is mapped to
-# Esc)
 export FZF_DEFAULT_OPTS="
     --layout=reverse
     --height=50%
     --border
     --preview-window 'hidden'
+    --bind 'ctrl-i:toggle-preview'
     --bind 'ctrl-g:top'
-    --bind 'ctrl-]:toggle-preview'
 "
 
 # [[ Key bindings ]]
