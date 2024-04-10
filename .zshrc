@@ -36,17 +36,6 @@ bindkey "\e" clear-screen
 bindkey "^^" forward-word
 bindkey "^_" backward-word
 
-# [[ Aliases ]]
-# Meta aliases. For other aliases, see in `./config/zsh/oh-my-zsh`
-
-# List all aliases starting with the prefix passed as argument using grep
-function alias_grep_list() {
-    alias | grep "^$1"
-}
-
-alias al='alias' # Without argument, list all aliases, otherwise define a new alias
-alias all='alias_grep_list'
-
 # [[ Additional configuration scripts ]]
 # The following will run configuration scripts for additional tools, but only if the files exist
 

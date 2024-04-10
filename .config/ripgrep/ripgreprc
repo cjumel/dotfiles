@@ -3,3 +3,6 @@
 
 # Apply `--ignore-case` except if the pattern contains any uppercase letters
 --smart-case
+
+# Follow symlinks
+--follow
