@@ -17,8 +17,6 @@ alias ma='man'
 alias md='mkdir'
 alias mdp='mkdir -p'
 
-alias mk='make'
-
 alias p='pwd'
 
 alias py='python'

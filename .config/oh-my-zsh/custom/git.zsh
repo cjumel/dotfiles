@@ -117,8 +117,8 @@ alias gsha='git stash apply'               # Apply the last stash entry
 alias gshc='git stash clear'               # Clear all the stash entries
 alias gshd='git stash drop'                # Drop one stash entry (last one by default)
 alias gshi='git stash --include-untracked' # Like `git stash` but include untracked files
-alias gshl='git stash list'
-alias gshp='git stash pop' # Like `git stash apply` but remove the applied stash entry if applied without conflict
+alias gshl='git stash list'                # List all the stash entries
+alias gshp='git stash pop'                 # Like `git stash apply` but remove the applied stash entry if applied without conflict
 
 alias gso='git show' # Show various types of objects
 
