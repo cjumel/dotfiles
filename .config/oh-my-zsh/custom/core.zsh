@@ -8,9 +8,11 @@ alias lj='luajit'
 
 alias lns='ln -s'
 
-# l & la are already aliased somewhere else, let's override them
-alias l='ls'
-alias la='ls -a'
+# l & la are already aliased by oh-my-zsh, this only overrides them
+alias l='ls'       # List files in directory
+alias lr='ls -R'   # List files recursively in directory & sub-directories
+alias la='ls -a'   # List all files in directory
+alias lar='ls -aR' # List all files recursively in directory & sub-directories
 
 alias ma='man'
 
