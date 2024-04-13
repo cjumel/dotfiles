@@ -20,4 +20,4 @@ function rg_alias_search() {
 
 alias al='rg_alias'         # (ripgrep) Display the definition of the alias corresponding to the provided string
 alias all='rg_alias_list'   # (ripgrep) List the definitions of all the aliases starting with the provided string
-alias als='rg_alias_search' # (ripgrep) Search in the definitions of all the aliases with to the provided string
+alias alg='rg_alias_search' # (ripgrep) Search the provided string in the definitions of all the aliases
