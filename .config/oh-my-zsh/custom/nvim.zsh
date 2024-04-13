@@ -7,5 +7,5 @@ function nvim_contextual() {
     fi
 }
 
-alias vi='nvim_contextual'
-alias vis='nvim' # Skip contextual setup
+alias vi='nvim_contextual' # Open Neovim with contextual setup
+alias vis='nvim'           # Open Neovim and skip contextual setup
