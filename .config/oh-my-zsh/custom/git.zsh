@@ -1,4 +1,4 @@
-alias g='git status'
+alias g='git status' # Show the working tree status
 
 alias ga='git add'           # Add the targeted files
 alias gaa='git add --all'    # Add all files, both tracked & untracked
@@ -10,92 +10,75 @@ alias gbd='git branch -d'       # Delete a local branch but fail if not merged
 alias gbdf='git branch -D'      # Force delete a local branch (delete it even if not merged)
 alias gbr='git branch --remote' # List remote branches
 
-alias gca='git commit --amend'                         # Amend commit by adding the staged changes to it
-alias gcaf='git commit --amend --no-verify'            # Amend & skip hooks
-alias gcan='git commit --amend --no-edit'              # Amend & skip commit message
-alias gcanf='git commit --amend --no-edit --no-verify' # Amend & skip commit message & hooks
+alias gc='git commit'                         # Create commit
+alias gcn='git commit --no-edit'              # Create commit with no message edit
+alias gcs='git commit --no-verify'            # Create commit & skip commit hooks
+alias gcns='git commit --no-edit --no-verify' # Create commit with no message edit & skip commit hooks
 
-alias gcf='git commit --message "🚧 FIXUP"' # Fixup commit (to be squashed later with another commit)
+alias gca='git commit --amend'                         # Amend last commit with the staged changes
+alias gcan='git commit --amend --no-edit'              # Amend last commit with the staged changes with no message edit
+alias gcas='git commit --amend --no-verify'            # Amend last commit with the staged changes & skip commit hooks
+alias gcans='git commit --amend --no-edit --no-verify' # Amend last commit with the staged changes with no message edit & skip commit hooks
 
-alias gcl='git clone'
-alias gclb='git clone --bare' # Clone only the .git directory (useful for git worktrees)
+alias gcf='git commit --message "🚧 FIXUP"' # Create a fixup commit
 
-alias gcm='git commit'                         # Create commit
-alias gcmf='git commit --no-verify'            # Create & skip hooks
-alias gcmn='git commit --no-edit'              # Create & skip commit message (useful with gitmoji)
-alias gcmnf='git commit --no-edit --no-verify' # Create & skip commit message & hooks
+alias gcl='git clone'         # Clone a repository
+alias gclb='git clone --bare' # Clone a repository as a bare repository
 
-alias gcn='git config'
-alias gcng='git config --global'
+alias gcw='git commit --no-verify --message "🚧 WIP [skip ci]"' # Create a work-in-progress commit
 
-alias gco='git checkout'
-alias gcod='git checkout --' # Discard the changes of the targeted files
-
-alias gcp='git cherry-pick' # Apply the changes introduced by some existing commits
-
-alias gcw='git commit --no-verify --message "🚧 WIP"' # WIP commit
-
-alias gd='git diff' # Show changes between commits, commit and working tree, etc.
-alias gdt='git difftool'
+alias gd='git diff'      # Show changes between commits, commit and working tree, etc.
+alias gdt='git difftool' # Show changes between commits, commit and working tree, etc. using a difftool
 
 alias gf='git fetch'           # Fetch the remote repository
 alias gfp='git fetch --prune'  # Fetch & remove unused remote branches
 alias gfu='git fetch upstream' # Fetch the remote repository upstream branch (useful to update forks)
 
-alias gl='git lg'
+alias gl='git lg' # Show the commit log
 
-alias gpl='git pull'
+alias gpl='git pull' # Fetch the remote repository & merge it into the current branch
 
-alias gps='git push'
-alias gpsf='git push --force'
-alias gpsu='git push --set-upstream' # Set the upstream of a local branch and push it (needed iff autoSetupRemote is not True)
+alias gps='git push'                 # Push the current branch to the remote repository
+alias gpsf='git push --force'        # Force push the current branch to the remote repository
+alias gpsu='git push --set-upstream' # Set the upstream of a local branch and push it (not needed if `autoSetupRemote` is `true`)
 
-alias grb='git rebase'
-alias grbo='git rebase --strategy-option=theirs' # Overwrite conflicting changes (reversal with the option is on purpose)
-alias grbi='git rebase --interactive'
-alias grbio='git rebase --interactive --strategy-option=theirs' # Overwrite conflicting changes (reversal with the option is on purpose)
-
-# Actions during rebase:
-alias grba='git rebase --abort'
-alias grbc='git rebase --continue'
-alias grbs='git rebase --skip'
+alias grb='git rebase'                                          # Rebase the current branch on top of another branch
+alias grbo='git rebase --strategy-option=theirs'                # Rebase the current branch on top of another branch & overwrite conflicting changes
+alias grbi='git rebase --interactive'                           # Interactively rebase the current branch on top of another branch
+alias grbio='git rebase --interactive --strategy-option=theirs' # Interactively rebase the current branch on top of another branch & overwrite conflicting changes
+alias grba='git rebase --abort'                                 # Abort a rebase in progress
+alias grbc='git rebase --continue'                              # Continue a rebase in progress
+alias grbs='git rebase --skip'                                  # Skip a commit during a rebase in progress
 
 alias grm='git rm'           # Remove a file from the repository and the file system
 alias grmc='git rm --cached' # Remove a file from the reposiory but not from the file system
 
-# Reset have 3 modes:
-# - mixed (default): unstage & keep the changes
-# - soft: keep as staged & keep the changes
-# - hard: unstage & discard the changes
-# Reset can be used in 3 forms:
-# - with nothing, reset all the tracked files and directories in the index
-# - with a path, reset the targeted tracked files and directories
-# - with a commit, undo the targeted commit(s) & reset their changes
-alias grs='git reset'
+# `reset` can be used in 3 forms: with nothing (target all tracked files/directories), with a path (target the corresponding tracked
+# files/directories), or with a commit reference, and with 3 modes: mixed (unstage & keep the changes), soft (keep the changes as staged),
+# and hard (unstage & discard the changes)
 function git_reset_last() {
     git reset --mixed HEAD~"$1"
 }
-alias grsl='git_reset_last' # Mixed reset the last $1 commit(s)
-alias grss='git reset --soft'
 function git_reset_soft_last() {
     git reset --soft HEAD~"$1"
 }
-alias grssl='git_reset_soft_last' # Soft reset the last $1 commit(s)
-alias grsh='git reset --hard'
 function git_reset_hard_last() {
     git reset --hard HEAD~"$1"
 }
+alias grs='git reset'             # Mixed reset the targeted files/directories or commit(s)
+alias grsl='git_reset_last'       # Mixed reset a number of the last commits
+alias grss='git reset --soft'     # Soft reset the targeted commit(s)
+alias grssl='git_reset_soft_last' # Soft reset a number of the last commits
+alias grsh='git reset --hard'     # Hard reset the targeted commit(s)
 alias grshl='git_reset_hard_last' # Hard reset the last $1 commit(s)
 
-alias grv='git revert'
-alias grvl='git revert HEAD' # Revert the last commit
+alias grv='git revert'             # Revert the targeted commit(s)
+alias grvl='git revert HEAD'       # Revert the last commit
+alias grva='git revert --abort'    # Abort a revert in progress
+alias grvc='git revert --continue' # Continue a revert in progress
+alias grvs='git revert --skip'     # Skip a commit during a revert in progress
 
-# Actions during revert:
-alias grva='git revert --abort'
-alias grvc='git revert --continue'
-alias grvs='git revert --skip'
-
-alias gs='git status'
+alias gs='git status' # Show the working tree status
 
 alias gsh='git stash'                      # Stash local changes in tracked files
 alias gsha='git stash apply'               # Apply the last stash entry
@@ -116,10 +99,10 @@ alias gtd='git tag --delete'          # Delete the provided tag locally
 alias gtdr='git push --delete origin' # Delete the provided tag remotely
 alias gtp='git push --tags'           # Push all local tags
 
-alias gw='git worktree'
-alias gwa='git worktree add'
-alias gwl='git worktree list'
-alias gwr='git worktree remove'
+alias gw='git worktree'         # Base command for git worktree
+alias gwa='git worktree add'    # Add a new worktree
+alias gwl='git worktree list'   # List all the worktrees
+alias gwr='git worktree remove' # Remove a worktree
 
 alias gu='git restore --staged' # Unstage the targeted files
 alias gua='git reset'           # Unstage all the files
