@@ -209,8 +209,8 @@ function alias_fzf_edit() {
     vi "$ZSH_CUSTOM/$selected_file"
 }
 
-alias als='alias_fzf_search'
-alias ale='alias_fzf_edit'
+alias alf='alias_fzf_search' # (fzf) Fuzzy find aliases
+alias ale='alias_fzf_edit'   # (fzf) Fuzzy find alias files to edit them
 
 # [[ Theme features ]]
 # Manage themes for WezTerm, Tmux, and Neovim at the same time
