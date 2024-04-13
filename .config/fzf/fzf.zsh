@@ -178,40 +178,6 @@ source "/usr/local/opt/fzf/shell/key-bindings.zsh"
 # This must be done after sourcing the setup scripts
 bindkey '^I' $fzf_default_completion
 
-# [[ Alias features ]]
-
-# Use fzf to fuzzy search aliases and paste the selected one to the command line
-function alias_fzf_search() {
-    selected_line=$(alias | fzf --prompt="$FZF_ALIAS_PROMPT")
-
-    # Exit if nothing is selected
-    if [[ -z $selected_line ]]; then
-        return
-    fi
-
-    # Extract the alias name from the selected line (selected line has the format "alias=command")
-    selected_alias=${selected_line%%=*}
-
-    # Paste the alias to the command line
-    print -z "$selected_alias"
-}
-
-# Use fzf to select an alias file and edit it using vi
-function alias_fzf_edit() {
-    # Use builtin ls even if eza is aliased to ls
-    selected_file=$(command ls "$ZSH_CUSTOM" | fzf --prompt="$FZF_FILE_PROMPT")
-
-    # Exit if nothing is selected
-    if [[ -z $selected_file ]]; then
-        return
-    fi
-
-    vi "$ZSH_CUSTOM/$selected_file"
-}
-
-alias alf='alias_fzf_search' # (fzf) Fuzzy find aliases
-alias ale='alias_fzf_edit'   # (fzf) Fuzzy find alias files to edit them
-
 # [[ Theme features ]]
 # Manage themes for WezTerm, Tmux, and Neovim at the same time
 
