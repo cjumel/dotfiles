@@ -1,8 +1,8 @@
 alias g='git status'
 
-alias ga='git add'
+alias ga='git add'           # Add the targeted files
 alias gaa='git add --all'    # Add all files, both tracked & untracked
-alias gau='git add --update' # Add all tracked files
+alias gat='git add --update' # Add all tracked files
 
 alias gb='git branch'           # List local branches
 alias gba='git branch --all'    # List both local & remote branches
@@ -17,20 +17,8 @@ alias gcanf='git commit --amend --no-edit --no-verify' # Amend & skip commit mes
 
 alias gcf='git commit --message "🚧 FIXUP"' # Fixup commit (to be squashed later with another commit)
 
-# Clean files: remove untracked files from the working directory
-# Without any argument, this command does nothing, it requires one of `-f` (force), `-i` (interactive) or `-n` (dry-run) to select the
-# main behavior, and can take additional like `-x` to also remove ignored files, `-X` to only remove ignored files or `-d` to also
-# remove whole directories, for instance
-alias gcle='git clean'        # Base command, do nothing without any option
-alias gclef='git clean -f'    # Force clean files (don't ask for confirmation)
-alias gclefa='git clean -fdx' # Force clean all files
-alias gclei='git clean -i'    # Interactively clean files (ask for confirmation)
-alias gcleia='git clean -idx' # Interactively clean all files
-alias gclen='git clean -n'    # Dry run on files (don't actually clean them)
-alias gclena='git clean -ndx' # Dry run on all files
-
-alias gclo='git clone'
-alias gclob='git clone --bare' # Clone only the .git directory (useful for git worktrees)
+alias gcl='git clone'
+alias gclb='git clone --bare' # Clone only the .git directory (useful for git worktrees)
 
 alias gcm='git commit'                         # Create commit
 alias gcmf='git commit --no-verify'            # Create & skip hooks
@@ -99,9 +87,6 @@ function git_reset_hard_last() {
 }
 alias grshl='git_reset_hard_last' # Hard reset the last $1 commit(s)
 
-alias grt='git restore'           # Discard the changes of the targeted unstaged files
-alias grts='git restore --staged' # Like `git restore` but unstage the targeted staged files
-
 alias grv='git revert'
 alias grvl='git revert HEAD' # Revert the last commit
 
@@ -135,3 +120,14 @@ alias gw='git worktree'
 alias gwa='git worktree add'
 alias gwl='git worktree list'
 alias gwr='git worktree remove'
+
+alias gu='git restore --staged' # Unstage the targeted files
+alias gua='git reset'           # Unstage all the files
+
+alias gx='git restore'       # Discard the changes of the targeted files
+alias gxu='git clean -dn'    # Dry-run to discard untracked files (except ignored)
+alias gxuf='git clean -df'   # Force discard untracked files (except ignored)
+alias gxui='git clean -di'   # Interactively discard untracked files (except ignored)
+alias gxua='git clean -dxn'  # Dry-run to discard all untracked files
+alias gxuaf='git clean -dxf' # Force discard all untracked files
+alias gxuai='git clean -dxi' # Interactively discard all untracked files
