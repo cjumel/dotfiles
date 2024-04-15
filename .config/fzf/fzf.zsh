@@ -134,12 +134,13 @@ export FZF_COMPLETION_TRIGGER=''
 bindkey '^O' fzf-completion
 
 # Use `fd` to generate completion candidates
+# In this use case, `fd` doesn't respect the `ignore` file
 # In the following functions, `$1` is the base path to start traversal
 _fzf_compgen_path() {
-    fd --hidden --follow . "$1"
+    fd --hidden --no-ignore --exclude ".git" --follow . "$1"
 }
 _fzf_compgen_dir() {
-    fd --hidden --follow --type d . "$1"
+    fd --hidden --no-ignore --exclude ".git" --follow --type d . "$1"
 }
 
 # Specify the commands which trigger directory completion for fzf
