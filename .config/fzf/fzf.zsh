@@ -154,6 +154,8 @@ export FZF_COMPLETION_DIR_COMMANDS='
     md
     mdp
     mkdir
+    rmr
+    rmrf
     to
     touch
 '
