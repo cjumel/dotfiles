@@ -77,7 +77,7 @@ alias grvs='git revert --skip'     # Skip a commit during a revert in progress
 
 alias gs='git stage'         # Stage the targeted files
 alias gsa='git add --all'    # Stage all the files
-alias gsu='git add --update' # Stage all the updated files (not untracked ones)
+alias gsu='git add --update' # Stage all the unstaged files (not untracked ones)
 
 alias gsh='git stash'                      # Stash local changes in tracked files
 alias gsha='git stash apply'               # Apply the last stash entry
