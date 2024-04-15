@@ -17,11 +17,9 @@ ZSH_THEME="robbyrussell" # Default theme
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM=$HOME/.config/oh-my-zsh/custom/
 
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=()
+# Specify plugins to load
+# Standard plugins can be found in $ZSH/plugins/, while custom ones may be added to $ZSH_CUSTOM/plugins/
+# zsh-syntax-highlighting provides highlighting of commands while typing, indicating for instance valid and invalid ones
+plugins=(zsh-syntax-highlighting)
 
 source "$ZSH"/oh-my-zsh.sh
