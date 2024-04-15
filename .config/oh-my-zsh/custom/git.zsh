@@ -1,8 +1,4 @@
-alias g='git status' # Show the working tree status
-
-alias ga='git add'           # Add the targeted files
-alias gaa='git add --all'    # Add all files, both tracked & untracked
-alias gat='git add --update' # Add all tracked files
+alias g='git status --show-stash' # Show the status of the git repository
 
 alias gb='git branch'           # List local branches
 alias gba='git branch --all'    # List both local & remote branches
@@ -10,15 +6,16 @@ alias gbd='git branch -d'       # Delete a local branch but fail if not merged
 alias gbdf='git branch -D'      # Force delete a local branch (delete it even if not merged)
 alias gbr='git branch --remote' # List remote branches
 
-alias gc='git commit'                         # Create commit
-alias gcn='git commit --no-edit'              # Create commit with no message edit
-alias gcs='git commit --no-verify'            # Create commit & skip commit hooks
-alias gcns='git commit --no-edit --no-verify' # Create commit with no message edit & skip commit hooks
-
 alias gca='git commit --amend'                         # Amend last commit with the staged changes
 alias gcan='git commit --amend --no-edit'              # Amend last commit with the staged changes with no message edit
 alias gcas='git commit --amend --no-verify'            # Amend last commit with the staged changes & skip commit hooks
 alias gcans='git commit --amend --no-edit --no-verify' # Amend last commit with the staged changes with no message edit & skip commit hooks
+
+# Add a "c" for create, to make this the same as in Neovim plugin Neogit
+alias gcc='git commit'                         # Create commit
+alias gccn='git commit --no-edit'              # Create commit with no message edit
+alias gccs='git commit --no-verify'            # Create commit & skip commit hooks
+alias gccns='git commit --no-edit --no-verify' # Create commit with no message edit & skip commit hooks
 
 alias gcf='git commit --message "🚧 FIXUP"' # Create a fixup commit
 
@@ -78,7 +75,9 @@ alias grva='git revert --abort'    # Abort a revert in progress
 alias grvc='git revert --continue' # Continue a revert in progress
 alias grvs='git revert --skip'     # Skip a commit during a revert in progress
 
-alias gs='git status' # Show the working tree status
+alias gs='git stage'         # Stage the targeted files
+alias gsa='git add --all'    # Stage all the files
+alias gsu='git add --update' # Stage all the updated files (not untracked ones)
 
 alias gsh='git stash'                      # Stash local changes in tracked files
 alias gsha='git stash apply'               # Apply the last stash entry
@@ -104,13 +103,13 @@ alias gwa='git worktree add'    # Add a new worktree
 alias gwl='git worktree list'   # List all the worktrees
 alias gwr='git worktree remove' # Remove a worktree
 
-alias gu='git restore --staged' # Unstage the targeted files
-alias gua='git reset'           # Unstage all the files
+alias gu='git restore --staged' # (git unstage) Unstage the targeted files
+alias gua='git reset'           # (git unstage --all) Unstage all the files
 
-alias gx='git restore'       # Discard the changes of the targeted files
-alias gxu='git clean -dn'    # Dry-run to discard untracked files (except ignored)
-alias gxuf='git clean -df'   # Force discard untracked files (except ignored)
-alias gxui='git clean -di'   # Interactively discard untracked files (except ignored)
-alias gxua='git clean -dxn'  # Dry-run to discard all untracked files
-alias gxuaf='git clean -dxf' # Force discard all untracked files
-alias gxuai='git clean -dxi' # Interactively discard all untracked files
+alias gx='git restore'       # (git discard) Discard the changes of the targeted files
+alias gxu='git clean -dn'    # (git discard --untracked) Dry-run to discard untracked files (except ignored)
+alias gxuf='git clean -df'   # (git discard --untracked --force) Force discard untracked files (except ignored)
+alias gxui='git clean -di'   # (git discard --intracked --interactive) Interactively discard untracked files (except ignored)
+alias gxua='git clean -dxn'  # (git discard --untracked --all) Dry-run to discard all untracked files
+alias gxuaf='git clean -dxf' # (git discard --untracked --all --force) Force discard all untracked files
+alias gxuai='git clean -dxi' # (git discard --untracked --all --interactive) Interactively discard all untracked files
