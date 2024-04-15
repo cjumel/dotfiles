@@ -175,7 +175,8 @@ source "/usr/local/opt/fzf/shell/key-bindings.zsh"
 
 # Since above is defined a custom keybinding for completion, remapping `^I` is necessary to keep it as regular completion
 # This must be done after sourcing the setup scripts
-bindkey '^I' $fzf_default_completion
+# shellcheck disable=SC2154
+bindkey '^I' "$fzf_default_completion"
 
 # [[ Theme features ]]
 # Manage themes for WezTerm, Tmux, and Neovim at the same time
