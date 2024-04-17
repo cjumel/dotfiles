@@ -1,4 +1,9 @@
+# [[ Global configuration ]]
+
+# Set the iPython config directory
 export IPYTHONDIR="$HOME/.config/ipython"
 
-alias ip='ipython'
-alias ipn='ipython --no-autoindent'
+# [[ Aliases ]]
+
+alias ipy='ipython'                  # Start ipython
+alias ipyn='ipython --no-autoindent' # Start ipython without autoindent (useful for pasting indented code)
