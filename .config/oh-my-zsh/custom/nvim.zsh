@@ -9,3 +9,4 @@ function nvim_contextual() {
 
 alias vi='nvim_contextual' # Open Neovim with contextual setup
 alias vis='nvim'           # Open Neovim and skip contextual setup
+alias vil='nvim -c":e#<1"' # Open Neovim on the last edited file
