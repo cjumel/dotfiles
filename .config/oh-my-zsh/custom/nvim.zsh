@@ -7,6 +7,6 @@ function nvim_contextual() {
     fi
 }
 
-alias vi='nvim_contextual' # Open Neovim with contextual setup
-alias vis='nvim'           # Open Neovim and skip contextual setup
-alias vil='nvim -c":e#<1"' # Open Neovim on the last edited file
+alias vi='nvim_contextual'            # Open Neovim with contextual setup
+alias vis='nvim'                      # Open Neovim and skip contextual setup
+alias vil='nvim_contextual -c":e#<1"' # Open Neovim on the last edited file
