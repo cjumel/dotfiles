@@ -3,9 +3,6 @@
 ripgrep is a line-oriented search tool that recursively searches the current directory for a regex
 pattern.
 
-I don't use ripgrep directly, but it's integrated with other tools I use, like the Neovim plugin
-`telescope.nvim`.
-
 **Install:**
 
 <details>
