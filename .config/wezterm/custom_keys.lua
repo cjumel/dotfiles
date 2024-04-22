@@ -21,7 +21,7 @@ return {
       mods = "CMD|CTRL",
       action = act.Multiple({
         act.ResetFontAndWindowSize,
-        act.EmitEvent("reset-transparency"),
+        act.EmitEvent("reset-theme"),
       }),
     },
     {

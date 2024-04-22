@@ -26,8 +26,15 @@ wezterm.on("decrease-transparency", function(window, _)
   window:set_config_overrides(overrides)
 end)
 
-wezterm.on("reset-transparency", function(window, _)
+wezterm.on("reset-theme", function(window, _)
   local overrides = window:get_config_overrides() or {}
-  overrides.window_background_opacity = 0.8
+
+  local utils = require("utils")
+  local ok, theme = pcall(require, "theme") -- Handle the case the theme file is missing
+  if not ok then
+    theme = {}
+  end
+  overrides = utils.concat_dicts({ overrides, theme })
+
   window:set_config_overrides(overrides)
 end)
