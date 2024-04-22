@@ -181,9 +181,10 @@ bindkey '^I' "$fzf_default_completion"
 # [[ Theme features ]]
 # Manage themes for WezTerm, Tmux, and Neovim at the same time
 
-TERMINAL_THEMES='catppuccin-frappe
+# List all themes available (default one then in alphabetical order)
+TERMINAL_THEMES='catppuccin-mocha
+catppuccin-frappe
 catppuccin-macchiato
-catppuccin-mocha
 catppuccin-latte
 dracula
 gruvbox-dark
@@ -194,7 +195,10 @@ onedark
 rose-pine
 rose-pine-dawn
 rose-pine-moon
-tokyonight'
+tokyonight-day
+tokyonight-moon
+tokyonight-night
+tokyonight-storm'
 
 # Pick a theme with fzf and set it up by creating the relevant symlinks
 function theme_fzf_picker() {
