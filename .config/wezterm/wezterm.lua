@@ -2,6 +2,7 @@ local utils = require("utils")
 
 -- [[ Define options ]]
 local options = require("options")
+local default_theme = require("default_theme")
 
 -- [[ Define theme ]]
 -- The theme file should stay in the root directory of the Lua configuration, otherwise auto-relaod
@@ -27,6 +28,7 @@ local keys = {
 
 return utils.concat_dicts({
   options,
+  default_theme,
   theme,
   keys,
 })

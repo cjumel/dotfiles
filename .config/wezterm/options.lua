@@ -8,16 +8,10 @@ config.window_decorations = "RESIZE" -- No title bar but allow resizing nonethel
 config.initial_cols = 156
 config.initial_rows = 42
 
--- Color scheme
-config.color_scheme = "catppuccin-mocha"
-config.window_background_opacity = 0.8
-
 -- Font
 config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Bold" })
 config.font_size = 13.0
 config.adjust_window_size_when_changing_font_size = false
--- Don't use ligatures (i.e. replace for instance '!=' with an actual not-equal symbol)
-config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 
 -- Make possible to type option-key combinations, like "{" and "}"
 config.send_composed_key_when_left_alt_is_pressed = true
