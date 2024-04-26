@@ -35,7 +35,9 @@ alias to='touch'
 
 alias uln='unlink'
 
-alias v='vi'
+alias v='vi'  # Open Vi editor (or any editor aliased to "vi")
+alias vv='v'  # Alias to `v`, for when the key is sticky
+alias vvv='v' # Alias to `v`, for when the key is sticky
 
 alias wi='which'
 alias we='whence'

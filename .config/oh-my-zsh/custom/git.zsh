@@ -1,4 +1,6 @@
 alias g='git status --show-stash' # Show the status of the git repository
+alias gg='g'                      # Alias to `g`, for when the key is sticky
+alias ggg='g'                     # Alias to `g`, for when the key is sticky
 
 alias gb='git branch'           # List local branches
 alias gba='git branch --all'    # List both local & remote branches
