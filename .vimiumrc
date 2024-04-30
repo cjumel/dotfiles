@@ -1,42 +1,48 @@
 """ Custom key mappings
 
-" Disable all default mappings
-" I don't use many mappings and several default mappings don't work as intented in my browser
+" I mostly follow the default keymaps, even if I disabled them by default, as I don't use many
+" mappings and several default mappings don't work as intented in my web browser
 unmapAll
 
-" Vim-like crolling
+" Default mappings
+map ? showHelp
+map h scrollLeft
 map j scrollDown
 map k scrollUp
-map h scrollLeft
 map l scrollRight
 map gg scrollToTop
 map G scrollToBottom
-map <C-d> scrollPageDown
-map <C-u> scrollPageUp
-map <C-f> scrollFullPageDown
-map <C-b> scrollFullPageUp
+map d scrollPageDown
+map u scrollPageUp
+map r reload
 
-" Follow link
-map f LinkHints.activateMode
-map F LinkHints.activateModeToOpenInNewTab
-
-" Other
-map ? showHelp
+" Custom mappings
+" Let's define f & b keymaps like <C-f> & <C-b> in Vim
+map f scrollFullPageDown
+map b scrollFullPageUp
+" Since f is already taken (the default), let's use s/S for links, similarly to s in EasyMotion or
+" Hop.nvim
+map s LinkHints.activateMode
+map S LinkHints.activateModeToOpenInNewTab
+" Let's define o & i keymaps like <C-o> & <C-i> in Vim
+map o goBack
+map i goForward
 
 """ Characters used for link hints
 
 hgjfkdlsmqyturieozpabvn
 
 
-""" Settings set in the web browser (Arc Browser)
-" In addition to the settings above, some must be done directly in the web browser
-
-" - `<C-j>` & `<C-k>` are mapped to next & previous tab, respectively (Vimium's `nextTab` &
-"   `previousTab` follow a kind of most recent tab behavior I don't want, see this
-"   [issue](https://github.com/philc/vimium/issues/4230))
-" - `<C-h>` & `<C-l>` are mapped to previous & next profile, respectively
-" - `<C-o>` & `<C-i>` are mapped to go back & forward, respectively
-" - I use the web browser's `<cmd-t>` instead of Vimium's `createTab` to open a new tab, as when using
-"   the latter, the new tab is blank without even a search bar
-" - I use the web browser's `<cmd-w>` instead of Vimium's `removeTab` to close a tab, as when using
-"   the latter, the tab can't be re-opened neither with the web browser feature nor with Vimium's one
+""" Settings set in the web browser
+" In addition to the settings above, some must be done directly in the web browser to work as
+" intented
+"
+" <C-j> & <C-k> are mapped to next & previous tab, respectively (Vimium's nextTab &
+" 	previousTab follow a kind of most recent tab behavior I don't want, see
+"   	https://github.com/philc/vimium/issues/4230)
+" <C-h> & <C-l> are mapped to previous & next profile, respectively
+" I use the web browser's <Cmd-t> instead of Vimium's createTab to open a new tab, as when using
+"   	the latter, the new tab is blank without even a search bar
+" I use the web browser's <Cmd-w> instead of Vimium's removeTab to close a tab, as when using
+"   	the latter, the tab can't be re-opened neither with the web browser feature nor with
+"   	Vimium's one
