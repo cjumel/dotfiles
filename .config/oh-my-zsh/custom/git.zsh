@@ -1,26 +1,26 @@
-alias g='git status --show-stash' # Show the status of the git repository
+alias g='git status --show-stash' # Show the status of the git repository, including about the stash
 alias gg='g'                      # Alias to `g`, for when the key is sticky
 alias ggg='g'                     # Alias to `g`, for when the key is sticky
 
-alias gb='git branch'           # List local branches
-alias gba='git branch --all'    # List both local & remote branches
-alias gbd='git branch -d'       # Delete a local branch but fail if not merged
-alias gbdf='git branch -D'      # Force delete a local branch (delete it even if not merged)
-alias gbr='git branch --remote' # List remote branches
+alias gb='git branch'                    # List local branches
+alias gba='git branch --all'             # List both local & remote branches
+alias gbd='git branch --delete'          # Delete a local branch but fail if not merged
+alias gbdf='git branch --delete --force' # Force delete a local branch (delete it even if not merged)
+alias gbr='git branch --remote'          # List remote branches
 
 alias gca='git commit --amend'              # Amend last commit with staged changes
-alias gcah='git commit --amend --no-verify' # Amend last commit with staged changes without commit hooks
+alias gcan='git commit --amend --no-verify' # Amend last commit with staged changes but do not verify commit with hooks
 
 # Add a "c" for create, for consistency with Neogit & to avoid conflicts with other `gc` aliases
 alias gcc='git commit'              # Create commit
-alias gcch='git commit --no-verify' # Create commit without commit hooks
+alias gccn='git commit --no-verify' # Create commit but do not verify commit with hooks
 
 alias gcf='git commit --message "🚧 FIXUP"' # Create a fixup commit
 
 alias gcl='git clone'         # Clone a repository
 alias gclb='git clone --bare' # Clone a repository as a bare repository (useful when working with git worktrees)
 
-alias gcw='git commit --no-verify --message "🚧 WIP [skip ci]"' # Create a work-in-progress commit
+alias gcw='git commit --no-verify --message "🚧 WIP [skip ci]"' # Create a WIP commit, without commit hooks & with a default message that skips any CI
 
 alias gd='git diff'      # Show changes between commits, commit and working tree, etc.
 alias gdt='git difftool' # Show changes between commits, commit and working tree, etc. using a difftool
@@ -46,7 +46,7 @@ alias grbc='git rebase --continue'                              # Continue a reb
 alias grbs='git rebase --skip'                                  # Skip a commit during a rebase in progress
 
 alias grm='git rm'           # Remove a file from the repository and the file system
-alias grmc='git rm --cached' # Remove a file from the reposiory but not from the file system
+alias grmc='git rm --cached' # Remove a file from the repository but not from the file system
 
 # `reset` can be used in 3 forms: with nothing (target all tracked files/directories), with a path (target the corresponding tracked
 # files/directories), or with a commit reference, and with 3 modes: mixed (unstage & keep the changes), soft (keep the changes as staged),
@@ -73,9 +73,9 @@ alias grva='git revert --abort'    # Abort a revert in progress
 alias grvc='git revert --continue' # Continue a revert in progress
 alias grvs='git revert --skip'     # Skip a commit during a revert in progress
 
-alias gs='git stage'         # Stage the targeted files
-alias gsa='git add --all'    # Stage all the files
-alias gsu='git add --update' # Stage all the unstaged files (not untracked ones)
+alias gs='git stage'           # Stage the targeted files
+alias gsa='git stage --all'    # Stage all the files
+alias gsu='git stage --update' # Stage all the unstaged files (not untracked ones)
 
 alias gsh='git stash'                      # Stash local changes in tracked files
 alias gsha='git stash apply'               # Apply the last stash entry
