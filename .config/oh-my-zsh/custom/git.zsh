@@ -101,10 +101,11 @@ alias gwa='git worktree add'    # Add a new worktree
 alias gwl='git worktree list'   # List all the worktrees
 alias gwr='git worktree remove' # Remove a worktree
 
-alias gu='git restore --staged' # (git unstage) Unstage the targeted files
-alias gua='git reset'           # (git unstage --all) Unstage all the files
+alias gu='git restore --staged'     # (git unstage) Unstage the targeted files
+alias gua='git restore --staged :/' # (git unstage --all) Unstage all the files
 
-alias gx='git restore'       # (git discard) Discard the changes of the targeted files
+alias gx='git restore'       # (git discard) Discard the unstaged changes of the targeted tracked files
+alias gxa='git restore :/'   # (git discard --all) Discard all unstaged changes in tracked files
 alias gxu='git clean -dn'    # (git discard --untracked) Dry-run to discard untracked files (except ignored)
 alias gxuf='git clean -df'   # (git discard --untracked --force) Force discard untracked files (except ignored)
 alias gxui='git clean -di'   # (git discard --intracked --interactive) Interactively discard untracked files (except ignored)
