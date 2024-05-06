@@ -8,21 +8,17 @@ alias gbd='git branch -d'       # Delete a local branch but fail if not merged
 alias gbdf='git branch -D'      # Force delete a local branch (delete it even if not merged)
 alias gbr='git branch --remote' # List remote branches
 
-alias gca='git commit --amend'                         # Amend last commit with the staged changes
-alias gcan='git commit --amend --no-edit'              # Amend last commit with the staged changes with no message edit
-alias gcas='git commit --amend --no-verify'            # Amend last commit with the staged changes & skip commit hooks
-alias gcans='git commit --amend --no-edit --no-verify' # Amend last commit with the staged changes with no message edit & skip commit hooks
+alias gca='git commit --amend'              # Amend last commit with staged changes
+alias gcah='git commit --amend --no-verify' # Amend last commit with staged changes without commit hooks
 
-# Add a "c" for create, to make this the same as in Neovim plugin Neogit
-alias gcc='git commit'                         # Create commit
-alias gccn='git commit --no-edit'              # Create commit with no message edit
-alias gccs='git commit --no-verify'            # Create commit & skip commit hooks
-alias gccns='git commit --no-edit --no-verify' # Create commit with no message edit & skip commit hooks
+# Add a "c" for create, for consistency with Neogit & to avoid conflicts with other `gc` aliases
+alias gcc='git commit'              # Create commit
+alias gcch='git commit --no-verify' # Create commit without commit hooks
 
 alias gcf='git commit --message "🚧 FIXUP"' # Create a fixup commit
 
 alias gcl='git clone'         # Clone a repository
-alias gclb='git clone --bare' # Clone a repository as a bare repository
+alias gclb='git clone --bare' # Clone a repository as a bare repository (useful when working with git worktrees)
 
 alias gcw='git commit --no-verify --message "🚧 WIP [skip ci]"' # Create a work-in-progress commit
 
