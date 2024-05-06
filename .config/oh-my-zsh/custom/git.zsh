@@ -73,6 +73,11 @@ alias grva='git revert --abort'    # Abort a revert in progress
 alias grvc='git revert --continue' # Continue a revert in progress
 alias grvs='git revert --skip'     # Skip a commit during a revert in progress
 
+# I prefer `git stage` over `git add` for several reasons:
+#   - in Gitsigns & Neogit I use "stage" as well, so this is consistent with that ("a", like "add", cannot be used properly with Gitsigns
+#       in visual mode with Hydra, due to conflicts with "arround" text-objects)
+#   - it's the proper term for staging changes in Git
+#   - it goes well with the "unstage" alias I define below & which is used in Gitsigns & Neogit
 alias gs='git stage'           # Stage the targeted files
 alias gsa='git stage --all'    # Stage all the files
 alias gsu='git stage --update' # Stage all the unstaged files (not untracked ones)
@@ -101,9 +106,17 @@ alias gwa='git worktree add'    # Add a new worktree
 alias gwl='git worktree list'   # List all the worktrees
 alias gwr='git worktree remove' # Remove a worktree
 
+# I introduce the "git unstage" aliases for several reasons:
+#  - in Gitsigns & Neogit I use "unstage" as well, so this is consistent with that
+#  - since I introduced the "git stage" alias, it makes sense to have a corresponding "git unstage" alias
+#  - it reduces the burden on the "gr" aliases, as alternatives would involve "git restore" or "git reset"
 alias gu='git restore --staged'     # (git unstage) Unstage the targeted files
 alias gua='git restore --staged :/' # (git unstage --all) Unstage all the files
 
+# I introduce the "git discard" aliases for several reasons:
+#   - in Gitsigns & Neogit I use "x" for discard as well, so this is consistent with that
+#   - it's the proper term for discarding changes in Git
+#   - it reduces the burden on the "gr" & "gc" aliases, as alternatives would involve "git restore" or "git clean"
 alias gx='git restore'       # (git discard) Discard the unstaged changes of the targeted tracked files
 alias gxa='git restore :/'   # (git discard --all) Discard all unstaged changes in tracked files
 alias gxu='git clean -dn'    # (git discard --untracked) Dry-run to discard untracked files (except ignored)
