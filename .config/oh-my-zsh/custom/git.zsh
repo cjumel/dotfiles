@@ -9,11 +9,11 @@ alias gbdf='git branch --delete --force' # Force delete a local branch (delete i
 alias gbr='git branch --remote'          # List remote branches
 
 alias gca='git commit --amend'              # Amend last commit with staged changes
-alias gcan='git commit --amend --no-verify' # Amend last commit with staged changes but do not verify commit with hooks
+alias gcah='git commit --amend --no-verify' # Amend last commit with staged changes, disable hooks
 
 # Add a "c" for create, for consistency with Neogit & to avoid conflicts with other `gc` aliases
 alias gcc='git commit'              # Create commit
-alias gccn='git commit --no-verify' # Create commit but do not verify commit with hooks
+alias gcch='git commit --no-verify' # Create commit, disable hooks
 
 alias gcf='git commit --message "🚧 FIXUP"' # Create a fixup commit
 
