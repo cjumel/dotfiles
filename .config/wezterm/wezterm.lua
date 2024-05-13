@@ -6,7 +6,8 @@ local theme = require("theme")
 options = theme.make_options(options)
 
 -- [[ Setup actions ]]
-require("actions")
+local actions = require("actions")
+actions.set_actions()
 
 -- [[ Define keymaps ]]
 local custom_keys = require("custom_keys")

@@ -3,6 +3,7 @@
 -- to use MacOS native full screen mode, in addtion to WezTerm full screen mode.
 
 local wezterm = require("wezterm")
+
 local act = wezterm.action
 
 return {

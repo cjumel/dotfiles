@@ -1,6 +1,7 @@
 -- This page has been initialized with the output of `wezterm show-keys --lua`
 
 local wezterm = require("wezterm")
+
 local act = wezterm.action
 
 return {
