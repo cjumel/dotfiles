@@ -2,7 +2,8 @@ local utils = require("utils")
 
 -- [[ Define options ]]
 local options = require("options")
-options = utils.theme.make_options(options)
+local theme = require("theme")
+options = theme.make_options(options)
 
 -- [[ Setup actions ]]
 require("actions")
