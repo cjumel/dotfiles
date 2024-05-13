@@ -38,7 +38,7 @@ M.theme = {}
 ---@return table
 function M.theme.make_options(options)
   -- The theme file should stay in the root directory of the Lua configuration, otherwise auto-relaod stops working
-  local ok, theme = pcall(require, "theme")
+  local ok, theme = pcall(require, "_theme")
   if not ok then -- The theme symlink is missing
     theme = require("themes.catppuccin-mocha")
   end

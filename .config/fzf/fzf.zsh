@@ -211,10 +211,10 @@ function theme_fzf_picker() {
     fi
 
     # Create symlinks to the selected theme (overwrite existing ones)
-    ln -sf ~/.config/wezterm/themes/"$selected_theme".lua ~/.config/wezterm/theme.lua
+    ln -sf ~/.config/wezterm/themes/"$selected_theme".lua ~/.config/wezterm/_theme.lua
     ln -sf ~/.config/tmux/themes/tmux-"$selected_theme".conf ~/.config/tmux/tmux-theme.conf
     ln -sf ~/.config/tmux/themes/tmux-"$selected_theme"-post.conf ~/.config/tmux/tmux-theme-post.conf
-    ln -sf ~/.config/nvim/lua/themes/"$selected_theme".lua ~/.config/nvim/lua/theme.lua
+    ln -sf ~/.config/nvim/lua/themes/"$selected_theme".lua ~/.config/nvim/lua/_theme.lua
 }
 
 alias ct='theme_fzf_picker' # Change theme
