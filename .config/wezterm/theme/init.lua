@@ -2,10 +2,9 @@ local utils = require("utils")
 
 local M = {}
 
--- The "_theme.lua" file should stay in the root directory of the Lua configuration, otherwise auto-relaod stops working
-local ok, theme = pcall(require, "_theme")
+local ok, theme = pcall(require, "theme.current")
 if not ok then -- The theme symlink is missing
-  theme = require("themes.catppuccin-mocha") -- Default theme
+  theme = require("theme.catppuccin-mocha") -- Default theme
 end
 
 --- Update the provided options with the theme ones.
