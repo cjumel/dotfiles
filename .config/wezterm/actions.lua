@@ -1,3 +1,4 @@
+local utils = require("utils")
 local wezterm = require("wezterm")
 
 wezterm.on("increase-transparency", function(window, _)
@@ -26,17 +27,12 @@ wezterm.on("decrease-transparency", function(window, _)
   window:set_config_overrides(overrides)
 end)
 
-wezterm.on("reset-theme", function(window, _)
-  local utils = require("utils")
-
+wezterm.on("reset-options", function(window, _)
   local overrides = window:get_config_overrides() or {}
 
-  local default_theme = require("default_theme")
-  local ok, theme = pcall(require, "theme") -- Handle the case the theme file is missing
-  if not ok then
-    theme = {}
-  end
+  local options = require("options")
+  options = utils.theme.make_options(options)
 
-  overrides = utils.concat_dicts({ overrides, default_theme, theme })
+  overrides = utils.concat_dicts({ overrides, options })
   window:set_config_overrides(overrides)
 end)

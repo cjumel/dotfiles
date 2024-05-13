@@ -17,12 +17,9 @@ return {
       action = act.ToggleFullScreen,
     },
     {
-      key = "r", -- Reset font size, window size and transparency
+      key = "r",
       mods = "CMD|CTRL",
-      action = act.Multiple({
-        act.ResetFontAndWindowSize,
-        act.EmitEvent("reset-theme"),
-      }),
+      action = act.Multiple({ act.EmitEvent("reset-options"), act.ResetFontAndWindowSize }),
     },
     {
       key = "t", -- More transparency
