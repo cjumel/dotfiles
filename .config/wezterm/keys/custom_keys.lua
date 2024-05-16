@@ -71,16 +71,8 @@ return {
     },
 
     -- Map unused control keymaps to the corresponding (but usable) alt keymaps
-    {
-      key = "Backspace",
-      mods = "CTRL",
-      action = wezterm.action({
-        SendKey = {
-          key = "Backspace",
-          mods = "ALT",
-        },
-      }),
-    },
+    { key = "Return", mods = "CTRL", action = wezterm.action({ SendKey = { key = "Return", mods = "ALT" } }) },
+    { key = "Backspace", mods = "CTRL", action = wezterm.action({ SendKey = { key = "Backspace", mods = "ALT" } }) },
   },
   key_tables = {},
 }
