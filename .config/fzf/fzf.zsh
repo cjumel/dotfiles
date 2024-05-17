@@ -23,8 +23,8 @@ export FZF_FD_DIR_COMMAND_ALL='fd --type d --hidden --no-ignore --exclude .git .
 
 # Previewers
 # Escaped versions are necessary to change the preview in transform actions
-export FZF_FILE_PREVIEW='bat --color=always {}'
-export FZF_FILE_PREVIEW_ESCAPED='bat --color=always \{}'
+export FZF_FILE_PREVIEW='bat --color=always --line-range=:500 {}'
+export FZF_FILE_PREVIEW_ESCAPED='bat --color=always --line-range=:500 \{}'
 export FZF_DIR_PREVIEW='eza -la --color=always {}'
 export FZF_DIR_PREVIEW_ESCAPED='eza -la --color=always \{}'
 
