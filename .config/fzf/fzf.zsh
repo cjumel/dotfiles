@@ -1,3 +1,6 @@
+# Set up shell integration
+eval "$(fzf --zsh)"
+
 # [[ General options ]]
 
 # Prompts
