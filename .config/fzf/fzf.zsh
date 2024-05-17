@@ -42,10 +42,12 @@ export FZF_DEFAULT_OPTS="
 # - <Ctrl-T> to insert a file or directory path in the command line
 # - <Ctrl-R> to insert a command from the command history
 # - <Alt-C> to `cd` to a directory
+# Enable <Alt-C> keymap (alt mappings are not available on my system)
+bindkey "©" fzf-cd-widget
 
 # <Ctrl-T>
 # By default, start with directory search as looking for a file naturally starts by looking for its parent directory anyway
-export FZF_CTRL_T_COMMAND="$FZF_FD_DIR_COMMAND"
+export FZF_CTRL_T_COMMAND="$FZF_FD_FILE_COMMAND"
 export FZF_CTRL_T_TOGGLE_TRANSFORMER="
     if [[ {fzf:prompt} = \"File > \" ]]; then
         echo \"change-prompt(Directory > )+reload($FZF_FD_DIR_COMMAND)+change-preview($FZF_DIR_PREVIEW_ESCAPED)\"
@@ -85,8 +87,8 @@ export FZF_CTRL_T_ALL_TRANSFORMER="
 "
 
 export FZF_CTRL_T_OPTS="
-    --prompt '$FZF_DIR_PROMPT'
-    --preview '$FZF_DIR_PREVIEW'
+    --prompt '$FZF_FILE_PROMPT'
+    --preview '$FZF_FILE_PREVIEW'
     --bind 'ctrl-t:transform: $FZF_CTRL_T_TOGGLE_TRANSFORMER'
     --bind 'ctrl-^:transform: $FZF_CTRL_T_HIDDEN_TRANSFORMER'
     --bind 'ctrl-_:transform: $FZF_CTRL_T_ALL_TRANSFORMER'
@@ -98,9 +100,6 @@ export FZF_CTRL_R_OPTS="
 "
 
 # <Alt-C>
-# I actually prefer to map the <Alt-C> feature to <Ctrl-G> (like "go"), it's a lot more convenient to type for me
-bindkey "^g" fzf-cd-widget
-
 export FZF_ALT_C_COMMAND="$FZF_FD_DIR_COMMAND"
 export FZF_ALT_C_HIDDEN_TRANSFORMER="
     if [[ {fzf:prompt} = \"Directory > \" ]] || [[ {fzf:prompt} = \"Directory (all) > \" ]]; then
