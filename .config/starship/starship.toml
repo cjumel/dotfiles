@@ -1,7 +1,10 @@
 # Starship configuration file
 # Documentation: https://starship.rs/config/
 
-# Format of the modules on the left-hand-side of the prompt
+# [[ Prompt format ]]
+
+# `$fill` separate left-hand-side & right-hand-side of the prompt
+# `$all` represents everything not included till then in the prompt
 format = """
 $username\
 $hostname\
@@ -17,16 +20,19 @@ $line_break\
 $character\
 """
 
+[fill]
+symbol = " " # No separation between left-hand-side & right-hand-side of the prompt
+
+# [[ Enable modules ]]
+
+[time]
+disabled = false
+
+# [[ Simplify modules ]]
+
 [docker_context]
 format = "[$symbol]($style), "
 symbol = "🐳"
-
-[fill]
-symbol = " "
-
-[gcloud]
-# If it has been activated once the module is always activated which is annoying
-disabled = true
 
 [lua]
 format = "[$symbol]($style), "
@@ -36,12 +42,14 @@ symbol = "🌙"
 format = "[$symbol]($style), "
 symbol = ''
 
-[package]
-disabled = true
-
 [python]
 format = '[${symbol}( \($virtualenv\))]($style), '
 symbol = "🐍"
 
-[time]
-disabled = false
+# [[ Disable modules ]]
+
+[gcloud] # If it has been activated once ever, the module is always displayed
+disabled = true
+
+[package] # Show the version of the package in the current directory
+disabled = true
