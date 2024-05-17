@@ -13,7 +13,7 @@ config.initial_cols = 156
 config.initial_rows = 42
 
 -- Font
-config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Bold" })
+config.font = wezterm.font("JetBrains Mono", { weight = "Bold" }) -- Default bundled font
 config.font_size = 13.0
 config.adjust_window_size_when_changing_font_size = false
 -- Ligatures are the feature which replace for instance successive "!" & "=" with an actual not-equal symbol
