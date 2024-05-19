@@ -191,7 +191,9 @@ catppuccin-latte
 dracula
 gruvbox-dark
 gruvbox-light
-kanagawa
+kanagawa-dragon
+kanagawa-lotus
+kanagawa-wave
 nord
 onedark
 rose-pine

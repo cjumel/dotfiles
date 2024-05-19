@@ -4,6 +4,7 @@ local config = {}
 
 -- General
 config.color_scheme = "Catppuccin Mocha"
+config.colors = {} -- Reset colors in case a theme has set some
 config.window_background_opacity = 0.9
 
 -- Window
