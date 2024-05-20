@@ -188,14 +188,11 @@ TERMINAL_THEMES='catppuccin-mocha
 catppuccin-frappe
 catppuccin-macchiato
 catppuccin-latte
-dracula
 gruvbox-dark
 gruvbox-light
 kanagawa-dragon
 kanagawa-lotus
 kanagawa-wave
-nord
-onedark
 rose-pine
 rose-pine-dawn
 rose-pine-moon
