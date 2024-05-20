@@ -19,13 +19,14 @@ ZSH_CUSTOM=$HOME/.config/oh-my-zsh/custom/
 
 # Specify plugins to load
 # Standard plugins can be found in $ZSH/plugins/, while custom ones may be added to $ZSH_CUSTOM/plugins/
+# fzf-tab re-implementes Tab-completion using fzf, enabling fuzzy finding & previewing everything supported by Tab-completion
+#   fzf-tab needs to be loaded before plugins like zsh-autosuggestions
 # zsh-syntax-highlighting provides highlighting of commands while typing, indicating for instance valid and invalid ones
 # zsh-autosuggestions provides virtual text suggestions based on the history of commands
-# fzf-tab re-implementes Tab-completion using fzf, enabling fuzzy finding & previewing everything supported by Tab-completion
 plugins=(
+    fzf-tab
     zsh-syntax-highlighting
     zsh-autosuggestions
-    fzf-tab
 )
 zstyle ':completion:*' menu no # Suggested by the documentation
 zstyle ':fzf-tab:*' fzf-bindings 'tab:accept'
