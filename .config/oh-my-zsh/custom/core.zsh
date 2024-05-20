@@ -6,7 +6,21 @@ alias cl='clear'
 
 alias lj='luajit'
 
-alias lns='ln -s'
+function clean_broken_symlinks() {
+    ARG1=${1:-.} # Default to current directory
+    BROKEN_SYMLINKS=$(find -L "$ARG1" -type l)
+    if [ -z "$BROKEN_SYMLINKS" ]; then
+        echo "No broken symlink found."
+        return 0
+    fi
+    echo "Removing broken symlinks:"
+    echo "$BROKEN_SYMLINKS"
+    # Following line is taken from the `man find` page
+    find -L "$ARG1" -type l -exec rm -- {} +
+}
+alias lns='ln -s'                  # Create a symbolic link
+alias lnsf='ln -sf'                # Create a symbolic link, overwriting the target if it exists
+alias lnsc="clean_broken_symlinks" # Clean broken symlinks in the target directory (default to current directory)
 
 alias ma='man'
 
