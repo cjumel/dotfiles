@@ -21,10 +21,17 @@ ZSH_CUSTOM=$HOME/.config/oh-my-zsh/custom/
 # Standard plugins can be found in $ZSH/plugins/, while custom ones may be added to $ZSH_CUSTOM/plugins/
 # zsh-syntax-highlighting provides highlighting of commands while typing, indicating for instance valid and invalid ones
 # zsh-autosuggestions provides virtual text suggestions based on the history of commands
+# fzf-tab re-implementes Tab-completion using fzf, enabling fuzzy finding & previewing everything supported by Tab-completion
 plugins=(
     zsh-syntax-highlighting
     zsh-autosuggestions
+    fzf-tab
 )
+zstyle ':completion:*' menu no # Suggested by the documentation
+zstyle ':fzf-tab:*' fzf-bindings 'tab:accept'
+zstyle ':fzf-tab:*' fzf-flags --height=30 # Prevent fzf window from being too small when few completions are available
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -a1 --color=always $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -a1 --color=always $realpath'
 
 # zsh-completions provides additional completion for a variety of CLI tools; it can't be installed properly using oh-my-zsh regular plugin
 # system, instead the following line must be added before `source "$ZSH"/oh-my-zsh.sh`
