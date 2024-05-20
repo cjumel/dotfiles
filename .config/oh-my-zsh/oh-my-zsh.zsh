@@ -20,6 +20,16 @@ ZSH_CUSTOM=$HOME/.config/oh-my-zsh/custom/
 # Specify plugins to load
 # Standard plugins can be found in $ZSH/plugins/, while custom ones may be added to $ZSH_CUSTOM/plugins/
 # zsh-syntax-highlighting provides highlighting of commands while typing, indicating for instance valid and invalid ones
-plugins=(zsh-syntax-highlighting)
+# zsh-autosuggestions provides virtual text suggestions based on the history of commands
+plugins=(
+    zsh-syntax-highlighting
+    zsh-autosuggestions
+)
+
+# zsh-completions provides additional completion for a variety of CLI tools; it can't be installed properly using oh-my-zsh regular plugin
+# system, instead the following line must be added before `source "$ZSH"/oh-my-zsh.sh`
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+
+bindkey '^y' autosuggest-accept # Keymap for zsh-autosuggestions
 
 source "$ZSH"/oh-my-zsh.sh
