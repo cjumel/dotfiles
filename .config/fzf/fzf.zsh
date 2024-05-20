@@ -22,8 +22,8 @@ export FZF_FD_DIR_COMMAND_ALL='fd --type d --hidden --no-ignore --exclude .git .
 # Escaped versions are necessary to change the preview in transform actions
 export FZF_FILE_PREVIEW='bat --color=always --line-range=:500 {}'
 export FZF_FILE_PREVIEW_ESCAPED='bat --color=always --line-range=:500 \{}'
-export FZF_DIR_PREVIEW='eza -la --color=always {}'
-export FZF_DIR_PREVIEW_ESCAPED='eza -la --color=always \{}'
+export FZF_DIR_PREVIEW='eza -a1 --color=always {}'
+export FZF_DIR_PREVIEW_ESCAPED='eza -a1 --color=always \{}'
 
 # General `fzf` options
 export FZF_DEFAULT_COMMAND="$FZF_FD_COMMAND"
@@ -32,7 +32,6 @@ export FZF_DEFAULT_OPTS="
     --layout=reverse
     --height=50%
     --border
-    --preview-window 'hidden'
     --bind 'ctrl-i:toggle-preview'
     --bind 'ctrl-g:top'
 "
@@ -140,6 +139,18 @@ _fzf_compgen_path() {
 }
 _fzf_compgen_dir() {
     fd --hidden --no-ignore --exclude ".git" --follow --type d . "$1"
+}
+
+# Advanced customization of fzf options via _fzf_comprun function
+_fzf_comprun() {
+    local command=$1
+    shift
+
+    case "$command" in
+    c) fzf --preview "$FZF_DIR_PREVIEW" "$@" ;;
+    cd) fzf --preview "$FZF_DIR_PREVIEW" "$@" ;;
+    *) fzf "$@" ;;
+    esac
 }
 
 # Specify the commands which trigger directory completion for fzf
