@@ -1,6 +1,3 @@
-# Set up shell integration
-eval "$(fzf --zsh)"
-
 # [[ General options ]]
 
 # Prompts
@@ -165,20 +162,12 @@ export FZF_COMPLETION_DIR_COMMANDS='
 
 # [[ Setup ]]
 
-if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
-    PATH="${PATH:+${PATH}:}/usr/local/opt/fzf/bin"
-fi
-
-# Auto-completion
-source "/usr/local/opt/fzf/shell/completion.zsh"
-
-# Key bindings
-source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+# Set up shell integration (key bindings & fuzzy completion)
+source <(fzf --zsh)
 
 # Since above is defined a custom keybinding for completion, remapping `^I` is necessary to keep it as regular completion
-# This must be done after sourcing the setup scripts
 # shellcheck disable=SC2154
-bindkey '^I' "$fzf_default_completion"
+bindkey '^i' "$fzf_default_completion"
 
 # [[ Theme features ]]
 # Manage themes for WezTerm, Tmux, and Neovim at the same time
