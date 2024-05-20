@@ -46,8 +46,8 @@ setopt HIST_REDUCE_BLANKS   # Remove superfluous blanks from each command line b
 KEYTIMEOUT=1
 
 # Make <C-p>/<C-n> filter with the terminal entry when browsing the history
-bindkey "^P" up-line-or-search
-bindkey "^N" down-line-or-search
+bindkey "^p" history-search-backward
+bindkey "^n" history-search-forward
 
 # Use escape to clear the screen
 bindkey "\e" clear-screen
