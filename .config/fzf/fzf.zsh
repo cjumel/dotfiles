@@ -193,8 +193,8 @@ gruvbox-light
 kanagawa-dragon
 kanagawa-lotus
 kanagawa-wave
-rose-pine
 rose-pine-dawn
+rose-pine-main
 rose-pine-moon
 tokyonight-day
 tokyonight-moon
