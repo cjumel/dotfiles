@@ -1,1 +1,2 @@
-wrap = 100
+number = true # Apply consecutive numbering to ordered lists
+wrap = 100 # Wrap paragraph lines at 100 characters
