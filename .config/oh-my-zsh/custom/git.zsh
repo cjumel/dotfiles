@@ -29,6 +29,8 @@ alias gf='git fetch'           # Fetch the remote repository
 alias gfp='git fetch --prune'  # Fetch & remove unused remote branches
 alias gfu='git fetch upstream' # Fetch the remote repository upstream branch (useful to update forks)
 
+alias gi='git init' # Initialize a new git repository
+
 alias gl='git lg' # Show the commit log
 
 alias gpl='git pull' # Fetch the remote repository & merge it into the current branch
