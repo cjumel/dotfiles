@@ -135,15 +135,17 @@ alias gsu='git stage --update' # Stage update: add the tracked files' changes to
 alias gsa='git stage --all'    # Stage all: add all files' changes to the staging area
 
 # [[ Stash ]]
+# I use `gz` as prefix for `git stash` aliases to avoid any conflict with `git stage` which I use a lot & because this is consistent
+# with Neogit
 
-alias gsh='git stash'                      # Stash: move local changes in tracked files to the stash
-alias gshu='git stash --include-untracked' # Stash with untracked: move local changes in tracked & untracked files to the stash
+alias gz='git stash'                      # Stash: move local changes in tracked files to the stash
+alias gzu='git stash --include-untracked' # Stash with untracked: move local changes in tracked & untracked files to the stash
 
-alias gsha='git stash apply' # Stash apply: copy the stash changes to the local files
-alias gshc='git stash clear' # Stash clear: remove all the stash entries
-alias gshd='git stash drop'  # Stash drop: remove one stash entry (default to the last)
-alias gshl='git stash list'  # Stash list: list the stash entries
-alias gshp='git stash pop'   # Stash pop: move the statsh changes to the local files (or copy them if there is any conflict)
+alias gza='git stash apply' # Stash apply: copy the stash changes to the local files
+alias gzc='git stash clear' # Stash clear: remove all the stash entries
+alias gzd='git stash drop'  # Stash drop: remove one stash entry (default to the last)
+alias gzl='git stash list'  # Stash list: list the stash entries
+alias gzp='git stash pop'   # Stash pop: move the statsh changes to the local files (or copy them if there is any conflict)
 
 # [[ Show ]]
 
