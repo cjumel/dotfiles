@@ -39,13 +39,12 @@ alias gps='git push'                 # Push the current branch to the remote rep
 alias gpsf='git push --force'        # Force push the current branch to the remote repository
 alias gpsu='git push --set-upstream' # Set the upstream of a local branch and push it (not needed if `autoSetupRemote` is `true`)
 
-alias grb='git rebase'                                          # Rebase the current branch on top of another branch
-alias grbo='git rebase --strategy-option=theirs'                # Rebase the current branch on top of another branch & overwrite conflicting changes
-alias grbi='git rebase --interactive'                           # Interactively rebase the current branch on top of another branch
-alias grbio='git rebase --interactive --strategy-option=theirs' # Interactively rebase the current branch on top of another branch & overwrite conflicting changes
-alias grba='git rebase --abort'                                 # Abort a rebase in progress
-alias grbc='git rebase --continue'                              # Continue a rebase in progress
-alias grbs='git rebase --skip'                                  # Skip a commit during a rebase in progress
+alias grb='git rebase --autostash'                           # Rebase the current branch on top of another branch
+alias grbo='git rebase --autostash --strategy-option=theirs' # Rebase the current branch on top of another branch & overwrite conflicting changes
+alias grbi='git rebase --autostash --interactive'            # Interactively rebase the current branch on top of another branch
+alias grba='git rebase --abort'                              # Abort a rebase in progress
+alias grbc='git rebase --continue'                           # Continue a rebase in progress
+alias grbs='git rebase --skip'                               # Skip a commit during a rebase in progress
 
 alias grm='git rm'           # Remove a file from the repository and the file system
 alias grmc='git rm --cached' # Remove a file from the repository but not from the file system
@@ -85,10 +84,10 @@ alias gsa='git stage --all'    # Stage all the files
 alias gsu='git stage --update' # Stage all the unstaged files (not untracked ones)
 
 alias gsh='git stash'                      # Stash local changes in tracked files
+alias gshu='git stash --include-untracked' # Stash local changes in tracked & untracked files
 alias gsha='git stash apply'               # Apply the last stash entry
 alias gshc='git stash clear'               # Clear all the stash entries
 alias gshd='git stash drop'                # Drop one stash entry (last one by default)
-alias gshi='git stash --include-untracked' # Like `git stash` but include untracked files
 alias gshl='git stash list'                # List all the stash entries
 alias gshp='git stash pop'                 # Like `git stash apply` but remove the applied stash entry if applied without conflict
 
