@@ -134,19 +134,6 @@ alias gs='git stage'           # Stage: add the targeted files' changes to the s
 alias gsu='git stage --update' # Stage update: add the tracked files' changes to the staging area
 alias gsa='git stage --all'    # Stage all: add all files' changes to the staging area
 
-# [[ Stash ]]
-# I use `gz` as prefix for `git stash` aliases to avoid any conflict with `git stage` which I use a lot & because this is consistent
-# with Neogit
-
-alias gz='git stash'                      # Stash: move local changes in tracked files to the stash
-alias gzu='git stash --include-untracked' # Stash with untracked: move local changes in tracked & untracked files to the stash
-
-alias gza='git stash apply' # Stash apply: copy the stash changes to the local files
-alias gzc='git stash clear' # Stash clear: remove all the stash entries
-alias gzd='git stash drop'  # Stash drop: remove one stash entry (default to the last)
-alias gzl='git stash list'  # Stash list: list the stash entries
-alias gzp='git stash pop'   # Stash pop: move the statsh changes to the local files (or copy them if there is any conflict)
-
 # [[ Show ]]
 
 alias gso='git show' # Show: give details on the targeted object (commit, tag, etc.)
@@ -193,3 +180,16 @@ alias gxui='git clean -di'   # Discard intracked interactive: interactively disc
 alias gxua='git clean -dxn'  # Discard untracked all: dry-run to discard all untracked files
 alias gxuaf='git clean -dxf' # Discard untracked all force: actually discard all untracked files
 alias gxuai='git clean -dxi' # Discard untracked all interactive: interactively discard all untracked files
+
+# [[ Stash ]]
+# I use `gz` as prefix for `git stash` aliases to avoid any conflict with `git stage` which I use a lot & because this is consistent
+# with Neogit
+
+alias gz='git stash'                      # Stash: move local changes in tracked files to the stash
+alias gzu='git stash --include-untracked' # Stash with untracked: move local changes in tracked & untracked files to the stash
+
+alias gza='git stash apply' # Stash apply: copy the stash changes to the local files
+alias gzc='git stash clear' # Stash clear: remove all the stash entries
+alias gzd='git stash drop'  # Stash drop: remove one stash entry (default to the last)
+alias gzl='git stash list'  # Stash list: list the stash entries
+alias gzp='git stash pop'   # Stash pop: move the statsh changes to the local files (or copy them if there is any conflict)
