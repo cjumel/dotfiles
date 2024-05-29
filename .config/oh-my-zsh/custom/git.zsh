@@ -172,8 +172,8 @@ alias gwr='git worktree remove' # Worktree remove: delete a worktree
 #   - it's in my opinion the proper term for discarding changes in Git
 #   - it reduces the burden on the "gr" & "gc" aliases, as alternatives would involve "git restore" or "git clean"
 
-alias gx='git restore'       # Discard: throw away the unstaged changes of the targeted tracked files
-alias gxa='git restore :/'   # Discard all: throw away all unstaged changes in tracked files
+alias gx='git restore'       # Discard: throw away the unstaged changes of the targeted file(s)
+alias gxt='git restore :/'   # Discard tracked: throw away the unstaged changes of all tracked files
 alias gxu='git clean -dn'    # Discard untracked: dry-run to discard untracked, not ignored files
 alias gxuf='git clean -df'   # Discard untracked force: actually discard untracked, not ignored files
 alias gxui='git clean -di'   # Discard intracked interactive: interactively discard untracked, not ignored files
