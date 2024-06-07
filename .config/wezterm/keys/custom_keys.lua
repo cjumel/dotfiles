@@ -8,7 +8,7 @@ return {
     -- Keymaps to manipulate the terminal application
 
     {
-      key = "r",
+      key = "x", -- Discard changes & reset terminal to default
       mods = "CMD|CTRL",
       action = act.Multiple({ act.EmitEvent("reset-options"), act.ResetFontAndWindowSize }),
     },
