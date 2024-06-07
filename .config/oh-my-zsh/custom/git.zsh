@@ -114,15 +114,6 @@ alias grssl='git_reset_soft_last' # Reset soft last: undo but keep staged a numb
 alias grsh='git reset --hard'     # Reset hard: undo & discard the changes of the targeted commit(s), or discard the targeted files' changes
 alias grshl='git_reset_hard_last' # Reset hard last: undo & discard the changes of a number of the last commits (default to 1)
 
-# [[ Revert ]]
-
-alias grv='git revert'       # Revert: create a new commit to undo the targeted commit
-alias grvl='git revert HEAD' # Revert: create a new commit to undo the last commit
-
-alias grva='git revert --abort'    # Revert abort: stop a revert in progress
-alias grvc='git revert --continue' # Revert continue: resume a revert in progress
-alias grvs='git revert --skip'     # Revert skip: skip a commit during a revert in progress
-
 # [[ Stage ]]
 # I prefer `git stage` over `git add` for several reasons:
 #   - in Gitsigns & Neogit I use "stage" as well, so this is consistent with that ("a", like "add", cannot be used properly with Gitsigns
@@ -158,6 +149,16 @@ alias gtd='git tag --delete' # Tag delete: delete a local tag
 alias gu='git restore --staged'     # Unstage: remove from the staging area the targeted files' changes
 alias gua='git restore --staged :/' # Unstage all: remove from the staging area all the changes
 
+# [[ Revert ]]
+# I use the "gv" prefix to decrease the amount of "gr"-prefix aliases & to be consistent with Neogit
+
+alias gv='git revert'       # Revert: create a new commit to undo the targeted commit
+alias gvl='git revert HEAD' # Revert: create a new commit to undo the last commit
+
+alias gva='git revert --abort'    # Revert abort: stop a revert in progress
+alias gvc='git revert --continue' # Revert continue: resume a revert in progress
+alias gvs='git revert --skip'     # Revert skip: skip a commit during a revert in progress
+
 # [[ Worktree ]]
 # I don't use worktrees, but I gave it a try at some point so I'm keeping the aliases just in case they become handy again
 
@@ -182,8 +183,7 @@ alias gxuaf='git clean -dxf' # Discard untracked all force: actually discard all
 alias gxuai='git clean -dxi' # Discard untracked all interactive: interactively discard all untracked files
 
 # [[ Stash ]]
-# I use `gz` as prefix for `git stash` aliases to avoid any conflict with `git stage` which I use a lot & because this is consistent
-# with Neogit
+# I use the "gz" prefix to avoid any conflict with `git stage` which I use a lot & to be consistent with Neogit
 
 alias gz='git stash'                      # Stash: move local changes in tracked files to the stash
 alias gzu='git stash --include-untracked' # Stash with untracked: move local changes in tracked & untracked files to the stash
