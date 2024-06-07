@@ -1,5 +1,3 @@
-local utils = require("utils")
-
 -- [[ Define base options ]]
 local options = require("options")
 
@@ -7,7 +5,10 @@ local options = require("options")
 local theme = require("theme")
 options = theme.make_options(options)
 
--- [[ Define keys ]]
+-- [[ Define keys option ]]
+local actions = require("actions")
 local keys = require("keys")
+actions.set_actions()
+options.keys = keys
 
-return utils.concat_dicts({ options, keys })
+return options

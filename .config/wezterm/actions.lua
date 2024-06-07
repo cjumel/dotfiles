@@ -1,8 +1,7 @@
-local wezterm = require("wezterm")
-
 local options = require("options")
 local theme = require("theme")
 local utils = require("utils")
+local wezterm = require("wezterm")
 
 local M = {}
 
