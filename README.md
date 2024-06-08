@@ -88,7 +88,8 @@ Browser, this must be done for each different profile.
 
 ### Other
 
-Some tools I use & which have a configuration don't live in this repository.
+Here I describe some other tools I use & which have a configuration that don't live in this
+repository or no file-based configuration at all.
 
 #### [Neovim](https://neovim.io/)
 
@@ -103,3 +104,16 @@ first started with a full-feature distribution of Neovim, installable with a one
 [repository](https://github.com/clementjumel/NvChad). However, I ended switching to a smaller but
 more customizable distribution, called [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim),
 in this [repository](https://github.com/clementjumel/kickstart.nvim).
+
+#### [AltTab](https://github.com/lwouis/alt-tab-macos)
+
+I use AltTab to improve the builtin Alt-Tab feature of MacOS. It provides nice (but still basic)
+features, like supporting multiple windows of the same application, or directly interacting with
+applications through AltTab (closing, hiding, etc.)
+
+#### [Raycast](https://www.raycast.com/)
+
+I use Raycast to improve the builtin Cmd-Space feature of MacOS. It provides many useful builtin
+extensions, but also many plugins to integrate it with other applications. It is, for instance, my
+tool of choice for window management (e.g. moving windows between displays, resizing, creating
+splits, etc.)
