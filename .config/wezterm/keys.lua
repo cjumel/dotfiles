@@ -7,6 +7,7 @@ local act = wezterm.action
 return {
 
   -- [[ Default actions ]]
+  { key = "e", mods = "SUPER", action = act.ToggleFullScreen },
   { key = "h", mods = "SUPER", action = act.HideApplication },
   { key = "m", mods = "SUPER", action = act.Hide },
   { key = "n", mods = "SUPER", action = act.SpawnWindow },
