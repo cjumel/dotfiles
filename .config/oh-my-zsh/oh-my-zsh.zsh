@@ -28,16 +28,19 @@ plugins=(
     zsh-syntax-highlighting
     zsh-autosuggestions
 )
-zstyle ':completion:*' menu no # Suggested by the documentation
-zstyle ':fzf-tab:*' fzf-bindings 'tab:accept'
+
+# fzf-tab
+zstyle ':completion:*' menu no            # Suggested by the documentation
 zstyle ':fzf-tab:*' fzf-flags --height=30 # Prevent fzf window from being too small when few completions are available
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -a1 --color=always $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -a1 --color=always $realpath'
 
+# zsh-completions
 # zsh-completions provides additional completion for a variety of CLI tools; it can't be installed properly using oh-my-zsh regular plugin
 # system, instead the following line must be added before `source "$ZSH"/oh-my-zsh.sh`
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 
-bindkey '^y' autosuggest-accept # Keymap for zsh-autosuggestions
+# zsh-autosuggestions
+bindkey '^y' autosuggest-accept
 
 source "$ZSH"/oh-my-zsh.sh
