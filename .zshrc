@@ -42,19 +42,13 @@ setopt HIST_REDUCE_BLANKS   # Remove superfluous blanks from each command line b
 
 # [[ Key bindings ]]
 
-# Descrease the time out after pressing a key to remove the delay after pressing escape
-KEYTIMEOUT=1
-
-# Make <C-p>/<C-n> filter with the terminal entry when browsing the history
+# Filter search history browsing with the current command
 bindkey "^p" history-search-backward
 bindkey "^n" history-search-forward
 
-# Use escape to clear the screen
-bindkey "\e" clear-screen
-
-# "^^" & "^_" are actually <C-,> & <C-;> respectively on my keyboard
-bindkey "^^" forward-word
-bindkey "^_" backward-word
+# Move cursor to next/previous word
+bindkey "^^" forward-word  # Actually <C-,> on my keyboard
+bindkey "^_" backward-word # Actually <C-;> on my keyboard
 
 # [[ Additional configuration scripts ]]
 # The following will run configuration scripts for additional tools, but only if the files exist
