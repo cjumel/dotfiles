@@ -1,10 +1,29 @@
+# List all aliases starting with the prefix passed as argument using grep
+function alias_grep_list() {
+    alias | grep "^$1"
+}
+
+alias al='alias'            # Alias: list all aliases if no argument, or show an alias definition, or define a new alias
+alias all='alias_grep_list' # Alias list: list all aliases starting with the prefix passed as argument using grep
+
 alias ca='cat'
 
 alias c='cd'
 
 alias cl='clear'
 
+alias cpr='cp -r'
+
 alias lj='luajit'
+
+alias l='ls'     # List: list files in directory
+alias la='ls -a' # List all: list files in directory, including hidden files
+
+alias lr='ls -R'   # List recursive: list files recursively in directory & sub-directories
+alias lra='ls -Ra' # List recursive all: list files recursively in directory & sub-directories, including hidden files
+
+alias ll='ls -l'   # List long: list files in long format
+alias lla='ls -la' # List long all: list files in long format, including hidden files
 
 function clean_broken_symlinks() {
     ARG1=${1:-.} # Default to current directory
@@ -26,6 +45,9 @@ alias ma='man'
 
 alias md='mkdir'
 alias mdp='mkdir -p'
+
+alias mk='make'                  # Make: base command
+alias mki='make --ignore-errors' # Make ignore: don't stop on errors (exit code won't report failure either)
 
 alias p='pwd'
 
@@ -50,3 +72,5 @@ alias vvv='v' # Alias to `v`, for when the key is sticky
 alias wi='which'
 alias we='whence'
 alias wk='/bin/cat -v' # Which key: show which key code is received when pressing keys
+
+alias x='clear' # Shortcut for the `clear` command
