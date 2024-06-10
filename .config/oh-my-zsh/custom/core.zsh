@@ -83,5 +83,3 @@ alias wi='which'             # Which: locate a program in the user's path
 alias we='whence'            # Whence: show how a command would be interpreted
 alias wk='/bin/cat -v'       # Which key: show interactively which key code is received by the terminal when typing keys
 alias wkc='which_key_custom' # Which key custom: show the custom terminal-level mappings
-
-alias x='clear' # Shortcut for the `clear` command

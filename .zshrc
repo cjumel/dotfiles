@@ -42,6 +42,9 @@ setopt HIST_REDUCE_BLANKS   # Remove superfluous blanks from each command line b
 
 # [[ Key bindings ]]
 
+# By default, "^l" is clear-screen, but with Tmux it's remapped to window navigation, so let's remap it to something close & originally not important
+bindkey "^o" clear-screen
+
 # Filter search history browsing with the current command
 bindkey "^p" history-search-backward
 bindkey "^n" history-search-forward
