@@ -90,13 +90,13 @@ export FZF_ALT_C_OPTS="
 "
 
 # [[ Completion ]]
-# `fzf` completion is triggered by using specific characters (`**` by default) and then <Tab> or <Ctrl-I> or directly with a keybinding
-# Completion is contextual: in some cases it can detect wether a file or a directory is expected
+# Completion is contextual: in some cases it can detect whether a file or a directory is expected
+# Completion is triggered by using specific characters (`**` by default) and then <Tab>, or directly with a keybinding
 
-# Let's define a keybinding to trigger completion instead of characters
-# Builtin `^O` is useless and it's next to `^I`, the builtin completion key, so let's use it for fuzzy completion
+# Let's define a keybinding to trigger completion instead of trigger characters
+# I use <Tab> for completion with `fzf-tab`, let's use <S-Tab> for `fzf` completion
 export FZF_COMPLETION_TRIGGER=''
-bindkey '^O' fzf-completion
+bindkey '^[[Z' fzf-completion
 
 # Use `fd` to generate completion candidates (in this use case, `fd` doesn't respect the `ignore` file)
 # In the following functions, `$1` is the base path to start traversal
