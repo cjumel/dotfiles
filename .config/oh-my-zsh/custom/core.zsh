@@ -69,8 +69,19 @@ alias v='vi'  # Open Vi editor (or any editor aliased to "vi")
 alias vv='v'  # Alias to `v`, for when the key is sticky
 alias vvv='v' # Alias to `v`, for when the key is sticky
 
-alias wi='which'
-alias we='whence'
-alias wk='/bin/cat -v' # Which key: show which key code is received when pressing keys
+# List all custom terminal-level hidden mappings (meaning they cannot be seen otherwise simply by typing them)
+function which_key_custom() {
+    echo "<C-[> corresponds to <C-^> on my keyboard (equivalent to escape)"
+    echo "<C-]> corresponds to <C-$> on my keyboard"
+    echo "<C-?> corresponds to <C-ù> on my keyboard (equivalent to delete)"
+    echo "<C-\\> corresponds to <C-\`> on my keyboard"
+    echo "<C-^> corresponds to <C-,> on my keyboard"
+    echo "<C-_> corresponds to <C-;> on my keyboard (same as <C-/>)"
+}
+
+alias wi='which'             # Which: locate a program in the user's path
+alias we='whence'            # Whence: show how a command would be interpreted
+alias wk='/bin/cat -v'       # Which key: show interactively which key code is received by the terminal when typing keys
+alias wkc='which_key_custom' # Which key custom: show the custom terminal-level mappings
 
 alias x='clear' # Shortcut for the `clear` command
