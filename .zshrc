@@ -65,5 +65,4 @@ bindkey "^_" backward-word # Actually <C-;> on my keyboard
 [ -f ~/.config/ripgrep/ripgrep.zsh ] && source ~/.config/ripgrep/ripgrep.zsh
 [ -f ~/.config/starship/starship.zsh ] && source ~/.config/starship/starship.zsh
 [ -f ~/.config/tldr/tldr.zsh ] && source ~/.config/tldr/tldr.zsh
-[ -f ~/.config/tmux/tmux.zsh ] && source ~/.config/tmux/tmux.zsh
 [ -f ~/.config/zoxide/zoxide.zsh ] && source ~/.config/zoxide/zoxide.zsh
