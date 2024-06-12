@@ -5,7 +5,8 @@ export POETRY_CONFIG_DIR="$HOME/.config/pypoetry"
 
 # [[ Aliases ]]
 
-alias poa='poetry add'
+alias poa='poetry add'     # Add: add new dependencies
+alias poag='poetry add -G' # Add group: specify a dependency group (1st argument) & add new dependencies to it
 
 alias poc='poetry cache'
 alias pocc='poetry cache clear --all .'
@@ -28,8 +29,10 @@ alias popbb='poetry publish --build'
 
 alias popi='poetry pin'
 
-alias por='poetry run'
-alias porpy='poetry run python'
+alias porm='poetry remove' # Remove: remove dependencies
+
+alias poru='poetry run'          # Run: run a command in the virtual environment
+alias porupy='poetry run python' # Run Python: run a Python shell or script in the virtual environment
 
 alias pos='poetry shell'
 
