@@ -4,12 +4,26 @@ I use [Zsh](https://www.zsh.org/) as terminal shell, as it is the default for Ma
 with `oh-my-zsh`, a community-driven framework to bring many features to Zsh, especially to add sane
 default options, a nicer default terminal prompt and manage easily custom aliases.
 
-**Requirements:**
+## Requirements
 
-- `curl` or `wget`
-- `git`
+To use `oh-my-zsh`, you simply need:
 
-**Install:**
+- [curl](https://curl.se/) or [wget](https://www.gnu.org/software/wget/) to download the
+  installation scripts
+
+- [Git](https://git-scm.com/) to clone plugins repositories
+
+Additionally, my `oh-my-zsh` configuration defines some aliases to some external tools (sometimes
+overriding builtin commands, like `ls`), which you need to install separately to use:
+
+- [dust](https://github.com/bootandy/dust), my go-to tool to diplay disk space usage on my machine;
+  I use it as a drop-in replacement of the builtin `du` command
+- [eza](https://github.com/eza-community/eza), an improved `ls` command with a more modern look and
+  feel; I use it as a drop-in replacement of the builtin `ls` command
+- [tldr](https://github.com/tldr-pages/tldr), a user-friendly & synthetic variant to the man pages
+  (providing however less information)
+
+## Install
 
 <details>
 <summary>MacOS</summary>
