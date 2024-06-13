@@ -53,7 +53,20 @@ alias p='pwd'
 
 alias py='python'
 
+function clean_empty_directories() {
+    ARG1=${1:-.} # Default to current directory
+    EMPTY_DIRECTORIES=$(find "$ARG1" -type d -empty)
+    if [ -z "$EMPTY_DIRECTORIES" ]; then
+        echo "No empty directory found."
+        return 0
+    fi
+    echo "Removing empty directories (and any empty parent):"
+    echo "$EMPTY_DIRECTORIES"
+    find "$ARG1" -type d -empty -delete
+}
+
 alias rmd='rm -d'
+alias rmda='clean_empty_directories'
 alias rmf='rm -f'
 alias rmr='rm -r'
 alias rmrf='rm -rf'
