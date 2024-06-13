@@ -64,5 +64,4 @@ bindkey "^_" backward-word # Actually <C-;> on my keyboard
 [ -f ~/.config/pypoetry/pypoetry.zsh ] && source ~/.config/pypoetry/pypoetry.zsh
 [ -f ~/.config/ripgrep/ripgrep.zsh ] && source ~/.config/ripgrep/ripgrep.zsh
 [ -f ~/.config/starship/starship.zsh ] && source ~/.config/starship/starship.zsh
-[ -f ~/.config/tldr/tldr.zsh ] && source ~/.config/tldr/tldr.zsh
 [ -f ~/.config/zoxide/zoxide.zsh ] && source ~/.config/zoxide/zoxide.zsh
