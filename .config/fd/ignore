@@ -34,7 +34,6 @@ Zotero/
 .local/
 .matplotlib/
 .npm/
-.oh-my-zsh/
 .ruff_cache/
 .ssh/
 .streamlit/

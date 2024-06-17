@@ -1,20 +1,15 @@
-# General zsh configuration
+# General configuration
 [ -f ~/.config/zsh/config.zsh ] && source ~/.config/zsh/config.zsh
 
-# Setup oh-my-zsh
-[ -f ~/.config/oh-my-zsh/oh-my-zsh.zsh ] && source ~/.config/oh-my-zsh/oh-my-zsh.zsh
-
-# Setup plugins
-# This must be done before calling `compinit`
+# Plugins (must be before calling `compinit`)
 [ -f ~/.config/zsh/plugins.zsh ] && source ~/.config/zsh/plugins.zsh
 
-# Custom aliases
-# Aliases are defined in `.zsh` files within `./.config/zsh/aliases/`
+# Aliases (they are defined in `.zsh` files within `./.config/zsh/aliases/`)
 for file in ~/.config/zsh/aliases/*.zsh; do
     source "$file"
 done
 
-# Call `compinit`, to initialize `zsh` completion system
+# Initialize `zsh` completion system
 # Let's only check the `compinit` cache once a day; this reduces a bit the startup time
 # Source: https://gist.github.com/ctechols/ca1035271ad134841284#gistcomment-2308206
 autoload -Uz compinit
