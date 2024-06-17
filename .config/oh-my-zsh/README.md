@@ -13,12 +13,6 @@ To use `oh-my-zsh`, you simply need:
 
 - [Git](https://git-scm.com/) to clone plugins repositories
 
-Additionally, my `oh-my-zsh` configuration defines some aliases to some external tools (sometimes
-overriding builtin commands, like `ls`), which you need to install separately to use:
-
-- [eza](https://github.com/eza-community/eza), an improved `ls` command with a more modern look and
-  feel; I use it as a drop-in replacement of the builtin `ls` command
-
 ## Install
 
 <details>
