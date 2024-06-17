@@ -10,6 +10,9 @@ export LANG=en_US.UTF-8
 export PATH="/usr/local/opt/python/libexec/bin:$PATH" # Symlink of Homebrew's latest Python & related tools
 export PATH="$HOME/.local/bin:$PATH"                  # Tools installed by `pipx`, among others
 
+# Completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # Case-insensitive completion when using lowercase (like ripgrep smart case)
+
 # [[ History configuration ]]
 # Many settings are taken from https://martinheinz.dev/blog/110
 
