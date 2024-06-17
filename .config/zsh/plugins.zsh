@@ -24,7 +24,9 @@ zstyle ':completion:*' menu no
 # Prevent fzf window from being too small when a small number of completions is available
 zstyle ':fzf-tab:*' fzf-flags --height=30
 # Preview directory's content with `eza` when completing the builtin `cd` or `zoxide`
+# shellcheck disable=SC2016
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -a1 --color=always $realpath'
+# shellcheck disable=SC2016
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -a1 --color=always $realpath'
 
 # [[ Zsh standard plugins ]]
