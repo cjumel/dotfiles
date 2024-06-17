@@ -4,6 +4,9 @@
 # Setup oh-my-zsh
 [ -f ~/.config/oh-my-zsh/oh-my-zsh.zsh ] && source ~/.config/oh-my-zsh/oh-my-zsh.zsh
 
+# Setup plugins
+[ -f ~/.config/zsh/plugins.zsh ] && source ~/.config/zsh/plugins.zsh
+
 # Custom aliases
 # Aliases are defined in `.zsh` files within `./.config/zsh/aliases/`
 for file in ~/.config/zsh/aliases/*.zsh; do
