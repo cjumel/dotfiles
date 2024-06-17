@@ -53,6 +53,13 @@ bindkey "^n" history-search-forward
 bindkey "^^" forward-word  # Actually <C-,> on my keyboard
 bindkey "^_" backward-word # Actually <C-;> on my keyboard
 
+# [[ Aliases ]]
+
+# Aliases are defined in `.zsh` files within `./.config/zsh/aliases/`, so let's source them
+for file in ~/.config/zsh/aliases/*.zsh; do
+    source "$file"
+done
+
 # [[ Additional configuration scripts ]]
 # The following will run configuration scripts for additional tools, but only if the files exist
 
