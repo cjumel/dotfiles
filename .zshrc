@@ -3,13 +3,12 @@
 
 # [[ General configuration ]]
 
-# Manually set language environment
+# Make sure everything is in English
 export LANG=en_US.UTF-8
 
-# Prepend to $PATH
-# - the `$HOME/.local` part comes from fd's installation guide
-# - the `/usr/local/opt/python` part comes from brew when installing Python
-export PATH="$HOME/.local/bin:/usr/local/opt/python/libexec/bin:$PATH"
+# Prepend additional directories to $PATH, so that zsh can find executables in them
+export PATH="/usr/local/opt/python/libexec/bin:$PATH" # Symlink of Homebrew's latest Python & related tools
+export PATH="$HOME/.local/bin:$PATH"                  # Tools installed by `pipx`, among others
 
 # [[ History configuration ]]
 # Many settings are taken from https://martinheinz.dev/blog/110
