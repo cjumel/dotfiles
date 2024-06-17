@@ -16,8 +16,6 @@ To use `oh-my-zsh`, you simply need:
 Additionally, my `oh-my-zsh` configuration defines some aliases to some external tools (sometimes
 overriding builtin commands, like `ls`), which you need to install separately to use:
 
-- [dust](https://github.com/bootandy/dust), my go-to tool to diplay disk space usage on my machine;
-  I use it as a drop-in replacement of the builtin `du` command
 - [eza](https://github.com/eza-community/eza), an improved `ls` command with a more modern look and
   feel; I use it as a drop-in replacement of the builtin `ls` command
 
