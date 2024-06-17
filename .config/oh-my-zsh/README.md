@@ -20,8 +20,6 @@ overriding builtin commands, like `ls`), which you need to install separately to
   I use it as a drop-in replacement of the builtin `du` command
 - [eza](https://github.com/eza-community/eza), an improved `ls` command with a more modern look and
   feel; I use it as a drop-in replacement of the builtin `ls` command
-- [tldr](https://github.com/tldr-pages/tldr), a user-friendly & synthetic variant to the man pages
-  (providing however less information)
 
 ## Install
 
