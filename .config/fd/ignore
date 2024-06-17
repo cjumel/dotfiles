@@ -1,3 +1,6 @@
+# Git stuff
+.git/
+
 # MacOS stuff
 .DS_Store
 
