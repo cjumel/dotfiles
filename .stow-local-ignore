@@ -13,3 +13,6 @@
 # Installation tools
 ^/scripts
 ^/Makefile
+
+# Fake configuration files
+\.vimiumrc
