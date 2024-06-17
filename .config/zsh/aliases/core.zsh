@@ -10,6 +10,17 @@ alias ca='cat'
 
 alias c='cd'
 
+# Shortcuts for changing directories taken from oh-my-zsh
+# '--' means any following '-' is not an option
+alias -- -='cd -'
+alias ~='cd ~'
+alias ..='cd ..'
+alias ...='cd ...'
+alias ....='cd ....'
+alias .....='cd .....'
+alias ......='cd ......'
+alias .......='cd .......'
+
 alias cl='clear'
 
 alias cpr='cp -r'
