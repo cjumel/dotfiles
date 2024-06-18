@@ -14,30 +14,20 @@ export PATH="$HOME/.local/bin:$PATH"                  # Tools installed by `pipx
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # Case-insensitive completion when using lowercase (like ripgrep smart case)
 
 # [[ History configuration ]]
-# Many settings are taken from https://martinheinz.dev/blog/110
+# Documentation: https://zsh.sourceforge.io/Doc/Release/Options.html#History
 
-# Set the history file location
-HISTFILE="$HOME/.zsh_history" # (default in oh-my-zsh)
+HISTFILE="$HOME/.zsh_history" # History file location
+HISTSIZE=10000                # Limit number of entries in memory
+SAVEHIST=10000                # Limit number of entries in history file
+HISTDUP=erase                 # Erase duplicates in the history file
 
-# Set the limit number of entries in memory & in the history file
-HISTSIZE=10000000 # Virtually unlimited
-SAVEHIST=10000000 # Virtually unlimited
-
-HISTORY_IGNORE="(history|hi)*"
-
-HIST_STAMPS="yyyy-mm-dd" # Only relevant with `history` command, not <C-r> with `fzf`
-
-setopt EXTENDED_HISTORY     # Write the history file in the ':start:elapsed;command' format. (default in oh-my-zsh)
-setopt INC_APPEND_HISTORY   # Write to the history file immediately, not when the shell exits.
-setopt SHARE_HISTORY        # Share history between all sessions. (default in oh-my-zsh)
-setopt HIST_IGNORE_DUPS     # Do not record an event that was just recorded again. (default in oh-my-zsh)
-setopt HIST_IGNORE_ALL_DUPS # Delete an old recorded event if a new event is a duplicate.
-setopt HIST_IGNORE_SPACE    # Do not record an event starting with a space. Convenient to avoid storing a command in history. (default in oh-my-zsh)
-setopt HIST_SAVE_NO_DUPS    # Do not write a duplicate event to the history file.
-setopt HIST_VERIFY          # Do not execute immediately upon history expansion. (default in oh-my-zsh)
-setopt APPEND_HISTORY       # Append to history file (Default)
-setopt HIST_NO_STORE        # Don't store history commands (like with `r`)
-setopt HIST_REDUCE_BLANKS   # Remove superfluous blanks from each command line being added to the history.
+setopt APPEND_HISTORY       # Append commands to history file instead of replacing it
+setopt HIST_IGNORE_ALL_DUPS # If a new command in history list duplicates an older one, the latter is removed
+setopt HIST_IGNORE_DUPS     # if a new command in history list duplicates the previous one, the former is ignored
+setopt HIST_IGNORE_SPACE    # Do not record a command starting with a space; convenient for sensible commands
+setopt HIST_REDUCE_BLANKS   # Remove superfluous blanks & newlines from commands; help prevent duplicates & improve fuzzy search in commands
+setopt HIST_SAVE_NO_DUPS    # Do not save any older duplicate command to the history file
+setopt SHARE_HISTORY        # Enable sharing history between sessions by adding & importing entries incrementally; replace `INC_APPEND_HISTORY`
 
 # [[ Key bindings ]]
 
