@@ -1,55 +1,60 @@
-# Starship configuration file
-# Documentation: https://starship.rs/config/
+# The documentation for the different settings can be found here: https://starship.rs/config/
+# This theme is largely inspired by the pure preset: https://starship.rs/presets/pure-preset
 
-# [[ Prompt format ]]
-
-# `$fill` separate left-hand-side & right-hand-side of the prompt
-# `$all` represents everything not included till then in the prompt
+# Format of the prompt, referencing the different starship modules
+# `$fill` can be used to add modules on the right-hand-side of the prompt & fill in the middle
+# `$all` can be used to represent everything not included till then in the prompt
 format = """
-$username\
-$hostname\
 $directory\
 $git_branch\
 $git_commit\
 $git_state\
-$git_metrics\
 $git_status\
 $fill\
-$all\
+$python\
+$cmd_duration\
+$time\
 $line_break\
 $character\
 """
 
-[fill]
-symbol = " " # No separation between left-hand-side & right-hand-side of the prompt
+[cmd_duration]
+format = '[$duration,]($style) '
+style = "bold yellow"
 
-# [[ Enable modules ]]
+[directory]
+style = "blue"
+truncate_to_repo = true # Truncate to directory name in Git repositories
+truncation_length = 0 # Don't truncate paths
+truncation_symbol = "󰊢 " # Prefix to truncation (only used in Git repositories)
+
+[fill]
+symbol = " " # No filling between prompt left- & right-hand sides
+
+[git_branch]
+format = "[$symbol$branch(:$remote_branch)]($style) "
+style = "bright-black"
+
+[git_commit]
+format = '[\($hash$tag\)]($style) '
+style = "bright-black"
+
+[git_state]
+format = '[- $state( $progress_current/$progress_total)]($style) '
+style = "bright-black"
+
+[git_status]
+# The pure-preset `git_status` module doesn't work with toggleterm.nvim terminals so let's keep
+# this module close to the original implementation
+diverged = "⇡⇣"
+format = '([$all_status$ahead_behind]($style) )'
+style = "purple"
+
+[python]
+format = "[$virtualenv]($style) "
+style = "bright-black"
 
 [time]
 disabled = false
-
-# [[ Simplify modules ]]
-
-[docker_context]
-format = "[$symbol]($style), "
-symbol = "🐳"
-
-[lua]
-format = "[$symbol]($style), "
-symbol = "🌙"
-
-[nodejs]
-format = "[$symbol]($style), "
-symbol = ''
-
-[python]
-format = '[${symbol}( \($virtualenv\))]($style), '
-symbol = "🐍"
-
-# [[ Disable modules ]]
-
-[gcloud] # If it has been activated once ever, the module is always displayed
-disabled = true
-
-[package] # Show the version of the package in the current directory
-disabled = true
+format = "[$time]($style) "
+style = "bold yellow"
