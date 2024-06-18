@@ -1,9 +1,8 @@
 # The documentation for the different settings can be found here: https://starship.rs/config/
-# This theme is largely inspired by the pure preset: https://starship.rs/presets/pure-preset
 
 # Format of the prompt, referencing the different starship modules
-# `$fill` can be used to add modules on the right-hand-side of the prompt & fill in the middle
-# `$all` can be used to represent everything not included till then in the prompt
+# `$fill` can be used to add modules on the right-hand-side of the prompt
+# `$all` can be used to add every module not included yet
 format = """
 $directory\
 $git_branch\
@@ -20,39 +19,36 @@ $character\
 
 [cmd_duration]
 format = '[$duration,]($style) '
-style = "bold yellow"
+style = "yellow bold"
 
 [directory]
-style = "blue"
-truncate_to_repo = true # Truncate to directory name in Git repositories
+style = "cyan bold"
+truncate_to_repo = true # Truncate to repository root in Git repositories
 truncation_length = 0 # Don't truncate paths
-truncation_symbol = "󰊢 " # Prefix to truncation (only used in Git repositories)
+truncation_symbol = "󰊢 " # Prefix for truncation (only used in Git repositories)
 
 [fill]
 symbol = " " # No filling between prompt left- & right-hand sides
 
 [git_branch]
 format = "[$symbol$branch(:$remote_branch)]($style) "
-style = "bright-black"
+style = "bold purple"
 
 [git_commit]
 format = '[\($hash$tag\)]($style) '
-style = "bright-black"
+style = "bold purple"
 
 [git_state]
 format = '[- $state( $progress_current/$progress_total)]($style) '
-style = "bright-black"
+style = "bold purple"
 
 [git_status]
-# The pure-preset `git_status` module doesn't work with toggleterm.nvim terminals so let's keep
-# this module close to the original implementation
 diverged = "⇡⇣"
-format = '([$all_status$ahead_behind]($style) )'
-style = "purple"
+style = "red bold"
 
 [python]
 format = "[$virtualenv]($style) "
-style = "bright-black"
+style = "bright-black bold"
 
 [time]
 disabled = false
