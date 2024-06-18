@@ -47,8 +47,9 @@ diverged = "⇡⇣"
 style = "red bold"
 
 [python]
-format = "[$virtualenv]($style) "
-style = "bright-black bold"
+format = '[($symbol $virtualenv)]($style) ' # Only show $symbol if $virtualenv is not empty
+style = "blue bold"
+symbol = "" # Taken from nvim-web-devicons
 
 [time]
 disabled = false
