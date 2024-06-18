@@ -18,7 +18,7 @@ $character\
 """
 
 [cmd_duration]
-format = '[$duration,]($style) '
+format = '[󱦟 $duration]($style) '
 style = "yellow bold"
 
 [directory]
@@ -53,5 +53,5 @@ symbol = "" # Taken from nvim-web-devicons
 
 [time]
 disabled = false
-format = "[$time]($style) "
+format = "[ $time]($style) "
 style = "bold yellow"
