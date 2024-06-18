@@ -8,6 +8,7 @@ $directory\
 $git_branch\
 $git_commit\
 $git_state\
+${custom.git_changes}\
 $git_status\
 $fill\
 $python\
@@ -20,6 +21,14 @@ $character\
 [cmd_duration]
 format = '[󱦟 $duration]($style) '
 style = "yellow bold"
+
+[custom.git_changes]
+# Show a single symbol if there is any local change in the repository
+format = '[$symbol]($style)'
+shell = ['bash']
+style = 'red bold'
+symbol = '*'
+when = 'test -n "$(git status --porcelain)"' # `--porcelain` makes the output easy to parse
 
 [directory]
 style = "cyan bold"
@@ -43,7 +52,12 @@ format = '[- $state( $progress_current/$progress_total)]($style) '
 style = "bold purple"
 
 [git_status]
-diverged = "⇡⇣"
+# Only keep stuff related to differences with the remote or the stash, not local changes
+ahead = ""
+behind = ""
+diverged = ""
+format = '([$ahead_behind$stashed]($style)) ' # $ahead_behind refers to $ahead, $behind, $diverged
+stashed = "≡"
 style = "red bold"
 
 [python]
