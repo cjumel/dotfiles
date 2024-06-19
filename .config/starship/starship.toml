@@ -53,9 +53,9 @@ style = "bold purple"
 
 [git_status]
 # Only keep stuff related to differences with the remote or the stash, not local changes
-ahead = ""
-behind = ""
-diverged = ""
+ahead = "⇡"
+behind = "⇣"
+diverged = "⇡⇣"
 format = '([$ahead_behind$stashed]($style)) ' # $ahead_behind refers to $ahead, $behind, $diverged
 stashed = "≡"
 style = "red bold"
