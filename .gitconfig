@@ -1,5 +1,6 @@
 [advice]
     skippedCherryPicks = false
+    statusHints = false
 [alias]
     lg = log --oneline --graph --decorate --color
 [core]
