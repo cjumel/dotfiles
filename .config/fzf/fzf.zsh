@@ -123,18 +123,17 @@ _fzf_comprun() {
 export FZF_COMPLETION_DIR_COMMANDS='
     c
     cd
+    cpr
     du
     l
     la
+    ll
+    lla
     ls
-    lsa
-    md
-    mdp
-    mkdir
+    lt
+    lta
     rmr
     rmrf
-    to
-    touch
 '
 
 # [[ Setup ]]
