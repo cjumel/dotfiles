@@ -13,6 +13,9 @@ export PATH="$HOME/.local/bin:$PATH"                  # Tools installed by `pipx
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # Case-insensitive completion when using lowercase (like ripgrep smart case)
 
+# Set options for the `less` pager like in `oh-my-zsh` to clear the screen after quitting (e.g. when using `git log`)
+export LESS=R
+
 # [[ History configuration ]]
 # Documentation: https://zsh.sourceforge.io/Doc/Release/Options.html#History
 
