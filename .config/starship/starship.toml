@@ -31,6 +31,8 @@ symbol = '*'
 when = 'test -n "$(git status --porcelain)"' # `--porcelain` makes the output easy to parse
 
 [directory]
+read_only = ' ' # Symbol displayed when the directory is read only
+read_only_style = 'red bold'
 style = "cyan bold"
 truncate_to_repo = true # Truncate to repository root in Git repositories
 truncation_length = 0 # Don't truncate paths
