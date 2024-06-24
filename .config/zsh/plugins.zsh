@@ -20,4 +20,4 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 
-bindkey '^y' autosuggest-accept
+bindkey "^[^M" autosuggest-accept # Actually <C-CR> on my keyboard
