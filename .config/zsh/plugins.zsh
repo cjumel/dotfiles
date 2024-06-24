@@ -8,7 +8,7 @@
 zinit light Aloxaf/fzf-tab
 
 zstyle ':completion:*' menu no                                                         # Disable builtin tab completion menu
-zstyle ':fzf-tab:*' fzf-flags --height=20                                              # Add height to fzf window (otherwise it can be too small)
+zstyle ':fzf-tab:*' fzf-flags '--height=40%'                                           # Specify height to fzf window (prevent from being too small)
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -a1 --color=always $realpath'         # Enable preview for cd command
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -a1 --color=always $realpath' # Enable preview for zoxide command
 

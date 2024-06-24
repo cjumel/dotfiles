@@ -14,27 +14,24 @@ export FZF_FILE_PREVIEW_ESCAPED='bat --color=always --line-range=:500 \{}'
 export FZF_DIR_PREVIEW='eza -a1 --color=always {}'
 export FZF_DIR_PREVIEW_ESCAPED='eza -a1 --color=always \{}'
 
-# General options
+# General options (keymaps below are defined to be the same as the ones defined in the telescope.nvim)
 export FZF_DEFAULT_COMMAND="$FZF_FD_COMMAND"
-# <Ctrl-g> is chosen for "go to top", like (Neo)vim's `gg`
 export FZF_DEFAULT_OPTS="
     --layout=reverse
-    --height=50%
-    --border
-    --bind 'ctrl-i:toggle-preview'
+    --height=40%
+    --bind 'tab:down'
+    --bind 'shift-tab:up'
+    --bind 'ctrl-]:toggle-preview'
+    --bind 'ctrl-s:toggle+down'
     --bind 'ctrl-g:top'
+    --bind 'ctrl-^:forward-word'
+    --bind 'ctrl-_:backward-word'
 "
 
 # [[ Key bindings ]]
-# `fzf` define 3 key bindings:
-# - <Ctrl-T> to insert a file or directory path in the command line
-# - <Ctrl-R> to insert a command from the command history
-# - <Alt-C> to `cd` to a directory
+# fzf defines 3 key bindings for zsh which are configured in this section & actually setup in the "Setup" section
 
-# Enable <Alt-C> keymap (alt mappings are not available on my system)
-bindkey "©" fzf-cd-widget
-
-# <Ctrl-T>
+# <C-t>: insert a file or directory path in the command line
 export FZF_CTRL_T_COMMAND="$FZF_FD_FILE_COMMAND"
 export FZF_CTRL_T_TOGGLE_TRANSFORMER="
     if [[ {fzf:prompt} = \"File > \" ]]; then
@@ -58,21 +55,20 @@ export FZF_CTRL_T_ALL_TRANSFORMER="
         echo \"reload(eval $FZF_FD_DIR_COMMAND)+change-prompt(Directory > )\"
     fi
 "
-
-# <Ctrl-]> corresponds to <Ctrl-$> on my keyboard
 export FZF_CTRL_T_OPTS="
     --prompt 'File > '
     --preview '$FZF_FILE_PREVIEW'
     --bind 'ctrl-t:transform: $FZF_CTRL_T_TOGGLE_TRANSFORMER'
-    --bind 'ctrl-]:transform: $FZF_CTRL_T_ALL_TRANSFORMER'
+    --bind 'ctrl-\\:transform: $FZF_CTRL_T_ALL_TRANSFORMER'
 "
 
-# <Ctrl-R>
+# <C-r>: insert a command from the command history in the command line
 export FZF_CTRL_R_OPTS="
     --prompt 'Command > '
 "
 
-# <Alt-C>
+# <M-c>: `cd` into a directory
+bindkey "©" fzf-cd-widget # Actually enable the <M-c> key binding (alt mappings are not directly available on my system)
 export FZF_ALT_C_COMMAND="$FZF_FD_DIR_COMMAND"
 export FZF_ALT_C_ALL_TRANSFORMER="
     if [[ {fzf:prompt} = \"Directory > \" ]]; then
@@ -81,25 +77,22 @@ export FZF_ALT_C_ALL_TRANSFORMER="
         echo \"reload(eval $FZF_FD_DIR_COMMAND)+change-prompt(Directory > )\"
     fi
 "
-
-# <Ctrl-]> corresponds to <Ctrl-$> on my keyboard
 export FZF_ALT_C_OPTS="
     --prompt 'Directory > '
     --preview '$FZF_DIR_PREVIEW'
-    --bind 'ctrl-]:transform: $FZF_ALT_C_ALL_TRANSFORMER'
+    --bind 'ctrl-\\:transform: $FZF_ALT_C_ALL_TRANSFORMER'
 "
 
 # [[ Completion ]]
-# Completion is contextual: in some cases it can detect whether a file or a directory is expected
-# Completion is triggered by using specific characters (`**` by default) and then <Tab>, or directly with a keybinding
+# fzf completion is triggered by using specific characters (`**` by default) and <Tab>, or directly with a keybinding.
+#   It is contextual, in some cases it can detect whether a file or a directory is expected.
 
-# Let's define a keybinding to trigger completion instead of trigger characters
-# I use <Tab> for completion with `fzf-tab`, let's use <S-Tab> for `fzf` completion
-export FZF_COMPLETION_TRIGGER=''
-bindkey '^[[Z' fzf-completion
+export FZF_COMPLETION_TRIGGER='' # Remove the default trigger character
+bindkey '^[[Z' fzf-completion    # Use <S-Tab> as fzf completion keybinding (<Tab> is kept for regular completion)
 
-# Use `fd` to generate completion candidates (in this use case, `fd` doesn't respect the `ignore` file)
-# In the following functions, `$1` is the base path to start traversal
+# Use fd to generate completion candidates
+#   In this use case, fd doesn't respect the `ignore` file
+#   In the following functions, `$1` is the base path to start traversal
 _fzf_compgen_path() {
     fd --hidden --follow . "$1"
 }
@@ -107,7 +100,7 @@ _fzf_compgen_dir() {
     fd --hidden --follow --type d . "$1"
 }
 
-# Advanced customization of fzf options via _fzf_comprun function
+# Enable the preview when using fzf with `cd` or `c` (aliased to `cd`)
 _fzf_comprun() {
     local command=$1
     shift
@@ -141,6 +134,6 @@ export FZF_COMPLETION_DIR_COMMANDS='
 # Set up shell integration (key bindings & fuzzy completion)
 source <(fzf --zsh)
 
-# Since above is defined a custom keybinding for completion, remapping `^I` is necessary to keep it as regular completion
+# Since above is defined a custom keybinding for completion, remapping <C-i> is necessary to keep it as regular completion
 # shellcheck disable=SC2154
 bindkey '^i' "$fzf_default_completion"
