@@ -551,16 +551,6 @@
                         },
                         {
                             "from": {
-                                "key_code": "left_control"
-                            },
-                            "to": [
-                                {
-                                    "key_code": "tab"
-                                }
-                            ]
-                        },
-                        {
-                            "from": {
                                 "key_code": "left_option"
                             },
                             "to": [
@@ -606,16 +596,6 @@
                             "to": [
                                 {
                                     "consumer_key_code": "mute"
-                                }
-                            ]
-                        },
-                        {
-                            "from": {
-                                "key_code": "right_control"
-                            },
-                            "to": [
-                                {
-                                    "key_code": "right_control"
                                 }
                             ]
                         },
