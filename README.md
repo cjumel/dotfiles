@@ -28,7 +28,8 @@ git clone --depth=1 https://github.com/clementjumel/dotfiles.git ~/dotfiles
 ```
 
 The target directory name, `dotfiles`, can be changed, but the directory needs to be located in your
-home directory `~/` for Stow to work.
+home directory `~/` for Stow to work. Out of simplicity, in the rest of the documentation, I'll
+assume that the repository is cloned in `~/dotfiles`.
 
 If you don't want to use Stow, you can clone the repository in any directory of your choice. In that
 case, you can also skip the following section, but you'll need to:

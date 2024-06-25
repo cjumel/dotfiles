@@ -1,25 +1,49 @@
 # [Karabiner-Elements](https://karabiner-elements.pqrs.org/)
 
-Karabiner is a very powerful tool for MacOS to change the behavior of keyboards. It is essential in
-my workflow in order to:
+Karabiner is an amazing tool for MacOS, enabling simple but powerful system-wide keyboard behavior
+customization. It is essential in my workflow in order to:
 
-- make my non-Apple keyboard behave exactly like an Apple keyboard to make all my keyboards
-  consistent with each other
-- switch some important keys with less important ones to make the former more accessible
-- simplify some key combinations to perform less key strokes or to perform them more easily
+- make some essential keys easier to access (I typically made the control and escape keys a lot
+  simpler to access while not losing any other key, by mapping combination of caps lock and any key
+  to control and the key, caps lock used alone to escape, and combination of shift and caps lock to
+  actual caps lock; in my opinion, this is a really game changer)
 
-Since I'm working a lot within my terminal, I also define some keybindings directly in my terminal
-setup, which you can fine [here](/.config/wezterm/).
+- simplify typing some character (e.g. I made typing the `~` character only take two key strokes
+  instead of three)
 
-**Install:**
+- make my non-Apple keyboard behave exactly like an Apple keyboard (e.g. I fixed the modifiers keys,
+  as well as some function keys and special characters)
 
-Karabiner only needs to be installed on my machine, a Macbook.
+Since I'm working a lot within my terminal, I also defined some keybindings directly in the set up
+of my terminal, Wezterm, which you can fine [here](/.config/wezterm/).
 
-<details>
-<summary>MacOS</summary>
+## Install
+
+Karabiner can be installed on MacOS with the following command:
 
 ```shell
 brew install --cask karabiner-elements
 ```
 
-</details>
+## Configuration
+
+If you used the `stow` command described in the main [README.md](/README.md) file, Karabiner should
+be already set up with all my custom mappings.
+
+Otherwise, to manually set up some of my mappings, create a symbolic link from the
+`.config/karabiner/assets` directory to `~/.config/karabiner/assets` with the following command:
+
+```shell
+ln -s ~/dotfiles/.config/karabiner/assets ~/.config/karabiner/assets
+```
+
+Then, open the Karabiner-Elements GUI, and import any desired rule in the "Complex Modifications"
+section.
+
+Or, to set up all my mappings without using `stow`, you can create a symbolic link from the
+`.config/karabiner/karabiner.json` file to `~/.config/karabiner/karabiner.json` with the following
+comaand:
+
+```shell
+ln -s ~/dotfiles/.config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
+```
