@@ -1,64 +1,62 @@
 # Dotfiles
 
+This repository contains most of my personal configuration files for the different tools I use.
+
 ## Requirements
 
-To make these configuration files directly usable, you simply need:
+To use these configuration files, you need:
 
-- [Git](https://git-scm.com/) to clone this repository
-- [GNU Stow](https://www.gnu.org/software/stow/) to manage the symbolic links automatically
+- [Git](https://git-scm.com/), to clone this repository
+- (optional) [GNU Stow](https://www.gnu.org/software/stow/), if you want to set up all the
+  configuration files at once with a single command **(this might not be recommended for everyone,
+  see details below)**
+- (optional) [GNU Make](https://www.gnu.org/software/make/), if you want to use Stow with the
+  recommended commands and some additional set up
 
-**Install:**
-
-<details>
-<summary>MacOS</summary>
-
-```shell
-brew install git
-brew install stow
-```
-
-</details>
-<details>
-<summary>Linux</summary>
-
-```shell
-apt install git
-apt install stow
-```
-
-</details>
+Refer to the documentation of each requirement for installation instructions depending on your
+operating system, but they should typically be installable with `brew install` on MacOS or
+`apt install` on Ubuntu.
 
 ## Usage
 
-After the installation of the requirements, you can setup the configuration files with the following
-commands:
+### Cloning the repository
+
+Once you have installed the requirements if needed, you can clone this repository with:
 
 ```shell
-# you can change the target directory name, but it needs to be in `~/` for stow to work
-git clone https://github.com/clementjumel/dotfiles.git ~/dotfiles
-cd ~/dotfiles
-make
+git clone --depth=1 https://github.com/clementjumel/dotfiles.git ~/dotfiles
 ```
 
-This will:
+The target directory name, `dotfiles`, can be changed, but the directory needs to be located in your
+home directory `~/` for Stow to work.
 
-- clone this repository in `~/dotfiles` (or in a directory of your choice)
-- create symbolic links in `~/.config` for all the configuration files with Stow
-- create additional symbolic links for terminal-wide theme management (shared theme between WezTerm,
-  Tmux and Neovim)
+If you don't want to use Stow, you can clone the repository in any directory of your choice. In that
+case, you can also skip the following section, but you'll need to:
 
-However, this will **not**:
+- install any software you want to use
+- set up the configuration files manually, for instance by creating symbolic links
 
-- install any software, this depends on your operating system and needs to be done manually
-- setup the configuration files for Neovim as they are versionned in a different repository
+You can look for further instruction in the `README.md` files of this repository and the tools'
+documentations.
 
-During the `make` command, if any file exists where Stow wants to create a symbolic link, Stow will
-fail. In that case, you can simply remove or rename the conflicting files and run `make` again.
-Alternatively, to adopt in this repository the conflicting files instead, you can run the `stow`
-command from the `Makefile` manually with the additional `--adopt` flag.
+### Creating symbolic links using Stow and Make
 
-The `make` command can also be re-used safely to update the symbolink links, for instance when a new
-configuration file is added.
+Using Stow will automatically create most of the relevant symbolic links to the configuration files
+in this repository. This is convenient if you want to use all the configuration files (which is my
+case), but this might not be what you want, and, more importantly, this might mess up existing
+configuration files. **Hence, I recommend to use Stow only if you want the whole configuration and
+if you have backed up all your important configuration files, by creating local copies or, even
+better, by versionning them with a Version Control System like Git.**
+
+I recommand to use `stow` through the `Makefile` provided in this repository with the `make` command
+from within the `~/dotfiles` directory, as it contains the right `stow` command as well as
+additional set up. This will create all the relevant symbolic links in your home directory `~/` and
+in sub-directories of `~/.config`, replacing any conflicting configuration file. The content of any
+replaced configuration files will not be lost, though, it will be adopted by the linked file. If you
+want to discard the replaced configuration, you need to discard these changes in the `~/dotfiles`
+directory (but make sure any change you discard is not important or is backed up somewhere).
+However, calling the `make` command will **not** install any software, this depends on your
+operating system and needs to be done manually for each relevant tool.
 
 ## Content
 
