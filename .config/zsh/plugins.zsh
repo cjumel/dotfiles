@@ -14,10 +14,15 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -a1 --color=always $rea
 
 # [[ Zsh standard plugins ]]
 # A few standard plugins for zsh, enabling syntax highlighting (show valid/invalid commands, paths, etc.), autosuggestions (suggest
-# commands in ghost text based on command history) & additional tool completions (e.g. for `pre-commit`)
+#   commands in ghost text based on command history) & additional tool completions (e.g. for `pre-commit`)
 
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 
-bindkey "^[^M" autosuggest-accept # Actually <C-CR> on my keyboard
+# Define keymaps for zsh-autosuggestions
+# The keymaps are chosen to be similar to what I use with Copilot in Neovim, except for the use of <Tab> which is reserved for shell
+#   completion
+# "forward-word" or "forward-char" can be used when a suggestion is available to accept a word or character respectively
+bindkey "^]" autosuggest-accept # Like "accept line" in Copilot
+bindkey "^[^M" forward-word     # Actually <C-CR> on my keyboard; like "accept word" in Copilot
