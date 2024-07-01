@@ -1,5 +1,10 @@
 # The documentation for the different settings can be found here: https://starship.rs/config/
 
+# The `add_new_line` behavior is implemented manually in `./starship.zsh` rather than directly in 
+# Starship, to work around an issue where a new line is added at the top of the buffer when entering 
+# a terminal or clearing it
+add_newline = false
+
 # Format of the prompt, referencing the different starship modules
 # `$fill` can be used to add modules on the right-hand-side of the prompt
 # `$all` can be used to add every module not included yet
