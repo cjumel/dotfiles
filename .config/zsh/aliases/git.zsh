@@ -173,14 +173,13 @@ alias gwr='git worktree remove' # Worktree remove: delete a worktree
 #   - it's in my opinion the proper term for discarding changes in Git
 #   - it reduces the burden on the "gr" & "gc" aliases, as alternatives would involve "git restore" or "git clean"
 
-alias gx='git restore'       # Discard: throw away the unstaged changes of the targeted file(s)
-alias gxt='git restore :/'   # Discard tracked: throw away the unstaged changes of all tracked files
-alias gxu='git clean -dn'    # Discard untracked: dry-run to discard untracked, not ignored files
-alias gxuf='git clean -df'   # Discard untracked force: actually discard untracked, not ignored files
-alias gxui='git clean -di'   # Discard intracked interactive: interactively discard untracked, not ignored files
-alias gxua='git clean -dxn'  # Discard untracked all: dry-run to discard all untracked files
-alias gxuaf='git clean -dxf' # Discard untracked all force: actually discard all untracked files
-alias gxuai='git clean -dxi' # Discard untracked all interactive: interactively discard all untracked files
+alias gx='git restore'                     # Discard: discard the unstaged changes of the targeted file(s)
+alias gxt='git restore :/'                 # Discard tracked: discard the unstaged changes of all tracked files
+alias gxu='git clean -dfq'                 # Discard untracked: discard all untracked but not ignored files
+alias gxa='git restore :/; git clean -dfq' # Discard all: discard the unstaged changes of all tracked files & discard all untracked but not ignored files
+alias gxi='git clean -dXf'                 # Discard ignored: discard all ignored files
+alias gxin='git clean -dXn'                # Discard ignored dry-run: dry-run to discard all ignored files
+alias gxii='git clean -dXi'                # Discard ignored interactive: interactively discard all ignored files
 
 # [[ Stash ]]
 # I use the "gz" prefix to avoid any conflict with `git stage` which I use a lot & to be consistent with Neogit
