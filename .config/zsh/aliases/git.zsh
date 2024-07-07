@@ -152,8 +152,12 @@ alias gua='git restore --staged :/' # Unstage all: remove from the staging area 
 # [[ Revert ]]
 # I use the "gv" prefix to decrease the amount of "gr"-prefix aliases & to be consistent with Neogit
 
+function git_revert_last() {
+    git revert --no-commit HEAD~"$1"..
+    git commit
+}
 alias gv='git revert'       # Revert: create a new commit to undo the targeted commit
-alias gvl='git revert HEAD' # Revert: create a new commit to undo the last commit
+alias gvl='git_revert_last' # Revert last: create a new commit to undo a number of the last commits (default to 1)
 
 alias gva='git revert --abort'    # Revert abort: stop a revert in progress
 alias gvc='git revert --continue' # Revert continue: resume a revert in progress
