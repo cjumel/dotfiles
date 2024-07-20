@@ -1,8 +1,10 @@
 # [[ Status ]]
 
-alias g='git status --show-stash' # Show the status of the git repository, including about the stash
-alias gg='g'                      # Alias to `g`, for when the key is sticky
-alias ggg='g'                     # Alias to `g`, for when the key is sticky
+alias g='git status --show-stash' # Show the status of the repository
+alias gg='g'                      # Aliased to `g`, for when the key is sticky
+alias ggg='g'                     # Aliased to `g`, for when the key is sticky
+alias gggg='g'                    # Aliased to `g`, for when the key is sticky
+alias ggggg='g'                   # Aliased to `g`, for when the key is sticky
 
 # [[ Branch ]]
 
@@ -20,12 +22,12 @@ alias gclb='git clone --bare' # Clone bare: clone a repository as a bare reposit
 
 # [[ Commit ]]
 
-# Add a "c" for create, for consistency with Neogit & to avoid conflicts with other `gc` aliases
+# Add a "c" like "create" for consistency with Neogit & to avoid conflicts with other `gc` aliases
 alias gcc='git commit'              # Commit create: create a regular commit
-alias gccf='git commit --no-verify' # Commit create: create a regular commit without running Git hooks
+alias gccf='git commit --no-verify' # Commit create force: create a regular commit without running hooks
 
 alias gca='git commit --amend'              # Commit amend: add staged changes to last commit
-alias gcaf='git commit --amend --no-verify' # Commit amend force: add staged changes to last commit without running Git hooks
+alias gcaf='git commit --amend --no-verify' # Commit amend force: add staged changes to last commit without running hooks
 
 function git_commit_fixup() {
     git reset --message "fixup! $1"
@@ -34,10 +36,10 @@ function git_commit_fixup_force() {
     git reset --message "fixup! $1" --no-verify
 }
 alias gcf='git_commit_fixup'        # Commit fixup: create a fixup commit
-alias gcff='git_commit_fixup_force' # Commit fixup force: create a fixup commit without running Git hooks
+alias gcff='git_commit_fixup_force' # Commit fixup force: create a fixup commit without running hooks
 
-alias gcw='git commit --message "🚧 WIP [skip ci]"'              # Commit WIP: create a WIP commit not triggering any CI stuff
-alias gcwf='git commit --message "🚧 WIP [skip ci]" --no-verify' # Commit WIP force: create a WIP commit not triggering any CI stuff without running Git hooks
+alias gcw='git commit --message "🚧 WIP [skip ci]"'              # Commit WIP: create a WIP commit
+alias gcwf='git commit --message "🚧 WIP [skip ci]" --no-verify' # Commit WIP force: create a WIP commit without running hooks
 
 # [[ Diff ]]
 
@@ -67,7 +69,7 @@ alias gpl='git pull' # Pull: download objects and refs from the remote repositor
 
 alias gps='git push'                  # Push: upload the current branch to the remote repository
 alias gpsf='git push --force'         # Push force: upload the current branch to the remote repository & overwrite any conflicting changes
-alias gpsu='git push --set-upstream'  # Push upstream: upload the current branch to the remote repository and set the relevant upstream if neede (not needed if `autoSetupRemote` is `true`)
+alias gpsu='git push --set-upstream'  # Push upstream: upload the current branch to the remote repository and set the relevant upstream if needed
 alias gpst='git push --tags'          # Push tags: upload the current branch & all local tags to the remote repository
 alias gpsd='git push --delete origin' # Push delete: delete the listed ref (e.g. tag) from the remote repository
 
@@ -115,11 +117,8 @@ alias grsh='git reset --hard'     # Reset hard: undo & discard the changes of th
 alias grshl='git_reset_hard_last' # Reset hard last: undo & discard the changes of a number of the last commits (default to 1)
 
 # [[ Stage ]]
-# I prefer `git stage` over `git add` for several reasons:
-#   - in Gitsigns & Neogit I use "stage" as well, so this is consistent with that ("a", like "add", cannot be used properly with Gitsigns
-#       in visual mode with Hydra, due to conflicts with "arround" text-objects)
-#   - it's the proper term for staging changes in Git
-#   - it goes well with the "unstage" alias I define below & which is used in Gitsigns & Neogit
+# I prefer `git stage` over `git add` to add changes to the staging area out of consistency with my Neovim keymaps (for technical reasons,
+# "a" can't be used as nicely as "s" in git-related keymaps) and because I find this wording a bit clearer
 
 alias gs='git stage'           # Stage: add the targeted files' changes to the staging area
 alias gsu='git stage --update' # Stage update: add the tracked files' changes to the staging area
@@ -127,7 +126,7 @@ alias gsa='git stage --all'    # Stage all: add all files' changes to the stagin
 
 # [[ Show ]]
 
-alias gso='git show' # Show: give details on the targeted object (commit, tag, etc.)
+alias gsh='git show' # Show: give details on the targeted object (commit, tag, etc.)
 
 # [[ Switch ]]
 
@@ -141,16 +140,14 @@ alias gt='git tag'           # Tag: create a local tag
 alias gtd='git tag --delete' # Tag delete: delete a local tag
 
 # [[ Unstage ]]
-# `git unstage` is not an actual command, but I introduced it for several reasons:
-#  - in Gitsigns & Neogit I use "unstage" as well, so this is consistent with that
-#  - since theere is a "git stage" command, it makes sense to have a corresponding "git unstage" alias
-#  - it reduces the burden on the "gr" aliases, as alternatives would involve "git restore" or "git reset"
+# `git unstage` is not an actual git command, but I introduced it out of consistency with my Neovim keymaps and because it's a nice &
+# simple feature
 
 alias gu='git restore --staged'     # Unstage: remove from the staging area the targeted files' changes
 alias gua='git restore --staged :/' # Unstage all: remove from the staging area all the changes
 
 # [[ Revert ]]
-# I use the "gv" prefix to decrease the amount of "gr"-prefix aliases & to be consistent with Neogit
+# I use the "gv" prefix for `git revert` out of consistency with my Neovim keymaps & to decrease the number of "gr"-prefix aliases
 
 function git_revert_last() {
     git revert --no-commit HEAD~"$1"..
@@ -164,7 +161,6 @@ alias gvc='git revert --continue' # Revert continue: resume a revert in progress
 alias gvs='git revert --skip'     # Revert skip: skip a commit during a revert in progress
 
 # [[ Worktree ]]
-# I don't use worktrees, but I gave it a try at some point so I'm keeping the aliases just in case they become handy again
 
 alias gw='git worktree'         # Worktree: base command for Git worktrees
 alias gwa='git worktree add'    # Worktree add: create a new worktree
@@ -172,10 +168,8 @@ alias gwl='git worktree list'   # Worktree list: list all existing worktrees
 alias gwr='git worktree remove' # Worktree remove: delete a worktree
 
 # [[ Discard ]]
-# `git discard` is not an actual command, but I introduced it for several reasons:
-#   - in Gitsigns & Neogit I use "x" for discard as well, so this is consistent with that
-#   - it's in my opinion the proper term for discarding changes in Git
-#   - it reduces the burden on the "gr" & "gc" aliases, as alternatives would involve "git restore" or "git clean"
+# `git discard` is not an actual git command, but I introduced it out of consistency with my Neovim keymaps and because it's a nice &
+# simple feature
 
 alias gx='git restore'                     # Discard: discard the unstaged changes of the targeted file(s)
 alias gxt='git restore :/'                 # Discard tracked: discard the unstaged changes of all tracked files
@@ -186,7 +180,7 @@ alias gxin='git clean -dXn'                # Discard ignored dry-run: dry-run to
 alias gxii='git clean -dXi'                # Discard ignored interactive: interactively discard all ignored files
 
 # [[ Stash ]]
-# I use the "gz" prefix to avoid any conflict with `git stage` which I use a lot & to be consistent with Neogit
+# I use the "gz" prefix for `git stash` out of consistency with my Neovim keymaps & to decrease the number of "gs"-prefix aliases
 
 alias gz='git stash'                      # Stash: move local changes in tracked files to the stash
 alias gzu='git stash --include-untracked' # Stash with untracked: move local changes in tracked & untracked files to the stash
