@@ -43,6 +43,31 @@ function M.set_actions()
     overrides.window_background_opacity = new_opacity
     window:set_config_overrides(overrides)
   end)
+
+  -- Blur
+  wezterm.on("increase-blur", function(window, _)
+    local overrides = window:get_config_overrides() or {}
+    local options_ = theme.make_options(options)
+    if not overrides.macos_window_background_blur then
+      overrides.macos_window_background_blur = options_.macos_window_background_blur
+    end
+    local new_blur = overrides.macos_window_background_blur + 5
+    overrides.macos_window_background_blur = new_blur
+    window:set_config_overrides(overrides)
+  end)
+  wezterm.on("decrease-blur", function(window, _)
+    local overrides = window:get_config_overrides() or {}
+    local options_ = theme.make_options(options)
+    if not overrides.macos_window_background_blur then
+      overrides.macos_window_background_blur = options_.macos_window_background_blur
+    end
+    local new_blur = overrides.macos_window_background_blur - 5
+    if new_blur < 0 then
+      new_blur = 0
+    end
+    overrides.macos_window_background_blur = new_blur
+    window:set_config_overrides(overrides)
+  end)
 end
 
 return M

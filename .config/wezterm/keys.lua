@@ -27,6 +27,10 @@ return {
   { key = "t", mods = "CMD", action = act.EmitEvent("increase-transparency") },
   { key = "t", mods = "CMD|SHIFT", action = act.EmitEvent("decrease-transparency") },
 
+  -- Blur
+  { key = "b", mods = "CMD", action = act.EmitEvent("increase-blur") },
+  { key = "b", mods = "CMD|SHIFT", action = act.EmitEvent("decrease-blur") },
+
   -- [[ Fixesd control combinations with special keys ]]
   -- Enable some control keymaps with special characters by sending the right string given an input sequence
   -- This is inspired by https://github.com/wez/wezterm/issues/3180, & for terminal codes supported by Neovim see
