@@ -16,31 +16,16 @@ return {
   { key = "w", mods = "SUPER", action = act.CloseCurrentTab({ confirm = true }) },
 
   -- [[ Custom actions ]]
-  {
-    key = "r",
-    mods = "CMD",
-    action = act.Multiple({ act.EmitEvent("reset-options"), act.ResetFontAndWindowSize }),
-  },
-  {
-    key = "t", -- More transparency
-    mods = "CMD",
-    action = act.EmitEvent("increase-transparency"),
-  },
-  {
-    key = "o", -- More opacity
-    mods = "CMD",
-    action = act.EmitEvent("decrease-transparency"),
-  },
-  {
-    key = "b", -- Bigger font
-    mods = "CMD",
-    action = act.IncreaseFontSize,
-  },
-  {
-    key = "s", -- Smaller font
-    mods = "CMD",
-    action = act.DecreaseFontSize,
-  },
+  -- Reset
+  { key = "r", mods = "CMD", action = act.Multiple({ act.EmitEvent("reset-options"), act.ResetFontAndWindowSize }) },
+
+  -- Font size
+  { key = "f", mods = "CMD", action = act.IncreaseFontSize },
+  { key = "f", mods = "CMD|SHIFT", action = act.DecreaseFontSize },
+
+  -- Transparency
+  { key = "t", mods = "CMD", action = act.EmitEvent("increase-transparency") },
+  { key = "t", mods = "CMD|SHIFT", action = act.EmitEvent("decrease-transparency") },
 
   -- [[ Fixesd control combinations with special keys ]]
   -- Enable some control keymaps with special characters by sending the right string given an input sequence

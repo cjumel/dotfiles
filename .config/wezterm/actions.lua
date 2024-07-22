@@ -8,6 +8,15 @@ local M = {}
 --- Set the custom actions for WezTerm.
 ---@return nil
 function M.set_actions()
+  -- Reset
+  wezterm.on("reset-options", function(window, _)
+    local overrides = window:get_config_overrides() or {}
+    local options_ = theme.make_options(options, { force_reload = true })
+    overrides = utils.concat_dicts({ overrides, options_ })
+    window:set_config_overrides(overrides)
+  end)
+
+  -- Transparency
   wezterm.on("increase-transparency", function(window, _)
     local overrides = window:get_config_overrides() or {}
     local options_ = theme.make_options(options)
@@ -21,7 +30,6 @@ function M.set_actions()
     overrides.window_background_opacity = new_opacity
     window:set_config_overrides(overrides)
   end)
-
   wezterm.on("decrease-transparency", function(window, _)
     local overrides = window:get_config_overrides() or {}
     local options_ = theme.make_options(options)
@@ -33,13 +41,6 @@ function M.set_actions()
       new_opacity = 1.0
     end
     overrides.window_background_opacity = new_opacity
-    window:set_config_overrides(overrides)
-  end)
-
-  wezterm.on("reset-options", function(window, _)
-    local overrides = window:get_config_overrides() or {}
-    local options_ = theme.make_options(options, { force_reload = true })
-    overrides = utils.concat_dicts({ overrides, options_ })
     window:set_config_overrides(overrides)
   end)
 end
