@@ -51,7 +51,23 @@ alias lns='ln -s'                  # Create a symbolic link
 alias lnsf='ln -sf'                # Create a symbolic link, overwriting the target if it exists
 alias lnsc="clean_broken_symlinks" # Clean broken symlinks in the target directory (default to current directory)
 
-alias ma='man'
+# Call the man page on the content of an alias
+# This function will replace white spaces in the alias content (e.g. "git status") by hyphens (e.g. making the previous example
+# "git-status"), as this is how `man` deals with sub-commands
+function man_alias() {
+    alias_definition=$(alias "$1") # Of the form "l=ls" or "l='ls'" (without the surrounding double quotes)
+    alias_length=${#1}             # Length of the alias itself (e.g. 1 for "l=ls")
+
+    alias_content="${alias_definition:$alias_length+1}" # Remove the alias definition prefix (e.g. "l=")
+    alias_content="${alias_content%\'}"                 # Remove the trailing single quote if any
+    alias_content="${alias_content#\'}"                 # Remove the leading single quote if any
+    alias_content=$(echo "$alias_content" | tr " " "-") # Replace white spaces by hyphens
+
+    man "$alias_content"
+}
+
+alias ma='man'        # [MA]n: show the manual page of a command
+alias maa='man_alias' # [MA]n [A]lias: show the manual page of the content of an alias
 
 alias md='mkdir'
 alias mdp='mkdir -p'
