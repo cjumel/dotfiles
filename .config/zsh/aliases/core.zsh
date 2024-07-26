@@ -92,6 +92,11 @@ alias v='vi'  # Open Vi editor (or any editor aliased to "vi")
 alias vv='v'  # Alias to `v`, for when the key is sticky
 alias vvv='v' # Alias to `v`, for when the key is sticky
 
+alias wi='which' # [W]h[I]ch: locate a program in the user's path
+
+alias we='whence'     # [W]h[E]nce: show how a command would be interpreted
+alias wef='whence -f' # [W]h[E]nce [F]unction: show the function definition of a command
+
 # List all custom terminal-level hidden mappings (meaning they cannot be seen otherwise simply by typing them)
 function which_key_custom() {
     echo "<C-[> corresponds to <C-^> on my keyboard (equivalent to escape)"
@@ -102,7 +107,5 @@ function which_key_custom() {
     echo "<C-_> corresponds to <C-;> on my keyboard (same as <C-/>)"
 }
 
-alias wi='which'             # Which: locate a program in the user's path
-alias we='whence'            # Whence: show how a command would be interpreted
-alias wk='/bin/cat -v'       # Which key: show interactively which key code is received by the terminal when typing keys
-alias wkc='which_key_custom' # Which key custom: show the custom terminal-level mappings
+alias wk='/bin/cat -v'       # [W]hich [K]ey: show interactively which key code is received by the terminal when typing keys
+alias wkc='which_key_custom' # [W]hich [K]ey [C]ustom: show the custom terminal-level mappings
