@@ -1,10 +1,10 @@
 # [[ Status ]]
 
-alias g='git status --show-stash' # Show the status of the repository
-alias gg='g'                      # Aliased to `g`, for when the key is sticky
-alias ggg='g'                     # Aliased to `g`, for when the key is sticky
-alias gggg='g'                    # Aliased to `g`, for when the key is sticky
-alias ggggg='g'                   # Aliased to `g`, for when the key is sticky
+alias g='git status' # Show the status of the repository
+alias gg='g'         # Aliased to `g`, for when the key is sticky
+alias ggg='g'        # Aliased to `g`, for when the key is sticky
+alias gggg='g'       # Aliased to `g`, for when the key is sticky
+alias ggggg='g'      # Aliased to `g`, for when the key is sticky
 
 # [[ Branch ]]
 
