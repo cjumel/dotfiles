@@ -1,8 +1,10 @@
 extends: default
 
 rules:
+  comments:
+    min-spaces-from-content: 1 # For Prettier compatibility
   document-start: disable
   line-length:
     max: 100
   truthy:
-    check-keys: false  # Conflict with GitHub action's "on" key
+    check-keys: false # Conflict with GitHub action's "on" key
