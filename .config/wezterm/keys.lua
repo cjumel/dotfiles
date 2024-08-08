@@ -2,34 +2,39 @@
 
 local wezterm = require("wezterm")
 
-local act = wezterm.action
-
 return {
 
   -- [[ Default actions ]]
-  { key = "e", mods = "SUPER", action = act.ToggleFullScreen },
-  { key = "h", mods = "SUPER", action = act.HideApplication },
-  { key = "m", mods = "SUPER", action = act.Hide },
-  { key = "n", mods = "SUPER", action = act.SpawnWindow },
-  { key = "q", mods = "SUPER", action = act.QuitApplication },
-  { key = "v", mods = "SUPER", action = act.PasteFrom("Clipboard") },
-  { key = "w", mods = "SUPER", action = act.CloseCurrentTab({ confirm = true }) },
+  { key = "e", mods = "SUPER", action = wezterm.action.ToggleFullScreen },
+  { key = "h", mods = "SUPER", action = wezterm.action.HideApplication },
+  { key = "m", mods = "SUPER", action = wezterm.action.Hide },
+  { key = "n", mods = "SUPER", action = wezterm.action.SpawnWindow },
+  { key = "q", mods = "SUPER", action = wezterm.action.QuitApplication },
+  { key = "v", mods = "SUPER", action = wezterm.action.PasteFrom("Clipboard") },
+  { key = "w", mods = "SUPER", action = wezterm.action.CloseCurrentTab({ confirm = true }) },
 
   -- [[ Custom actions ]]
   -- Reset
-  { key = "r", mods = "CMD", action = act.Multiple({ act.EmitEvent("reset-options"), act.ResetFontAndWindowSize }) },
+  {
+    key = "r",
+    mods = "CMD",
+    action = wezterm.action.Multiple({
+      wezterm.action.EmitEvent("reset-options"),
+      wezterm.action.ResetFontAndWindowSize,
+    }),
+  },
 
   -- Font size
-  { key = "f", mods = "CMD", action = act.IncreaseFontSize },
-  { key = "f", mods = "CMD|SHIFT", action = act.DecreaseFontSize },
+  { key = "f", mods = "CMD", action = wezterm.action.IncreaseFontSize },
+  { key = "f", mods = "CMD|SHIFT", action = wezterm.action.DecreaseFontSize },
 
   -- Transparency
-  { key = "t", mods = "CMD", action = act.EmitEvent("increase-transparency") },
-  { key = "t", mods = "CMD|SHIFT", action = act.EmitEvent("decrease-transparency") },
+  { key = "t", mods = "CMD", action = wezterm.action.EmitEvent("increase-transparency") },
+  { key = "t", mods = "CMD|SHIFT", action = wezterm.action.EmitEvent("decrease-transparency") },
 
   -- Blur
-  { key = "b", mods = "CMD", action = act.EmitEvent("increase-blur") },
-  { key = "b", mods = "CMD|SHIFT", action = act.EmitEvent("decrease-blur") },
+  { key = "b", mods = "CMD", action = wezterm.action.EmitEvent("increase-blur") },
+  { key = "b", mods = "CMD|SHIFT", action = wezterm.action.EmitEvent("decrease-blur") },
 
   -- [[ Fixesd control combinations with special keys ]]
   -- Enable some control keymaps with special characters by sending the right string given an input sequence
