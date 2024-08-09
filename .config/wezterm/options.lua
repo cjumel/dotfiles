@@ -13,6 +13,7 @@ config.hide_tab_bar_if_only_one_tab = true -- No tab bar if only one tab
 config.window_decorations = "RESIZE" -- No title bar but allow resizing nonetheless
 config.initial_cols = 156
 config.initial_rows = 42
+config.window_close_confirmation = "NeverPrompt" -- Don't ask for confirmation when closing with Cmd+q
 
 -- Font
 -- I don't use the bundled font as I had some issues with it regarding inconsistent icon sizes
