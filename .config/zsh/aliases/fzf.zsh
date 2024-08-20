@@ -10,6 +10,7 @@ kanagawa-lotus
 kanagawa-wave
 nord
 onedark
+onelight
 rose-pine-dawn
 rose-pine-main
 rose-pine-moon
