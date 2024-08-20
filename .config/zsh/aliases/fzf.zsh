@@ -8,6 +8,8 @@ gruvbox-light
 kanagawa-dragon
 kanagawa-lotus
 kanagawa-wave
+nord
+onedark
 rose-pine-dawn
 rose-pine-main
 rose-pine-moon
