@@ -15,6 +15,7 @@ $git_commit\
 $git_state\
 ${custom.git_changes}\
 $git_status\
+$jobs\
 $fill\
 $python\
 $cmd_duration\
@@ -63,8 +64,12 @@ style = "bold purple"
 ahead = "⇡"
 behind = "⇣"
 diverged = "⇡⇣"
-format = '([$ahead_behind$stashed]($style)) ' # $ahead_behind refers to $ahead, $behind, $diverged
+format = '([$ahead_behind$stashed]($style))' # $ahead_behind refers to $ahead, $behind, $diverged
 stashed = "≡"
+style = "red bold"
+
+[jobs]
+number_threshold = 999 # In practice never show the number of jobs
 style = "red bold"
 
 [python]
