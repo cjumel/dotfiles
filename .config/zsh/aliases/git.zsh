@@ -26,8 +26,10 @@ alias gclb='git clone --bare' # Clone bare: clone a repository as a bare reposit
 alias gcc='git commit'              # Commit create: create a regular commit
 alias gccf='git commit --no-verify' # Commit create force: create a regular commit without running hooks
 
-alias gca='git commit --amend'              # Commit amend: add staged changes to last commit
-alias gcaf='git commit --amend --no-verify' # Commit amend force: add staged changes to last commit without running hooks
+alias gca='git commit --amend'                         # Commit amend: add staged changes to last commit
+alias gcaf='git commit --amend --no-verify'            # Commit amend force: add staged changes to last commit without running hooks
+alias gcan='git commit --amend --no-edit'              # Commit amend no-edit: add staged changes to last commit without editing the commit message
+alias gcanf='git commit --amend --no-edit --no-verify' # Commit amend no-edit force: add staged changes to last commit without editing the commit message & without running hooks
 
 function git_commit_fixup() {
     git reset --message "fixup! $1"
