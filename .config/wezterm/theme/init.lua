@@ -17,7 +17,7 @@ function M.make_options(options, opts)
 
   local ok, theme = pcall(require, "theme.current")
   if not ok then -- The theme symlink is missing
-    theme = require("theme.catppuccin-mocha") -- Default theme
+    theme = require("theme.default") -- Default theme
   end
   return utils.concat_dicts({ options, theme })
 end

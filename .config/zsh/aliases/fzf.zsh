@@ -1,5 +1,6 @@
 # List all themes available (default one then in alphabetical order)
-TERMINAL_THEMES='catppuccin-mocha
+TERMINAL_THEMES='default
+catppuccin-mocha
 catppuccin-frappe
 catppuccin-macchiato
 catppuccin-latte
