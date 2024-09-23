@@ -29,11 +29,4 @@ config.send_composed_key_when_left_alt_is_pressed = true
 -- Disable default key bindings as I don't use most of them & some are conflicting with my own
 config.disable_default_key_bindings = true
 
--- Set the leader key
-config.leader = {
-  key = " ",
-  mods = "OPT",
-  timeout_milliseconds = 1000,
-}
-
 return config
