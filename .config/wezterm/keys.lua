@@ -36,6 +36,9 @@ return {
   { key = "b", mods = "CMD", action = wezterm.action.EmitEvent("increase-blur") },
   { key = "b", mods = "CMD|SHIFT", action = wezterm.action.EmitEvent("decrease-blur") },
 
+  -- Ligatures
+  { key = "l", mods = "CMD", action = wezterm.action.EmitEvent("toggle-ligatures") },
+
   -- [[ Fixesd control combinations with special keys ]]
   -- Enable some control keymaps with special characters by sending the right string given an input sequence
   -- This is inspired by https://github.com/wez/wezterm/issues/3180, & for terminal codes supported by Neovim see

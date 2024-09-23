@@ -68,6 +68,17 @@ function M.set_actions()
     overrides.macos_window_background_blur = new_blur
     window:set_config_overrides(overrides)
   end)
+
+  -- Ligatures
+  wezterm.on("toggle-ligatures", function(window, _)
+    local overrides = window:get_config_overrides() or {}
+    if #overrides.harfbuzz_features == 0 then
+      overrides.harfbuzz_features = { "calt=0", "clig=0", "liga=0" } -- Don't use ligatures
+    else
+      overrides.harfbuzz_features = {} -- Use ligatures
+    end
+    window:set_config_overrides(overrides)
+  end)
 end
 
 return M
