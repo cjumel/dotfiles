@@ -7,10 +7,8 @@ function nvim_contextual() {
     fi
 }
 
-alias vi='nvim_contextual'                           # Open Neovim with contextual setup
-alias vic='nvim --clean'                             # Open a clean Neovim instance, without any user configuration
-alias vil='nvim_contextual -c":e#<1"'                # Open Neovim on the last edited file
-alias vin='nvim -c "Neogit"'                         # Open directly Neogit in Neovim
-alias vis='nvim'                                     # Open Neovim and skip contextual setup
-alias vix='echo "Would remove ~/.local/share/nvim/"' # Dry-run for deleting Neovim local files (not configuration files)
-alias vixf='rm -rf ~/.local/share/nvim/'             # Delete Neovim local files (not configuration files); useful to re-install Neovim from scratch
+alias vi='nvim_contextual'              # Open Neovim with contextual setup
+alias vic='nvim --clean'                # [C]lean: open Neovim without any custom configuration
+alias vil='NVIM_LIGHT_MODE=true nvim'   # [L]ight: open Neovim in light mode
+alias vis='nvim'                        # [S]kip: open Neovim but skip contextual setup
+alias vix='rm -rf ~/.local/share/nvim/' # Discard: delete Neovim local files (not configuration files); useful to re-install Neovim from scratch
