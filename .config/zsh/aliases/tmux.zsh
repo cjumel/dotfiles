@@ -1,18 +1,24 @@
-alias tm='tmux' # Base Tmux command, create a new unnamed session when used alone
+# Change the behavior of the default `tmux new` command, which name sessions with "0", "1", "2", etc. by default, to use the current
+# directory name instead
+function tmux_new() {
+    session_name=$(basename "$PWD") # Name of the current directory
+    tmux new-session -s "$session_name"
+}
 
-alias tma='tmux attach'     # Attach: attach to a target session or the last one when used alone
-alias tmat='tmux attach -t' # Attach target: attach to a session by name
+alias tm='tmux_new' # Create a new session named using the current directory name (shortcut for `tmux new`)
 
-alias tmd='tmux detach' # Detach: detach from the current session but don't kill it
+alias tma='tmux attach'     # [A]ttach: attach to the most recently used session
+alias tmat='tmux attach -t' # [A]ttach [T]arget: attach to a target session
 
-alias tml='tmux ls' # List: list all existing sessions
+alias tmd='tmux detach' # [D]etach: detach from the current session
 
-alias tmn='tmux new'     # Nex: create a new session, unnamed when used alone
-alias tmns='tmux new -s' # New session: create a new named sessions
+alias tml='tmux ls' # [L]ist: list all running sessions
 
-alias tmk='tmux kill-session'     # Kill: kill an existing session
-alias tmkt='tmux kill-session -t' # Kill target: kill an existing session by name
+alias tmn='tmux_new'     # [N]ew: create a new session named using the current directory name
+alias tmns='tmux new -s' # [N]ew [S]ession: create a new named session
 
-alias tmK='tmux kill-server' # Kill server: kill the Tmux server
+alias tmk='tmux kill-session'     # [K]ill: kill the most recently used session
+alias tmkt='tmux kill-session -t' # [K]ill [T]arget: kill a target session
+alias tmks='tmux kill-server'     # [K]ill [S]erver: kill the Tmux server
 
-alias tmr='tmux rename' # Rename: rename the current session
+alias tmr='tmux rename' # [R]ename: rename the current session
