@@ -19,12 +19,14 @@ zstyle ':fzf-tab:*' fzf-flags \
     --bind 'ctrl-^:forward-word' \
     --bind 'ctrl-_:backward-word'
 
-# Enable preview for a few specific commands
+# Enable directory preview (with `eza`) for the main builtin commands to manipulate files and directories and their third-party counterparts
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -a1 --color=always $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -a1 --color=always $realpath'
+zstyle ':fzf-tab:complete:cp:*' fzf-preview 'eza -a1 --color=always $realpath'
+zstyle ':fzf-tab:complete:du:*' fzf-preview 'eza -a1 --color=always $realpath'
+zstyle ':fzf-tab:complete:dust:*' fzf-preview 'eza -a1 --color=always $realpath'
 zstyle ':fzf-tab:complete:ls:*' fzf-preview 'eza -a1 --color=always $realpath'
 zstyle ':fzf-tab:complete:eza:*' fzf-preview 'eza -a1 --color=always $realpath'
-zstyle ':fzf-tab:complete:cp:*' fzf-preview 'eza -a1 --color=always $realpath'
 zstyle ':fzf-tab:complete:mv:*' fzf-preview 'eza -a1 --color=always $realpath'
 zstyle ':fzf-tab:complete:rm:*' fzf-preview 'eza -a1 --color=always $realpath'
 
