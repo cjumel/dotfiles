@@ -19,16 +19,19 @@ zstyle ':fzf-tab:*' fzf-flags \
     --bind 'ctrl-^:forward-word' \
     --bind 'ctrl-_:backward-word'
 
-# Enable directory preview (with `eza`) for the main builtin commands to manipulate files and directories and their third-party counterparts
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -a1 --color=always $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -a1 --color=always $realpath'
-zstyle ':fzf-tab:complete:cp:*' fzf-preview 'eza -a1 --color=always $realpath'
-zstyle ':fzf-tab:complete:du:*' fzf-preview 'eza -a1 --color=always $realpath'
-zstyle ':fzf-tab:complete:dust:*' fzf-preview 'eza -a1 --color=always $realpath'
-zstyle ':fzf-tab:complete:ls:*' fzf-preview 'eza -a1 --color=always $realpath'
-zstyle ':fzf-tab:complete:eza:*' fzf-preview 'eza -a1 --color=always $realpath'
-zstyle ':fzf-tab:complete:mv:*' fzf-preview 'eza -a1 --color=always $realpath'
-zstyle ':fzf-tab:complete:rm:*' fzf-preview 'eza -a1 --color=always $realpath'
+# Enable directory preview (with `eza`) for the main builtin commands to manipulate files and directories and their third-party
+#   alternatives. This cannot be enabled for all commannds, as it would be annoying for commands which don't accept files or directories
+#   (like `git`, which only accepts sub-commands, like `status`).
+export FZF_TAB_DIR_PREVIEW='eza -a1 --color=always --icons=always --group-directories-first $realpath'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview "$FZF_TAB_DIR_PREVIEW"
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview "$FZF_TAB_DIR_PREVIEW"
+zstyle ':fzf-tab:complete:cp:*' fzf-preview "$FZF_TAB_DIR_PREVIEW"
+zstyle ':fzf-tab:complete:du:*' fzf-preview "$FZF_TAB_DIR_PREVIEW"
+zstyle ':fzf-tab:complete:dust:*' fzf-preview "$FZF_TAB_DIR_PREVIEW"
+zstyle ':fzf-tab:complete:ls:*' fzf-preview "$FZF_TAB_DIR_PREVIEW"
+zstyle ':fzf-tab:complete:eza:*' fzf-preview "$FZF_TAB_DIR_PREVIEW"
+zstyle ':fzf-tab:complete:mv:*' fzf-preview "$FZF_TAB_DIR_PREVIEW"
+zstyle ':fzf-tab:complete:rm:*' fzf-preview "$FZF_TAB_DIR_PREVIEW"
 
 # [[ Zsh standard plugins ]]
 # A few standard plugins for zsh, enabling syntax highlighting (show valid/invalid commands, paths, etc.), autosuggestions (suggest
