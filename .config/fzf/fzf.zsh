@@ -11,8 +11,8 @@ export FZF_FD_DIR_COMMAND_ALL='fd --type d --hidden --no-ignore --exclude .git .
 # Previewers (escaped versions are necessary for transform actions)
 export FZF_FILE_PREVIEW='bat --color=always --line-range=:500 {}'
 export FZF_FILE_PREVIEW_ESCAPED='bat --color=always --line-range=:500 \{}'
-export FZF_DIR_PREVIEW='eza -a1 --color=always {}'
-export FZF_DIR_PREVIEW_ESCAPED='eza -a1 --color=always \{}'
+export FZF_DIR_PREVIEW='eza -a1 --color=always --icons=always --group-directories-first {}'
+export FZF_DIR_PREVIEW_ESCAPED='eza -a1 --color=always --icons=always --group-directories-first \{}'
 
 # General options (keymaps below are defined to be the same as the ones defined in the telescope.nvim)
 export FZF_DEFAULT_COMMAND="$FZF_FD_COMMAND"
@@ -84,15 +84,15 @@ export FZF_ALT_C_OPTS="
 "
 
 # [[ Completion ]]
-# fzf completion is triggered by using specific characters (`**` by default) and <Tab>, or directly with a keybinding.
-#   It is contextual, in some cases it can detect whether a file or a directory is expected.
+# `fzf` completion is triggered by entering specific characters (`**` by default) and <Tab>, or directly with a keybinding
+# It is contextual, in some cases it can detect whether directories are expected or both files and directories
 
 export FZF_COMPLETION_TRIGGER='' # Remove the default trigger character
 bindkey '^[[Z' fzf-completion    # Use <S-Tab> as fzf completion keybinding (<Tab> is kept for regular completion)
 
-# Use fd to generate completion candidates
-#   In this use case, fd doesn't respect the `ignore` file
-#   In the following functions, `$1` is the base path to start traversal
+# Use `fd` to generate completion candidates
+# Here, `fd` doesn't respect the `ignore` file
+# In the following functions, `$1` is the base path to start traversal
 _fzf_compgen_path() {
     fd --hidden --follow . "$1"
 }
@@ -100,24 +100,23 @@ _fzf_compgen_dir() {
     fd --hidden --follow --type d . "$1"
 }
 
-# Enable the preview when using fzf with `cd` or `c` (aliased to `cd`)
+# Enable directory preview (with `eza`) for all `fzf` completion commands, as `fzf` completion only suggests results of `fd`, so only
+#   files and directories, in which case `eza` is always somehow useful
 _fzf_comprun() {
     local command=$1
     shift
 
     case "$command" in
-    c) fzf --preview "$FZF_DIR_PREVIEW" "$@" ;;
-    cd) fzf --preview "$FZF_DIR_PREVIEW" "$@" ;;
-    *) fzf "$@" ;;
+    *) fzf --preview "$FZF_DIR_PREVIEW" "$@" ;;
     esac
 }
 
-# Specify the commands which trigger directory completion for fzf
+# Specify the commands which trigger directory-only completion for `fzf`
+# Let's enable this feature for the main builtin command aliases which only accept directories
 export FZF_COMPLETION_DIR_COMMANDS='
     c
     cd
     cpr
-    du
     l
     la
     ll
