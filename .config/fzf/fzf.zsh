@@ -8,9 +8,15 @@ export FZF_FD_FILE_COMMAND_ALL='fd --type f --hidden --no-ignore --exclude .git 
 export FZF_FD_DIR_COMMAND='fd --type d --hidden .'
 export FZF_FD_DIR_COMMAND_ALL='fd --type d --hidden --no-ignore --exclude .git .'
 
-# Previewers (escaped versions are necessary for transform actions)
-export FZF_FILE_PREVIEW='bat --color=always --line-range=:500 {}'
-export FZF_FILE_PREVIEW_ESCAPED='bat --color=always --line-range=:500 \{}'
+# Previewers (escaped versions are necessary for the transform actions used below)
+# We could use `cat` or `bat` for file preview, to view the content of the file in the preview, with:
+#   export FZF_FILE_PREVIEW='bat --color=always --line-range=:500 {}'
+#   export FZF_FILE_PREVIEW_ESCAPED='bat --color=always --line-range=:500 \{}'
+# Since `bat` will display an error when used on a directory, and there aren't many cases we know for sure only files will be suggested
+#   (only with the <C-t> keymap when looking for files), I prefer to stick with `eza` (used for the directory preview) for the file preview
+#   as well. That way, all preview related to file and directories will be done with `eza`.
+export FZF_FILE_PREVIEW='eza -a1 --color=always --icons=always --group-directories-first {}'
+export FZF_FILE_PREVIEW_ESCAPED='eza -a1 --color=always --icons=always --group-directories-first \{}'
 export FZF_DIR_PREVIEW='eza -a1 --color=always --icons=always --group-directories-first {}'
 export FZF_DIR_PREVIEW_ESCAPED='eza -a1 --color=always --icons=always --group-directories-first \{}'
 
