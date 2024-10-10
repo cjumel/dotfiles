@@ -23,6 +23,8 @@ zstyle ':fzf-tab:*' fzf-flags \
 #   alternatives. This cannot be enabled for all commannds, as it would be annoying for commands which don't accept files or directories
 #   (like `git`, which only accepts sub-commands, like `status`).
 export FZF_TAB_DIR_PREVIEW='eza -a1 --color=always --icons=always --group-directories-first $realpath'
+zstyle ':fzf-tab:complete:cat:*' fzf-preview "$FZF_TAB_DIR_PREVIEW"
+zstyle ':fzf-tab:complete:bat:*' fzf-preview "$FZF_TAB_DIR_PREVIEW"
 zstyle ':fzf-tab:complete:cd:*' fzf-preview "$FZF_TAB_DIR_PREVIEW"
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview "$FZF_TAB_DIR_PREVIEW"
 zstyle ':fzf-tab:complete:cp:*' fzf-preview "$FZF_TAB_DIR_PREVIEW"
