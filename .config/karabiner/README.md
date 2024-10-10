@@ -19,11 +19,10 @@ of my terminal, Wezterm, which you can fine [here](/.config/wezterm/).
 
 ## Install
 
-Karabiner can be installed on MacOS with the following command:
-
-```shell
-brew install --cask karabiner-elements
-```
+I try to avoid installing GUI applications with Homebrew, as I don't really like how the versioning
+can get out of synchronization when updating the application through the GUI (or worse, with
+auto-updates, enabled on many applications). Thus, to install Karabiner, I simply followed the
+[installation guide](https://karabiner-elements.pqrs.org/docs/getting-started/installation/).
 
 ## Configuration
 

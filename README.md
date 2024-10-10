@@ -110,12 +110,22 @@ I use AltTab to improve the builtin Alt-Tab feature of MacOS. It provides nice (
 features, like supporting multiple windows of the same application, or directly interacting with
 applications through AltTab (closing, hiding, etc.)
 
+I try to avoid installing GUI applications with Homebrew, as I don't really like how the versioning
+can get out of synchronization when updating the application through the GUI (or worse, with
+auto-updates, enabled on many applications). Thus, to install AltTab, I simply followed the
+[installation guide](https://alt-tab-macos.netlify.app/).
+
 #### [Raycast](https://www.raycast.com/)
 
 I use Raycast to improve the builtin Cmd-Space feature of MacOS. It provides many useful builtin
 extensions, but also many plugins to integrate it with other applications. It is, for instance, my
 tool of choice for window management (e.g. moving windows between displays, resizing, creating
 splits, etc.)
+
+I try to avoid installing GUI applications with Homebrew, as I don't really like how the versioning
+can get out of synchronization when updating the application through the GUI (or worse, with
+auto-updates, enabled on many applications). Thus, to install Raycast, I simply followed the
+[installation guide](https://www.raycast.com/).
 
 #### [Tldr](https://github.com/tldr-pages/tldr)
 
@@ -124,16 +134,9 @@ It is designed to be complementary to the `man` pages & can replace it in many c
 desired information is not too "niche", but it doesn't aim at replacing it entirely. It is very
 simple to use and I use it without any configuration at all.
 
-##### Install
-
-<details>
-<summary>MacOS</summary>
-
 The `tldr` formula does exist on Homebrew, but the recommanded one is `tlrc`, the official Rust
-client for `tldr`.
+client for `tldr`, so to install `tldr`, I used:
 
 ```shell
 brew install tlrc
 ```
-
-</details>
