@@ -1,10 +1,7 @@
 # [[ Status ]]
 
-alias g='git status' # Show the status of the repository
-alias gg='g'         # Aliased to `g`, for when the key is sticky
-alias ggg='g'        # Aliased to `g`, for when the key is sticky
-alias gggg='g'       # Aliased to `g`, for when the key is sticky
-alias ggggg='g'      # Aliased to `g`, for when the key is sticky
+alias g='git status'          # Show the status of the repository
+alias gg='git status --short' # Show the status of the repository in short format
 
 # [[ Branch ]]
 
@@ -118,6 +115,19 @@ alias grssl='git_reset_soft_last' # Reset soft last: undo but keep staged a numb
 alias grsh='git reset --hard'     # Reset hard: undo & discard the changes of the targeted commit(s), or discard the targeted files' changes
 alias grshl='git_reset_hard_last' # Reset hard last: undo & discard the changes of a number of the last commits (default to 1)
 
+# [[ Revert ]]
+
+function git_revert_last() {
+    git revert --no-commit HEAD~"$1"..
+    git commit
+}
+alias grv='git revert'       # Revert: create a new commit to undo the targeted commit
+alias grvl='git_revert_last' # Revert last: create a new commit to undo a number of the last commits (default to 1)
+
+alias grva='git revert --abort'    # Revert abort: stop a revert in progress
+alias grvc='git revert --continue' # Revert continue: resume a revert in progress
+alias grvs='git revert --skip'     # Revert skip: skip a commit during a revert in progress
+
 # [[ Stage ]]
 # I prefer `git stage` over `git add` to add changes to the staging area out of consistency with my Neovim keymaps (for technical reasons,
 # "a" can't be used as nicely as "s" in git-related keymaps) and because I find this wording a bit clearer
@@ -148,20 +158,6 @@ alias gtd='git tag --delete' # Tag delete: delete a local tag
 alias gu='git restore --staged'     # Unstage: remove from the staging area the targeted files' changes
 alias gua='git restore --staged :/' # Unstage all: remove from the staging area all the changes
 
-# [[ Revert ]]
-# I use the "gv" prefix for `git revert` out of consistency with my Neovim keymaps & to decrease the number of "gr"-prefix aliases
-
-function git_revert_last() {
-    git revert --no-commit HEAD~"$1"..
-    git commit
-}
-alias gv='git revert'       # Revert: create a new commit to undo the targeted commit
-alias gvl='git_revert_last' # Revert last: create a new commit to undo a number of the last commits (default to 1)
-
-alias gva='git revert --abort'    # Revert abort: stop a revert in progress
-alias gvc='git revert --continue' # Revert continue: resume a revert in progress
-alias gvs='git revert --skip'     # Revert skip: skip a commit during a revert in progress
-
 # [[ Worktree ]]
 
 alias gw='git worktree'         # Worktree: base command for Git worktrees
@@ -182,7 +178,9 @@ alias gxin='git clean -dXn'                # Discard ignored dry-run: dry-run to
 alias gxii='git clean -dXi'                # Discard ignored interactive: interactively discard all ignored files
 
 # [[ Stash ]]
-# I use the "gz" prefix for `git stash` out of consistency with my Neovim keymaps & to decrease the number of "gs"-prefix aliases
+# In Neovim (with Neogit and my Gitsigns keymaps), keys "s" (stage), "u" (unstage), and "x" (discard) are sanctified to manipulate Git
+# hunks. To be consistent with that and because this command is supported in Neogit and can't be used with the "s" key, let's not use "s"
+# for the "git stash" command here.
 
 alias gz='git stash'                      # Stash: move local changes in tracked files to the stash
 alias gzu='git stash --include-untracked' # Stash with untracked: move local changes in tracked & untracked files to the stash
