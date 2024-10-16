@@ -38,14 +38,12 @@ zstyle ':fzf-tab:complete:rm:*' fzf-preview "$FZF_TAB_DIR_PREVIEW"
 # [[ Zsh standard plugins ]]
 # A few standard plugins for zsh, enabling syntax highlighting (show valid/invalid commands, paths, etc.), autosuggestions (suggest
 #   commands in ghost text based on command history) & additional tool completions (e.g. for `pre-commit`)
+# Keymaps for zsh-autosuggestions are:
+#   - <C-e>, or "end-of-line" widget, with the cursor at the end of the line will accept the whole suggestion
+#   - <C-f>, or "forward-char" widget, with the cursor at the end of the line will also accept the whole suggestion
+#   - <C-^> (actually <C-,> o my keyboard), or "forward-word" widget, with the cursor at the end of the line will accept the suggestion
+#       word by word
 
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
-
-# Define keymaps for zsh-autosuggestions
-# The keymaps are chosen to be similar to what I use with Copilot in Neovim, except for the use of <Tab> which is reserved for shell
-#   completion
-# "forward-word" or "forward-char" can be used when a suggestion is available to accept a word or character respectively
-bindkey "^]" autosuggest-accept # Like "accept line" in Copilot
-bindkey "^[^M" forward-word     # Actually <C-CR> on my keyboard; like "accept word" in Copilot
