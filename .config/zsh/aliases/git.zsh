@@ -42,8 +42,8 @@ alias gcwf='git commit --message "🚧 WIP [skip ci]" --no-verify' # Commit WIP 
 
 # [[ Diff ]]
 
-alias gd='git diff'      # Diff: show changes between commits, commit and working tree, etc.
-alias gdt='git difftool' # Difftool: show changes between commits, commit and working tree, etc. using a difftool
+alias gd='git diff'           # [D]iff: show differences between working tree and staging area (index), i.e. unstaged changes
+alias gds='git diff --staged' # [D]iff [S]taged: show differences between staging area (index) and last commit (head), i.e. staged changes
 
 # [[ Fetch ]]
 
@@ -96,33 +96,33 @@ alias grmc='git rm --cached' # Remove cached: delete a file from the Git reposit
 #   - mixed (unstage & keep the changes),
 #   - soft (keep the changes as staged),
 #   - or hard (unstage & discard the changes).
-# I only use `git reset` to act on commits, as I prefer to use the `git unstage` & `git discard` aliases (they are not actual Git
-# keywords) for files and directories
+# I only use `git reset` to act on commits, as I prefer to use the `git unstage` & `git discard` aliases (they are not actual Git keywords)
+# for files and directories
 
-function git_reset_last() {
+function git_reset_mixed_head() {
     git reset --mixed HEAD~"$1"
 }
-function git_reset_soft_last() {
+function git_reset_soft_head() {
     git reset --soft HEAD~"$1"
 }
-function git_reset_hard_last() {
+function git_reset_hard_head() {
     git reset --hard HEAD~"$1"
 }
-alias grs='git reset'             # Reset: undo & unstage the targeted commit(s), or unstage the targeted files' changes
-alias grsl='git_reset_last'       # Reset last: undo & usntage a number of the last commits (default to 1)
-alias grss='git reset --soft'     # Reset soft: undo but keep staged the targeted commit(s)
-alias grssl='git_reset_soft_last' # Reset soft last: undo but keep staged a number of the last commits (default to 1)
-alias grsh='git reset --hard'     # Reset hard: undo & discard the changes of the targeted commit(s), or discard the targeted files' changes
-alias grshl='git_reset_hard_last' # Reset hard last: undo & discard the changes of a number of the last commits (default to 1)
+alias grsm='git reset --mixed'     # [R]eset [M]ixed: undo & unstage the targeted commit(s), or unstage the targeted files' changes
+alias grsmh='git_reset_mixed_head' # [R]eset [M]ixed [H]ead: undo & unstage a number of the last commits (default to 1)
+alias grss='git reset --soft'      # [R]eset [S]oft: undo but keep staged the targeted commit(s)
+alias grssh='git_reset_soft_head'  # [R]eset [S]oft [H]ead: undo but keep staged a number of the last commits (default to 1)
+alias grsh='git reset --hard'      # [R]eset [H]ard: undo & discard the changes of the targeted commit(s), or discard the targeted files' changes
+alias grshh='git_reset_hard_head'  # [R]eset [H]ard [H]ead: undo & discard the changes of a number of the last commits (default to 1)
 
 # [[ Revert ]]
 
-function git_revert_last() {
+function git_revert_head() {
     git revert --no-commit HEAD~"$1"..
     git commit
 }
-alias grv='git revert'       # Revert: create a new commit to undo the targeted commit
-alias grvl='git_revert_last' # Revert last: create a new commit to undo a number of the last commits (default to 1)
+alias grv='git revert'       # [R]e[V]ert: create a new commit to undo the targeted commit
+alias grvh='git_revert_head' # [R]e[V]ert [H]ead: create a new commit to undo a number of the last commits (default to 1)
 
 alias grva='git revert --abort'    # Revert abort: stop a revert in progress
 alias grvc='git revert --continue' # Revert continue: resume a revert in progress
@@ -138,7 +138,15 @@ alias gsa='git stage --all'    # Stage all: add all files' changes to the stagin
 
 # [[ Show ]]
 
-alias gsh='git show' # Show: give details on the targeted object (commit, tag, etc.)
+function git_show_head() {
+    if [ -z "$1" ]; then
+        git show HEAD
+    else
+        git show HEAD~"$1"
+    fi
+}
+alias gsh='git show'       # [S][H]ow: give details on the targeted object (commit, tag, etc.)
+alias gshh='git_show_head' # [S][H]ow [H]ead: give details on the n'th latest commit (default to 0, the latest one)
 
 # [[ Switch ]]
 
