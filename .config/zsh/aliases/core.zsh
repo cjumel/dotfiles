@@ -69,8 +69,18 @@ function man_alias() {
 alias ma='man'        # [MA]n: show the manual page of a command
 alias maa='man_alias' # [MA]n [A]lias: show the manual page of the content of an alias
 
-alias md='mkdir'
-alias mdp='mkdir -p'
+function mdc() {
+    mkdir "$1"
+    cd "$1" || exit
+}
+function mdpc() {
+    mkdir -p "$1"
+    cd "$1" || exit
+}
+alias md='mkdir'     # Create a single directory
+alias mdc='mdc'      # [C]d: create a directory & `cd` into it
+alias mdp='mkdir -p' # [P]arent: create a nested directory along with all its parents
+alias mdpc='mdpc'    # [P]arent [C]d: create a nested directory along with all its parents & `cd` into it
 
 alias mk='make'                  # Make: base command
 alias mki='make --ignore-errors' # Make ignore: don't stop on errors (exit code won't report failure either)

@@ -13,7 +13,8 @@ alias poeu='poetry env use'           # Env use: activates or creates a virtual 
 alias poer='poetry env remove'        # Env remove: remove an environment associated with the current project by name
 alias poera='poetry env remove --all' # Env remove all: remove all environments associated with the current project
 
-alias poi='poetry install' # Install: install the environment's dependencies & root code
+alias poi='poetry install' # [I]nstall: install the current project's dependencies & local code
+alias poii='poetry init'   # [I]n[I]t: initialize a Poetry project in the current directory
 
 alias pol='poetry lock'              # Lock: update & lock the project dependencies but don't install them
 alias poln='poetry lock --no-update' # Lock no-update: lock the project dependencies but don't update or install them
