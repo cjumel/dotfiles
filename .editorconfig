@@ -17,6 +17,7 @@ indent_size = 4
 [*.zsh]
 indent_style = space
 indent_size = 4
+max_line_length = 140
 
 [*.{md,toml,yaml}]
 max_line_length = 100
