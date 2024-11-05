@@ -22,10 +22,11 @@ alias poln='poetry lock --no-update' # Lock no-update: lock the project dependen
 alias popb='poetry publish'          # Publish: publish a package to a remote repository without building it
 alias popbb='poetry publish --build' # Publish build: build & publish a package to a remote repository
 
+alias popy='poetry run python' # [P][Y]thon: start a Python shell or run a Python script using the current Poetry environment
+
 alias porm='poetry remove' # Remove: remove dependencies
 
-alias poru='poetry run'          # Run: run a command in the virtual environment
-alias porupy='poetry run python' # Run Python: run a Python shell or script in the virtual environment
+alias poru='poetry run' # [R][U]n: run a command using the current Poetry environment
 
 alias pos='poetry shell' # Shell: spawn a shell with the current environment activated
 
