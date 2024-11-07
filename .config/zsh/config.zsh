@@ -6,9 +6,10 @@
 # Make sure everything is in English
 export LANG=en_US.UTF-8
 
-# Prepend additional directories to $PATH, so that zsh can find executables in them
-export PATH="/usr/local/opt/python/libexec/bin:$PATH" # Symlink of Homebrew's latest Python & related tools
-export PATH="$HOME/.local/bin:$PATH"                  # Tools installed by `pipx`, among others
+# Prepend additional directories to $PATH, so that Zsh can find executables in them
+export PATH="$HOME/.docker/bin:$PATH"                 # Docker & related tools
+export PATH="$HOME/.local/bin:$PATH"                  # Tools installed by pipx
+export PATH="/usr/local/opt/python/libexec/bin:$PATH" # Python managed by Homebrew & related tools
 
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # Case-insensitive completion when using lowercase (like ripgrep smart case)
