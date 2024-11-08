@@ -142,11 +142,11 @@ function git_show_head() {
     if [ -z "$1" ]; then
         git show HEAD
     else
-        git show HEAD~"$1"
+        git show HEAD~"$(($1 - 1))" # Use arithmetic expansion to convert input to number
     fi
 }
 alias gsh='git show'       # [S][H]ow: give details on the targeted object (commit, tag, etc.)
-alias gshh='git_show_head' # [S][H]ow [H]ead: give details on the n'th latest commit (default to 0, the latest one)
+alias gshh='git_show_head' # [S][H]ow [H]ead: give details on the n'th latest commit (default to 1, the latest one)
 
 # [[ Switch ]]
 
