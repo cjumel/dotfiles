@@ -3,19 +3,16 @@
 Karabiner is an amazing tool for MacOS, enabling simple but powerful system-wide keyboard behavior
 customization. It is essential in my workflow in order to:
 
-- make some essential keys easier to access (I typically made the control and escape keys a lot
-  simpler to access while not losing any other key, by mapping combination of caps lock and any key
-  to control and the key, caps lock used alone to escape, and combination of shift and caps lock to
-  actual caps lock; in my opinion, this is a really game changer)
+- make my non-Apple keyboard behave like my Apple keyboards, by fixing the modifier keys, the
+  function keys and some special characters
 
-- simplify typing some character (e.g. I made typing the `~` character only take two key strokes
-  instead of three)
+- simplify typing some important special characters (e.g. I made typing the `~` character only take
+  two key strokes instead of three)
 
-- make my non-Apple keyboard behave exactly like an Apple keyboard (e.g. I fixed the modifiers keys,
-  as well as some function keys and special characters)
+- create more complex, but essential, remappings, see below for more details
 
 Since I'm working a lot within my terminal, I also defined some keybindings directly in the set up
-of my terminal, Wezterm, which you can fine [here](/.config/wezterm/).
+of my terminal, Wezterm, which you can find [here](config/wezterm/keys.lua).
 
 ## Install
 
@@ -46,3 +43,45 @@ comaand:
 ```shell
 ln -s ~/dotfiles/.config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
 ```
+
+## Complex Remappings
+
+### Caps Lock
+
+I defined [here](.config/karabiner/assets/complex_modifications/caps_lock.json) some modifications
+of the Caps Lock key behavior, in order to overload it with Escape and optionally Control, as the
+default behavior is not super useful compared to those keys. With this, I can use the Caps Lock key
+as followed:
+
+- when tapped, it acts as Escape
+- when hold, it acts as Control (optional)
+- when tapped with Shift, it acts as Caps Lock
+
+This remapping is really essential for me when working in a terminal, as the Control and the Escape
+keys become of paramount importance in this context. However, when using the Home Row Mods described
+below, using Caps Lock as Control becomes less useful so I don't use it then.
+
+I found the basic version of this remapping in a random GitHub Gist, while looking into the subject,
+and then improved it. A simpler version is covered by this
+[video](https://www.youtube.com/watch?v=XuQVbZ0wENE) of the excellent
+[Dreams of Code](https://www.youtube.com/@dreamsofcode), but it came out after I started using it.
+
+### Home Row Mods
+
+I defined [here](.config/karabiner/assets/complex_modifications/home_row_mods.json) an even more
+complex remapping, which overloads the 8 main home row keys (f, d, s, q for the left hand, and j, k,
+l, m for the right hand) with all the modifiers (Control, Option, Command, Shift) when hold, while
+keeping the original behavior when tapped. This has two small disadvantages: it adds a notion of
+timing when typing keys (which can lead to some errors when typing some combinations too fast for
+instance) and a bit of keyboard complexity, but it has the amazing advantage of making all modifiers
+available under each hand directly in the home row. This makes typing a lot of key combinations
+simpler, or even possible at all without moving the hands (like `<C-w>` which I've always hated to
+type until then).
+
+Contrary to the Caps Lock remapping, I don't find this completly essential (in the sens that one can
+live without it), but it's a really great addition which I am actually using.
+
+This remapping is not completely exotic, it has been entirely motivated by this
+[video](https://www.youtube.com/watch?v=sLWQ4Gx88h4&t=913s) of the excellent
+[Dreams of Code](https://www.youtube.com/@dreamsofcode), and the Karabiner setup was largely helped
+by posts on this [issue](https://github.com/pqrs-org/Karabiner-Elements/issues/3559) on the matter.
