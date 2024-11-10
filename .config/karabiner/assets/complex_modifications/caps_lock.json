@@ -1,45 +1,40 @@
 {
-  "title": "Magic Caps Lock",
+  "title": "Caps Lock",
   "rules": [
     {
-      "description": "Make Caps Lock used as Ctrl modifier (when used with any key), Esc (when used alone) or the regular Caps Lock (when modified by Shift)",
+      "description": "Overload Caps Lock with Escape",
       "manipulators": [
         {
           "type": "basic",
           "from": {
             "key_code": "caps_lock",
-            "modifiers": {
-                "optional": [
-                  "command",
-                  "option",
-                  "control"
-                ]
-            }
+            "modifiers": { "optional": ["command", "option", "control"] }
           },
-          "to": [
-            {
-              "key_code": "left_control"
-            }
-          ],
-          "to_if_alone": [
-            {
-              "key_code": "escape"
-            }
-          ]
+          "to": [{ "key_code": "escape" }]
         },
+        {
+          "type": "basic",
+          "from": { "key_code": "caps_lock", "modifiers": { "mandatory": ["shift"] } },
+          "to": [{ "key_code": "caps_lock" }]
+        }
+      ]
+    },
+    {
+      "description": "Overload Caps Lock with Escape and Control",
+      "manipulators": [
         {
           "type": "basic",
           "from": {
             "key_code": "caps_lock",
-            "modifiers": {
-              "mandatory": ["shift"]
-            }
+            "modifiers": { "optional": ["command", "option", "control"] }
           },
-          "to": [
-            {
-              "key_code": "caps_lock"
-            }
-          ]
+          "to": [{ "key_code": "left_control" }],
+          "to_if_alone": [{ "key_code": "escape" }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "caps_lock", "modifiers": { "mandatory": ["shift"] } },
+          "to": [{ "key_code": "caps_lock" }]
         }
       ]
     }
