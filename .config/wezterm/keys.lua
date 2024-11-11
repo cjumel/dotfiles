@@ -62,4 +62,17 @@ return {
     mods = "CTRL",
     action = wezterm.action({ SendString = "\x1f" }), -- <C-_>
   },
+
+  -- [[ New control keymaps ]]
+  -- Map undefined control keymaps to the corresponding (but usable) alt keymaps
+  {
+    key = "Return",
+    mods = "CTRL",
+    action = wezterm.action({ SendKey = { key = "Return", mods = "ALT" } }),
+  },
+  {
+    key = "Backspace",
+    mods = "CTRL",
+    action = wezterm.action({ SendKey = { key = "Backspace", mods = "ALT" } }),
+  },
 }
