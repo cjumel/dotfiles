@@ -66,11 +66,10 @@ alias gpl='git pull' # Pull: download objects and refs from the remote repositor
 
 # [[ Push ]]
 
-alias gps='git push'                  # Push: upload the current branch to the remote repository
-alias gpsf='git push --force'         # Push force: upload the current branch to the remote repository & overwrite any conflicting changes
-alias gpsu='git push --set-upstream'  # Push upstream: upload the current branch to the remote repository and set the relevant upstream if needed
-alias gpst='git push --tags'          # Push tags: upload the current branch & all local tags to the remote repository
-alias gpsd='git push --delete origin' # Push delete: delete the listed ref (e.g. tag) from the remote repository
+alias gps='git push'                 # [P]ush: upload the current branch to the remote repository
+alias gpsf='git push --force'        # [P]ush [F]orce: upload the current branch to the remote repository & overwrite any conflicting changes
+alias gpst='git push --tags'         # [P]ush [T]ags: upload the current branch & all local tags to the remote repository
+alias gpsu='git push --set-upstream' # [P]ush [U]pstream: upload the current branch to the remote repository and set the relevant upstream if needed
 
 # [[ Rebase ]]
 
@@ -156,8 +155,9 @@ alias gswp='git switch -'        # Switch previous: change the current local bra
 
 # [[ Tag ]]
 
-alias gt='git tag'           # Tag: create a local tag
-alias gtd='git tag --delete' # Tag delete: delete a local tag
+alias gt='git tag'                    # [T]ag: create a local tag
+alias gtd='git tag --delete'          # [T]ag [D]elete: delete a local tag
+alias gtdr='git push --delete origin' # [T]ag [D]elete [R]emote: delete a remote tag
 
 # [[ Unstage ]]
 # `git unstage` is not an actual git command, but I introduced it out of consistency with my Neovim keymaps and because it's a nice &
