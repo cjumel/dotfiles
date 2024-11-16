@@ -1,6 +1,10 @@
 # General configuration
 [ -f ~/.config/zsh/config.zsh ] && source ~/.config/zsh/config.zsh
 
+# Additional shell features
+[ -f ~/.config/zsh/alias.zsh ] && source ~/.config/zsh/alias.zsh
+[ -f ~/.config/zsh/theme.zsh ] && source ~/.config/zsh/theme.zsh
+
 # Aliases (defined ./.config/zsh/aliases/)
 for file in ~/.config/zsh/aliases/*.zsh; do
     source "$file"

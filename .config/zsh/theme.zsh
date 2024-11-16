@@ -1,5 +1,7 @@
-# List all available themes, and their descriptions (default one first, then in alphabetical order of main themes, then from darkest to
-# lightest)
+# [[ Theme ]]
+# Provide features to manage the terminal-level theme.
+
+# List available themes and their descriptions (default one first, then in alphabetical order of main themes, then darkest to lightest)
 TERMINAL_THEMES="default                     -- black, lean & simple
 catppuccin-mocha            -- darkest & modern Catppucin theme
 catppuccin-macchiato        -- intermmediatly dark & lean Catppucin theme
@@ -38,5 +40,3 @@ function change_theme() {
     ln -sf ~/.config/tmux/theme/"$selected_theme"/tmux-post-tpm.conf ~/.config/tmux/theme/tmux-post-tpm.conf
     ln -sf ~/.config/nvim/lua/theme/"$selected_theme".lua ~/.config/nvim/lua/theme/current.lua
 }
-
-alias ct='change_theme' # Change theme: prompt the user to select a new terminal theme & set it up

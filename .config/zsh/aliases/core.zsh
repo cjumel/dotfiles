@@ -1,10 +1,9 @@
-# List all aliases starting with the prefix passed as argument using grep
-function alias_grep_list() {
-    alias | grep "^$1"
-}
+alias ad='alias_definition'         # [A]lias [D]efinition: display the definition of the alias corresponding to the argument
+alias adl='alias_definition_list'   # [A]lias [D]efinition [L]ist: list the definitions of the aliases starting by the argument
+alias ads='alias_definition_search' # [A]lias [D]efinition [S]earch: search in the definitions of the aliases
 
-alias al='alias'            # Alias: list all aliases if no argument, or show an alias definition, or define a new alias
-alias all='alias_grep_list' # Alias list: list all aliases starting with the prefix passed as argument using grep
+alias al='alias'       # [A]lias: list all aliases, or show an alias definition, or define a new alias
+alias all='alias_list' # [A]lias [L]ist: list all aliases starting with the argument
 
 alias ca='cat'
 
@@ -23,6 +22,8 @@ alias .......='cd ../../../../../..'
 alias cl='clear'
 
 alias cpr='cp -r'
+
+alias ct='change_theme' # [C]hange [T]heme: prompt the user to select a new terminal theme & set it up
 
 alias lj='luajit'
 
