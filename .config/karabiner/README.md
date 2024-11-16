@@ -38,7 +38,7 @@ section.
 
 Or, to set up all my mappings without using `stow`, you can create a symbolic link from the
 `.config/karabiner/karabiner.json` file to `~/.config/karabiner/karabiner.json` with the following
-comaand:
+command:
 
 ```shell
 ln -s ~/dotfiles/.config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
