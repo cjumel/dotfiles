@@ -1,10 +1,24 @@
-# Git stuff
-.git/
+# This file defines ignore rules for `fd` (which powers Neovim's telescome.nvim file search, or some fzf features). By default, `fd`
+# already takes into account the rules defined in `.gitignore` files, but the rules defined here are useful whenever we're not in a Git
+# repository, particularly when:
+# - working in a project not under version control yet
+# - working directly in the home directory
+
+# [[ Regular projects ]]
 
 # MacOS stuff
 .DS_Store
 
-# Unused MacOS home directories
+# Git stuff
+.git/
+
+# Virtual environments
+.venv/
+node_modules/
+
+# [[ Home directory ]]
+
+# MacOS home directories not related to coding
 .Trash/
 Applications/
 Library/
