@@ -40,6 +40,11 @@ alias gcff='git_commit_fixup_force' # Commit fixup force: create a fixup commit 
 alias gcw='git commit --message "🚧 WIP [skip ci]"'              # Commit WIP: create a WIP commit
 alias gcwf='git commit --message "🚧 WIP [skip ci]" --no-verify' # Commit WIP force: create a WIP commit without running hooks
 
+# [[ Check-ignore ]]
+
+alias gci='git check-ignore'            # [C]heck [I]gnore: if a file is ignored by Git, print its path
+alias gciv='git check-ignore --verbose' # [C]heck [I]gnore [V]erbose: if a file is ignored by Git, print its path & the ignore rule
+
 # [[ Diff ]]
 
 alias gd='git diff'           # [D]iff: show differences between working tree and staging area (index), i.e. unstaged changes
@@ -66,10 +71,11 @@ alias gpl='git pull' # Pull: download objects and refs from the remote repositor
 
 # [[ Push ]]
 
-alias gps='git push'                 # [P]ush: upload the current branch to the remote repository
-alias gpsf='git push --force'        # [P]ush [F]orce: upload the current branch to the remote repository & overwrite any conflicting changes
-alias gpst='git push --tags'         # [P]ush [T]ags: upload the current branch & all local tags to the remote repository
-alias gpsu='git push --set-upstream' # [P]ush [U]pstream: upload the current branch to the remote repository and set the relevant upstream if needed
+alias gps='git push'                  # [P]ush: upload the current branch to the remote repository
+alias gpsd='git push --delete origin' # [P]ush [D]elete: delete the listed ref (e.g. a tag) from the remote repository
+alias gpsf='git push --force'         # [P]ush [F]orce: upload the current branch to the remote repository & overwrite any conflicting changes
+alias gpst='git push --tags'          # [P]ush [T]ags: upload the current branch & all local tags to the remote repository
+alias gpsu='git push --set-upstream'  # [P]ush [U]pstream: upload the current branch to the remote repository and set the relevant upstream if needed
 
 # [[ Rebase ]]
 
@@ -155,9 +161,8 @@ alias gswp='git switch -'        # Switch previous: change the current local bra
 
 # [[ Tag ]]
 
-alias gt='git tag'                    # [T]ag: create a local tag
-alias gtd='git tag --delete'          # [T]ag [D]elete: delete a local tag
-alias gtdr='git push --delete origin' # [T]ag [D]elete [R]emote: delete a remote tag
+alias gt='git tag'           # [T]ag: create a local tag
+alias gtd='git tag --delete' # [T]ag [D]elete: delete a local tag
 
 # [[ Unstage ]]
 # `git unstage` is not an actual git command, but I introduced it out of consistency with my Neovim keymaps and because it's a nice &
