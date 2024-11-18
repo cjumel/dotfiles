@@ -24,3 +24,8 @@ max_line_length = 140
 
 [*.{md,toml,yaml}]
 max_line_length = 100
+
+[Makefile]
+# By default, Makefiles require tab indentation (8-long is a standard)
+indent_size = 8
+indent_style = tab
