@@ -1,6 +1,9 @@
 # General configuration
 [ -f ~/.config/zsh/config.zsh ] && source ~/.config/zsh/config.zsh
 
+# A git-ignored script containing env variable secrets
+[ -f ~/.config/zsh/secrets.zsh ] && source ~/.config/zsh/secrets.zsh
+
 # Additional shell features
 [ -f ~/.config/zsh/alias.zsh ] && source ~/.config/zsh/alias.zsh
 [ -f ~/.config/zsh/theme.zsh ] && source ~/.config/zsh/theme.zsh
