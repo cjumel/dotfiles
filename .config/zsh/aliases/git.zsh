@@ -195,11 +195,12 @@ alias gxii='git clean -dXi'                # Discard ignored interactive: intera
 # hunks. To be consistent with that and because this command is supported in Neogit and can't be used with the "s" key, let's not use "s"
 # for the "git stash" command here.
 
-alias gz='git stash'                      # Stash: move local changes in tracked files to the stash
-alias gzu='git stash --include-untracked' # Stash with untracked: move local changes in tracked & untracked files to the stash
+alias gz='git stash'                      # [Z]tash: without nothing, act like push, move local changes in tracked files to the stash
+alias gzu='git stash --include-untracked' # [Z]tash including [U]ntracked: move local changes in tracked & untracked files to the stash
 
-alias gza='git stash apply' # Stash apply: copy the stash changes to the local files
-alias gzc='git stash clear' # Stash clear: remove all the stash entries
-alias gzd='git stash drop'  # Stash drop: remove one stash entry (default to the last)
-alias gzl='git stash list'  # Stash list: list the stash entries
-alias gzp='git stash pop'   # Stash pop: move the statsh changes to the local files (or copy them if there is any conflict)
+alias gza='git stash apply' # [Z]tash [A]pply: copy the stash changes to the local files
+alias gzc='git stash clear' # [Z]tash [C]lear: remove all the stash entries
+alias gzd='git stash drop'  # [Z]tash [D]rop: remove one stash entry (default to the last)
+alias gzl='git stash list'  # [Z]tash [L]ist: list the stash entries
+alias gzp='git stash pop'   # [Z]tash [P]op: move the statsh changes to the local files (or copy them if there is any conflict)
+alias gzps='git stash push' # [Z]tash [P]u[S]h: move the local changes in tracked files to the stash (support additional options like paths)

@@ -1,22 +1,14 @@
 alias pc='pre-commit'
 
-alias pci='pre-commit install' # Install in a repository
+alias pci='pre-commit install' # [I]nstall: install pre-commit hooks in the current Git repository
 
-# Run pre-commit on the directory passed as argument if one is provided or on the current directory
-# Note that the glob pattern doesn't work on some Ubuntu (typically on GH runners with ubuntu-latest)
-function pre_commit_run_directory() {
-    if [ -z "$1" ]; then # No argument provided
-        pre-commit run --files ./**/*
-    else
-        pre-commit run --files "$1"/**/*
-    fi
-}
+alias pcr='pre-commit run'              # [R]un: run the targeted pre-commit hook (default to all)
+alias pcra='pre-commit run --all-files' # [R]un [A]ll-files: run the targeted pre-commit hook (default to all) on all files
+alias pcrf='pre-commit run --files'     # [R]un [F]iles: run the targeted pre-commit hook (default to all) on the targeted files
 
-alias pcr='pre-commit run'              # Run a given pre-commit hook
-alias pcra='pre-commit run --all-files' # Run pre-commit hooks on all files
-alias pcrd='pre_commit_run_directory'   # Run pre-commit hooks on the directory passed as argument or on the current directory; uses `--files` under the hood
-alias pcrf='pre-commit run --files'     # Run on files passed as arguments
+alias pcs='pre-commit sample-config'                            # [P]re-commit [S]ample-config: display a sample configuration file
+alias pcsw='pre-commit sample-config > .pre-commit-config.yaml' # [P]re-commit [S]ample-config [W]rite: write a sample configuration to a file
 
-alias pcui='pre-commit uninstall' # Uninstall from a repository
+alias pcui='pre-commit uninstall' # [U]ninstall: uninstall pre-commit hooks from the current Git repository
 
-alias pcup='pre-commit autoupdate' # Update the versions of the hooks
+alias pcup='pre-commit autoupdate' # [U]pdate: update the pre-commit hooks in the current Git repository
