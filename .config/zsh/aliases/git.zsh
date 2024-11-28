@@ -1,7 +1,8 @@
-# [[ Status ]]
+# [G]it: a version control system for tracking changes in source code
 
-alias g='git status'          # Show the status of the repository
-alias gg='git status --short' # Show the status of the repository in short format
+alias g='gst' # Shortcut for the `gst` (Git status) alias
+alias gg='g'  # Same as `g`, in case the key is sticky
+alias ggg='g' # Same as `g`, in case the key is sticky
 
 # [[ Branch ]]
 
@@ -152,6 +153,11 @@ function git_show_head() {
 }
 alias gsh='git show'       # [S][H]ow: give details on the targeted object (commit, tag, etc.)
 alias gshh='git_show_head' # [S][H]ow [H]ead: give details on the n'th latest commit (default to 1, the latest one)
+
+# [[ Status ]]
+
+alias gst='git status'          # [S][T]atuts: show the Git status of the repository
+alias gsts='git status --short' # [S][T]atuts [S]hort: show the status of the repository in shorter format
 
 # [[ Switch ]]
 

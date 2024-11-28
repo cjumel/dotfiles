@@ -1,3 +1,5 @@
+# Core aliases, for builtin commands
+
 alias ad='alias_definition'       # [A]lias [D]efinition: display the definition of the alias corresponding to the argument
 alias adf='alias_definition_fzf'  # [A]lias [D]efinition [F]uzzy-find: fuzzy-find in the definitions of the aliases starting by the argument
 alias adl='alias_definition_list' # [A]lias [D]efinition [L]ist: list the definitions of the aliases starting by the argument
@@ -115,9 +117,9 @@ alias to='touch'
 
 alias uln='unlink'
 
-alias v='vi'  # Open Vi editor (or any editor aliased to "vi")
-alias vv='v'  # Alias to `v`, for when the key is sticky
-alias vvv='v' # Alias to `v`, for when the key is sticky
+alias v='vi'  # Open Vim
+alias vv='v'  # Same as `v`, in case the key is sticky
+alias vvv='v' # Same as `v`, in case the key is sticky
 
 alias wi='which' # [W]h[I]ch: locate a program in the user's path
 

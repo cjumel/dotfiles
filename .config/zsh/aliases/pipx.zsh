@@ -1,4 +1,6 @@
-alias pxi='pipx install'    # [P]ip[X] [I]nstall: install a package
-alias pxl='pipx list'       # [P]ip[X] [L]ist: list installed packages
-alias pxup='pipx upgrade'   # [P]ip[X] [UP]grade: upgrade a package
-alias pxui='pipx uninstall' # [P]ip[X] [U]n[I]nstall: uninstall a package
+# [P][I]p[X]: install and manage Python packages in isolated environments
+
+alias pixi='pipx install'    # [I]nstall: install a package
+alias pixl='pipx list'       # [L]ist: list installed packages
+alias pixup='pipx upgrade'   # [U][P]grade: upgrade a package
+alias pixui='pipx uninstall' # [U]n[I]nstall: uninstall a package

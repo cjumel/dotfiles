@@ -1,18 +1,9 @@
-# All aliases can be used with "-m <marker>" to run tests with a specific marker, however
-# I don't define aliases for it since it can be used in combination with any other alias
-# and the markers are project specific.
+# [P]y[T][E]st: a Python testing framework
 
-alias pt='pytest'
-
-alias ptc='pytest --cov' # Show coverage on a target or on the source of the coverage config
-
-alias ptff='pytest --failed-first' # Run the tests that failed last time first
-
-alias ptlf='pytest --last-failed' # Run only the tests that failed last time
-
-alias ptnf='pytest --new-first' # Run the tests that have been added most recently first
-
-alias pts='pytest -s' # Show output
-
-alias ptx='pytest --exitfirst'     # Stop on first failure
-alias ptxs='pytest --exitfirst -s' # Stop on first failure & show output
+alias pte='pytest'
+alias ptec='pytest --cov'          # [C]overage: show coverage on a target or on the source of the coverage config
+alias ptef='pytest --failed-first' # [F]ailed first: run the tests that failed last time first
+alias ptel='pytest --last-failed'  # [L]ast failed: run only the tests that failed last time
+alias pten='pytest --new-first'    # [N]ew first: run the tests that have been added most recently first
+alias ptes='pytest -s'             # [S]how: show test output
+alias ptex='pytest --exitfirst'    # E[x]it first: stop on first failure
