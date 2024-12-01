@@ -121,20 +121,7 @@ alias v='vi'  # Open Vim
 alias vv='v'  # Same as `v`, in case the key is sticky
 alias vvv='v' # Same as `v`, in case the key is sticky
 
-alias wi='which' # [W]h[I]ch: locate a program in the user's path
-
-alias we='whence'     # [W]h[E]nce: show how a command would be interpreted
-alias wef='whence -f' # [W]h[E]nce [F]unction: show the function definition of a command
-
-# List all custom terminal-level hidden mappings (meaning they cannot be seen otherwise simply by typing them)
-function which_key_custom() {
-    echo "<C-[> corresponds to <C-^> on my keyboard (equivalent to escape)"
-    echo "<C-]> corresponds to <C-$> on my keyboard"
-    echo "<C-?> corresponds to <C-ù> on my keyboard (equivalent to delete)"
-    echo "<C-\\> corresponds to <C-\`> on my keyboard"
-    echo "<C-^> corresponds to <C-,> on my keyboard"
-    echo "<C-_> corresponds to <C-;> on my keyboard (same as <C-/>)"
-}
-
-alias wk='/bin/cat -v'       # [W]hich [K]ey: show interactively which key code is received by the terminal when typing keys
-alias wkc='which_key_custom' # [W]hich [K]ey [C]ustom: show the custom terminal-level mappings
+alias wi='which'       # [W]h[I]ch: locate a program in the user's path
+alias we='whence'      # [W]h[E]nce: show how a command would be interpreted
+alias wef='whence -f'  # [W]h[E]nce [F]unction: show the function definition of a command
+alias wk='/bin/cat -v' # [W]hich [K]ey: show interactively which key code is received by the terminal when typing keys
