@@ -90,7 +90,8 @@ alias mki='make --ignore-errors' # Make ignore: don't stop on errors (exit code 
 
 alias p='pwd'
 
-alias py='python'
+alias py='python'                      # [P][Y]thon: open a Python REPL or run a Python script
+alias pyb='PYTHON_BASIC_REPL=1 python' # [P][Y]thon [B]asic-REPL: open a Python REPL with basic features (e.g. no auto-ident)
 
 function clean_empty_directories() {
     ARG1=${1:-.} # Default to current directory
