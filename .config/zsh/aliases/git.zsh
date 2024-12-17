@@ -19,15 +19,16 @@ alias gcl='git clone'         # Clone: clone a repository
 alias gclb='git clone --bare' # Clone bare: clone a repository as a bare repository (useful when working with git worktrees)
 
 # [[ Commit ]]
+# The "h" for "skip hooks" is directly taken from Neogit
 
-# Add a "c" like "create" for consistency with Neogit & to avoid conflicts with other `gc` aliases
-alias gcc='git commit'              # Commit create: create a regular commit
-alias gccf='git commit --no-verify' # Commit create force: create a regular commit without running hooks
+# Add a "c" for "create" out of consistency with Neogit & to avoid conflicts with other `gc` aliases
+alias gcc='git commit'              # [C]ommit [C]reate: create a commit
+alias gcch='git commit --no-verify' # [C]ommit [C]reate, skip [H]ooks: create commit without running commit hooks
 
-alias gca='git commit --amend'                         # Commit amend: add staged changes to last commit
-alias gcaf='git commit --amend --no-verify'            # Commit amend force: add staged changes to last commit without running hooks
-alias gcan='git commit --amend --no-edit'              # Commit amend no-edit: add staged changes to last commit without editing the commit message
-alias gcanf='git commit --amend --no-edit --no-verify' # Commit amend no-edit force: add staged changes to last commit without editing the commit message & without running hooks
+alias gca='git commit --amend'                         # [C]ommit [A]mend: amend last commit
+alias gcah='git commit --amend --no-verify'            # [C]ommit [A]mend, skip [H]ooks: amend last commit without running commit hooks
+alias gcam='git commit --amend --no-edit'              # [C]ommit [A]mend, skip [M]essage: amend last commit without editing the commit message
+alias gcamh='git commit --amend --no-edit --no-verify' # [C]ommit [A]mend, skip [M]essage & [H]ooks: amend last commit without editing the commit message or running commit hooks
 
 function git_commit_fixup() {
     git reset --message "fixup! $1"
@@ -35,11 +36,11 @@ function git_commit_fixup() {
 function git_commit_fixup_force() {
     git reset --message "fixup! $1" --no-verify
 }
-alias gcf='git_commit_fixup'        # Commit fixup: create a fixup commit
-alias gcff='git_commit_fixup_force' # Commit fixup force: create a fixup commit without running hooks
+alias gcf='git_commit_fixup'        # [C]ommit [F]ixup: create a fixup commit
+alias gcfh='git_commit_fixup_force' # [C]ommit [F]ixup, skip [H]ooks: create a fixup commit without running commit hooks
 
-alias gcw='git commit --message "🚧 WIP [skip ci]"'              # Commit WIP: create a WIP commit
-alias gcwf='git commit --message "🚧 WIP [skip ci]" --no-verify' # Commit WIP force: create a WIP commit without running hooks
+alias gcw='git commit --message "🚧 WIP [skip ci]"'              # [C]ommit [W]IP: create a WIP commit
+alias gcwh='git commit --message "🚧 WIP [skip ci]" --no-verify' # []C]ommit [W]IP, skip [H]ooks: create a WIP commit without running commit hooks]
 
 # [[ Check-ignore ]]
 
