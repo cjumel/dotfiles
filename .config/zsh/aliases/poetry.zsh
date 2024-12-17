@@ -34,5 +34,3 @@ alias pos='poetry shell' # Shell: spawn a shell with the current environment act
 
 alias pou='poetry update'       # Update: update the project dependencies
 alias pouv='poetry update -vvv' # Update verbose: update the project dependencies with maximal verbosity
-
-alias pov='poetry run nvim' # N[V]im: start NeoVim using the current Poetry environment (better than `poetry shell; nvim` which has issues)

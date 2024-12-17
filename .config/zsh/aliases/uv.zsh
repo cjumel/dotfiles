@@ -10,5 +10,4 @@ alias uvrm='uv remove'        # [R]e[M]ove: remove a dependency from the project
 alias uvru='uv run'           # [R][U]n: run a command in the project's environment
 alias uvs='uv sync'           # [S]ync: synchronize the project's dependencies with the environment
 alias uvt='uv tree'           # [T]ree: view the despendency tree for the project
-alias uvv='uv run nvim'       # N[V]im: start NeoVim using the project's environment
-alias uvve='uv venv'          # [V][E]nv: create a new virtual environment (legacy)
+alias uvv='uv venv'           # [V]env: create a new virtual environment (legacy)
