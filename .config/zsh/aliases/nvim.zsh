@@ -2,12 +2,20 @@
 
 # Start Neovim with additionnal setup, depending on the current directory context
 function nvim_contextual() {
-    if [ -e poetry.lock ]; then                  # Python project managed with Poetry
-        poetry run nvim "$@"                     #
-    elif [ -e uv.lock ]; then                    # Python project managed with uv
-        uv run nvim "$@"                         #
-    elif [ -d .venv ]; then                      # Python project with a standard virtual environment
+    # Python project with a standard virtual environment named `.venv`
+    if [ -d .venv ]; then
         (source .venv/bin/activate && nvim "$@") # Run in a subshell, to disable the environment afterwards
+
+    # Python project managed with Poetry
+    # This command is quite slow so let's favor the standard virtual environment, even if it might not be as accurate to
+    # detect the right environment for the Poetry project
+    elif [ -e poetry.lock ]; then
+        poetry run nvim "$@"
+
+    # Python project managed with uv
+    elif [ -e uv.lock ]; then
+        uv run nvim "$@"
+
     else
         nvim "$@"
     fi
