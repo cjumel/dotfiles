@@ -1,53 +1,55 @@
 " Vimium configuration
 "
-" The Vimium configuration needs to be copy/pasted manually in the Vimium
-" options to be used
+" The following Vimium configuration needs to be copy/pasted manually in
+" various sections of the Vimium options to be used
 
 " [[ Keymaps ]]
 
-" Let's implement Vim-like keymaps from scratch
+" Let's implement Vim-like keymaps from scratch, but with some
+" simplifications: if there is no use in repeating a key or using a modifier,
+" let's not
 unmapAll
 
+" Scrolling
 map h scrollLeft
 map j scrollDown
 map k scrollUp
 map l scrollRight
-map gg scrollToTop
+map d scrollPageDown
+map u scrollPageUp
+map f scrollFullPageDown
+map b scrollFullPageUp
+map g scrollToTop
 map G scrollToBottom
 
-map <C-o> goBack
-map <C-i> goForward
-
-map <C-e> scrollDown
-map <C-y> scrollUp
-map <C-d> scrollPageDown
-map <C-u> scrollPageUp
-map <C-f> scrollFullPageDown
-map <C-b> scrollFullPageUp
-
+" Navigating
 " Let's use s/S to open links, similarly to the "s" search in vim-easymotion
 " or hop.nvim (which I use)
 map s LinkHints.activateMode
 map S LinkHints.activateModeToOpenInNewTab
+map o goBack
+map i goForward
+
+" Tab managements
+map t createTab
+map T restoreTab
+map <Tab> nextTab
+map <S-Tab> previousTab
+map r reload
+map y copyCurrentUrl
+map c duplicateTab
+map p togglePinTab
+map m toggleMuteTab
+map q removeTab
+
+" Vim modes
+map v enterVisualMode
+map / enterFindMode
+map n performFind
+map N performBackwardsFind
 
 map ? showHelp
-
-" WARNING: there are some keymaps not working well on the browser I use (Arc):
-" - createTab: when using it, the new tab is blank without even a search bar
-" - removeTab: when using it, the closed tab can't be re-opened neither with
-"   Vimium's actions of Arc's ones
-" - nextTab/previousTab: follow a "most recent" behavior I don't like, see
-"   https://github.com/philc/vimium/issues/4230
-" For these keymaps, I use the Arc browser equivalent instead.
 
 " [[ Link Hint Characters ]]
 
 hgjfkdlsmqyturieozpabvn
-
-" [[ Web Browser Settings ]]
-" In addition to the Viumium settings and Arc browser's default actions, I
-" define some complementary keymaps directly in my web browser
-"
-" <C-j>/<C-k>: next/previous tab
-" <C-v>: split view
-" <C-h>/<C-l>: previous/next split view
