@@ -126,17 +126,3 @@ I try to avoid installing GUI applications with Homebrew, as I don't really like
 can get out of synchronization when updating the application through the GUI (or worse, with
 auto-updates, enabled on many applications). Thus, to install Raycast, I simply followed the
 [installation guide](https://www.raycast.com/).
-
-#### [Tldr](https://github.com/tldr-pages/tldr)
-
-`tldr` is a collaborative tool providing a user-friendly & synthetic documentation to many commands.
-It is designed to be complementary to the `man` pages & can replace it in many cases as long as the
-desired information is not too "niche", but it doesn't aim at replacing it entirely. It is very
-simple to use and I use it without any configuration at all.
-
-The `tldr` formula does exist on Homebrew, but the recommanded one is `tlrc`, the official Rust
-client for `tldr`, so to install `tldr`, I used:
-
-```shell
-brew install tlrc
-```

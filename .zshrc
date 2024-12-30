@@ -43,6 +43,7 @@ zinit cdreplay -q
 [ -f ~/.config/gh/config.zsh ] && source ~/.config/gh/config.zsh                 #
 [ -f ~/.config/pypoetry/pypoetry.zsh ] && source ~/.config/pypoetry/pypoetry.zsh #
 [ -f ~/.config/ripgrep/ripgrep.zsh ] && source ~/.config/ripgrep/ripgrep.zsh     #
+[ -f ~/.config/tldr/tldr.zsh ] && source ~/.config/tldr/tldr.zsh                 #
 [ -f ~/.config/zoxide/zoxide.zsh ] && source ~/.config/zoxide/zoxide.zsh         # Must be called after `compinit`
 
 # Terminal prompt
