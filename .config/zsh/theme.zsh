@@ -12,7 +12,7 @@ gruvbox-light
 kanagawa-dragon
 kanagawa-wave
 kanagawa-lotus
-nord
+nordic
 onedark
 onelight
 rose-pine-main
