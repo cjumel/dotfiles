@@ -12,6 +12,8 @@ return {
   { key = "q", mods = "SUPER", action = wezterm.action.QuitApplication },
   { key = "v", mods = "SUPER", action = wezterm.action.PasteFrom("Clipboard") },
   { key = "w", mods = "SUPER", action = wezterm.action.CloseCurrentTab({ confirm = true }) },
+  { key = "=", mods = "SUPER", action = wezterm.action.IncreaseFontSize },
+  { key = "-", mods = "SUPER", action = wezterm.action.DecreaseFontSize },
 
   -- [[ Custom actions ]]
   -- Reset
@@ -24,9 +26,8 @@ return {
     }),
   },
 
-  -- Font size
-  { key = "f", mods = "CMD", action = wezterm.action.IncreaseFontSize },
-  { key = "f", mods = "CMD|SHIFT", action = wezterm.action.DecreaseFontSize },
+  -- Ligatures
+  { key = "l", mods = "CMD", action = wezterm.action.EmitEvent("toggle-ligatures") },
 
   -- Transparency
   { key = "t", mods = "CMD", action = wezterm.action.EmitEvent("increase-transparency") },
@@ -36,10 +37,7 @@ return {
   { key = "b", mods = "CMD", action = wezterm.action.EmitEvent("increase-blur") },
   { key = "b", mods = "CMD|SHIFT", action = wezterm.action.EmitEvent("decrease-blur") },
 
-  -- Ligatures
-  { key = "l", mods = "CMD", action = wezterm.action.EmitEvent("toggle-ligatures") },
-
-  -- [[ Fixesd control combinations with special keys ]]
+  -- [[ Fix control combinations with special keys ]]
   -- Enable some control keymaps with special characters by sending the right string given an input sequence
   -- This is inspired by https://github.com/wez/wezterm/issues/3180, & for terminal codes supported by Neovim see
   -- https://www.reddit.com/r/neovim/comments/okbag3/how_can_i_remap_ctrl_backspace_to_delete_a_word/
