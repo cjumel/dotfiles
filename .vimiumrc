@@ -5,9 +5,8 @@
 
 " [[ Keymaps ]]
 
-" Let's implement Vim-like keymaps from scratch, but with some
-" simplifications: if there is no use in repeating a key or using a modifier,
-" let's not
+" Let's implement Vim-like keymaps from scratch, but with one simplifications:
+" if there is no use in repeating a key or using a modifier, let's not
 unmapAll
 
 " Scrolling
@@ -22,7 +21,7 @@ map b scrollFullPageUp
 map g scrollToTop
 map G scrollToBottom
 
-" Navigating
+" Navigation
 " Let's use s/S to open links, similarly to the "s" search in vim-easymotion
 " or hop.nvim (which I use)
 map s LinkHints.activateMode
@@ -30,17 +29,26 @@ map S LinkHints.activateModeToOpenInNewTab
 map o goBack
 map i goForward
 
-" Tab managements
+" Basic tab management
 map t createTab
 map T restoreTab
 map <Tab> nextTab
 map <S-Tab> previousTab
 map r reload
 map y copyCurrentUrl
-map c duplicateTab
-map p togglePinTab
-map m toggleMuteTab
+map p openCopiedUrlInCurrentTab
+map P openCopiedUrlInNewTab
 map q removeTab
+
+" Advanced tab management
+map <space>t Vomnibar.activateTabSelection
+map <space>b Vomnibar.activateBookmarks
+map <space>B Vomnibar.activateBookmarksInNewTab
+map <space>a Vomnibar.activate
+map <space>A Vomnibar.activateInNewTab
+map <space>p togglePinTab
+map <space>d duplicateTab
+map <space>m toggleMuteTab
 
 " Vim modes
 map v enterVisualMode
