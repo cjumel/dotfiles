@@ -18,7 +18,7 @@ map d scrollPageDown
 map u scrollPageUp
 map f scrollFullPageDown
 map b scrollFullPageUp
-map g scrollToTop
+map gg scrollToTop
 map G scrollToBottom
 
 " Navigation
@@ -41,14 +41,16 @@ map P openCopiedUrlInNewTab
 map q removeTab
 
 " Advanced tab management
-map <space>t Vomnibar.activateTabSelection
-map <space>b Vomnibar.activateBookmarks
-map <space>B Vomnibar.activateBookmarksInNewTab
-map <space>a Vomnibar.activate
-map <space>A Vomnibar.activateInNewTab
-map <space>p togglePinTab
-map <space>d duplicateTab
-map <space>m toggleMuteTab
+" When using <space>, like the <leader> key in Neovim, the <space> key is not
+" available anymore to use as a regular key, which is really annoying
+map gt Vomnibar.activateTabSelection
+map gb Vomnibar.activateBookmarks
+map gB Vomnibar.activateBookmarksInNewTab
+map ga Vomnibar.activate
+map gA Vomnibar.activateInNewTab
+map gp togglePinTab
+map gd duplicateTab
+map gm toggleMuteTab
 
 " Vim modes
 map v enterVisualMode
