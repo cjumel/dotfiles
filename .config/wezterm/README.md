@@ -17,6 +17,8 @@ WezTerm only needs to be installed on my machine, a Macbook.
 ```shell
 brew install font-jetbrains-mono-nerd-font
 brew install --cask wezterm
+# or, to install nightly:
+# brew install --cask wezterm@nightly
 ```
 
 </details>
