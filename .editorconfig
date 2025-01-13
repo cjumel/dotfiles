@@ -2,30 +2,44 @@ root = true
 
 [*]
 charset = utf-8
-indent_style = space
-indent_size = 2
 insert_final_newline = true
 
 [*.json]
 max_line_length = 100
+indent_style = space
+indent_size = 2
 
 [*.lua]
 max_line_length = 120
+indent_style = space
+indent_size = 2
+
+[*.md]
+max_line_length = 100
+indent_style = space
+indent_size = 2
 
 [*.py]
 max_line_length = 100
 indent_style = space
 indent_size = 4
 
+[*.toml]
+max_line_length = 100
+indent_style = space
+indent_size = 2
+
+[*.yaml]
+max_line_length = 100
+indent_style = space
+indent_size = 2
+
 [*.zsh]
+max_line_length = 120
 indent_style = space
 indent_size = 4
-max_line_length = 120
-
-[*.{md,toml,yaml}]
-max_line_length = 100
 
 [Makefile]
-# By default, Makefiles require tab indentation (8-long is a standard)
+# Makefiles requires necessarily 8-long tab indentation to work
 indent_size = 8
 indent_style = tab
