@@ -32,8 +32,10 @@ map i goForward
 " Basic tab management
 map t createTab
 map T restoreTab
-map <Tab> nextTab
-map <S-Tab> previousTab
+" Avoid using the <Tab> & <S-Tab> keys, as it can be used to jump between
+" fields in forms in both insert and normal mode
+map , nextTab
+map ; previousTab
 map r reload
 map y copyCurrentUrl
 map p openCopiedUrlInCurrentTab
