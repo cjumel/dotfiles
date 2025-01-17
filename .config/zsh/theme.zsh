@@ -3,7 +3,6 @@
 
 # List available themes and their descriptions (default one first, then in alphabetical order of main themes, then darkest to lightest)
 TERMINAL_THEMES="default
-ashen
 catppuccin-mocha
 catppuccin-macchiato
 catppuccin-frappe
