@@ -1,6 +1,5 @@
 local config = {}
 
-config.window_background_opacity = 0.9
 config.harfbuzz_features = {} -- Use ligatures
 
 -- Colors taken from https://github.com/rebelot/kanagawa.nvim/pull/177
