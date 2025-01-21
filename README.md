@@ -25,7 +25,7 @@ For Stow to work, the content of this repository needs to be cloned inside a sub
 home directory. For instance, you can clone this repository with:
 
 ```shell
-git clone --depth=1 https://github.com/clementjumel/dotfiles.git ~/dotfiles
+git clone --depth=1 https://github.com/cjumel/dotfiles.git ~/dotfiles
 ```
 
 If you don't want to use Stow, you can clone the repository anywhere you want, and you can skip the
@@ -59,6 +59,6 @@ tools' own documentations.
 I use Neovim as my main text and code editor. Being a fork of a public repository, its configuration
 is versioned in a dedicated repository. I first started with a full-feature distribution of Neovim,
 installable with a one-liner, called [NvChad](https://nvchad.com/), and versioned in this
-[repository](https://github.com/clementjumel/NvChad). However, I ended switching to a smaller but
-more customizable distribution, called [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim),
-versioned in this [repository](https://github.com/clementjumel/kickstart.nvim).
+[repository](https://github.com/cjumel/NvChad). However, I ended switching to a smaller but more
+customizable distribution, called [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim),
+versioned in this [repository](https://github.com/cjumel/kickstart.nvim).
