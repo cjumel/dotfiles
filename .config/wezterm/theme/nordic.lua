@@ -1,8 +1,7 @@
 local config = {}
 
-config.harfbuzz_features = {} -- Use ligatures
-
--- Colors taken from https://github.com/AlexvZyl/nordic.nvim/blob/main/platforms/wezterm/nordic.toml
+-- Colors taken from
+-- https://github.com/AlexvZyl/nordic.nvim/blob/2e060bda700365af5ce936bec6bb2b8ff2daeb19/platforms/wezterm/nordic.toml
 config.colors = {
   foreground = "#D8DEE9",
   background = "#242933",
@@ -14,5 +13,7 @@ config.colors = {
   ansi = { "#191D24", "#BF616A", "#A3BE8C", "#EBCB8B", "#81A1C1", "#B48EAD", "#8FBCBB", "#D8DEE9" },
   brights = { "#3B4252", "#D06F79", "#B1D196", "#F0D399", "#88C0D0", "#C895BF", "#93CCDC", "#E5E9F0" },
 }
+
+config.harfbuzz_features = {} -- Use ligatures
 
 return config

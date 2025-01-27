@@ -12,6 +12,7 @@ gruvbox-light
 kanagawa-dragon
 kanagawa-wave
 kanagawa-lotus
+nord
 nordic
 onedark
 onelight
