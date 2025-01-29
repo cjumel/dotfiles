@@ -14,14 +14,15 @@ zstyle ':completion:*' menu no # Disable builtin tab completion menu
 #   - add some keybindings also defined in `fzf`
 zstyle ':fzf-tab:*' fzf-flags \
     --height=40% \
-    --bind 'ctrl-]:toggle-preview' \
+    --bind 'ctrl-s:toggle+down' \
+    --bind 'ctrl-v:toggle-preview' \
     --bind 'ctrl-g:top' \
     --bind 'ctrl-^:forward-word' \
     --bind 'ctrl-_:backward-word'
 
-# Enable directory preview (with `eza`) for the main builtin commands to manipulate files and directories and their third-party
-#   alternatives. This cannot be enabled for all commannds, as it would be annoying for commands which don't accept files or directories
-#   (like `git`, which only accepts sub-commands, like `status`).
+# Enable directory preview (with `eza`) for the main builtin commands to manipulate files and directories and their
+# third-party alternatives. This cannot be enabled for all commannds, as it would be annoying for commands which don't
+# accept files or directories (like `git`, which only accepts sub-commands, like `status`).
 export FZF_TAB_DIR_PREVIEW='eza -a1 --color=always --icons=always --group-directories-first $realpath'
 zstyle ':fzf-tab:complete:cat:*' fzf-preview "$FZF_TAB_DIR_PREVIEW"
 zstyle ':fzf-tab:complete:bat:*' fzf-preview "$FZF_TAB_DIR_PREVIEW"
@@ -36,13 +37,14 @@ zstyle ':fzf-tab:complete:mv:*' fzf-preview "$FZF_TAB_DIR_PREVIEW"
 zstyle ':fzf-tab:complete:rm:*' fzf-preview "$FZF_TAB_DIR_PREVIEW"
 
 # [[ Zsh standard plugins ]]
-# A few standard plugins for zsh, enabling syntax highlighting (show valid/invalid commands, paths, etc.), autosuggestions (suggest
-#   commands in ghost text based on command history) & additional tool completions (e.g. for `pre-commit`)
+# A few standard plugins for zsh, enabling syntax highlighting (show valid/invalid commands, paths, etc.),
+# autosuggestions (suggest commands in ghost text based on command history) & additional tool completions (e.g. for
+# `pre-commit`)
 # Keymaps for zsh-autosuggestions are:
 #   - <C-e>, or "end-of-line" widget, with the cursor at the end of the line will accept the whole suggestion
 #   - <C-f>, or "forward-char" widget, with the cursor at the end of the line will also accept the whole suggestion
-#   - <C-^> (actually <C-,> o my keyboard), or "forward-word" widget, with the cursor at the end of the line will accept the suggestion
-#       word by word
+#   - <C-^> (actually <C-,> o my keyboard), or "forward-word" widget, with the cursor at the end of the line will accept
+#   the suggestion word by word
 
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
