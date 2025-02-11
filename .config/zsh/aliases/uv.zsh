@@ -1,13 +1,19 @@
-# [U][V]: a modern and fast Python package and project manager
+# [U][V]: a fast Python package & project manager
 
-alias uva='uv add'            # [A]dd: add a dependency to the project
-alias uvi='uv init'           # [I]nit: create a new Python project
-alias uvl='uv lock'           # [L]ock: create a lock file for the project's dependencies
-alias uvpi='uv pip install'   # [P]ip [I]nstall: manually install a dependency in the project (legacy)
-alias uvpu='uv pip uninstall' # [P]ip [U]ninstall: manually uninstall a dependency from the project (legacy)
-alias uvpy='uv run python'    # [P]ython: run Python in the project's environment
-alias uvrm='uv remove'        # [R]e[M]ove: remove a dependency from the project
-alias uvru='uv run'           # [R][U]n: run a command in the project's environment
-alias uvs='uv sync'           # [S]ync: synchronize the project's dependencies with the environment
-alias uvt='uv tree'           # [T]ree: view the despendency tree for the project
-alias uvv='uv venv'           # [V]env: create a new virtual environment (legacy)
+alias uva='uv add' # [A]dd: add new project dependencies
+
+alias uvi='uv init'        # [I]nit: initialize a new uv project
+alias uvil='uv init --lib' # [I]nit [L]ib: initialize a new uv lib project
+
+alias uvl='uv lock' # [L]ock: lock the current project dependencies
+
+alias uvrm='uv remove' # [R]e[M]ove: remove project dependencies
+
+alias uvru='uv run'         # [R][U]n: run a command using the current project uv environment
+alias uvrup='uv run python' # [R][U]n [P]ython: start a Python shell or run a Python script using the current project uv environment
+
+alias uvs='uv sync' # [S]ync: synchronize the current project uv environement dependencies
+
+alias uvt='uv tree' # [T]ree: view the current project dependency tree
+
+alias uvv='uv venv' # [V]env: create a new uv virtual environment for the current project
