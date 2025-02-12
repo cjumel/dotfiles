@@ -162,8 +162,9 @@ alias gsts='git status --short' # [S][T]atuts [S]hort: show the status of the re
 
 # [[ Switch ]]
 
-alias gsw='git switch'           # [S][W]itch: switch to the branch
-alias gswc='git switch --create' # [S][W]itch [C]reate: create the specified branch & switch to it
+alias gsw='git switch'           # [S][W]itch: switch to a branch
+alias gswc='git switch --create' # [S][W]itch [C]reate: create a branch & switch to it
+alias gswp='git switch -'        # [S][W]itch [P]revious: switch to the previous branch
 
 # [[ Tag ]]
 
