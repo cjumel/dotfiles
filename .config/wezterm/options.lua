@@ -14,8 +14,8 @@ config.colors = {} -- Reset colors in case a theme has set some
 
 -- Font
 -- I don't use the bundled font as I had some issues with it regarding inconsistent icon sizes
-config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Bold" })
-config.font_size = 13.0
+config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Medium" })
+config.font_size = 12.0
 config.adjust_window_size_when_changing_font_size = false
 -- Ligatures are the feature which replace for instance successive "!" & "=" with an actual not-equal symbol
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" } -- Don't use ligatures
