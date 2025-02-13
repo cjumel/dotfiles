@@ -25,28 +25,15 @@ return {
   { key = "w", mods = "SUPER", action = wezterm.action.CloseCurrentTab({ confirm = true }) },
   { key = "=", mods = "SUPER", action = wezterm.action.IncreaseFontSize },
   { key = "-", mods = "SUPER", action = wezterm.action.DecreaseFontSize },
+  { key = "à", mods = "SUPER", action = wezterm.action.ResetFontAndWindowSize },
 
   -- [[ Custom actions ]]
-  -- Reset
-  {
-    key = "r",
-    mods = "CMD",
-    action = wezterm.action.Multiple({
-      wezterm.action.EmitEvent("reset-options"),
-      wezterm.action.ResetFontAndWindowSize,
-    }),
-  },
-
-  -- Ligatures
-  { key = "l", mods = "CMD", action = wezterm.action.EmitEvent("toggle-ligatures") },
-
-  -- Transparency
-  { key = "t", mods = "CMD", action = wezterm.action.EmitEvent("increase-transparency") },
-  { key = "t", mods = "CMD|SHIFT", action = wezterm.action.EmitEvent("decrease-transparency") },
-
-  -- Blur
-  { key = "b", mods = "CMD", action = wezterm.action.EmitEvent("increase-blur") },
-  { key = "b", mods = "CMD|SHIFT", action = wezterm.action.EmitEvent("decrease-blur") },
+  { key = "r", mods = "SUPER", action = wezterm.action.EmitEvent("reset-options") },
+  { key = "l", mods = "SUPER", action = wezterm.action.EmitEvent("toggle-ligatures") },
+  { key = "t", mods = "SUPER", action = wezterm.action.EmitEvent("increase-transparency") },
+  { key = "t", mods = "SUPER|SHIFT", action = wezterm.action.EmitEvent("decrease-transparency") },
+  { key = "b", mods = "SUPER", action = wezterm.action.EmitEvent("increase-blur") },
+  { key = "b", mods = "SUPER|SHIFT", action = wezterm.action.EmitEvent("decrease-blur") },
 
   -- [[ Complex key combinations ]]
   -- Enable the use of <S-CR> and <C-CR> in tmux sessions

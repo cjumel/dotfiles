@@ -5,18 +5,24 @@ local wezterm = require("wezterm")
 
 local M = {}
 
---- Set the custom actions for WezTerm.
+--- Setup the custom Wezterm actions.
 ---@return nil
 function M.set_actions()
-  -- Reset
   wezterm.on("reset-options", function(window, _)
     local overrides = window:get_config_overrides() or {}
     local options_ = theme.make_options(options, { force_reload = true })
     overrides = utils.concat_dicts({ overrides, options_ })
     window:set_config_overrides(overrides)
   end)
-
-  -- Transparency
+  wezterm.on("toggle-ligatures", function(window, _)
+    local overrides = window:get_config_overrides() or {}
+    if #overrides.harfbuzz_features == 0 then
+      overrides.harfbuzz_features = { "calt=0", "clig=0", "liga=0" } -- No ligature
+    else
+      overrides.harfbuzz_features = {} -- Ligatures
+    end
+    window:set_config_overrides(overrides)
+  end)
   wezterm.on("increase-transparency", function(window, _)
     local overrides = window:get_config_overrides() or {}
     local options_ = theme.make_options(options)
@@ -43,8 +49,6 @@ function M.set_actions()
     overrides.window_background_opacity = new_opacity
     window:set_config_overrides(overrides)
   end)
-
-  -- Blur
   wezterm.on("increase-blur", function(window, _)
     local overrides = window:get_config_overrides() or {}
     local options_ = theme.make_options(options)
@@ -66,17 +70,6 @@ function M.set_actions()
       new_blur = 0
     end
     overrides.macos_window_background_blur = new_blur
-    window:set_config_overrides(overrides)
-  end)
-
-  -- Ligatures
-  wezterm.on("toggle-ligatures", function(window, _)
-    local overrides = window:get_config_overrides() or {}
-    if #overrides.harfbuzz_features == 0 then
-      overrides.harfbuzz_features = { "calt=0", "clig=0", "liga=0" } -- Don't use ligatures
-    else
-      overrides.harfbuzz_features = {} -- Use ligatures
-    end
     window:set_config_overrides(overrides)
   end)
 end
