@@ -9,8 +9,10 @@ alias uvl='uv lock' # [L]ock: lock the current project dependencies
 
 alias uvrm='uv remove' # [R]e[M]ove: remove project dependencies
 
-alias uvru='uv run'         # [R][U]n: run a command using the current project uv environment
-alias uvrup='uv run python' # [R][U]n [P]ython: start a Python shell or run a Python script using the current project uv environment
+alias uvru='uv run'                    # [R][U]n: run a Python command using the current project uv environment
+alias uvrujl='uv run jupyter lab'      # [R][U]n [J]upyter [L]ab: start a Jupyter lab server using the current project uv environment
+alias uvrujn='uv run jupyter notebook' # [R][U]n [J]upyter [N]otebook: start a Jupyter notebook server using the current project uv environment
+alias uvrup='uv run python'            # [R][U]n [P]ython: start a Python shell or run a Python script using the current project uv environment
 
 alias uvs='uv sync' # [S]ync: synchronize the current project uv environement dependencies
 
