@@ -36,35 +36,12 @@ return {
   { key = "b", mods = "SUPER|SHIFT", action = wezterm.action.EmitEvent("decrease-blur") },
 
   -- [[ Complex key combinations ]]
-  -- Enable the use of <S-CR> and <C-CR> in tmux sessions
-  -- Note that in the codes sent by the keymaps, the leading "^[" is actually obtained by entering, in Neovim's insert
-  -- mode, <C-v> and <Esc> to obtain an escape sequence, and the rest of the codes are the actual keycodes
-  -- To make sure this works, in Neovim's insert mode, type <C-v> and then <S-CR> or <C-CR> and you should see the
-  -- corresponding mappings displayed
-  -- Sources:
-  --  - https://stackoverflow.com/questions/16359878/how-to-map-shift-enter
-  --  - https://stackoverflow.com/questions/78053422/how-can-i-get-shift-enter-escape-sequence-to-work-in-a-nested-tmux-session
+  -- Enable or remap altogether some complex key combinations. In the following, a leading "^[" in a keycode is actually
+  -- an escape sequence (can be obtained in Neovim with <C-v> and <Esc> in insert mode).
   { key = "Return", mods = "SHIFT", action = wezterm.action({ SendString = "[13;2u" }) },
   { key = "Return", mods = "CTRL", action = wezterm.action({ SendString = "[13;5u" }) },
-
-  -- Remap complex key combinations which has no or little use, to another complex key combinations which would have
-  -- been previously impossible or difficulat to type
-  -- Sources:
-  --  - https://github.com/wez/wezterm/issues/3180,
-  --  - https://www.reddit.com/r/neovim/comments/okbag3/how_can_i_remap_ctrl_backspace_to_delete_a_word/
-  {
-    key = "phys:Quote", -- "ù" on my physical keyboard
-    mods = "CTRL",
-    action = wezterm.action({ SendString = "\x7f" }), -- <BS>/<C-?>
-  },
-  {
-    key = "phys:M", -- "," on my physical keyboard
-    mods = "CTRL",
-    action = wezterm.action({ SendString = "\x1e" }), -- <C-^>
-  },
-  {
-    key = "phys:Comma", -- ";" on my physical keyboard
-    mods = "CTRL",
-    action = wezterm.action({ SendString = "\x1f" }), -- <C-_>
-  },
+  { key = "Backspace", mods = "CTRL", action = wezterm.action({ SendString = "[127;5u" }) },
+  { key = "phys:Quote", mods = "CTRL", action = wezterm.action({ SendString = "\x7f" }) }, -- Keyboard <C-ù> -> <C-?>
+  { key = "phys:M", mods = "CTRL", action = wezterm.action({ SendString = "\x1e" }) }, -- Keyboard <C-,> -> <C-^>
+  { key = "phys:Comma", mods = "CTRL", action = wezterm.action({ SendString = "\x1f" }) }, -- Keyboard <C-;> -> <C-_>
 }
