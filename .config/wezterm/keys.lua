@@ -53,11 +53,6 @@ return {
   --  - https://github.com/wez/wezterm/issues/3180,
   --  - https://www.reddit.com/r/neovim/comments/okbag3/how_can_i_remap_ctrl_backspace_to_delete_a_word/
   {
-    key = "Backspace",
-    mods = "CTRL",
-    action = wezterm.action({ SendKey = { key = "w", mods = "CTRL" } }),
-  },
-  {
     key = "phys:Quote", -- "ù" on my physical keyboard
     mods = "CTRL",
     action = wezterm.action({ SendString = "\x7f" }), -- <BS>/<C-?>
