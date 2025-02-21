@@ -1,6 +1,7 @@
 # [U][V]: a fast Python package & project manager
 
-alias uva='uv add' # [A]dd: add new project dependencies
+alias uva='uv add'        # [A]dd: add new project dependencies
+alias uvad='uv add --dev' # [A]dd [D]ev: add new project development dependencies
 
 alias uvi='uv init'        # [I]nit: initialize a new uv project
 alias uvil='uv init --lib' # [I]nit [L]ib: initialize a new uv lib project
