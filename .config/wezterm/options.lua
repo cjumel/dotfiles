@@ -17,8 +17,6 @@ config.colors = {} -- Reset colors in case a theme has set some
 config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Medium" })
 config.font_size = 12.0
 config.adjust_window_size_when_changing_font_size = false
--- Ligatures are the feature which replace for instance successive "!" & "=" with an actual not-equal symbol
-config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" } -- Don't use ligatures
 
 -- Make possible to type option-key combinations, like "{" and "}"
 config.send_composed_key_when_left_alt_is_pressed = true

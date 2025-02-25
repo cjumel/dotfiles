@@ -14,6 +14,4 @@ config.colors = {
   brights = { "#3B4252", "#D06F79", "#B1D196", "#F0D399", "#88C0D0", "#C895BF", "#93CCDC", "#E5E9F0" },
 }
 
-config.harfbuzz_features = {} -- Use ligatures
-
 return config
