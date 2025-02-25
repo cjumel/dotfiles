@@ -8,7 +8,8 @@ alias uvil='uv init --lib' # [I]nit [L]ib: initialize a new uv lib project
 
 alias uvl='uv lock' # [L]ock: lock the current project dependencies
 
-alias uvrm='uv remove' # [R]e[M]ove: remove project dependencies
+alias uvrm='uv remove'        # [R]e[M]ove: remove project dependencies
+alias uvrmd='uv remove --dev' # [R]e[M]ove [D]ev: remove project developement dependencies
 
 alias uvru='uv run'                    # [R][U]n: run a Python command using the current project uv environment
 alias uvrujl='uv run jupyter lab'      # [R][U]n [J]upyter [L]ab: start a Jupyter lab server using the current project uv environment
