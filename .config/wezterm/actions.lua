@@ -16,7 +16,7 @@ function M.set_actions()
   end)
   wezterm.on("toggle-ligatures", function(window, _)
     local overrides = window:get_config_overrides() or {}
-    if #overrides.harfbuzz_features == 0 then
+    if not overrides.harfbuzz_features or #overrides.harfbuzz_features == 0 then
       overrides.harfbuzz_features = { "calt=0", "clig=0", "liga=0" } -- No ligature
     else
       overrides.harfbuzz_features = {} -- Ligatures
