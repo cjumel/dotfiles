@@ -7,11 +7,18 @@
 [core]
 	autocrlf = input
 	editor = nvim
-	pager = less
+	pager = delta
 [credential]
 	helper = osxkeychain
+[delta]
+	navigate = true
+	paging = always
 [init]
 	defaultBranch = main
+[interactive]
+	diffFilter = delta --color-only
+[merge]
+	conflictStyle = zdiff3
 [pull]
 	rebase = true
 [push]
