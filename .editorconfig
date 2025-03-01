@@ -49,7 +49,13 @@ max_line_length = 120
 indent_style = space
 indent_size = 4
 
-[Makefile]
+
+# Use same config has what `git config --global` inserts
+[.editorconfig]
+indent_style = tab
+indent_size = 8
+
 # Makefiles requires necessarily 8-long tab indentation to work
+[Makefile]
 indent_size = 8
 indent_style = tab

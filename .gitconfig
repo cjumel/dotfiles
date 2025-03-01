@@ -1,25 +1,25 @@
 [advice]
-    forceDeleteBranch = false
-    skippedCherryPicks = false
-    statusHints = false
+	forceDeleteBranch = false
+	skippedCherryPicks = false
+	statusHints = false
 [alias]
-    lg = log --oneline --graph --decorate --color
+	lg = log --oneline --graph --decorate --color
 [core]
-    autocrlf = input
-    editor = nvim
-    pager = less
+	autocrlf = input
+	editor = nvim
+	pager = less
 [credential]
-    helper = osxkeychain
+	helper = osxkeychain
 [init]
-    defaultBranch = main
+	defaultBranch = main
 [pull]
-    rebase = true
+	rebase = true
 [push]
-    default = current
-    autoSetupRemote = true
+	default = current
+	autoSetupRemote = true
 [status]
-    showStash = true
-    showUntrackedFiles = all
+	showStash = true
+	showUntrackedFiles = all
 [user]
-    name = cjumel
-    email = clement.jumel@gmail.com
+	name = cjumel
+	email = clement.jumel@gmail.com
