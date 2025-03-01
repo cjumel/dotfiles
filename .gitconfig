@@ -1,18 +1,33 @@
+# Part of this config is taken from https://blog.gitbutler.com/how-git-core-devs-configure-git/
+
 [advice]
 	forceDeleteBranch = false
 	skippedCherryPicks = false
 	statusHints = false
-[alias]
-	lg = log --oneline --graph --decorate --color
+[branch]
+	sort = -committerdate
+[commit]
+	verbose = true
 [core]
 	autocrlf = input
 	editor = nvim
+	excludesfile = ~/.gitignore-global # Next to `~/.gitconfig`
 	pager = delta
 [credential]
 	helper = osxkeychain
 [delta]
 	navigate = true
 	paging = always
+[diff]
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
+[fetch]
+	prune = true
+	pruneTags = true
+[help]
+	autocorrect = prompt
 [init]
 	defaultBranch = main
 [interactive]
@@ -22,11 +37,21 @@
 [pull]
 	rebase = true
 [push]
-	default = current
 	autoSetupRemote = true
+	default = simple
+	followTags = true
+[rebase]
+	autoSquash = true
+	autoStash = true
+	updateRefs = true
+[rerere]
+	enabled = true
+	autoupdate = true
 [status]
 	showStash = true
 	showUntrackedFiles = all
+[tag]
+	sort = version:refname
 [user]
 	name = cjumel
 	email = clement.jumel@gmail.com

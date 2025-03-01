@@ -1,0 +1,4 @@
+# Global ignore rules for Git, taken into account in addition to per-repository ignore rules
+
+# Neovim configuration file
+.nvim.lua

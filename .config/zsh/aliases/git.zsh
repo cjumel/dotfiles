@@ -64,8 +64,8 @@ alias gi='git init' # Init: create a new local Git repository
 
 # [[ Log ]]
 
-alias gl='git lg'   # Log: show the commit log using in the short log format
-alias gll='git log' # Log long: show the commit log using the long log format
+alias gl='git log --oneline --graph --decorate --color' # [L]og: show the commit log using in the short log format
+alias gll='git log'                                     # [L]og [L]ong: show the commit log using the long log format
 
 # [[ Pull ]]
 
