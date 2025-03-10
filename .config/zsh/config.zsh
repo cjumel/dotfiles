@@ -14,6 +14,9 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH" # Python managed by Homebr
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # Case-insensitive completion when using lowercase (like ripgrep smart case)
 
+# Clear the content after quitting the `less` pager (e.g. when using `git log` with `less`)
+export LESS=R
+
 # [[ History configuration ]]
 # Documentation: https://zsh.sourceforge.io/Doc/Release/Options.html#History
 

@@ -12,12 +12,9 @@
 	autocrlf = input
 	editor = nvim
 	excludesfile = ~/.gitignore-global # Next to `~/.gitconfig`
-	pager = delta
+	pager = less
 [credential]
 	helper = osxkeychain
-[delta]
-	navigate = true
-	paging = always
 [diff]
 	algorithm = histogram
 	colorMoved = plain
@@ -30,8 +27,6 @@
 	autocorrect = prompt
 [init]
 	defaultBranch = main
-[interactive]
-	diffFilter = delta --color-only
 [merge]
 	conflictStyle = zdiff3
 [pull]
