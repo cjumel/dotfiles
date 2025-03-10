@@ -27,8 +27,11 @@ alias popb='poetry publish --build' # [P]ublish [B]uild: build & publish a packa
 
 alias porm='poetry remove' # [R]e[M]ove: remove project dependencies
 
-alias poru='poetry run'         # [R][U]n: run a command using the current project Poetry environment
-alias porup='poetry run python' # [R][U]n [P]ython: start a Python shell or run a Python script using the current project Poetry environment
+alias poru='poetry run'                    # [R][U]n: run a command using the current project Poetry environment
+alias porujl='poetry run jupyter lab'      # [R][U]n [J]upyter [L]ab: start a Jupyter lab server using the current project Poetry environment
+alias porujn='poetry run jupyter notebook' # [R][U]n [J]upyter [N]otebook: start a Jupyter notebook server using the current project Poetry environment
+alias porup='poetry run python'            # [R][U]n [P]ython: start a Python shell or run a Python script using the current project Poetry environment
+alias porupm='poetry run python -m'        # [R][U]n [P]ython [M]odule: run a Python module using the current project Poetry environment
 
 alias pos='poetry shell' # [S]hell: spawn a shell with the current project Poetry environment activated
 
