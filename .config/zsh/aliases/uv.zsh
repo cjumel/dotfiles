@@ -19,6 +19,11 @@ alias uvrupm='uv run python -m'        # [R][U]n [P]ython [M]odule: run a Python
 
 alias uvs='uv sync' # [S]ync: synchronize the current project uv environement dependencies
 
-alias uvt='uv tree' # [T]ree: view the current project dependency tree
+alias uvt='uv tool'             # [T]ool: base command for managing uv tools
+alias uvti='uv tool install'    # [T]ool [I]nstall: install commands provided by a Python package
+alias uvtl='uv tool list'       # [T]ool [L]ist: list installed tools
+alias uvtr='uv tool run'        # [T]ool [R]un: run a command provided by a Python package
+alias uvtui='uv tool uninstall' # [T]ool [U]n[I]nstall: uninstall a tool
+alias uvtup='uv tool upgrade'   # [T]ool [U]pgrade: upgrade installed tools
 
 alias uvv='uv venv' # [V]env: create a new uv virtual environment for the current project
