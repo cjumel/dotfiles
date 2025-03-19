@@ -6,18 +6,15 @@ alias uvad='uv add --dev' # [A]dd [D]ev: add new project development dependencie
 alias uvi='uv init'        # [I]nit: initialize a new uv project
 alias uvil='uv init --lib' # [I]nit [L]ib: initialize a new uv lib project
 
-alias uvl='uv lock' # [L]ock: lock the current project dependencies
+alias uvl='uv lock'            # [L]ock: lock the current project dependencies
+alias uvlu='uv lock --upgrade' # [L]ock [U]pgrade: upgrade & lock the current project dependencies
 
 alias uvrm='uv remove'        # [R]e[M]ove: remove project dependencies
 alias uvrmd='uv remove --dev' # [R]e[M]ove [D]ev: remove project developement dependencies
 
-alias uvru='uv run'                                    # [R][U]n: run a Python command using the current project uv environment
-alias uvrujl='uv run jupyter lab'                      # [R][U]n [J]upyter [L]ab: start a Jupyter lab server using the current project uv environment
-alias uvrujlw='uv run --with jupyter jupyter lab'      # [R][U]n [J]upyter [L]ab [W]ith install: start a Jupyter lab server using the current project uv environment and a temporary jupyter install
-alias uvrujn='uv run jupyter notebook'                 # [R][U]n [J]upyter [N]otebook: start a Jupyter notebook server using the current project uv environment
-alias uvrujnw='uv run --with jupyter jupyter notebook' # [R][U]n [J]upyter [N]otebook [W]ith install: start a Jupyter notebook server using the current project uv environment and a temporary jupyter install
-alias uvrup='uv run python'                            # [R][U]n [P]ython: start a Python shell or run a Python script using the current project uv environment
-alias uvrupm='uv run python -m'                        # [R][U]n [P]ython [M]odule: run a Python module using the current project uv environment
+alias uvru='uv run'             # [R][U]n: run a Python command using the current project uv environment
+alias uvrup='uv run python'     # [R][U]n [P]ython: start a Python shell or run a Python script using the current project uv environment
+alias uvrupm='uv run python -m' # [R][U]n [P]ython [M]odule: run a Python module using the current project uv environment
 
 alias uvs='uv sync' # [S]ync: synchronize the current project uv environement dependencies
 
