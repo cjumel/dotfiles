@@ -41,6 +41,7 @@ return {
   -- an escape sequence (can be obtained in Neovim with <C-v> and <Esc> in insert mode).
   { key = "Return", mods = "SHIFT", action = wezterm.action({ SendString = "[13;2u" }) },
   { key = "Return", mods = "CTRL", action = wezterm.action({ SendString = "[13;5u" }) },
+  { key = "Backspace", mods = "SHIFT", action = wezterm.action({ SendString = "[127;2u" }) },
   { key = "Backspace", mods = "CTRL", action = wezterm.action({ SendString = "[127;5u" }) },
   { key = "phys:Quote", mods = "CTRL", action = wezterm.action({ SendString = "\x7f" }) }, -- Keyboard <C-ù> -> <C-?>
   { key = "phys:M", mods = "CTRL", action = wezterm.action({ SendString = "\x1e" }) }, -- Keyboard <C-,> -> <C-^>
