@@ -19,6 +19,7 @@ onelight
 rose-pine-main
 rose-pine-moon
 rose-pine-dawn
+sonokai
 tokyonight-night
 tokyonight-moon
 tokyonight-storm
