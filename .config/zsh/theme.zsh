@@ -7,8 +7,13 @@ catppuccin-mocha
 catppuccin-macchiato
 catppuccin-frappe
 catppuccin-latte
+edge-dark
+edge-light
+everforest-dark
+everforest-light
 gruvbox-dark
 gruvbox-light
+gruvbox-material
 kanagawa-dragon
 kanagawa-wave
 kanagawa-lotus
