@@ -21,6 +21,11 @@ alias brog='brew outdated --greedy' # [O]utdated [G]reedy: list outdated formula
 
 alias brp='brew pin' # [P]in: prevent a formula or cask from being upgraded
 
+alias brs='brew services'         # [S]ervices: manage background services with Homebrew
+alias brsl='brew services list'   # [S]ervices [L]ist: list all services managed by Homebrew
+alias brssa='brew services start' # [S]ervices [S]t[A]rt: start a service managed by Homebrew
+alias brsso='brew services stop'  # [S]ervices [S]t[O]p: stop a service managed by Homebrew
+
 alias brud='brew update' # [U]p[D]ate: update Homebrew itself
 
 alias brug='brew upgrade'           # [U]p[G]rade: update a target formula or cask or all of them
