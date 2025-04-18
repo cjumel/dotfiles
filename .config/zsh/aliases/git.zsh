@@ -13,11 +13,6 @@ alias gba='git branch --all'    # Branch all: list local & remote branches
 alias gbd='git branch --delete'          # Branch delete: delete a local branch
 alias gbdf='git branch --delete --force' # Branch delete force: delete a local branch even if not merged
 
-# [[ Clone ]]
-
-alias gcl='git clone'         # Clone: clone a repository
-alias gclb='git clone --bare' # Clone bare: clone a repository as a bare repository (useful when working with git worktrees)
-
 # [[ Commit ]]
 # The "h" for "skip hooks" is directly taken from Neogit
 
@@ -46,6 +41,15 @@ alias gcwh='git commit --message "🚧 WIP [skip ci]" --no-verify' # []C]ommit [
 
 alias gci='git check-ignore'            # [C]heck [I]gnore: if a file is ignored by Git, print its path
 alias gciv='git check-ignore --verbose' # [C]heck [I]gnore [V]erbose: if a file is ignored by Git, print its path & the ignore rule
+
+# [[ Clone ]]
+
+alias gcl='git clone'         # [C][L]one: clone a repository
+alias gclb='git clone --bare' # [C][L]one [B]are: clone a repository as a bare repository (useful for git worktrees)
+
+# [[ Checkout ]]
+
+alias gco='git checkout' # [C]heck[O]ut: switch to a branch or restore working tree files (e.g. to a specific commit)
 
 # [[ Diff ]]
 
