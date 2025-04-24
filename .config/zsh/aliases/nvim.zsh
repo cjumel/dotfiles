@@ -21,7 +21,8 @@ function nvim_contextual() {
     fi
 }
 
-alias vi='nvim_contextual'               # Open Neovim with contextual setup
-alias vic='nvim --clean'                 # [C]lean: open Neovim without any custom configuration
-alias vicu='rm -rf ~/.local/share/nvim/' # [C]lean [U]p: clean up Neovim user data
-alias vis='nvim'                         # [S]kip: open Neovim without contextual setup
+alias vi='nvim_contextual'                            # Open Neovim with contextual setup
+alias via='NVIM_ENABLE_ALL_PLUGINS=1 nvim_contextual' # [A]ll-plugins: open Neovim with all plugins enabled, for updating purposes
+alias vic='nvim --clean'                              # [C]lean: open Neovim without any custom configuration
+alias vicu='rm -rf ~/.local/share/nvim/'              # [C]lean [U]p: clean up Neovim user data
+alias vis='nvim'                                      # [S]kip: open Neovim without contextual setup
