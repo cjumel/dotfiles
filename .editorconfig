@@ -5,57 +5,53 @@ charset = utf-8
 insert_final_newline = true
 
 [*.json]
-max_line_length = 100
 indent_style = space
 indent_size = 2
+max_line_length = 100
 
 [*.lua]
-max_line_length = 120
 indent_style = space
 indent_size = 2
+max_line_length = 120
 
 [*.md]
-max_line_length = 100
 indent_style = space
 indent_size = 2
+max_line_length = 100
 
 [*.proto]
-max_line_length = 100
 indent_style = space
 indent_size = 2
 
 [*.py]
-max_line_length = 100
 indent_style = space
 indent_size = 4
+max_line_length = 100
 
 [*.rs]
-max_line_length = 100
 indent_style = space
 indent_size = 4
+max_line_length = 100
 
 [*.toml]
-max_line_length = 100
 indent_style = space
 indent_size = 2
+max_line_length = 100
 
 [*.yaml]
-max_line_length = 100
 indent_style = space
 indent_size = 2
+max_line_length = 100
 
 [{*.sh,*.zsh,.zshenv,.zshrc,*.tmux}]
-max_line_length = 120
 indent_style = space
 indent_size = 4
 
-
-# Use same config has what `git config --global` inserts
-[.editorconfig]
+[.gitconfig]
 indent_style = tab
 indent_size = 8
 
-# Makefiles requires necessarily 8-long tab indentation to work
 [Makefile]
-indent_size = 8
+# Require necessarily 8-long tab indentation to work
 indent_style = tab
+indent_size = 8
