@@ -7,7 +7,7 @@ alias uvi='uv init'        # [I]nit: initialize a new uv project
 alias uvil='uv init --lib' # [I]nit [L]ib: initialize a new uv lib project
 
 alias uvl='uv lock'            # [L]ock: lock the current project dependencies
-alias uvlu='uv lock --upgrade' # [L]ock [U]pgrade: upgrade & lock the current project dependencies
+alias uvlu='uv lock --upgrade' # [L]ock [U]pgrade: upgrade the lock file dependencies (this doesn't affect the current project environment, though)
 
 alias uvrm='uv remove'        # [R]e[M]ove: remove project dependencies
 alias uvrmd='uv remove --dev' # [R]e[M]ove [D]ev: remove project developement dependencies
@@ -24,5 +24,7 @@ alias uvtl='uv tool list'       # [T]ool [L]ist: list installed tools
 alias uvtr='uv tool run'        # [T]ool [R]un: run a command provided by a Python package
 alias uvtui='uv tool uninstall' # [T]ool [U]n[I]nstall: uninstall a tool
 alias uvtup='uv tool upgrade'   # [T]ool [U]pgrade: upgrade installed tools
+
+alias uvup='uv lock --upgrade; uv sync' # [U][P]grade: upgrade the current project environment dependencies
 
 alias uvv='uv venv' # [V]env: create a new uv virtual environment for the current project
