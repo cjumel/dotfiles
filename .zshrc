@@ -35,6 +35,9 @@ compinit -C
 # Actually run any compdef saved by zinit before compinit call
 zinit cdreplay -q
 
+# Add custom completions defined in ~/.zfunc directory
+fpath+=~/.zfunc
+
 # Additional tool configuration scripts
 [ -f ~/.config/bat/bat.zsh ] && source ~/.config/bat/bat.zsh                     #
 [ -f ~/.config/dust/dust.zsh ] && source ~/.config/dust/dust.zsh                 #
