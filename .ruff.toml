@@ -1,15 +1,16 @@
-# To add this configuration in a `pyproject.toml` file instead of `.ruff.toml`, move the general
-# Ruff configuration (e.g. `line-length`) under the section `[tool.ruff]`, and prefix the
-# sub-sections by `tool.ruff.` (e.g. `[tool.ruff.lint]`)
-
 line-length = 100
 target-version = "py312"
 
 [lint]
-extend-select = [ # Extend default lint rules
+extend-ignore = [
+  "S311", # Standard pseudo-random generators are not suitable for cryptographic purposes
+]
+extend-select = [
   "E", # pycodestyle
+  "F", # pyflakes
   "I", # isort
+  "S", # flake8-bandit
 ]
 
-[lint.extend-per-file-ignores] # Extend default set of rules to ignore per-file 
-"__init__.py" = ["F401"] # Module imported but unused
+[lint.extend-per-file-ignores]
+"tests/**/*_test.py" = ["S101"] # Use of assert detected
