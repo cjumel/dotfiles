@@ -168,7 +168,10 @@ alias gsts='git status --short' # [S][T]atuts [S]hort: show the status of the re
 
 alias gsw='git switch'           # [S][W]itch: switch to a branch
 alias gswc='git switch --create' # [S][W]itch [C]reate: create a branch & switch to it
+alias gswm='git switch main'     # [S][W]itch [M]ain: switch to the main branch
+alias gswms='git switch master'  # [S][W]itch [M]a[S]ter: switch to the master branch
 alias gswp='git switch -'        # [S][W]itch [P]revious: switch to the previous branch
+alias gsws='git switch staging'  # [S][W]itch [S]taging: switch to the staging branch
 
 # [[ Tag ]]
 
