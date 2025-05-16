@@ -3,8 +3,11 @@
 alias uva='uv add'        # [A]dd: add new project dependencies
 alias uvad='uv add --dev' # [A]dd [D]ev: add new project development dependencies
 
-alias uvi='uv init'        # [I]nit: initialize a new uv project
-alias uvil='uv init --lib' # [I]nit [L]ib: initialize a new uv lib project
+alias uvi='uv init'                      # [I]nit: initialize a new uv project
+alias uvil='uv init --lib'               # [I]nit [L]ib: initialize a new uv lib project
+alias uvilp='uv init --lib --python'     # [I]nit [L]ib [P]ython: initialize a new uv lib project with the specified Python version
+alias uvip='uv init --package'           # [I]nit [P]ackage: initialize a new uv package project
+alias uvipp='uv init --package --python' # [I]nit [P]ackage [P]ython: initialize a new uv package project with the specified Python version
 
 alias uvl='uv lock'            # [L]ock: lock the current project dependencies
 alias uvlu='uv lock --upgrade' # [L]ock [U]pgrade: upgrade the lock file dependencies (this doesn't affect the current project environment, though)
