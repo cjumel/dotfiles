@@ -85,8 +85,10 @@ alias mdc='mdc'      # [C]d: create a directory & `cd` into it
 alias mdp='mkdir -p' # [P]arent: create a nested directory along with all its parents
 alias mdpc='mdpc'    # [P]arent [C]d: create a nested directory along with all its parents & `cd` into it
 
-alias mk='make'                  # Make: base command
-alias mki='make --ignore-errors' # Make ignore: don't stop on errors (exit code won't report failure either)
+alias mk='make'                           # [M][K]e: run a Make command
+alias mki='make install'                  # [M][K]e [I]nstall: run the Make `install` command
+alias mkt='make test'                     # [M][K]e [T]est: run the Make `test` command
+alias mkti='make install --ignore-errors' # [M][K]e [I]nstall: run the Make `install` command, without stopping on errors
 
 alias p='pwd'
 

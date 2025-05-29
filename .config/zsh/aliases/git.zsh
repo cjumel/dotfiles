@@ -85,13 +85,13 @@ alias gpsu='git push --set-upstream'  # [P]ush [U]pstream: upload the current br
 
 # [[ Rebase ]]
 
-alias grb='git rebase --autostash'                           # Rebase: apply the current branch changes on top of another branch
-alias grbi='git rebase --autostash --interactive'            # Rebase interactive: apply the current branch selected changes & actions on top of another branch
-alias grbo='git rebase --autostash --strategy-option=theirs' # Rebase overwrite: apply the current branch changes on top of another branch & overwrite conflicting changes
+alias grb='git rebase'                           # [R]e[B]ase: apply the current branch changes on top of another branch
+alias grbi='git rebase --interactive'            # [R]e[B]ase [I]nteractive: apply the current branch selected changes & actions on top of another branch
+alias grbo='git rebase --strategy-option=theirs' # [R]e[B]ase [O]verwrite: apply the current branch changes on top of another branch & overwrite conflicting changes
 
-alias grba='git rebase --abort'    # Rebase abort: stop a rebase in progress
-alias grbc='git rebase --continue' # Rebase continue: continue a rebase in progress
-alias grbs='git rebase --skip'     # Rebase skip: skip a commit's changes during a rebase in progress
+alias grba='git rebase --abort'    # [R]e[B]ase [A]bort: stop a rebase in progress
+alias grbc='git rebase --continue' # [R]e[B]ase [C]ontinue: continue a rebase in progress
+alias grbs='git rebase --skip'     # [R]e[B]ase [S]kip: skip a commit's changes during a rebase in progress
 
 # [[ Remove ]]
 
