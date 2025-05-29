@@ -35,7 +35,7 @@ setopt SHARE_HISTORY        # Enable sharing history between sessions by adding 
 
 # [[ Key bindings ]]
 
-# By default, "^l" is clear-screen, but with Tmux it's remapped to window navigation, so let's remap it to something close & originally not important
+# By default, clear-screen is mapped to "^l", but "^l" is mapped to window navigation in tmux
 bindkey "^o" clear-screen
 
 # Filter search history browsing with the current command
@@ -45,3 +45,6 @@ bindkey "^n" history-search-forward
 # Move cursor to next/previous word
 bindkey "^^" forward-word  # Actually <C-,> on my keyboard
 bindkey "^_" backward-word # Actually <C-;> on my keyboard
+
+# Delete previous word
+bindkey '^[[127;5u' backward-kill-word # Actually <C-BS> on my keyboard

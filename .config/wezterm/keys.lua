@@ -2,7 +2,6 @@
 
 -- NOTE: the final list of complex key combinations which are supported in my Wezterm configuration but differ from the
 -- physical keyboard equivalent is:
---  - <C-BS> on my physical keyboard corresponds to <C-w>
 --  - <C-^> on my physical keyboard corresponds to <C-[>
 --  - <C-$> on my physical keyboard corresponds to <C-]>
 --  - <C-m> on my physical keyboard corresponds to <CR>
