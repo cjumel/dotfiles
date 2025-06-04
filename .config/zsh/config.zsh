@@ -48,3 +48,12 @@ bindkey "^_" backward-word # Actually <C-;> on my keyboard
 
 # Delete previous word
 bindkey '^[[127;5u' backward-kill-word # Actually <C-BS> on my keyboard
+
+# Insert a newline inside a command
+insert-newline() {
+    LBUFFER="${LBUFFER}
+"
+}
+zle -N insert-newline
+bindkey '^[[13;5u' insert-newline # Actually <C-CR> on my keyboard
+bindkey '^[[13;2u' insert-newline # Actually <S-CR> on my keyboard, for consistency with non-terminal softwares
