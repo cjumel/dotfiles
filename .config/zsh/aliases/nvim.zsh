@@ -30,4 +30,5 @@ alias vi='nvim_contextual'                            # Open Neovim with context
 alias via='NVIM_ENABLE_ALL_PLUGINS=1 nvim_contextual' # [A]ll-plugins: open Neovim with all plugins enabled, for updating purposes
 alias vic='nvim --clean'                              # [C]lean: open Neovim without any custom configuration
 alias vicu='nvim_cleanup'                             # [C]lean [U]p: clean up all Neovim user data
+alias vid='nvim -d'                                   # [D]iff: open Neovim in diff mode, to compare several files
 alias vis='nvim'                                      # [S]kip: open Neovim without contextual setup
