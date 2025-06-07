@@ -19,21 +19,29 @@ zstyle ':fzf-tab:*' fzf-flags \
     --bind 'ctrl-_:backward-word' \
     --bind 'π:toggle-preview'
 
-# Enable directory preview (with `eza`) for the main builtin commands to manipulate files and directories and their
-# third-party alternatives. This cannot be enabled for all commannds, as it would be annoying for commands which don't
-# accept files or directories (like `git`, which only accepts sub-commands, like `status`).
-export FZF_TAB_DIR_PREVIEW='eza -a1 --color=always --icons=always --group-directories-first $realpath'
-zstyle ':fzf-tab:complete:cat:*' fzf-preview "$FZF_TAB_DIR_PREVIEW"
-zstyle ':fzf-tab:complete:bat:*' fzf-preview "$FZF_TAB_DIR_PREVIEW"
-zstyle ':fzf-tab:complete:cd:*' fzf-preview "$FZF_TAB_DIR_PREVIEW"
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview "$FZF_TAB_DIR_PREVIEW"
-zstyle ':fzf-tab:complete:cp:*' fzf-preview "$FZF_TAB_DIR_PREVIEW"
-zstyle ':fzf-tab:complete:du:*' fzf-preview "$FZF_TAB_DIR_PREVIEW"
-zstyle ':fzf-tab:complete:dust:*' fzf-preview "$FZF_TAB_DIR_PREVIEW"
-zstyle ':fzf-tab:complete:ls:*' fzf-preview "$FZF_TAB_DIR_PREVIEW"
-zstyle ':fzf-tab:complete:eza:*' fzf-preview "$FZF_TAB_DIR_PREVIEW"
-zstyle ':fzf-tab:complete:mv:*' fzf-preview "$FZF_TAB_DIR_PREVIEW"
-zstyle ':fzf-tab:complete:rm:*' fzf-preview "$FZF_TAB_DIR_PREVIEW"
+# Enable preview (with `eza` and `bat`) for the main builtin commands to manipulate files and directories and their
+# third-party alternatives. This shouldn't be enabled for all commannds, as it would be annoying for commands which
+# don't accept files or directories (like `git`).
+export FZF_TAB_PREVIEW='
+if [[ -d $realpath ]]; then
+    eza -a1 --color=always --icons=always --group-directories-first $realpath
+elif [[ -f $realpath ]]; then
+    bat --color=always --line-range=:500 $realpath
+else
+    echo "Unsupported preview: $realpath"
+fi
+'
+zstyle ':fzf-tab:complete:bat:*' fzf-preview "$FZF_TAB_PREVIEW"
+zstyle ':fzf-tab:complete:cat:*' fzf-preview "$FZF_TAB_PREVIEW"
+zstyle ':fzf-tab:complete:cd:*' fzf-preview "$FZF_TAB_PREVIEW"
+zstyle ':fzf-tab:complete:cp:*' fzf-preview "$FZF_TAB_PREVIEW"
+zstyle ':fzf-tab:complete:du:*' fzf-preview "$FZF_TAB_PREVIEW"
+zstyle ':fzf-tab:complete:dust:*' fzf-preview "$FZF_TAB_PREVIEW"
+zstyle ':fzf-tab:complete:eza:*' fzf-preview "$FZF_TAB_PREVIEW"
+zstyle ':fzf-tab:complete:ls:*' fzf-preview "$FZF_TAB_PREVIEW"
+zstyle ':fzf-tab:complete:mv:*' fzf-preview "$FZF_TAB_PREVIEW"
+zstyle ':fzf-tab:complete:rm:*' fzf-preview "$FZF_TAB_PREVIEW"
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview "$FZF_TAB_PREVIEW"
 
 # [[ Zsh standard plugins ]]
 # A few standard plugins for zsh, enabling syntax highlighting (show valid/invalid commands, paths, etc.),

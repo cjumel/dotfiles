@@ -10,15 +10,16 @@ export FZF_FD_DIR_COMMAND_HIDDEN='fd --type d --hidden .'
 export FZF_FD_DIR_COMMAND_IGNORED='fd --type d --no-ignore .'
 export FZF_FD_DIR_COMMAND_ALL='fd --type d --hidden --no-ignore --exclude .git .'
 
-# Previewers (escaped versions are necessary for the transform actions below)
-export FZF_EZA_PREVIEW='eza -a1 --color=always --icons=always --group-directories-first {}'
-export FZF_EZA_PREVIEW_ESCAPED='eza -a1 --color=always --icons=always --group-directories-first \{}'
-export FZF_BAT_PREVIEW='bat --color=always --line-range=:500 {}'
-export FZF_BAT_PREVIEW_ESCAPED='bat --color=always --line-range=:500 \{}'
-export FZF_FILE_PREVIEW="$FZF_BAT_PREVIEW"
-export FZF_FILE_PREVIEW_ESCAPED="$FZF_BAT_PREVIEW_ESCAPED"
-export FZF_DIR_PREVIEW="$FZF_EZA_PREVIEW"
-export FZF_DIR_PREVIEW_ESCAPED="$FZF_EZA_PREVIEW_ESCAPED"
+# Previewer
+export FZF_PREVIEW='
+if [[ -d {} ]]; then
+    eza -a1 --color=always --icons=always --group-directories-first {}
+elif [[ -f {} ]]; then
+    bat --color=always --line-range=:500 {}
+else
+    echo "Unsupported preview: {}"
+fi
+'
 
 # General options
 export FZF_DEFAULT_OPTS="
@@ -40,21 +41,21 @@ export FZF_DEFAULT_OPTS="
 export FZF_CTRL_T_COMMAND="$FZF_FD_FILE_COMMAND"
 export FZF_CTRL_T_TOGGLE_DIR_TRANSFORMER="
     if [[ {fzf:prompt} = \"File > \" ]]; then
-        echo \"change-prompt(Directory > )+reload($FZF_FD_DIR_COMMAND)+change-preview($FZF_DIR_PREVIEW_ESCAPED)\"
+        echo \"change-prompt(Directory > )+reload($FZF_FD_DIR_COMMAND)\"
     elif [[ {fzf:prompt} = \"Directory > \" ]]; then
-        echo \"change-prompt(File > )+reload($FZF_FD_FILE_COMMAND)+change-preview($FZF_FILE_PREVIEW_ESCAPED)\"
+        echo \"change-prompt(File > )+reload($FZF_FD_FILE_COMMAND)\"
     elif [[ {fzf:prompt} = \"File (hidden) > \" ]]; then
-        echo \"change-prompt(Directory (hidden) > )+reload($FZF_FD_DIR_COMMAND_HIDDEN)+change-preview($FZF_DIR_PREVIEW_ESCAPED)\"
+        echo \"change-prompt(Directory (hidden) > )+reload($FZF_FD_DIR_COMMAND_HIDDEN)\"
     elif [[ {fzf:prompt} = \"Directory (hidden) > \" ]]; then
-        echo \"change-prompt(File (hidden) > )+reload($FZF_FD_FILE_COMMAND_HIDDEN)+change-preview($FZF_FILE_PREVIEW_ESCAPED)\"
+        echo \"change-prompt(File (hidden) > )+reload($FZF_FD_FILE_COMMAND_HIDDEN)\"
     elif [[ {fzf:prompt} = \"File (ignored) > \" ]]; then
-        echo \"change-prompt(Directory (ignored) > )+reload($FZF_FD_DIR_COMMAND_IGNORED)+change-preview($FZF_DIR_PREVIEW_ESCAPED)\"
+        echo \"change-prompt(Directory (ignored) > )+reload($FZF_FD_DIR_COMMAND_IGNORED)\"
     elif [[ {fzf:prompt} = \"Directory (ignored) > \" ]]; then
-        echo \"change-prompt(File (ignored) > )+reload($FZF_FD_FILE_COMMAND_IGNORED)+change-preview($FZF_FILE_PREVIEW_ESCAPED)\"
+        echo \"change-prompt(File (ignored) > )+reload($FZF_FD_FILE_COMMAND_IGNORED)\"
     elif [[ {fzf:prompt} = \"File (all) > \" ]]; then
-        echo \"change-prompt(Directory (all) > )+reload($FZF_FD_DIR_COMMAND_ALL)+change-preview($FZF_DIR_PREVIEW_ESCAPED)\"
+        echo \"change-prompt(Directory (all) > )+reload($FZF_FD_DIR_COMMAND_ALL)\"
     elif [[ {fzf:prompt} = \"Directory (all) > \" ]]; then
-        echo \"change-prompt(File (all) > )+reload($FZF_FD_FILE_COMMAND_ALL)+change-preview($FZF_FILE_PREVIEW_ESCAPED)\"
+        echo \"change-prompt(File (all) > )+reload($FZF_FD_FILE_COMMAND_ALL)\"
     fi
 "
 export FZF_CTRL_T_TOGGLE_HIDDEN_TRANSFORMER="
@@ -97,7 +98,7 @@ export FZF_CTRL_T_TOGGLE_IGNORED_TRANSFORMER="
 "
 export FZF_CTRL_T_OPTS="
     --prompt 'File > '
-    --preview '$FZF_FILE_PREVIEW'
+    --preview '$FZF_PREVIEW'
     --bind 'ctrl-t:transform: $FZF_CTRL_T_TOGGLE_DIR_TRANSFORMER'
     --bind 'Ì:transform: $FZF_CTRL_T_TOGGLE_HIDDEN_TRANSFORMER'  # <M-h>
     --bind 'î:transform: $FZF_CTRL_T_TOGGLE_IGNORED_TRANSFORMER' # <M-i>
@@ -135,7 +136,7 @@ export FZF_ALT_C_TOGGLE_IGNORED_TRANSFORMER="
 "
 export FZF_ALT_C_OPTS="
     --prompt 'Directory > '
-    --preview '$FZF_DIR_PREVIEW'
+    --preview '$FZF_PREVIEW'
     --bind 'Ì:transform: $FZF_ALT_C_TOGGLE_HIDDEN_TRANSFORMER'  # <M-h>
     --bind 'î:transform: $FZF_ALT_C_TOGGLE_IGNORED_TRANSFORMER' # <M-i>
 "
@@ -163,25 +164,15 @@ _fzf_comprun() {
     shift
 
     case "$command" in
-    *) fzf --preview "$FZF_DIR_PREVIEW" "$@" ;;
+    *) fzf --preview "$FZF_PREVIEW" "$@" ;;
     esac
 }
 
 # Specify the commands which trigger directory-only completion for `fzf`
-# Let's enable this feature for the main builtin command aliases which only accept directories
+# Let's enable this feature for the main builtin command whose regular completion shows only directories
 export FZF_COMPLETION_DIR_COMMANDS='
     c
     cd
-    cpr
-    l
-    la
-    ll
-    lla
-    ls
-    lt
-    lta
-    rmr
-    rmrf
 '
 
 # [[ Setup ]]
