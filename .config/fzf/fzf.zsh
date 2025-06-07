@@ -1,61 +1,106 @@
 # [[ General options ]]
 
 # Source commands
-export FZF_FD_COMMAND='fd --hidden .'
-export FZF_FD_COMMAND_ALL='fd --hidden --no-ignore --exclude .git .'
-export FZF_FD_FILE_COMMAND='fd --type f --hidden .'
+export FZF_FD_FILE_COMMAND='fd --type f .'
+export FZF_FD_FILE_COMMAND_HIDDEN='fd --type f --hidden .'
+export FZF_FD_FILE_COMMAND_IGNORED='fd --type f --no-ignore .'
 export FZF_FD_FILE_COMMAND_ALL='fd --type f --hidden --no-ignore --exclude .git .'
-export FZF_FD_DIR_COMMAND='fd --type d --hidden .'
+export FZF_FD_DIR_COMMAND='fd --type d .'
+export FZF_FD_DIR_COMMAND_HIDDEN='fd --type d --hidden .'
+export FZF_FD_DIR_COMMAND_IGNORED='fd --type d --no-ignore .'
 export FZF_FD_DIR_COMMAND_ALL='fd --type d --hidden --no-ignore --exclude .git .'
 
-# Previewers (escaped versions are necessary for the transform actions used below)
-# We could use `cat` or `bat` for file preview, to view the content of the file in the preview, with:
-#   - `export FZF_FILE_PREVIEW='bat --color=always --line-range=:500 {}'`
-#   - `export FZF_FILE_PREVIEW_ESCAPED='bat --color=always --line-range=:500 \{}'`
-# Since `bat` will display an error when used on a directory, and there aren't many cases we know for sure only files
-# will be suggested (only with the <C-t> keymap when looking for files), I prefer to stick with `eza` (used for the
-# directory preview) for the file preview as well. That way, all preview related to file and directories will be done
-# with `eza`.
-export FZF_FILE_PREVIEW='eza -a1 --color=always --icons=always --group-directories-first {}'
-export FZF_FILE_PREVIEW_ESCAPED='eza -a1 --color=always --icons=always --group-directories-first \{}'
-export FZF_DIR_PREVIEW='eza -a1 --color=always --icons=always --group-directories-first {}'
-export FZF_DIR_PREVIEW_ESCAPED='eza -a1 --color=always --icons=always --group-directories-first \{}'
+# Previewers (escaped versions are necessary for the transform actions below)
+export FZF_EZA_PREVIEW='eza -a1 --color=always --icons=always --group-directories-first {}'
+export FZF_EZA_PREVIEW_ESCAPED='eza -a1 --color=always --icons=always --group-directories-first \{}'
+export FZF_BAT_PREVIEW='bat --color=always --line-range=:500 {}'
+export FZF_BAT_PREVIEW_ESCAPED='bat --color=always --line-range=:500 \{}'
+export FZF_FILE_PREVIEW="$FZF_BAT_PREVIEW"
+export FZF_FILE_PREVIEW_ESCAPED="$FZF_BAT_PREVIEW_ESCAPED"
+export FZF_DIR_PREVIEW="$FZF_EZA_PREVIEW"
+export FZF_DIR_PREVIEW_ESCAPED="$FZF_EZA_PREVIEW_ESCAPED"
 
-# General options (keymaps below are defined to be the same as the ones defined in the telescope.nvim). In these
-# keymaps, we reserve <C-t> for a command-specific toggle action.
-export FZF_DEFAULT_COMMAND="$FZF_FD_COMMAND"
+# General options
 export FZF_DEFAULT_OPTS="
     --layout=reverse
     --height=40%
-    --bind 'ctrl-s:toggle+down'
     --bind 'tab:down'
     --bind 'shift-tab:up'
-    --bind 'ctrl-v:toggle-preview'
+    --bind 'ctrl-s:toggle+down'
     --bind 'ctrl-g:top'
-    --bind 'ctrl-^:forward-word'
-    --bind 'ctrl-_:backward-word'
+    --bind 'ctrl-^:forward-word'  # <C-,>
+    --bind 'ctrl-_:backward-word' # <C-;>
+    --bind 'π:toggle-preview'     # <M-p>
 "
 
 # [[ Key bindings ]]
-# fzf defines 3 key bindings for zsh which are configured in this section & actually setup in the "Setup" section
+# fzf defines by default 3 key bindings for zsh: <C-t>, <C-r> and <M-c>.
 
 # <C-t>: insert a file or directory path in the command line
 export FZF_CTRL_T_COMMAND="$FZF_FD_FILE_COMMAND"
-export FZF_CTRL_T_TOGGLE_TRANSFORMER="
+export FZF_CTRL_T_TOGGLE_DIR_TRANSFORMER="
     if [[ {fzf:prompt} = \"File > \" ]]; then
         echo \"change-prompt(Directory > )+reload($FZF_FD_DIR_COMMAND)+change-preview($FZF_DIR_PREVIEW_ESCAPED)\"
     elif [[ {fzf:prompt} = \"Directory > \" ]]; then
-        echo \"change-prompt(File (all) > )+reload($FZF_FD_FILE_COMMAND_ALL)+change-preview($FZF_FILE_PREVIEW_ESCAPED)\"
+        echo \"change-prompt(File > )+reload($FZF_FD_FILE_COMMAND)+change-preview($FZF_FILE_PREVIEW_ESCAPED)\"
+    elif [[ {fzf:prompt} = \"File (hidden) > \" ]]; then
+        echo \"change-prompt(Directory (hidden) > )+reload($FZF_FD_DIR_COMMAND_HIDDEN)+change-preview($FZF_DIR_PREVIEW_ESCAPED)\"
+    elif [[ {fzf:prompt} = \"Directory (hidden) > \" ]]; then
+        echo \"change-prompt(File (hidden) > )+reload($FZF_FD_FILE_COMMAND_HIDDEN)+change-preview($FZF_FILE_PREVIEW_ESCAPED)\"
+    elif [[ {fzf:prompt} = \"File (ignored) > \" ]]; then
+        echo \"change-prompt(Directory (ignored) > )+reload($FZF_FD_DIR_COMMAND_IGNORED)+change-preview($FZF_DIR_PREVIEW_ESCAPED)\"
+    elif [[ {fzf:prompt} = \"Directory (ignored) > \" ]]; then
+        echo \"change-prompt(File (ignored) > )+reload($FZF_FD_FILE_COMMAND_IGNORED)+change-preview($FZF_FILE_PREVIEW_ESCAPED)\"
     elif [[ {fzf:prompt} = \"File (all) > \" ]]; then
         echo \"change-prompt(Directory (all) > )+reload($FZF_FD_DIR_COMMAND_ALL)+change-preview($FZF_DIR_PREVIEW_ESCAPED)\"
     elif [[ {fzf:prompt} = \"Directory (all) > \" ]]; then
-        echo \"change-prompt(File > )+reload($FZF_FD_FILE_COMMAND)+change-preview($FZF_FILE_PREVIEW_ESCAPED)\"
+        echo \"change-prompt(File (all) > )+reload($FZF_FD_FILE_COMMAND_ALL)+change-preview($FZF_FILE_PREVIEW_ESCAPED)\"
+    fi
+"
+export FZF_CTRL_T_TOGGLE_HIDDEN_TRANSFORMER="
+    if [[ {fzf:prompt} = \"File > \" ]]; then
+        echo \"change-prompt(File (hidden) > )+reload($FZF_FD_FILE_COMMAND_HIDDEN)\"
+    elif [[ {fzf:prompt} = \"File (hidden) > \" ]]; then
+        echo \"change-prompt(File > )+reload($FZF_FD_FILE_COMMAND)\"
+    elif [[ {fzf:prompt} = \"Directory > \" ]]; then
+        echo \"change-prompt(Directory (hidden) > )+reload($FZF_FD_DIR_COMMAND_HIDDEN)\"
+    elif [[ {fzf:prompt} = \"Directory (hidden) > \" ]]; then
+        echo \"change-prompt(Directory > )+reload($FZF_FD_DIR_COMMAND)\"
+    elif [[ {fzf:prompt} = \"File (ignored) > \" ]]; then
+        echo \"change-prompt(File (all) > )+reload($FZF_FD_FILE_COMMAND_ALL)\"
+    elif [[ {fzf:prompt} = \"File (all) > \" ]]; then
+        echo \"change-prompt(File (ignored) > )+reload($FZF_FD_FILE_COMMAND_IGNORED)\"
+    elif [[ {fzf:prompt} = \"Directory (ignored) > \" ]]; then
+        echo \"change-prompt(Directory (all) > )+reload($FZF_FD_DIR_COMMAND_ALL)\"
+    elif [[ {fzf:prompt} = \"Directory (all) > \" ]]; then
+        echo \"change-prompt(Directory (ignored) > )+reload($FZF_FD_DIR_COMMAND_IGNORED)\"
+    fi
+"
+export FZF_CTRL_T_TOGGLE_IGNORED_TRANSFORMER="
+    if [[ {fzf:prompt} = \"File > \" ]]; then
+        echo \"change-prompt(File (ignored) > )+reload($FZF_FD_FILE_COMMAND_IGNORED)\"
+    elif [[ {fzf:prompt} = \"File (ignored) > \" ]]; then
+        echo \"change-prompt(File > )+reload($FZF_FD_FILE_COMMAND)\"
+    elif [[ {fzf:prompt} = \"Directory > \" ]]; then
+        echo \"change-prompt(Directory (ignored) > )+reload($FZF_FD_DIR_COMMAND_IGNORED)\"
+    elif [[ {fzf:prompt} = \"Directory (ignored) > \" ]]; then
+        echo \"change-prompt(Directory > )+reload($FZF_FD_DIR_COMMAND)\"
+    elif [[ {fzf:prompt} = \"File (hidden) > \" ]]; then
+        echo \"change-prompt(File (all) > )+reload($FZF_FD_FILE_COMMAND_ALL)\"
+    elif [[ {fzf:prompt} = \"File (all) > \" ]]; then
+        echo \"change-prompt(File (hidden) > )+reload($FZF_FD_FILE_COMMAND_HIDDEN)\"
+    elif [[ {fzf:prompt} = \"Directory (hidden) > \" ]]; then
+        echo \"change-prompt(Directory (all) > )+reload($FZF_FD_DIR_COMMAND_ALL)\"
+    elif [[ {fzf:prompt} = \"Directory (all) > \" ]]; then
+        echo \"change-prompt(Directory (hidden) > )+reload($FZF_FD_DIR_COMMAND_HIDDEN)\"
     fi
 "
 export FZF_CTRL_T_OPTS="
     --prompt 'File > '
     --preview '$FZF_FILE_PREVIEW'
-    --bind 'ctrl-t:transform: $FZF_CTRL_T_TOGGLE_TRANSFORMER'
+    --bind 'ctrl-t:transform: $FZF_CTRL_T_TOGGLE_DIR_TRANSFORMER'
+    --bind 'Ì:transform: $FZF_CTRL_T_TOGGLE_HIDDEN_TRANSFORMER'  # <M-h>
+    --bind 'î:transform: $FZF_CTRL_T_TOGGLE_IGNORED_TRANSFORMER' # <M-i>
 "
 
 # <C-r>: insert a command from the command history in the command line
@@ -64,31 +109,45 @@ export FZF_CTRL_R_OPTS="
 "
 
 # <M-c>: `cd` into a directory
-bindkey "©" fzf-cd-widget # Actually enable the <M-c> key binding (alt mappings are not directly available on my system)
+bindkey "©" fzf-cd-widget # Actually enable the <M-c> key binding
 export FZF_ALT_C_COMMAND="$FZF_FD_DIR_COMMAND"
-export FZF_ALT_C_TOGGLE_TRANSFORMER="
+export FZF_ALT_C_TOGGLE_HIDDEN_TRANSFORMER="
     if [[ {fzf:prompt} = \"Directory > \" ]]; then
-        echo \"reload(eval $FZF_FD_DIR_COMMAND_ALL)+change-prompt(Directory (all) > )\"
+        echo \"change-prompt(Directory (hidden) > )+reload($FZF_FD_DIR_COMMAND_HIDDEN)\"
+    elif [[ {fzf:prompt} = \"Directory (hidden) > \" ]]; then
+        echo \"change-prompt(Directory > )+reload($FZF_FD_DIR_COMMAND)\"
+    elif [[ {fzf:prompt} = \"Directory (ignored) > \" ]]; then
+        echo \"change-prompt(Directory (all) > )+reload($FZF_FD_DIR_COMMAND_ALL)\"
     elif [[ {fzf:prompt} = \"Directory (all) > \" ]]; then
-        echo \"reload(eval $FZF_FD_DIR_COMMAND)+change-prompt(Directory > )\"
+        echo \"change-prompt(Directory (ignored) > )+reload($FZF_FD_DIR_COMMAND_IGNORED)\"
+    fi
+"
+export FZF_ALT_C_TOGGLE_IGNORED_TRANSFORMER="
+    if [[ {fzf:prompt} = \"Directory > \" ]]; then
+        echo \"change-prompt(Directory (ignored) > )+reload($FZF_FD_DIR_COMMAND_IGNORED)\"
+    elif [[ {fzf:prompt} = \"Directory (ignored) > \" ]]; then
+        echo \"change-prompt(Directory > )+reload($FZF_FD_DIR_COMMAND)\"
+    elif [[ {fzf:prompt} = \"Directory (hidden) > \" ]]; then
+        echo \"change-prompt(Directory (all) > )+reload($FZF_FD_DIR_COMMAND_ALL)\"
+    elif [[ {fzf:prompt} = \"Directory (all) > \" ]]; then
+        echo \"change-prompt(Directory (hidden) > )+reload($FZF_FD_DIR_COMMAND_HIDDEN)\"
     fi
 "
 export FZF_ALT_C_OPTS="
     --prompt 'Directory > '
     --preview '$FZF_DIR_PREVIEW'
-    --bind 'ctrl-t:transform: $FZF_ALT_C_TOGGLE_TRANSFORMER'
+    --bind 'Ì:transform: $FZF_ALT_C_TOGGLE_HIDDEN_TRANSFORMER'  # <M-h>
+    --bind 'î:transform: $FZF_ALT_C_TOGGLE_IGNORED_TRANSFORMER' # <M-i>
 "
 
 # [[ Completion ]]
-# `fzf` completion is triggered by entering specific characters (`**` by default) and <Tab>, or directly with a
-# keybinding. It is contextual, in some cases it can detect whether directories are expected or both files and
-# directories.
+# `fzf` completion is triggered by entering specific characters (`**` by default) and <Tab>. It is contextual, in some
+# cases it can detect what type of items are expected (e.g. files or directories).
 
 export FZF_COMPLETION_TRIGGER='' # Remove the default trigger character
 bindkey '^[[Z' fzf-completion    # Use <S-Tab> as fzf completion keybinding (<Tab> is kept for regular completion)
 
-# Use `fd` to generate completion candidates
-# Here, `fd` doesn't respect the `ignore` file
+# Use `fd` to generate completion candidates (doesn't respect the `ignore` file here)
 # In the following functions, `$1` is the base path to start traversal
 _fzf_compgen_path() {
     fd --hidden --follow . "$1"

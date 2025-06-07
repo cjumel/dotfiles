@@ -9,16 +9,15 @@ zinit light Aloxaf/fzf-tab
 
 zstyle ':completion:*' menu no # Disable builtin tab completion menu
 
-# Specify the `fzf` options to use (note that the ones specify in `FZF_DEFAULT_OPTS` will not be taken into account):
-#   - add a specified height, to prevent the `fzf` window from being too small when a few items are suggested
-#   - add some keybindings also defined in `fzf`
+# Specify the `fzf` options to use (note that the ones specify in `FZF_DEFAULT_OPTS` will not be taken into account).
+# This notably adds a specified height to prevent the `fzf` window from being too small when a few items are suggested.
 zstyle ':fzf-tab:*' fzf-flags \
     --height=40% \
     --bind 'ctrl-s:toggle+down' \
-    --bind 'ctrl-v:toggle-preview' \
     --bind 'ctrl-g:top' \
     --bind 'ctrl-^:forward-word' \
-    --bind 'ctrl-_:backward-word'
+    --bind 'ctrl-_:backward-word' \
+    --bind 'π:toggle-preview'
 
 # Enable directory preview (with `eza`) for the main builtin commands to manipulate files and directories and their
 # third-party alternatives. This cannot be enabled for all commannds, as it would be annoying for commands which don't
