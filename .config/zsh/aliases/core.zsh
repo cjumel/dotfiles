@@ -85,10 +85,15 @@ alias mdc='mdc'      # [C]d: create a directory & `cd` into it
 alias mdp='mkdir -p' # [P]arent: create a nested directory along with all its parents
 alias mdpc='mdpc'    # [P]arent [C]d: create a nested directory along with all its parents & `cd` into it
 
-alias mk='make'                           # [M][K]e: run a Make command
-alias mki='make install'                  # [M][K]e [I]nstall: run the Make `install` command
-alias mkt='make test'                     # [M][K]e [T]est: run the Make `test` command
-alias mkti='make install --ignore-errors' # [M][K]e [I]nstall: run the Make `install` command, without stopping on errors
+alias mk='make'                        # [M][K]e: run a Make command
+alias mkch='make check'                # [M][K]e [C][H]eck: run the Make `check` command
+alias mkcl='make clean'                # [M][K]e [C][L]ean: run the Make `clean` command
+alias mki='make install'               # [M][K]e [I]nstall: run the Make `install` command
+alias mks='make start'                 # [M][K]e [S]tart: run the Make `start` command
+alias mksdv='make start-dev'           # [M][K]e [S]tart [D]e[V]: run the Make `start-dev` command
+alias mksdb='make start-debug'         # [M][K]e [S]tart [D]ebug: run the Make `start-debug` command
+alias mkt='make test'                  # [M][K]e [T]est: run the Make `test` command
+alias mkti='make test --ignore-errors' # [M][K]e [T]est [I]gnore-errors: run the Make `test` command, ignoring errors
 
 alias p='pwd'
 
