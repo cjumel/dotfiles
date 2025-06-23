@@ -97,7 +97,7 @@
       ]
     },
     {
-      "description": "Swap < and > with [ and ]",
+      "description": "Replace < & > by [ & ]",
       "manipulators": [
         {
           "type": "basic",
@@ -108,16 +108,42 @@
           "type": "basic",
           "from": { "key_code": "grave_accent_and_tilde", "modifiers": { "mandatory": ["shift"] } },
           "to": [{ "key_code": "hyphen", "modifiers": ["option", "shift"] }]
+        }
+      ]
+    },
+    {
+      "description": "Replace ≤ & ≥ by < & >",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": { "mandatory": ["option"] }
+          },
+          "to": [{ "key_code": "grave_accent_and_tilde" }]
         },
         {
           "type": "basic",
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": { "mandatory": ["option", "shift"] }
+          },
+          "to": [{ "key_code": "grave_accent_and_tilde", "modifiers": ["shift"] }]
+        }
+      ]
+    },
+    {
+      "description": "Replace [ & ] by ≤ & ≥",
+      "manipulators": [
+        {
+          "type": "basic",
           "from": { "key_code": "5", "modifiers": { "mandatory": ["option", "shift"] } },
-          "to": [{ "key_code": "grave_accent_and_tilde", "modifiers": [] }]
+          "to": [{ "key_code": "grave_accent_and_tilde", "modifiers": ["option"] }]
         },
         {
           "type": "basic",
           "from": { "key_code": "hyphen", "modifiers": { "mandatory": ["option", "shift"] } },
-          "to": [{ "key_code": "grave_accent_and_tilde", "modifiers": ["shift"] }]
+          "to": [{ "key_code": "grave_accent_and_tilde", "modifiers": ["option", "shift"] }]
         }
       ]
     },
