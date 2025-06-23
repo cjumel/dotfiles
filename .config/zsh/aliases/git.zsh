@@ -34,8 +34,7 @@ function git_commit_fixup_force() {
 alias gcf='git_commit_fixup'        # [C]ommit [F]ixup: create a fixup commit
 alias gcfh='git_commit_fixup_force' # [C]ommit [F]ixup, skip [H]ooks: create a fixup commit without running commit hooks
 
-alias gcw='git commit --message "🚧 WIP [skip ci]"'              # [C]ommit [W]IP: create a WIP commit
-alias gcwh='git commit --message "🚧 WIP [skip ci]" --no-verify' # []C]ommit [W]IP, skip [H]ooks: create a WIP commit without running commit hooks]
+alias gcw='git commit --message "🚧 WIP [skip ci]" --no-verify' # [C]ommit [W]IP: create a WIP commit without running commit hooks
 
 # [[ Check-ignore ]]
 
