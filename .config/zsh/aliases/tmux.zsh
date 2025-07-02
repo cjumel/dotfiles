@@ -16,7 +16,7 @@ alias tmat='tmux attach -t' # [A]ttach [T]arget: attach to a target session
 
 alias tmd='tmux detach' # [D]etach: detach from the current session
 
-alias tml='tmux ls' # [L]ist: list all running sessions
+alias tml='tmux ls 2>/dev/null || echo "No tmux session is running"' # [L]ist: list all running sessions
 
 alias tmn='tmux_new'     # [N]ew: create a new session named using the current directory name
 alias tmns='tmux new -s' # [N]ew [S]ession: create a new named session
