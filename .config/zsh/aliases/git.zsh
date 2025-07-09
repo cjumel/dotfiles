@@ -172,10 +172,12 @@ alias gswms='git switch master'  # [S][W]itch [M]a[S]ter: switch to the master b
 alias gswp='git switch -'        # [S][W]itch [P]revious: switch to the previous branch
 alias gsws='git switch staging'  # [S][W]itch [S]taging: switch to the staging branch
 
+# NOTE: "gt" & "gta" are kept free for "graphite"
+
 # [[ Tag ]]
 
-alias gt='git tag'           # [T]ag: create a local tag
-alias gtd='git tag --delete' # [T]ag [D]elete: delete a local tag
+alias gtg='git tag'           # [T]a[G]: create a local tag
+alias gtgd='git tag --delete' # [T]a[G] [D]elete: delete a local tag
 
 # [[ Unstage ]]
 # `git unstage` is not an actual git command, but I introduced it out of consistency with my Neovim keymaps and because it's a nice &
