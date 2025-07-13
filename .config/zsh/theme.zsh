@@ -7,9 +7,6 @@ catppuccin-mocha
 catppuccin-macchiato
 catppuccin-frappe
 catppuccin-latte
-edge-dark
-edge-light
-everforest-dark
 everforest-light
 gruvbox-dark
 gruvbox-light
@@ -24,7 +21,9 @@ onelight
 rose-pine-main
 rose-pine-moon
 rose-pine-dawn
-sonokai
+sainhe-edge
+sainhe-everforest
+sainhe-sonokai
 tokyonight-night
 tokyonight-moon
 tokyonight-storm
