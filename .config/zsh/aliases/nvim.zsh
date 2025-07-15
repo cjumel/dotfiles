@@ -26,10 +26,10 @@ function nvim_cleanup() {
     rm -rf ~/.local/state/nvim/
 }
 
-alias vi='nvim_contextual'                            # Open Neovim with contextual setup
-alias via='NVIM_ENABLE_ALL_PLUGINS=1 nvim_contextual' # [A]ll-plugins: open Neovim with all plugins enabled, for updating purposes
-alias vic='nvim --clean'                              # [C]lean: open Neovim without any custom configuration
-alias vicu='nvim_cleanup'                             # [C]lean [U]p: clean up all Neovim user data
-alias vid='nvim -d'                                   # [D]iff: open Neovim in diff mode, to compare several files
-alias vii='nvim +MasonInstallAll'                     # [I]nstall: open Neovim and run installs
-alias vis='nvim'                                      # [S]kip: open Neovim without contextual setup
+alias vi='nvim_contextual'                                  # Open Neovim with contextual setup
+alias via='NVIM_ENABLE_ALL_PLUGINS=1 nvim_contextual'       # [A]ll-plugins: open Neovim with all plugins enabled, for updating purposes
+alias vic='nvim --clean'                                    # [C]lean: open Neovim without any custom configuration
+alias vicu='nvim_cleanup'                                   # [C]lean [U]p: clean up all Neovim user data
+alias vid='nvim -d'                                         # [D]iff: open Neovim in diff mode, to compare several files
+alias vii='NVIM_ENABLE_ALL_PLUGINS=1 nvim +MasonInstallAll' # [I]nstall: open Neovim and install everything that needs to be installed
+alias vis='nvim'                                            # [S]kip: open Neovim without contextual setup
