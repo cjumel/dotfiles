@@ -7,7 +7,6 @@ catppuccin-mocha
 catppuccin-macchiato
 catppuccin-frappe
 catppuccin-latte
-everforest-light
 gruvbox-dark
 gruvbox-light
 gruvbox-material
