@@ -9,7 +9,6 @@ catppuccin-frappe
 catppuccin-latte
 gruvbox-dark
 gruvbox-light
-gruvbox-material
 kanagawa-dragon
 kanagawa-wave
 kanagawa-lotus
@@ -22,6 +21,7 @@ rose-pine-moon
 rose-pine-dawn
 sainhe-edge
 sainhe-everforest
+sainhe-gruvbox
 sainhe-sonokai
 tokyonight-night
 tokyonight-moon
