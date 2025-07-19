@@ -42,5 +42,5 @@ function change_theme() {
     # Create symlinks to the selected theme (overwrite existing ones)
     ln -sf ~/.config/wezterm/theme/"$selected_theme".lua ~/.config/wezterm/theme/current.lua
     ln -sf ~/.config/tmux/theme/tmux-"$selected_theme".conf ~/.config/tmux/theme/tmux-current.conf
-    ln -sf ~/.config/nvim/lua/theme/"$selected_theme".lua ~/.config/nvim/lua/theme/current.lua
+    ln -sf ~/.config/nvim/lua/config/theme/"$selected_theme".lua ~/.config/nvim/lua/config/theme/current.lua
 }
