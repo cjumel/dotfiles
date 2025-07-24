@@ -53,3 +53,9 @@ insert-newline() {
 }
 zle -N insert-newline
 bindkey '^[[13;2u' insert-newline # Actually <S-CR> on my keyboard
+
+# Keymap to edit the command line with an editor
+export VISUAL=nvim
+autoload edit-command-line
+zle -N edit-command-line
+bindkey "^v" edit-command-line # Mnemonic: like Vim
