@@ -3,8 +3,8 @@
 
 # [[ General configuration ]]
 
-# Make sure everything is in English
-export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8 # Make sure everything is in English
+export LESS=R           # Clear the content after quitting the `less` pager (e.g. when using `git log` with `less`)
 
 # Prepend additional directories to $PATH, so that Zsh can find executables in them
 export PATH="$HOME/.docker/bin:$PATH"                 # Docker & related tools
@@ -13,9 +13,6 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH" # Python managed by Homebr
 
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # Case-insensitive completion when using lowercase (like ripgrep smart case)
-
-# Clear the content after quitting the `less` pager (e.g. when using `git log` with `less`)
-export LESS=R
 
 # [[ History configuration ]]
 # Documentation: https://zsh.sourceforge.io/Doc/Release/Options.html#History
@@ -55,7 +52,11 @@ zle -N insert-newline
 bindkey '^[[13;2u' insert-newline # Actually <S-CR> on my keyboard
 
 # Keymap to edit the command line with an editor
-export VISUAL=nvim
+# Setting VISUAL or EDITOR to `nvim` globally breaks the fzf-autosuggestions plugin when used within Tmux for some reason, so let's only set VISUAL locally
 autoload edit-command-line
-zle -N edit-command-line
-bindkey "^v" edit-command-line # Mnemonic: like Vim
+edit-command-line-nvim() {
+    local VISUAL=nvim
+    edit-command-line
+}
+zle -N edit-command-line-nvim
+bindkey "^v" edit-command-line-nvim # Mnemonic: Vim
