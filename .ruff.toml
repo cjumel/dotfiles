@@ -1,16 +1,5 @@
 line-length = 100
-target-version = "py312"
+target-version = "py313"
 
 [lint]
-extend-ignore = [
-  "S311", # Standard pseudo-random generators are not suitable for cryptographic purposes
-]
-extend-select = [
-  "E", # pycodestyle
-  "F", # pyflakes
-  "I", # isort
-  "S", # flake8-bandit
-]
-
-[lint.extend-per-file-ignores]
-"tests/**/*_test.py" = ["S101"] # Use of assert detected
+extend-select = ["E", "F", "I", "S", "UP"]

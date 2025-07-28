@@ -40,6 +40,18 @@ alias lla='ls -la' # List long all: list files in long format, including hidden 
 
 function clean_broken_symlinks() {
     ARG1=${1:-.} # Default to current directory
+    BROKEN_SYMLINKS=$(find -L "$ARG1" -maxdepth 1 -type l)
+    if [ -z "$BROKEN_SYMLINKS" ]; then
+        echo "No broken symlink found."
+        return 0
+    fi
+    echo "Removing broken symlinks:"
+    echo "$BROKEN_SYMLINKS"
+    # Following line is taken from the `man find` page
+    find -L "$ARG1" -maxdepth 1 -type l -exec rm -- {} +
+}
+function clean_broken_symlinks_recursive() {
+    ARG1=${1:-.} # Default to current directory
     BROKEN_SYMLINKS=$(find -L "$ARG1" -type l)
     if [ -z "$BROKEN_SYMLINKS" ]; then
         echo "No broken symlink found."
@@ -50,9 +62,10 @@ function clean_broken_symlinks() {
     # Following line is taken from the `man find` page
     find -L "$ARG1" -type l -exec rm -- {} +
 }
-alias lns='ln -s'                  # Create a symbolic link
-alias lnsf='ln -sf'                # Create a symbolic link, overwriting the target if it exists
-alias lnsc="clean_broken_symlinks" # Clean broken symlinks in the target directory (default to current directory)
+alias lns='ln -s'                             # Create a symbolic link
+alias lnsf='ln -sf'                           # Create a symbolic link, overwriting the target if it exists
+alias lnsc="clean_broken_symlinks"            # Clean broken symlinks in the target directory (default to current directory)
+alias lnscr="clean_broken_symlinks_recursive" # Clean broken symlinks recursively in the target directory and its subdirectories (default to current directory)
 
 # Call the man page on the content of an alias
 # This function will replace white spaces in the alias content (e.g. "git status") by hyphens (e.g. making the previous example
