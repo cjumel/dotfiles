@@ -3,8 +3,8 @@
 
 # List available themes with custom ordering
 TERMINAL_THEMES="0-0 default
-1-0 catppuccin-mocha
-1-1 catppuccin-macchiato
+1-0 catppuccin-macchiato
+1-1 catppuccin-mocha
 1-2 catppuccin-frappe
 1-3 catppuccin-latte
 2-0 everforest-dark
@@ -16,11 +16,11 @@ TERMINAL_THEMES="0-0 default
 4-2 kanagawa-lotus
 5-0 onedark
 5-1 onelight
-6-0 rose-pine-main
-6-1 rose-pine-moon
+6-0 rose-pine-moon
+6-1 rose-pine-main
 6-2 rose-pine-dawn
-7-0 tokyonight-night
-7-1 tokyonight-moon
+7-0 tokyonight-moon
+7-1 tokyonight-night
 7-2 tokyonight-storm
 7-3 tokyonight-day"
 
