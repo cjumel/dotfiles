@@ -28,7 +28,7 @@ TERMINAL_THEMES="0-0 default
 function change_theme() {
     # Make the user select a theme using fzf among the available ones
     selected_theme_and_description=$(echo "$TERMINAL_THEMES" | fzf --prompt="Theme > " --with-nth=2..)
-    selected_theme=$(echo "$selected_theme_and_description" | head -n1 | awk '{print $1;}')
+    selected_theme=$(echo "$selected_theme_and_description" | head -n1 | awk '{print $2;}')
 
     # Exit if no theme is selected, to avoid creating broken symlinks
     if [[ -z $selected_theme ]]; then
