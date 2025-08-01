@@ -1,33 +1,33 @@
 # [[ Theme ]]
 # Provide features to manage the terminal-level theme.
 
-# List available themes and their descriptions (default one first, then in alphabetical order of main themes, then darkest to lightest)
-TERMINAL_THEMES="default
-catppuccin-mocha
-catppuccin-macchiato
-catppuccin-frappe
-catppuccin-latte
-everforest-dark
-everforest-light
-gruvbox-dark
-gruvbox-light
-kanagawa-dragon
-kanagawa-wave
-kanagawa-lotus
-onedark
-onelight
-rose-pine-main
-rose-pine-moon
-rose-pine-dawn
-tokyonight-night
-tokyonight-moon
-tokyonight-storm
-tokyonight-day"
+# List available themes with custom ordering
+TERMINAL_THEMES="0-0 default
+1-0 catppuccin-mocha
+1-1 catppuccin-macchiato
+1-2 catppuccin-frappe
+1-3 catppuccin-latte
+2-0 everforest-dark
+2-1 everforest-light
+3-0 gruvbox-dark
+3-1 gruvbox-light
+4-0 kanagawa-wave
+4-1 kanagawa-dragon
+4-2 kanagawa-lotus
+5-0 onedark
+5-1 onelight
+6-0 rose-pine-main
+6-1 rose-pine-moon
+6-2 rose-pine-dawn
+7-0 tokyonight-night
+7-1 tokyonight-moon
+7-2 tokyonight-storm
+7-3 tokyonight-day"
 
 # Change the terminal theme with fzf by prompting the user for a new theme & creating the relevant symlinks
 function change_theme() {
     # Make the user select a theme using fzf among the available ones
-    selected_theme_and_description=$(echo "$TERMINAL_THEMES" | fzf --prompt="Theme > ")
+    selected_theme_and_description=$(echo "$TERMINAL_THEMES" | fzf --prompt="Theme > " --with-nth=2..)
     selected_theme=$(echo "$selected_theme_and_description" | head -n1 | awk '{print $1;}')
 
     # Exit if no theme is selected, to avoid creating broken symlinks
