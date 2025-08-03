@@ -16,7 +16,6 @@ return {
 
   -- [[ Default actions ]]
   { key = "c", mods = "SUPER", action = wezterm.action.CopyTo("Clipboard") },
-  { key = "e", mods = "SUPER", action = wezterm.action.ToggleFullScreen },
   { key = "h", mods = "SUPER", action = wezterm.action.HideApplication },
   { key = "m", mods = "SUPER", action = wezterm.action.Hide },
   { key = "n", mods = "SUPER", action = wezterm.action.SpawnWindow },
