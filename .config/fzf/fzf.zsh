@@ -25,6 +25,7 @@ fi
 export FZF_DEFAULT_OPTS="
     --layout=reverse
     --height=40%
+    --cycle
     --bind 'tab:down'
     --bind 'shift-tab:up'
     --bind 'ctrl-s:toggle+down'
