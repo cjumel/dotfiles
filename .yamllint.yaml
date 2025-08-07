@@ -9,4 +9,4 @@ rules:
   line-length:
     max: 100
   truthy:
-    check-keys: true # Trigger irrelevant warning in GitHub workflows' "on" key
+    check-keys: false # Trigger irrelevant warning in GitHub workflows' "on" key
