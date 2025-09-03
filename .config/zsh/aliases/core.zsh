@@ -1,44 +1,34 @@
-# Core aliases, for builtin commands
-
-alias ad='alias_definition'       # [A]lias [D]efinition: display the definition of the alias corresponding to the argument
-alias adf='alias_definition_fzf'  # [A]lias [D]efinition [F]uzzy-find: fuzzy-find in the definitions of the aliases starting by the argument
-alias adl='alias_definition_list' # [A]lias [D]efinition [L]ist: list the definitions of the aliases starting by the argument
-
-alias al='alias'       # [A]lias: list all aliases, or show an alias definition, or define a new alias
-alias all='alias_list' # [A]lias [L]ist: list all aliases starting with the argument
-
-alias ca='cat'
-
-alias c='cd'
-
-# Shortcuts for changing directories taken from oh-my-zsh
 # '--' means any following '-' is not to be interpreted as an option
 alias -- -='cd -'
+alias ~='cd ~'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
-alias .......='cd ../../../../../..'
 
-alias cl='clear'
+alias al='alias'              # [A][L]ias: list all aliases, or show an alias definition, or define a new alias
+alias ald='alias-def'         # [A][L]ias [D]efinition: display the definition of the alias corresponding to the argument
+alias aldl='alias-def-ls'     # [A][L]ias [D]efinition [L]ist: list the definitions of the aliases starting by the argument
+alias alds='alias-def-search' # [A][L]ias [D]efinition [S]earch: search in the definitions of the aliases starting by the argument
+alias all='alias-ls'          # [A][L]ias [L]ist: list all aliases starting with the argument
 
-alias cpr='cp -r'
+alias cl='clear' # [C][L]ear: clear the terminal screen
 
-alias ct='change_theme' # [C]hange [T]heme: prompt the user to select a new terminal theme & set it up
+alias cpr='cp -r' # [C]o[P]y [R]ecursive: copy files and directories recursively
+
+alias l='ls'       # [L]ist: list files in directory
+alias la='ls -a'   # [L]ist [A]ll: list all files in directory, including hidden files
+alias ll='ls -l'   # [L]ist [L]ong: list files in directory in long format
+alias lla='ls -la' # [L]ist [L]ong [A]ll: list all files in directory in long format, including hidden files
+alias lr='ls -R'   # [L]ist [R]ecursive: list files recursively in directory & sub-directories
+alias lra='ls -Ra' # [L]ist [R]ecursive [A]ll: list all files recursively in directory & sub-directories, including hidden files
+alias lt='ls -T'   # [L]ist [T]ree: list files in directory & its sub-directories in a tree-like format (eza only)
+alias lta='ls -Ta' # [L]ist [T]ree [A]ll: list all files in directory & its sub-directories in a tree-like format, including hidden files (eza only)
 
 alias lj='luajit'
 
-alias l='ls'     # List: list files in directory
-alias la='ls -a' # List all: list files in directory, including hidden files
-
-alias lr='ls -R'   # List recursive: list files recursively in directory & sub-directories
-alias lra='ls -Ra' # List recursive all: list files recursively in directory & sub-directories, including hidden files
-
-alias ll='ls -l'   # List long: list files in long format
-alias lla='ls -la' # List long all: list files in long format, including hidden files
-
-function clean_broken_symlinks() {
+function lns-clean() {
     ARG1=${1:-.} # Default to current directory
     BROKEN_SYMLINKS=$(find -L "$ARG1" -maxdepth 1 -type l)
     if [ -z "$BROKEN_SYMLINKS" ]; then
@@ -50,7 +40,7 @@ function clean_broken_symlinks() {
     # Following line is taken from the `man find` page
     find -L "$ARG1" -maxdepth 1 -type l -exec rm -- {} +
 }
-function clean_broken_symlinks_recursive() {
+function lns-clean-recursive() {
     ARG1=${1:-.} # Default to current directory
     BROKEN_SYMLINKS=$(find -L "$ARG1" -type l)
     if [ -z "$BROKEN_SYMLINKS" ]; then
@@ -62,60 +52,39 @@ function clean_broken_symlinks_recursive() {
     # Following line is taken from the `man find` page
     find -L "$ARG1" -type l -exec rm -- {} +
 }
-alias lns='ln -s'                             # Create a symbolic link
-alias lnsf='ln -sf'                           # Create a symbolic link, overwriting the target if it exists
-alias lnsc="clean_broken_symlinks"            # Clean broken symlinks in the target directory (default to current directory)
-alias lnscr="clean_broken_symlinks_recursive" # Clean broken symlinks recursively in the target directory and its subdirectories (default to current directory)
+alias lns='ln -s'                 # [L]i[N]k [S]ymbolic: create a symbolic link
+alias lnsf='ln -sf'               # [L]i[N]k [S]ymbolic [F]orce: create a symbolic link, overwriting the target if it exists
+alias lnsc="lns-clean"            # [L]i[N]k [S]ymbolic [C]lean: clean broken symlinks in the target directory (default to current directory)
+alias lnscr="lns-clean-recursive" # [L]i[N]k [S]ymbolic [C]lean [R]ecursive: clean broken symlinks recursively in the target directory and its subdirectories (default to current directory)
 
-# Call the man page on the content of an alias
-# This function will replace white spaces in the alias content (e.g. "git status") by hyphens (e.g. making the previous example
-# "git-status"), as this is how `man` deals with sub-commands
-function man_alias() {
-    alias_definition=$(alias "$1") # Of the form "l=ls" or "l='ls'" (without the surrounding double quotes)
-    alias_length=${#1}             # Length of the alias itself (e.g. 1 for "l=ls")
-
-    alias_content="${alias_definition:$alias_length+1}" # Remove the alias definition prefix (e.g. "l=")
-    alias_content="${alias_content%\'}"                 # Remove the trailing single quote if any
-    alias_content="${alias_content#\'}"                 # Remove the leading single quote if any
-    alias_content=$(echo "$alias_content" | tr " " "-") # Replace white spaces by hyphens
-
-    man "$alias_content"
-}
-
-alias ma='man'        # [MA]n: show the manual page of a command
-alias maa='man_alias' # [MA]n [A]lias: show the manual page of the content of an alias
-
-function mdc() {
+function mkdir-cd() {
     mkdir "$1"
     cd "$1" || exit
 }
-function mdpc() {
+function mkdir-parent-cd() {
     mkdir -p "$1"
     cd "$1" || exit
 }
-alias md='mkdir'     # Create a single directory
-alias mdc='mdc'      # [C]d: create a directory & `cd` into it
-alias mdp='mkdir -p' # [P]arent: create a nested directory along with all its parents
-alias mdpc='mdpc'    # [P]arent [C]d: create a nested directory along with all its parents & `cd` into it
+alias md='mkdir'             # [M]ake [D]irectory: create a directory
+alias mdc='mdkdir-cd'        # [M]ake [D]irectory [C]d: create a directory & `cd` into it
+alias mdp='mkdir -p'         # [M]ake [D]irectory [P]arent: create a directory along with all its parents directories
+alias mdpc='mkdir-parent-cd' # [M]ake [D]irectory [P]arent [C]d: create a nested directory along with all its parents & `cd` into it
 
-alias mk='make'                         # [M][K]e: run a Make command
-alias mkc='make check'                  # [M][K]e [C]heck: run the Make `check` command
-alias mkci='make check --ignore-errors' # [M][K]e [C]heck: run the Make `check` command, ignoring errors
-alias mki='make install'                # [M][K]e [I]nstall: run the Make `install` command
-alias mks='make start'                  # [M][K]e [S]tart: run the Make `start` command
-alias mksd='make start-dev'             # [M][K]e [S]tart [D]e[V]: run the Make `start-dev` command
-alias mkt='make test'                   # [M][K]e [T]est: run the Make `test` command
-alias mkti='make test --ignore-errors'  # [M][K]e [T]est [I]gnore-errors: run the Make `test` command, ignoring errors
-alias mkx='make clean'                  # [M][K]e clean: run the Make `clean` command
-
-alias p='pwd'
+alias mk='make'                         # [M]a[K]e: run a Make command
+alias mkc='make check'                  # [M]a[K]e [C]heck: run the Make `check` command
+alias mkci='make check --ignore-errors' # [M]a[K]e [C]heck: run the Make `check` command, ignoring errors
+alias mki='make install'                # [M]a[K]e [I]nstall: run the Make `install` command
+alias mks='make start'                  # [M]a[K]e [S]tart: run the Make `start` command
+alias mksd='make start-dev'             # [M]a[K]e [S]tart [D]e[V]: run the Make `start-dev` command
+alias mkt='make test'                   # [M]a[K]e [T]est: run the Make `test` command
+alias mkti='make test --ignore-errors'  # [M]a[K]e [T]est [I]gnore-errors: run the Make `test` command, ignoring errors
+alias mkx='make clean'                  # [M]a[K]e clean: run the Make `clean` command
 
 alias py='python'                      # [P][Y]thon: open a Python REPL or run a Python script
 alias pyb='PYTHON_BASIC_REPL=1 python' # [P][Y]thon [B]asic-REPL: open a Python REPL with basic features (e.g. no auto-ident)
 alias pym='python -m'                  # [P][Y]thon [M]odule: run a Python module
-alias pyv='python --version'           # [P][Y]thon [V]ersion: show the Python version
 
-function clean_empty_directories() {
+function rm-dir-all() {
     ARG1=${1:-.} # Default to current directory
     EMPTY_DIRECTORIES=$(find "$ARG1" -type d -empty)
     if [ -z "$EMPTY_DIRECTORIES" ]; then
@@ -126,25 +95,20 @@ function clean_empty_directories() {
     echo "$EMPTY_DIRECTORIES"
     find "$ARG1" -type d -empty -delete
 }
+alias rmd='rm -d'       # [R]e[M]ove [D]irectory: remove an empty directory
+alias rmda='rm-dir-all' # [R]e[M]ove [D]irectory [A]ll: remove all empty directories in the target directory and its subdirectories (default to current directory)
+alias rmf='rm -f'       # [R]e[M]ove [F]orce: remove a file, ignoring nonexistent files and never prompt
+alias rmr='rm -r'       # [R]e[M]ove [R]ecursive: remove directories and their contents recursively
+alias rmrf='rm -rf'     # [R]e[M]ove [R]ecursive [F]orce: remove files and directories recursively, ignoring nonexistent files and never prompt
 
-alias rmd='rm -d'
-alias rmda='clean_empty_directories'
-alias rmf='rm -f'
-alias rmr='rm -r'
-alias rmrf='rm -rf'
+alias so='source'           # [S][O]urce: read and execute commands from a file in the current shell environment
+alias soz='source ~/.zshrc' # [S][O]urce [Z]shrc: reload the Zsh configuration file
 
-alias so='source'
-alias soz='source ~/.zshrc'
+alias to='touch' # [T]ouch: change file timestamps or create an empty file if it doesn't exist
 
-alias to='touch'
+alias uln='unlink' # [U]n[L]i[N]k: remove a symbolic link
 
-alias uln='unlink'
+alias wi='which' # [W]h[I]ch: locate a program in the user's path
 
-alias v='vi'  # Open Vim
-alias vv='v'  # Same as `v`, in case the key is sticky
-alias vvv='v' # Same as `v`, in case the key is sticky
-
-alias wi='which'       # [W]h[I]ch: locate a program in the user's path
-alias we='whence'      # [W]h[E]nce: show how a command would be interpreted
-alias wef='whence -f'  # [W]h[E]nce [F]unction: show the function definition of a command
-alias wk='/bin/cat -v' # [W]hich [K]ey: show interactively which key code is received by the terminal when typing keys
+alias we='whence'     # [W]h[E]nce: show how a command would be interpreted
+alias wef='whence -f' # [W]h[E]nce [F]unction: show the function definition of a command

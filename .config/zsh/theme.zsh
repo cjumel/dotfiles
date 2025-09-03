@@ -23,7 +23,8 @@ tokyonight-night
 tokyonight-storm
 tokyonight-day"
 
-function change_theme() {
+# Change theme: prompt the user to select a new terminal theme & set it up
+function ct() {
     selected_theme=$(echo "$TERMINAL_THEMES" | fzf --prompt="Theme > " --no-sort)
     if [[ -z $selected_theme ]]; then
         return
