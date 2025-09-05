@@ -1,10 +1,5 @@
 # [[ Alias ]]
 
-# List all aliases starting with the argument, using grep
-function alias-ls() {
-    alias | grep "^$1"
-}
-
 # Display the definition of the alias corresponding to the argument in the aliases directory
 function alias-def() {
     rg --no-filename --no-line-number --type zsh --max-depth 1 "^alias $1=" ~/.config/zsh/aliases/

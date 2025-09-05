@@ -7,11 +7,11 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
-alias al='alias'              # [A][L]ias: list all aliases, or show an alias definition, or define a new alias
-alias ald='alias-def'         # [A][L]ias [D]efinition: display the definition of the alias corresponding to the argument
-alias aldl='alias-def-ls'     # [A][L]ias [D]efinition [L]ist: list the definitions of the aliases starting by the argument
-alias alds='alias-def-search' # [A][L]ias [D]efinition [S]earch: search in the definitions of the aliases starting by the argument
-alias all='alias-ls'          # [A][L]ias [L]ist: list all aliases starting with the argument
+function alias-ls() {
+    alias | grep "^$1"
+}
+alias al='alias'     # [A][L]ias: list all aliases, or show an alias definition, or define a new alias
+alias all='alias-ls' # [A][L]ias [L]ist: list all aliases starting with the argument
 
 alias cl='clear' # [C][L]ear: clear the terminal screen
 
@@ -23,8 +23,6 @@ alias ll='ls -l'   # [L]ist [L]ong: list files in directory in long format
 alias lla='ls -la' # [L]ist [L]ong [A]ll: list all files in directory in long format, including hidden files
 alias lr='ls -R'   # [L]ist [R]ecursive: list files recursively in directory & sub-directories
 alias lra='ls -Ra' # [L]ist [R]ecursive [A]ll: list all files recursively in directory & sub-directories, including hidden files
-alias lt='ls -T'   # [L]ist [T]ree: list files in directory & its sub-directories in a tree-like format (eza only)
-alias lta='ls -Ta' # [L]ist [T]ree [A]ll: list all files in directory & its sub-directories in a tree-like format, including hidden files (eza only)
 
 alias lj='luajit'
 
@@ -66,19 +64,12 @@ function mkdir-parent-cd() {
     cd "$1" || exit
 }
 alias md='mkdir'             # [M]ake [D]irectory: create a directory
-alias mdc='mdkdir-cd'        # [M]ake [D]irectory [C]d: create a directory & `cd` into it
+alias mdc='mkdir-cd'         # [M]ake [D]irectory [C]d: create a directory & `cd` into it
 alias mdp='mkdir -p'         # [M]ake [D]irectory [P]arent: create a directory along with all its parents directories
 alias mdpc='mkdir-parent-cd' # [M]ake [D]irectory [P]arent [C]d: create a nested directory along with all its parents & `cd` into it
 
-alias mk='make'                         # [M]a[K]e: run a Make command
-alias mkc='make check'                  # [M]a[K]e [C]heck: run the Make `check` command
-alias mkci='make check --ignore-errors' # [M]a[K]e [C]heck: run the Make `check` command, ignoring errors
-alias mki='make install'                # [M]a[K]e [I]nstall: run the Make `install` command
-alias mks='make start'                  # [M]a[K]e [S]tart: run the Make `start` command
-alias mksd='make start-dev'             # [M]a[K]e [S]tart [D]e[V]: run the Make `start-dev` command
-alias mkt='make test'                   # [M]a[K]e [T]est: run the Make `test` command
-alias mkti='make test --ignore-errors'  # [M]a[K]e [T]est [I]gnore-errors: run the Make `test` command, ignoring errors
-alias mkx='make clean'                  # [M]a[K]e clean: run the Make `clean` command
+alias mk='make'                   # [M]a[K]e: run a Make command
+alias mkci='make --ignore-errors' # [M]a[K]e [I]gnore errors: run a Make command, ignoring any error
 
 alias py='python'                      # [P][Y]thon: open a Python REPL or run a Python script
 alias pyb='PYTHON_BASIC_REPL=1 python' # [P][Y]thon [B]asic-REPL: open a Python REPL with basic features (e.g. no auto-ident)
@@ -101,8 +92,9 @@ alias rmf='rm -f'       # [R]e[M]ove [F]orce: remove a file, ignoring nonexisten
 alias rmr='rm -r'       # [R]e[M]ove [R]ecursive: remove directories and their contents recursively
 alias rmrf='rm -rf'     # [R]e[M]ove [R]ecursive [F]orce: remove files and directories recursively, ignoring nonexistent files and never prompt
 
-alias so='source'           # [S][O]urce: read and execute commands from a file in the current shell environment
-alias soz='source ~/.zshrc' # [S][O]urce [Z]shrc: reload the Zsh configuration file
+alias so='source'            # [S][O]urce: read and execute commands from a file in the current shell environment
+alias sob='source ~/.bashrc' # [S][O]urce [B]ash config: reload the Bash configuration file
+alias soz='source ~/.zshrc'  # [S][O]urce [Z]sh config: reload the Zsh configuration file
 
 alias to='touch' # [T]ouch: change file timestamps or create an empty file if it doesn't exist
 
