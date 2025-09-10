@@ -1,5 +1,7 @@
 local config = {}
 
+config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" } -- Don't use ligatures
+
 -- Colors taken from https://github.com/rebelot/kanagawa.nvim/pull/177
 config.colors = {
   foreground = "#DCD7BA",
