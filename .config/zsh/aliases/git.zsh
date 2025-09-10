@@ -165,19 +165,27 @@ alias gsts='git status --short' # [S][T]atuts [S]hort: show the status of the re
 
 # [[ Switch ]]
 
+function git_switch_main() {
+    if git show-ref --verify --quiet refs/heads/main; then
+        git switch main
+    elif git show-ref --verify --quiet refs/heads/master; then
+        git switch master
+    else
+        echo "Branch 'main' or 'master' doesn't exist"
+        return 1
+    fi
+}
+
 alias gsw='git switch'           # [S][W]itch: switch to a branch
 alias gswc='git switch --create' # [S][W]itch [C]reate: create a branch & switch to it
-alias gswm='git switch main'     # [S][W]itch [M]ain: switch to the main branch
-alias gswms='git switch master'  # [S][W]itch [M]a[S]ter: switch to the master branch
+alias gswm='git_switch_main'     # [S][W]itch [M]ain: switch to the main branch ('main' or 'master')
 alias gswp='git switch -'        # [S][W]itch [P]revious: switch to the previous branch
 alias gsws='git switch staging'  # [S][W]itch [S]taging: switch to the staging branch
 
-# NOTE: "gt" & "gta" are kept free for "graphite"
-
 # [[ Tag ]]
 
-alias gtg='git tag'           # [T]a[G]: create a local tag
-alias gtgd='git tag --delete' # [T]a[G] [D]elete: delete a local tag
+alias gt='git tag'           # [T]ag: create a local tag
+alias gtd='git tag --delete' # [T]ag [D]elete: delete a local tag
 
 # [[ Unstage ]]
 # `git unstage` is not an actual git command, but I introduced it out of consistency with my Neovim keymaps and because it's a nice &
