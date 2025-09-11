@@ -68,8 +68,8 @@ alias mdc='mkdir-cd'         # [M]ake [D]irectory [C]d: create a directory & `cd
 alias mdp='mkdir -p'         # [M]ake [D]irectory [P]arent: create a directory along with all its parents directories
 alias mdpc='mkdir-parent-cd' # [M]ake [D]irectory [P]arent [C]d: create a nested directory along with all its parents & `cd` into it
 
-alias mk='make'                   # [M]a[K]e: run a Make command
-alias mkci='make --ignore-errors' # [M]a[K]e [I]gnore errors: run a Make command, ignoring any error
+alias mk='make'                  # [M]a[K]e: run a Make command
+alias mki='make --ignore-errors' # [M]a[K]e [I]gnore errors: run a Make command, ignoring any error
 
 alias py='python'                      # [P][Y]thon: open a Python REPL or run a Python script
 alias pyb='PYTHON_BASIC_REPL=1 python' # [P][Y]thon [B]asic-REPL: open a Python REPL with basic features (e.g. no auto-ident)
