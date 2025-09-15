@@ -1,18 +1,11 @@
-# Git stuff & related
+# Prject-local stuff
 \.git
 \.gitignore
-\.pre-commit-config\.yaml
-
-# Cache stuff
-\.ruff_cache
-
-# File types for notes and documentation
-.*\.md
-.*\.norg
-
-# Installation tools
-^/scripts
+\.nvim\.lua
 ^/Makefile
+
+# Documentation
+.*\.md
 
 # Fake configuration files
 \.vimiumrc
