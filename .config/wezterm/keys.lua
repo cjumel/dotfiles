@@ -39,7 +39,7 @@ return {
   { key = "Tab", mods = "CTRL|SHIFT", action = wezterm.action.ActivateTabRelative(-1) },
 
   -- [[ Custom actions ]]
-  { key = "r", mods = "SUPER|META", action = wezterm.action.EmitEvent("reset-options") },
+  { key = "r", mods = "SUPER", action = wezterm.action.EmitEvent("reset-options") },
   { key = "l", mods = "SUPER|META", action = wezterm.action.EmitEvent("toggle-ligatures") },
   { key = "t", mods = "SUPER|META", action = wezterm.action.EmitEvent("increase-transparency") },
   { key = "t", mods = "SUPER|META|SHIFT", action = wezterm.action.EmitEvent("decrease-transparency") },
