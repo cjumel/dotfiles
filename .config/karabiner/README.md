@@ -108,6 +108,6 @@ trigger the hold behavior.
 To use Home Row Mods, I set in `Parameters`:
 
 ```text
-to_if_held_down_threshold_milliseconds: 150
-to_delayed_action_delay_milliseconds: 150
+to_if_held_down_threshold_milliseconds: 125
+to_delayed_action_delay_milliseconds: 125
 ```
