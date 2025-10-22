@@ -68,6 +68,8 @@ and then improved it. A simpler version is covered by this
 
 ### Home Row Mods
 
+#### Description
+
 I defined [here](.config/karabiner/assets/complex_modifications/home_row_mods.json) an even more
 complex remapping, which overloads the 8 main home row keys ("f", "d", "s", "q" for the
 left-hand-side, and "j", "k", "l", "m" for the right-hand-side) with all the modifiers (Control,
@@ -100,3 +102,12 @@ adds additional simultaneous mappings. The later comes with a small disadvantage
 additional delay to trigger the hold behaviors, but it makes possible to type directly combinations
 of several modifiers (like Command+Control+Option) without having to pause between each key to
 trigger the hold behavior.
+
+#### Parameters
+
+To use Home Row Mods, I set in `Parameters`:
+
+```text
+to_if_held_down_threshold_milliseconds: 150
+to_delayed_action_delay_milliseconds: 150
+```
