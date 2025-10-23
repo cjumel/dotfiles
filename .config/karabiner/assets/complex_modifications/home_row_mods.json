@@ -2,7 +2,7 @@
   "title": "Home Row Mods",
   "rules": [
     {
-      "description": "Home Row Mods",
+      "description": "Home Row Mods for AZERTY",
       "manipulators": [
         {
           "type": "basic",
