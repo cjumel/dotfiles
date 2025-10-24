@@ -18,9 +18,6 @@ config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Medium" })
 config.font_size = 12.0
 config.adjust_window_size_when_changing_font_size = false
 
--- Make possible to type option-key combinations, like "{" and "}"
-config.send_composed_key_when_left_alt_is_pressed = true
-
 -- Disable default key bindings as I don't use most of them & some are conflicting with my own
 config.disable_default_key_bindings = true
 
