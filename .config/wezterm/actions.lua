@@ -14,29 +14,8 @@ function M.set_actions()
     overrides = utils.concat_dicts({ overrides, options_ })
     window:set_config_overrides(overrides)
   end)
-  wezterm.on("toggle-ligatures", function(window, _)
-    local overrides = window:get_config_overrides() or {}
-    if not overrides.harfbuzz_features or #overrides.harfbuzz_features == 0 then
-      overrides.harfbuzz_features = { "calt=0", "clig=0", "liga=0" } -- No ligature
-    else
-      overrides.harfbuzz_features = {} -- Ligatures
-    end
-    window:set_config_overrides(overrides)
-  end)
-  wezterm.on("increase-transparency", function(window, _)
-    local overrides = window:get_config_overrides() or {}
-    local options_ = theme.make_options(options)
-    if not overrides.window_background_opacity then
-      overrides.window_background_opacity = options_.window_background_opacity
-    end
-    local new_opacity = overrides.window_background_opacity - 0.05
-    if new_opacity < 0.0 then
-      new_opacity = 0.0
-    end
-    overrides.window_background_opacity = new_opacity
-    window:set_config_overrides(overrides)
-  end)
-  wezterm.on("decrease-transparency", function(window, _)
+
+  wezterm.on("increase-opacity", function(window, _)
     local overrides = window:get_config_overrides() or {}
     local options_ = theme.make_options(options)
     if not overrides.window_background_opacity then
@@ -49,6 +28,20 @@ function M.set_actions()
     overrides.window_background_opacity = new_opacity
     window:set_config_overrides(overrides)
   end)
+  wezterm.on("decrease-opacity", function(window, _)
+    local overrides = window:get_config_overrides() or {}
+    local options_ = theme.make_options(options)
+    if not overrides.window_background_opacity then
+      overrides.window_background_opacity = options_.window_background_opacity
+    end
+    local new_opacity = overrides.window_background_opacity - 0.05
+    if new_opacity < 0.0 then
+      new_opacity = 0.0
+    end
+    overrides.window_background_opacity = new_opacity
+    window:set_config_overrides(overrides)
+  end)
+
   wezterm.on("increase-blur", function(window, _)
     local overrides = window:get_config_overrides() or {}
     local options_ = theme.make_options(options)

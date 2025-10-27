@@ -3,10 +3,10 @@ local utils = require("utils")
 local M = {}
 
 --- Update the provided options with the theme ones.
----@param options table The options to update.
+---@param config table The options to update.
 ---@param opts table|nil Options to customize the function behavior.
 ---@return table
-function M.make_options(options, opts)
+function M.make_config(config, opts)
   opts = opts or {}
   local force_reload = opts.force_reload or false
 
@@ -19,7 +19,7 @@ function M.make_options(options, opts)
   if not ok then -- The theme symlink is missing
     theme = require("theme.default") -- Default theme
   end
-  return utils.concat_dicts({ options, theme })
+  return utils.concat_dicts({ config, theme })
 end
 
 return M

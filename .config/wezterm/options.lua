@@ -2,23 +2,20 @@ local wezterm = require("wezterm")
 
 local config = {}
 
--- Window
-config.hide_tab_bar_if_only_one_tab = true -- No tab bar if only one tab
-config.window_decorations = "RESIZE" -- No title bar but allow resizing nonetheless
+-- [[ Window ]]
+config.hide_tab_bar_if_only_one_tab = true
+config.window_decorations = "RESIZE" -- Hide title bar
 config.initial_cols = 156
 config.initial_rows = 42
-config.window_background_opacity = 1.0 -- Fully opaque window
-config.macos_window_background_blur = 10 -- Background blur if window is not fully opaque
-config.window_close_confirmation = "NeverPrompt" -- Don't ask for confirmation when closing with Cmd+q
-config.colors = {} -- Reset colors in case a theme has set some
+config.window_background_opacity = 1.0
+config.macos_window_background_blur = 10
+config.window_close_confirmation = "NeverPrompt"
+config.colors = {} -- Reset colors in favor of the theme's one
 
--- Font
--- I don't use the bundled font as I had some issues with it regarding inconsistent icon sizes
+-- [[ Font ]]
 config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Medium" })
 config.font_size = 12.0
+config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" } -- Remove ligatures
 config.adjust_window_size_when_changing_font_size = false
-
--- Disable default key bindings as I don't use most of them & some are conflicting with my own
-config.disable_default_key_bindings = true
 
 return config

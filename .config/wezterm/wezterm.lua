@@ -1,14 +1,12 @@
--- [[ Define base options ]]
-local options = require("options")
+local config = require("options")
 
--- [[ Apply theme-related options ]]
 local theme = require("theme")
-options = theme.make_options(options)
+config = theme.make_config(config)
 
--- [[ Define keys option ]]
 local actions = require("actions")
-local keys = require("keys")
 actions.set_actions()
-options.keys = keys
+config.disable_default_key_bindings = true
+local keys = require("keys")
+config.keys = keys
 
-return options
+return config

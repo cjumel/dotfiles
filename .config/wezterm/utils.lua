@@ -1,20 +1,5 @@
 local M = {}
 
--- Concatenate any number of arrays together.
----@param arrays table An array of arrays.
----@return table
-M.concat_arrays = function(arrays)
-  local result = {}
-
-  for _, array in ipairs(arrays) do
-    for _, value in ipairs(array) do
-      table.insert(result, value)
-    end
-  end
-
-  return result
-end
-
 -- Concatenate any number of dictionaries together. Dictionaries are processed in order, so if
 -- some keys are shared, the latest value encountered will take precedence.
 ---@param dictionaries table An array of dictionaries.
