@@ -34,17 +34,13 @@ bindkey "^o" clear-screen
 bindkey "^p" history-search-backward
 bindkey "^n" history-search-forward
 
-# Move cursor to next/previous word
-bindkey "^^" forward-word  # Actually <C-,> on my keyboard
-bindkey "^_" backward-word # Actually <C-;> on my keyboard
-
 # Insert a newline inside a command
 insert-newline() {
     LBUFFER="${LBUFFER}
 "
 }
 zle -N insert-newline
-bindkey '^[[13;2u' insert-newline # Actually <S-CR> on my keyboard
+bindkey '^[[13;2u' insert-newline # <S-CR>
 
 # Keymap to edit the command line with an editor
 # Setting VISUAL or EDITOR to `nvim` globally breaks the fzf-autosuggestions plugin when used within Tmux for some reason, so let's only set VISUAL locally

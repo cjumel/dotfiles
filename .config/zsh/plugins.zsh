@@ -15,8 +15,6 @@ zstyle ':fzf-tab:*' fzf-flags \
     --height=40% \
     --bind 'ctrl-s:toggle+down' \
     --bind 'ctrl-g:top' \
-    --bind 'ctrl-^:forward-word' \
-    --bind 'ctrl-_:backward-word' \
     --bind 'π:toggle-preview'
 
 # Enable preview (with `eza` and `bat`) for the main builtin commands to manipulate files and directories and their

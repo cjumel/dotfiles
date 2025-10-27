@@ -30,8 +30,6 @@ export FZF_DEFAULT_OPTS="
     --bind 'shift-tab:up'
     --bind 'ctrl-s:toggle+down'
     --bind 'ctrl-g:top'
-    --bind 'ctrl-^:forward-word'  # <C-,>
-    --bind 'ctrl-_:backward-word' # <C-;>
     --bind 'π:toggle-preview'     # <M-p>
 "
 
