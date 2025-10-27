@@ -15,7 +15,7 @@ zstyle ':fzf-tab:*' fzf-flags \
     --height=40% \
     --bind 'ctrl-s:toggle+down' \
     --bind 'ctrl-g:top' \
-    --bind 'π:toggle-preview'
+    --bind 'alt-p:toggle-preview'
 
 # Enable preview (with `eza` and `bat`) for the main builtin commands to manipulate files and directories and their
 # third-party alternatives. This shouldn't be enabled for all commannds, as it would be annoying for commands which
@@ -48,8 +48,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview "$FZF_TAB_PREVIEW"
 # Keymaps for zsh-autosuggestions are:
 #   - <C-e>, or "end-of-line" widget, with the cursor at the end of the line will accept the whole suggestion
 #   - <C-f>, or "forward-char" widget, with the cursor at the end of the line will also accept the whole suggestion
-#   - <C-^> (actually <C-,> o my keyboard), or "forward-word" widget, with the cursor at the end of the line will accept
-#   the suggestion word by word
+#   - <M-f>, or "forward-word" widget, with the cursor at the end of the line will accept the suggestion word by word
 
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions

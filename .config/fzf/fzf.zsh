@@ -30,7 +30,7 @@ export FZF_DEFAULT_OPTS="
     --bind 'shift-tab:up'
     --bind 'ctrl-s:toggle+down'
     --bind 'ctrl-g:top'
-    --bind 'π:toggle-preview'     # <M-p>
+    --bind 'alt-p:toggle-preview'
 "
 
 # [[ Key bindings ]]
@@ -99,8 +99,8 @@ export FZF_CTRL_T_OPTS="
     --prompt 'File > '
     --preview '$FZF_PREVIEW'
     --bind 'ctrl-t:transform: $FZF_CTRL_T_TOGGLE_DIR_TRANSFORMER'
-    --bind 'Ì:transform: $FZF_CTRL_T_TOGGLE_HIDDEN_TRANSFORMER'  # <M-h>
-    --bind 'î:transform: $FZF_CTRL_T_TOGGLE_IGNORED_TRANSFORMER' # <M-i>
+    --bind 'alt-h:transform: $FZF_CTRL_T_TOGGLE_HIDDEN_TRANSFORMER'
+    --bind 'alt-i:transform: $FZF_CTRL_T_TOGGLE_IGNORED_TRANSFORMER'
 "
 
 # <C-r>: insert a command from the command history in the command line
@@ -109,7 +109,6 @@ export FZF_CTRL_R_OPTS="
 "
 
 # <M-c>: `cd` into a directory
-bindkey "©" fzf-cd-widget # Actually enable the <M-c> key binding
 export FZF_ALT_C_COMMAND="$FZF_FD_DIR_COMMAND"
 export FZF_ALT_C_TOGGLE_HIDDEN_TRANSFORMER="
     if [[ {fzf:prompt} = \"Directory > \" ]]; then
@@ -136,8 +135,8 @@ export FZF_ALT_C_TOGGLE_IGNORED_TRANSFORMER="
 export FZF_ALT_C_OPTS="
     --prompt 'Directory > '
     --preview '$FZF_PREVIEW'
-    --bind 'Ì:transform: $FZF_ALT_C_TOGGLE_HIDDEN_TRANSFORMER'  # <M-h>
-    --bind 'î:transform: $FZF_ALT_C_TOGGLE_IGNORED_TRANSFORMER' # <M-i>
+    --bind 'alt-h:transform: $FZF_ALT_C_TOGGLE_HIDDEN_TRANSFORMER'
+    --bind 'alt-i:transform: $FZF_ALT_C_TOGGLE_IGNORED_TRANSFORMER'
 "
 
 # [[ Completion ]]
