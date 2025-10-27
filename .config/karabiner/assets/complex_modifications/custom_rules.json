@@ -1,0 +1,189 @@
+{
+  "title": "Custom rules",
+  "rules": [
+    {
+      "description": "Overload caps lock with escape",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": { "optional": ["command", "option", "control"] }
+          },
+          "to": [{ "key_code": "escape" }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "caps_lock", "modifiers": { "mandatory": ["shift"] } },
+          "to": [{ "key_code": "caps_lock" }]
+        }
+      ]
+    },
+    {
+      "description": "Define home row modifiers",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": { "key_code": "f", "modifiers": { "optional": ["any"] } },
+          "to_if_alone": [{ "key_code": "f", "halt": true }],
+          "to_if_held_down": [{ "key_code": "left_command" }],
+          "to_delayed_action": { "to_if_canceled": [{ "key_code": "f" }] }
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "d", "modifiers": { "optional": ["any"] } },
+          "to_if_alone": [{ "key_code": "d", "halt": true }],
+          "to_if_held_down": [{ "key_code": "left_option" }],
+          "to_delayed_action": { "to_if_canceled": [{ "key_code": "d" }] }
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "s", "modifiers": { "optional": ["any"] } },
+          "to_if_alone": [{ "key_code": "s", "halt": true }],
+          "to_if_held_down": [{ "key_code": "left_control" }],
+          "to_delayed_action": { "to_if_canceled": [{ "key_code": "s" }] }
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "a", "modifiers": { "optional": ["any"] } },
+          "to_if_alone": [{ "key_code": "a", "halt": true }],
+          "to_if_held_down": [{ "key_code": "left_shift" }],
+          "to_delayed_action": { "to_if_canceled": [{ "key_code": "a" }] }
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "j", "modifiers": { "optional": ["any"] } },
+          "to_if_alone": [{ "key_code": "j", "halt": true }],
+          "to_if_held_down": [{ "key_code": "left_command" }],
+          "to_delayed_action": { "to_if_canceled": [{ "key_code": "j" }] }
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "k", "modifiers": { "optional": ["any"] } },
+          "to_if_alone": [{ "key_code": "k", "halt": true }],
+          "to_if_held_down": [{ "key_code": "left_option" }],
+          "to_delayed_action": { "to_if_canceled": [{ "key_code": "k" }] }
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "l", "modifiers": { "optional": ["any"] } },
+          "to_if_alone": [{ "key_code": "l", "halt": true }],
+          "to_if_held_down": [{ "key_code": "left_control" }],
+          "to_delayed_action": { "to_if_canceled": [{ "key_code": "l" }] }
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "semicolon", "modifiers": { "optional": ["any"] } },
+          "to_if_alone": [{ "key_code": "semicolon", "halt": true }],
+          "to_if_held_down": [{ "key_code": "left_shift" }],
+          "to_delayed_action": { "to_if_canceled": [{ "key_code": "semicolon" }] }
+        }
+      ]
+    },
+    {
+      "description": "Use symbols instead of numbers in number row",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": { "key_code": "1" },
+          "to": [{ "key_code": "1", "modifiers": ["shift"] }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "1", "modifiers": { "mandatory": ["shift"] } },
+          "to": [{ "key_code": "1" }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "2" },
+          "to": [{ "key_code": "2", "modifiers": ["shift"] }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "2", "modifiers": { "mandatory": ["shift"] } },
+          "to": [{ "key_code": "2" }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "3" },
+          "to": [{ "key_code": "3", "modifiers": ["shift"] }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "3", "modifiers": { "mandatory": ["shift"] } },
+          "to": [{ "key_code": "3" }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "4" },
+          "to": [{ "key_code": "4", "modifiers": ["shift"] }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "4", "modifiers": { "mandatory": ["shift"] } },
+          "to": [{ "key_code": "4" }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "5" },
+          "to": [{ "key_code": "5", "modifiers": ["shift"] }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "5", "modifiers": { "mandatory": ["shift"] } },
+          "to": [{ "key_code": "5" }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "6" },
+          "to": [{ "key_code": "6", "modifiers": ["shift"] }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "6", "modifiers": { "mandatory": ["shift"] } },
+          "to": [{ "key_code": "6" }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "7" },
+          "to": [{ "key_code": "7", "modifiers": ["shift"] }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "7", "modifiers": { "mandatory": ["shift"] } },
+          "to": [{ "key_code": "7" }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "8" },
+          "to": [{ "key_code": "8", "modifiers": ["shift"] }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "8", "modifiers": { "mandatory": ["shift"] } },
+          "to": [{ "key_code": "8" }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "9" },
+          "to": [{ "key_code": "9", "modifiers": ["shift"] }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "9", "modifiers": { "mandatory": ["shift"] } },
+          "to": [{ "key_code": "9" }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "0" },
+          "to": [{ "key_code": "0", "modifiers": ["shift"] }]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "0", "modifiers": { "mandatory": ["shift"] } },
+          "to": [{ "key_code": "0" }]
+        }
+      ]
+    }
+  ]
+}
