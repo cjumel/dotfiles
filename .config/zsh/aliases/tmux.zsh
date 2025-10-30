@@ -1,9 +1,7 @@
-# Change the behavior of the default `tmux new` command, which name sessions with "0", "1", "2", etc. by default, to use the current
-# directory name instead
 function tmux_new() {
     session_name=$(basename "$PWD")                          # Name of the current directory
-    if tmux has-session -t "$session_name" 2>/dev/null; then # Don't error if the session already exists
-        tmux attach-session -t "$session_name"
+    if tmux has-session -t="$session_name" 2>/dev/null; then # Don't error if the session already exists
+        tmux attach-session -t="$session_name"
     else
         tmux new-session -s "$session_name"
     fi
