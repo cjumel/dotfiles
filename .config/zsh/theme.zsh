@@ -9,6 +9,7 @@ catppuccin-latte
 everforest-dark
 everforest-light
 gruvbox-dark
+gruvbox-material
 gruvbox-light
 kanagawa-wave
 kanagawa-dragon
