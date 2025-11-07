@@ -17,7 +17,6 @@ alias cl='clear' # [C][L]ear: clear the terminal screen
 
 alias cpr='cp -r' # [C]o[P]y [R]ecursive: copy files and directories recursively
 
-alias l='ls'       # [L]ist: list files in directory
 alias la='ls -a'   # [L]ist [A]ll: list all files in directory, including hidden files
 alias ll='ls -l'   # [L]ist [L]ong: list files in directory in long format
 alias lla='ls -la' # [L]ist [L]ong [A]ll: list all files in directory in long format, including hidden files
