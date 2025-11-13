@@ -1,13 +1,7 @@
-# The documentation for the different settings can be found here: https://starship.rs/config/
-
-# The `add_new_line` behavior is implemented manually in `./starship.zsh` rather than directly in 
-# Starship, to work around an issue where a new line is added at the top of the buffer when entering 
-# a terminal or clearing it
+# The `add_new_line` behavior is implemented manually in `.config/starship/starship.zsh` to work
+# around an issue with new line being added at the beginning of a terminal session
 add_newline = false
 
-# Format of the prompt, referencing the different starship modules
-# `$fill` can be used to add modules on the right-hand-side of the prompt
-# `$all` can be used to add every module not included yet
 format = """
 $directory\
 $git_branch\
@@ -29,23 +23,22 @@ format = '[󱦟 $duration]($style) '
 style = "yellow bold"
 
 [custom.git_changes]
-# Show a single symbol if there is any local change in the repository
 format = '[$symbol]($style)'
 shell = ['bash']
 style = 'red bold'
 symbol = '*'
-when = 'test -n "$(git status --porcelain)"' # `--porcelain` makes the output easy to parse
+when = 'test -n "$(git status --porcelain)"'
 
 [directory]
-read_only = ' ' # Symbol displayed when the directory is read only
+read_only = ' '
 read_only_style = 'red bold'
 style = "cyan bold"
-truncate_to_repo = true # Truncate to repository root in Git repositories
-truncation_length = 0 # Don't truncate paths
-truncation_symbol = "󰊢 " # Prefix for truncation (only used in Git repositories)
+truncate_to_repo = true
+truncation_length = 0
+truncation_symbol = "󰊢 "
 
 [fill]
-symbol = " " # No filling between prompt left- & right-hand sides
+symbol = " "
 
 [git_branch]
 format = "[$symbol$branch(:$remote_branch)]($style) "
@@ -60,22 +53,23 @@ format = '[- $state( $progress_current/$progress_total)]($style) '
 style = "bold purple"
 
 [git_status]
-# Only keep stuff related to differences with the remote or the stash, not local changes
 ahead = "⇡"
 behind = "⇣"
 diverged = "⇡⇣"
-format = '([$ahead_behind$stashed]($style))' # $ahead_behind refers to $ahead, $behind, $diverged
+format = '([$ahead_behind$stashed]($style))'
 stashed = "≡"
 style = "red bold"
 
 [jobs]
-number_threshold = 999 # In practice never show the number of jobs
+number_threshold = 999 # Never reached in practice
 style = "red bold"
 
 [python]
-format = '[($symbol $virtualenv)]($style) ' # Only show $symbol if $virtualenv is not empty
+detect_extensions = []
+detect_files = []
+format = '[($symbol $virtualenv)]($style) '
 style = "blue bold"
-symbol = "" # Taken from nvim-web-devicons
+symbol = ""
 
 [time]
 disabled = false
