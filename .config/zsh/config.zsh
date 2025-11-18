@@ -4,7 +4,9 @@
 # [[ General configuration ]]
 
 export LANG=en_US.UTF-8 # Make sure everything is in English
+export EDITOR=nvim      # Set the default editor
 export LESS=R           # Clear the content after quitting the `less` pager (e.g. when using `git log` with `less`)
+bindkey -e              # Force emacs keybindings for zsh (usually the default but setting `EDITOR` to `nvim` alter this setting)
 
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # Case-insensitive completion when using lowercase (like ripgrep smart case)
@@ -43,11 +45,6 @@ zle -N insert-newline
 bindkey '^[[13;2u' insert-newline # <S-CR>
 
 # Keymap to edit the command line with an editor
-# Setting VISUAL or EDITOR to `nvim` globally breaks the fzf-autosuggestions plugin when used within Tmux for some reason, so let's only set VISUAL locally
 autoload edit-command-line
-edit-command-line-nvim() {
-    local VISUAL=nvim
-    edit-command-line
-}
-zle -N edit-command-line-nvim
-bindkey "^v" edit-command-line-nvim # Mnemonic: Vim
+zle -N edit-command-line
+bindkey "^v" edit-command-line # Mnemonic: Vim
