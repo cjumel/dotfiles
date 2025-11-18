@@ -166,9 +166,9 @@ alias gsts='git status --short' # [S][T]atuts [S]hort: show the status of the re
 # [[ Switch ]]
 
 function git_switch_main() {
-    if git show-ref --verify --quiet refs/heads/main; then
+    if git show-ref --verify --quiet refs/heads/main || git show-ref --verify --quiet refs/remotes/origin/main; then
         git switch main
-    elif git show-ref --verify --quiet refs/heads/master; then
+    elif git show-ref --verify --quiet refs/heads/master || git show-ref --verify --quiet refs/remotes/origin/master; then
         git switch master
     else
         echo "Branch 'main' or 'master' doesn't exist"
