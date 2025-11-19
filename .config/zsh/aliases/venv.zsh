@@ -1,4 +1,4 @@
-# [V][E]nv: Python builtin virtual environment management
+# [VE]nv: Python builtin virtual environment management
 
 export PYTHON_VENV='python' # Python used to create a virtual environment
 
@@ -33,8 +33,8 @@ function venv_use() {
     fi
 }
 
-alias vea='venv_activate'             # [A]ctivate: activate the environment with the provided name (".venv" by default)
-alias vec='venv_create'               # [C]reate: create a new environment with the provided name (".venv" by default)
-alias veca='venv_create_and_activate' # [C]reate & [A]ctivate: create & activate a new environment with the provided name (".venv" by default)
-alias ved='deactivate'                # [D]eactivate: deactivate the currently activated environment
-alias veu='venv_use'                  # [U]se: use the provided Python command to create environment ("python" by default), similarly to `poetry env use`
+alias vea='venv_activate'             # [VE]nv [A]ctivate: activate the environment with the provided name (".venv" by default)
+alias vec='venv_create'               # [VE]nv [C]reate: create a new environment with the provided name (".venv" by default)
+alias veca='venv_create_and_activate' # [VE]nv [C]reate & [A]ctivate: create & activate a new environment with the provided name (".venv" by default)
+alias ved='deactivate'                # [VE]nv [D]eactivate: deactivate the currently activated environment
+alias veu='venv_use'                  # [VE]nv [U]se: use the provided Python command to create environment ("python" by default), similarly to `poetry env use`

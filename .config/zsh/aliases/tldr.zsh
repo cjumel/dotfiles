@@ -1,3 +1,5 @@
+# [TL]dr: user-friendly & synthetic variant to the man pages
+
 function tldr_alias() {
     alias_definition=$(alias "$1") # Of the form "l=ls" or "l='ls'" (without the surrounding double quotes)
     alias_length=${#1}             # Length of the alias itself (e.g. 1 for "l=ls")

@@ -1,113 +1,127 @@
 # [G]it: a version control system for tracking changes in source code
 
-alias g='gst' # Shortcut for the `gst` (Git status) alias
-alias gg='g'  # Same as `g`, in case the key is sticky
-alias ggg='g' # Same as `g`, in case the key is sticky
+# [[ Add ]]
+
+alias ga='git add'           # [G]it [A]dd: add the targeted files' changes to the staging area
+alias gaa='git add --all'    # [G]it [A]dd [A]ll: add all changes to the staging area
+alias gau='git add --update' # [G]it [A]dd [U]pdate: add the tracked files' changes to the staging area
 
 # [[ Branch ]]
 
-alias gb='git branch'           # Branch: list local branches
-alias gbr='git branch --remote' # Branch remote: list remote branches
-alias gba='git branch --all'    # Branch all: list local & remote branches
+alias gb='git branch'           # [G]it [B]ranch: list local branches
+alias gba='git branch --all'    # [G]it [B]ranch [A]ll: list local & remote branches
+alias gbr='git branch --remote' # [G]it [B]ranch [R]emote: list remote branches
 
-alias gbd='git branch --delete'          # Branch delete: delete a local branch
-alias gbdf='git branch --delete --force' # Branch delete force: delete a local branch even if not merged
+alias gbd='git branch --delete'          # [G]it [B]ranch [D]elete: delete a local branch
+alias gbdf='git branch --delete --force' # [G]it [B]ranch [D]elete [F]orce: delete a local branch even if not merged
 
 # [[ Commit ]]
-# The "h" for "skip hooks" is directly taken from Neogit
 
-# Add a "c" for "create" out of consistency with Neogit & to avoid conflicts with other `gc` aliases
-alias gcc='git commit'              # [C]ommit [C]reate: create a commit
-alias gcch='git commit --no-verify' # [C]ommit [C]reate, skip [H]ooks: create commit without running commit hooks
+alias gc='git commit'              # [G]it [C]ommit: create a commit
+alias gcn='git commit --no-verify' # [G]it [C]ommit [N]o-verify: create commit without running commit hooks
 
-alias gca='git commit --amend'                         # [C]ommit [A]mend: amend last commit
-alias gcah='git commit --amend --no-verify'            # [C]ommit [A]mend, skip [H]ooks: amend last commit without running commit hooks
-alias gcam='git commit --amend --no-edit'              # [C]ommit [A]mend, skip [M]essage: amend last commit without editing the commit message
-alias gcamh='git commit --amend --no-edit --no-verify' # [C]ommit [A]mend, skip [M]essage & [H]ooks: amend last commit without editing the commit message or running commit hooks
+alias gca='git commit --amend'              # [G]it [C]ommit [A]mend: commit by amending the last commit
+alias gcan='git commit --amend --no-verify' # [G]it [C]ommit [A]mend [N]o-verify: commit by amending the last commit without running commit hooks
 
 function git_commit_fixup() {
-    git reset --message "fixup! $1"
+    local commit
+    commit=$(git log --oneline --no-merges -n 50 |
+        fzf --preview='git show --color=always {1}' \
+            --prompt="Commit > " |
+        awk '{print $1}')
+    if [[ -n "$commit" ]]; then
+        git commit --fixup="$commit"
+    else
+        echo "No commit selected"
+        return 1
+    fi
 }
-function git_commit_fixup_force() {
-    git reset --message "fixup! $1" --no-verify
+function git_commit_fixup_no_verify() {
+    local commit
+    commit=$(git log --oneline --no-merges -n 50 |
+        fzf --preview='git show --color=always {1}' \
+            --prompt="Commit > " |
+        awk '{print $1}')
+    if [[ -n "$commit" ]]; then
+        git commit --fixup="$commit" --no-verify
+    else
+        echo "No commit selected"
+        return 1
+    fi
 }
-alias gcf='git_commit_fixup'        # [C]ommit [F]ixup: create a fixup commit
-alias gcfh='git_commit_fixup_force' # [C]ommit [F]ixup, skip [H]ooks: create a fixup commit without running commit hooks
+alias gcf='git_commit_fixup'            # [G]it [C]ommit [F]ixup: create a fixup commit
+alias gcfn='git_commit_fixup_no_verify' # [G]it [C]ommit [F]ixup [N]o-verify: create a fixup commit without running commit hooks
 
-alias gcw='git commit --message "🚧 WIP [skip ci]" --no-verify' # [C]ommit [W]IP: create a WIP commit without running commit hooks
+alias gcw='git commit --message "🚧 WIP [skip ci]" --no-verify' # [G]it [C]ommit [W]IP: create a WIP commit
 
 # [[ Check-ignore ]]
 
-alias gci='git check-ignore'            # [C]heck [I]gnore: if a file is ignored by Git, print its path
-alias gciv='git check-ignore --verbose' # [C]heck [I]gnore [V]erbose: if a file is ignored by Git, print its path & the ignore rule
+alias gci='git check-ignore'            # [G]it [C]heck [I]gnore: if a file is ignored by Git, print its path
+alias gciv='git check-ignore --verbose' # [G]it [C]heck [I]gnore [V]erbose: if a file is ignored by Git, print its path & the ignore rule
 
 # [[ Clone ]]
 
-alias gcl='git clone'         # [C][L]one: clone a repository
-alias gclb='git clone --bare' # [C][L]one [B]are: clone a repository as a bare repository (useful for git worktrees)
+alias gcl='git clone'         # [G]it [CL]one: clone a repository
+alias gclb='git clone --bare' # [G]it [CL]one [B]are: clone a repository as a bare repository (useful for git worktrees)
+
+# [[ Clean ]]
+
+alias gcle='git clean' # [G]it [CLE]an: remove untracked files from the working tree
 
 # [[ Checkout ]]
 
-alias gco='git checkout' # [C]heck[O]ut: switch to a branch or restore working tree files (e.g. to a specific commit)
+alias gco='git checkout' # [G]it [C]heck[O]ut: switch to a branch or restore working tree files (e.g. to a specific commit)
 
 # [[ Diff ]]
 
-alias gd='git diff'           # [D]iff: show differences between working tree and staging area (index), i.e. unstaged changes
-alias gds='git diff --staged' # [D]iff [S]taged: show differences between staging area (index) and last commit (head), i.e. staged changes
+alias gd='git diff'           # [G]it [D]iff: show differences between working tree and staging area (index), i.e. unstaged changes
+alias gds='git diff --staged' # [G]it [D]iff [S]taged: show differences between staging area (index) and last commit (head), i.e. staged changes
 
 # [[ Fetch ]]
 
-alias gf='git fetch'           # Fetch: download objects and refs from the remote repository
-alias gfp='git fetch --prune'  # Fetch prune: download objects and refs from the remote repository & remove refs to deleted remote branches
-alias gfu='git fetch upstream' # Fetch upstream: download objects and refs from the upstream repository (useful to update forks)
+alias gf='git fetch'           # [G]it [F]etch: download objects and refs from the remote repository
+alias gfp='git fetch --prune'  # [G]it [F]etch [P]rune: download objects and refs from the remote repository & remove refs to deleted remote branches
+alias gfu='git fetch upstream' # [G]it [F]etch [U]pstream: download objects and refs from the upstream repository (useful to update forks)
 
 # [[ Init ]]
 
-alias gi='git init' # Init: create a new local Git repository
+alias gi='git init' # [G]it [I]nit: create a new local Git repository
 
 # [[ Log ]]
 
-alias gl='git log --oneline --graph --decorate --color' # [L]og: show the commit log using in the short log format
-alias gll='git log'                                     # [L]og [L]ong: show the commit log using the long log format
+alias gl='git log --oneline --graph --decorate --color' # [G]it [L]og: show the commit log using in the short log format
+alias gll='git log'                                     # [G]it [L]og [L]ong: show the commit log using the long log format
 
 # [[ Pull ]]
 
-alias gpl='git pull' # Pull: download objects and refs from the remote repository & merge them into the current branch
+alias gpl='git pull' # [G]it [P]u[L]l: download objects and refs from the remote repository & merge them into the current branch
 
 # [[ Push ]]
 
-alias gps='git push'                  # [P]ush: upload the current branch to the remote repository
-alias gpsd='git push --delete origin' # [P]ush [D]elete: delete the listed ref (e.g. a tag) from the remote repository
-alias gpsf='git push --force'         # [P]ush [F]orce: upload the current branch to the remote repository & overwrite any conflicting changes
-alias gpst='git push --tags'          # [P]ush [T]ags: upload the current branch & all local tags to the remote repository
-alias gpsu='git push --set-upstream'  # [P]ush [U]pstream: upload the current branch to the remote repository and set the relevant upstream if needed
+alias gps='git push'                 # [G]it [P]ush: upload the current branch to the remote repository
+alias gpsf='git push --force'        # [G]it [P]ush [F]orce: upload the current branch to the remote repository & overwrite any conflicting changes
+alias gpst='git push --tags'         # [G]it [P]ush [T]ags: upload the current branch & all local tags to the remote repository
+alias gpsu='git push --set-upstream' # [G]it [P]ush [U]pstream: upload the current branch to the remote repository and set the relevant upstream if needed
+
+alias gpsd='git push --delete'         # [G]it [P]ush [D]elete: delete the listed ref (e.g. a tag)
+alias gpsdo='git push --delete origin' # [G]it [P]ush [D]elete [O]rigin: delete the listed ref (e.g. a tag) from the origin remote
 
 # [[ Rebase ]]
 
-alias grb='git rebase'                           # [R]e[B]ase: apply the current branch changes on top of another branch
-alias grbi='git rebase --interactive'            # [R]e[B]ase [I]nteractive: apply the current branch selected changes & actions on top of another branch
-alias grbo='git rebase --strategy-option=theirs' # [R]e[B]ase [O]verwrite: apply the current branch changes on top of another branch & overwrite conflicting changes
+alias grb='git rebase'                           # [G]it [R]e[B]ase: apply the current branch changes on top of another branch
+alias grbi='git rebase --interactive'            # [G]it [R]e[B]ase [I]nteractive: apply the current branch selected changes & actions on top of another branch
+alias grbt='git rebase --strategy-option=theirs' # [G]it [R]e[B]ase [T]heirs: apply the current branch changes on top of another branch, favoring the other branch in case of conflict
 
-alias grba='git rebase --abort'    # [R]e[B]ase [A]bort: stop a rebase in progress
-alias grbc='git rebase --continue' # [R]e[B]ase [C]ontinue: continue a rebase in progress
-alias grbs='git rebase --skip'     # [R]e[B]ase [S]kip: skip a commit's changes during a rebase in progress
+alias grba='git rebase --abort'    # [G]it [R]e[B]ase [A]bort: stop a rebase in progress
+alias grbc='git rebase --continue' # [G]it [R]e[B]ase [C]ontinue: continue a rebase in progress
+alias grbs='git rebase --skip'     # [G]it [R]e[B]ase [S]kip: skip a commit's changes during a rebase in progress
 
 # [[ Remove ]]
 
-alias grm='git rm'           # Remove: delete a file from the Git repository and the file system
-alias grmc='git rm --cached' # Remove cached: delete a file from the Git repository but not from the file system
+alias grm='git rm'           # [G]it [R]emove: delete a file from the Git repository and the file system
+alias grmc='git rm --cached' # [G]it [R]emove [C]ached: delete a file from the Git repository but not from the file system
 
 # [[ Reset ]]
-# `reset` can be used in 3 forms:
-#   - with nothing (target all tracked files/directories),
-#   - with a path (target the corresponding tracked files/directories),
-#   - or with a commit reference.
-# It can also be used with 3 modes:
-#   - mixed (unstage & keep the changes),
-#   - soft (keep the changes as staged),
-#   - or hard (unstage & discard the changes).
-# I only use `git reset` to act on commits, as I prefer to use the `git unstage` & `git discard` aliases (they are not actual Git keywords)
-# for files and directories
 
 function git_reset_mixed_head() {
     git reset --mixed HEAD~"$1"
@@ -118,12 +132,16 @@ function git_reset_soft_head() {
 function git_reset_hard_head() {
     git reset --hard HEAD~"$1"
 }
-alias grsm='git reset --mixed'     # [R]eset [M]ixed: undo & unstage the targeted commit(s), or unstage the targeted files' changes
-alias grsmh='git_reset_mixed_head' # [R]eset [M]ixed [H]ead: undo & unstage a number of the last commits (default to 1)
-alias grss='git reset --soft'      # [R]eset [S]oft: undo but keep staged the targeted commit(s)
-alias grssh='git_reset_soft_head'  # [R]eset [S]oft [H]ead: undo but keep staged a number of the last commits (default to 1)
-alias grsh='git reset --hard'      # [R]eset [H]ard: undo & discard the changes of the targeted commit(s), or discard the targeted files' changes
-alias grshh='git_reset_hard_head'  # [R]eset [H]ard [H]ead: undo & discard the changes of a number of the last commits (default to 1)
+alias grsm='git reset --mixed'     # [G]it [R]eset [M]ixed: undo & unstage the targeted commit(s), or unstage the targeted files' changes
+alias grsmh='git_reset_mixed_head' # [G]it [R]eset [M]ixed [H]ead: undo & unstage a number of the last commits (default to 1)
+alias grss='git reset --soft'      # [G]it [R]eset [S]oft: undo but keep staged the targeted commit(s)
+alias grssh='git_reset_soft_head'  # [G]it [R]eset [S]oft [H]ead: undo but keep staged a number of the last commits (default to 1)
+alias grsh='git reset --hard'      # [G]it [R]eset [H]ard: undo & discard the changes of the targeted commit(s), or discard the targeted files' changes
+alias grshh='git_reset_hard_head'  # [G]it [R]eset [H]ard [H]ead: undo & discard the changes of a number of the last commits (default to 1)
+
+# [[ Restore ]]
+
+alias grt='git restore' # [G]it [R]es[T]ore: restore the targeted files' changes from the last commit (head)
 
 # [[ Revert ]]
 
@@ -131,20 +149,17 @@ function git_revert_head() {
     git revert --no-commit HEAD~"$1"..
     git commit
 }
-alias grv='git revert'       # [R]e[V]ert: create a new commit to undo the targeted commit
-alias grvh='git_revert_head' # [R]e[V]ert [H]ead: create a new commit to undo a number of the last commits (default to 1)
+alias grv='git revert'       # [G]it [R]e[V]ert: create a new commit to undo the targeted commit
+alias grvh='git_revert_head' # [G]it [R]e[V]ert [H]ead: create a new commit to undo a number of the last commits (default to 1)
 
-alias grva='git revert --abort'    # Revert abort: stop a revert in progress
-alias grvc='git revert --continue' # Revert continue: resume a revert in progress
-alias grvs='git revert --skip'     # Revert skip: skip a commit during a revert in progress
+alias grva='git revert --abort'    # [G]it [R]evert [A]bort: stop a revert in progress
+alias grvc='git revert --continue' # [G]it [R]evert [C]ontinue: resume a revert in progress
+alias grvs='git revert --skip'     # [G]it [R]evert [S]kip: skip a commit during a revert in progress
 
-# [[ Stage ]]
-# I prefer `git stage` over `git add` to add changes to the staging area out of consistency with my Neovim keymaps (for technical reasons,
-# "a" can't be used as nicely as "s" in git-related keymaps) and because I find this wording a bit clearer
+# [[ Status ]]
 
-alias gs='git stage'           # Stage: add the targeted files' changes to the staging area
-alias gsu='git stage --update' # Stage update: add the tracked files' changes to the staging area
-alias gsa='git stage --all'    # Stage all: add all files' changes to the staging area
+alias gs='git status'          # [G]it [S]tatus: show the Git status of the repository
+alias gss='git status --short' # [G]it [S]tatus [S]hort: show the status of the repository in shorter format
 
 # [[ Show ]]
 
@@ -155,13 +170,20 @@ function git_show_head() {
         git show HEAD~"$(($1 - 1))" # Use arithmetic expansion to convert input to number
     fi
 }
-alias gsh='git show'       # [S][H]ow: give details on the targeted object (commit, tag, etc.)
-alias gshh='git_show_head' # [S][H]ow [H]ead: give details on the n'th latest commit (default to 1, the latest one)
+alias gsh='git show'       # [G]it [SH]ow: give details on the targeted object (commit, tag, etc.)
+alias gshh='git_show_head' # [G]it [SH]ow [H]ead: give details on the n'th latest commit (default to 1, the latest one)
 
-# [[ Status ]]
+# [[ Stash ]]
 
-alias gst='git status'          # [S][T]atuts: show the Git status of the repository
-alias gsts='git status --short' # [S][T]atuts [S]hort: show the status of the repository in shorter format
+alias gst='git stash'                      # [G]it [ST]ash: move local changes in tracked files to the stash
+alias gstu='git stash --include-untracked' # [G]it [ST]ash including [U]ntracked: move local changes in tracked & untracked files to the stash
+
+alias gsta='git stash apply' # [G]it [ST]ash [A]pply: copy the stash changes to the local files
+alias gstc='git stash clear' # [G]it [ST]ash [C]lear: remove all the stash entries
+alias gstd='git stash drop'  # [G]it [ST]ash [D]rop: remove one stash entry (default to the last)
+alias gstl='git stash list'  # [G]it [ST]ash [L]ist: list the stash entries
+alias gstp='git stash pop'   # [G]it [ST]ash [P]op: move the statsh changes to the local files (or copy them if there is any conflict)
+alias gstps='git stash push' # [G]it [ST]ash [P]u[S]h: move the local changes in tracked files to the stash
 
 # [[ Switch ]]
 
@@ -175,55 +197,45 @@ function git_switch_main() {
         return 1
     fi
 }
-
-alias gsw='git switch'           # [S][W]itch: switch to a branch
-alias gswc='git switch --create' # [S][W]itch [C]reate: create a branch & switch to it
-alias gswm='git_switch_main'     # [S][W]itch [M]ain: switch to the main branch ('main' or 'master')
-alias gswp='git switch -'        # [S][W]itch [P]revious: switch to the previous branch
-alias gsws='git switch staging'  # [S][W]itch [S]taging: switch to the staging branch
+function git_switch_default() {
+    local default_branch
+    default_branch=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@')
+    if [[ -n "$default_branch" ]]; then
+        git switch "$default_branch"
+    else
+        echo "Could not determine default branch"
+        return 1
+    fi
+}
+alias gsw='git switch'           # [G]it [SW]itch: switch to a branch
+alias gswc='git switch --create' # [G]it [SW]itch [C]reate: create a branch & switch to it
+alias gswd='git_switch_default'  # [G]it [SW]itch [D]efault: switch to the default branch
+alias gswm='git_switch_main'     # [G]it [SW]itch [M]ain: switch to the main branch ('main' or 'master')
+alias gswp='git switch -'        # [G]it [SW]itch [P]revious: switch to the previous branch
 
 # [[ Tag ]]
 
-alias gt='git tag'           # [T]ag: create a local tag
-alias gtd='git tag --delete' # [T]ag [D]elete: delete a local tag
+alias gt='git tag'           # [G]it [T]ag: create a local tag
+alias gtd='git tag --delete' # [G]it [T]ag [D]elete: delete a local tag
 
 # [[ Unstage ]]
-# `git unstage` is not an actual git command, but I introduced it out of consistency with my Neovim keymaps and because it's a nice &
-# simple feature
 
-alias gu='git restore --staged'     # Unstage: remove from the staging area the targeted files' changes
-alias gua='git restore --staged :/' # Unstage all: remove from the staging area all the changes
+alias gu='git restore --staged'     # [U]nstage: remove from the staging area the targeted files' changes
+alias gua='git restore --staged :/' # [U]nstage [A]ll: remove from the staging area all the changes
 
 # [[ Worktree ]]
 
-alias gw='git worktree'         # Worktree: base command for Git worktrees
-alias gwa='git worktree add'    # Worktree add: create a new worktree
-alias gwl='git worktree list'   # Worktree list: list all existing worktrees
-alias gwr='git worktree remove' # Worktree remove: delete a worktree
+alias gw='git worktree'         # [G]it [W]orktree: base command for Git worktrees
+alias gwa='git worktree add'    # [G]it [W]orktree [A]dd: create a new worktree
+alias gwl='git worktree list'   # [G]it [W]orktree [L]ist: list all existing worktrees
+alias gwr='git worktree remove' # [G]it [W]orktree [R]emove: delete a worktree
 
 # [[ Discard ]]
-# `git discard` is not an actual git command, but I introduced it out of consistency with my Neovim keymaps and because it's a nice &
-# simple feature
 
-alias gx='git restore'                     # Discard: discard the unstaged changes of the targeted file(s)
-alias gxt='git restore :/'                 # Discard tracked: discard the unstaged changes of all tracked files
-alias gxu='git clean -dfq'                 # Discard untracked: discard all untracked but not ignored files
-alias gxa='git restore :/; git clean -dfq' # Discard all: discard the unstaged changes of all tracked files & discard all untracked but not ignored files
-alias gxi='git clean -dXf'                 # Discard ignored: discard all ignored files
-alias gxin='git clean -dXn'                # Discard ignored dry-run: dry-run to discard all ignored files
-alias gxii='git clean -dXi'                # Discard ignored interactive: interactively discard all ignored files
-
-# [[ Stash ]]
-# In Neovim (with Neogit and my Gitsigns keymaps), keys "s" (stage), "u" (unstage), and "x" (discard) are sanctified to manipulate Git
-# hunks. To be consistent with that and because this command is supported in Neogit and can't be used with the "s" key, let's not use "s"
-# for the "git stash" command here.
-
-alias gz='git stash'                      # [Z]tash: without nothing, act like push, move local changes in tracked files to the stash
-alias gzu='git stash --include-untracked' # [Z]tash including [U]ntracked: move local changes in tracked & untracked files to the stash
-
-alias gza='git stash apply' # [Z]tash [A]pply: copy the stash changes to the local files
-alias gzc='git stash clear' # [Z]tash [C]lear: remove all the stash entries
-alias gzd='git stash drop'  # [Z]tash [D]rop: remove one stash entry (default to the last)
-alias gzl='git stash list'  # [Z]tash [L]ist: list the stash entries
-alias gzp='git stash pop'   # [Z]tash [P]op: move the statsh changes to the local files (or copy them if there is any conflict)
-alias gzps='git stash push' # [Z]tash [P]u[S]h: move the local changes in tracked files to the stash (support additional options like paths)
+alias gx='git restore'                     # [G]it [D]iscard: discard the unstaged changes of the targeted file(s)
+alias gxa='git restore :/; git clean -dfq' # [G]it [D]iscard [A]ll: discard the unstaged changes of all tracked files & discard all untracked but not ignored files
+alias gxi='git clean -dXf'                 # [G]it [D]iscard [I]gnored: discard all ignored files
+alias gxin='git clean -dXn'                # [G]it [D]iscard [I]gnored [N]o-act: preview the ignored files that would be discarded
+alias gxii='git clean -dXi'                # [G]it [D]iscard [I]gnored [I]nteractive: interactively discard all ignored files
+alias gxt='git restore :/'                 # [G]it [D]iscard [T]racked: discard the unstaged changes of all tracked files
+alias gxu='git clean -dfq'                 # [G]it [D]iscard [U]ntracked: discard all untracked but not ignored files
