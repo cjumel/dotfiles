@@ -24,33 +24,24 @@ alias gca='git commit --amend'              # [G]it [C]ommit [A]mend: commit by 
 alias gcan='git commit --amend --no-verify' # [G]it [C]ommit [A]mend [N]o-verify: commit by amending the last commit without running commit hooks
 
 function git_commit_fixup() {
+    local no_verify=""
+    if [[ "$1" == "--no-verify" ]]; then
+        no_verify="--no-verify"
+    fi
     local commit
     commit=$(git log --oneline --no-merges -n 50 |
         fzf --preview='git show --color=always {1}' \
             --prompt="Commit > " |
         awk '{print $1}')
     if [[ -n "$commit" ]]; then
-        git commit --fixup="$commit"
+        git commit --fixup="$commit" $no_verify
     else
         echo "No commit selected"
         return 1
     fi
 }
-function git_commit_fixup_no_verify() {
-    local commit
-    commit=$(git log --oneline --no-merges -n 50 |
-        fzf --preview='git show --color=always {1}' \
-            --prompt="Commit > " |
-        awk '{print $1}')
-    if [[ -n "$commit" ]]; then
-        git commit --fixup="$commit" --no-verify
-    else
-        echo "No commit selected"
-        return 1
-    fi
-}
-alias gcf='git_commit_fixup'            # [G]it [C]ommit [F]ixup: create a fixup commit
-alias gcfn='git_commit_fixup_no_verify' # [G]it [C]ommit [F]ixup [N]o-verify: create a fixup commit without running commit hooks
+alias gcf='git_commit_fixup'              # [G]it [C]ommit [F]ixup: create a fixup commit
+alias gcfn='git_commit_fixup --no-verify' # [G]it [C]ommit [F]ixup [N]o-verify: create a fixup commit without running commit hooks
 
 alias gcw='git commit --message "🚧 WIP [skip ci]" --no-verify' # [G]it [C]ommit [W]IP: create a WIP commit
 
@@ -108,9 +99,74 @@ alias gpsdo='git push --delete origin' # [G]it [P]ush [D]elete [O]rigin: delete 
 
 # [[ Rebase ]]
 
-alias grb='git rebase'                           # [G]it [R]e[B]ase: apply the current branch changes on top of another branch
-alias grbi='git rebase --interactive'            # [G]it [R]e[B]ase [I]nteractive: apply the current branch selected changes & actions on top of another branch
-alias grbt='git rebase --strategy-option=theirs' # [G]it [R]e[B]ase [T]heirs: apply the current branch changes on top of another branch, favoring the other branch in case of conflict
+alias grb='git rebase'                # [G]it [R]e[B]ase: apply the current branch changes on top of another branch
+alias grbi='git rebase --interactive' # [G]it [R]e[B]ase [I]nteractive: apply the current branch selected changes & actions on top of another branch
+
+function git_rebase_default() {
+    local interactive=""
+    if [[ "$1" == "--interactive" ]]; then
+        interactive="--interactive"
+    fi
+    local default_branch
+    default_branch=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@')
+    if [[ -n "$default_branch" ]]; then
+        git rebase $interactive "$default_branch"
+    else
+        echo "Could not determine default branch"
+        return 1
+    fi
+}
+function git_rebase_main() {
+    local interactive=""
+    if [[ "$1" == "--interactive" ]]; then
+        interactive="--interactive"
+    fi
+    if git show-ref --verify --quiet refs/heads/main; then
+        git rebase $interactive main
+    elif git show-ref --verify --quiet refs/heads/master; then
+        git rebase $interactive master
+    else
+        echo "Branch 'main' or 'master' doesn't exist"
+        return 1
+    fi
+}
+function git_rebase_origin_default() {
+    local interactive=""
+    if [[ "$1" == "--interactive" ]]; then
+        interactive="--interactive"
+    fi
+    local default_branch
+    default_branch=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@')
+    if [[ -n "$default_branch" ]]; then
+        git rebase $interactive "origin/$default_branch"
+    else
+        echo "Could not determine default branch"
+        return 1
+    fi
+}
+function git_rebase_origin_main() {
+    local interactive=""
+    if [[ "$1" == "--interactive" ]]; then
+        interactive="--interactive"
+    fi
+    if git show-ref --verify --quiet refs/remotes/origin/main; then
+        git rebase $interactive origin/main
+    elif git show-ref --verify --quiet refs/remotes/origin/master; then
+        git rebase $interactive origin/master
+    else
+        echo "Branch 'origin/main' or 'origin/master' doesn't exist"
+        return 1
+    fi
+}
+
+alias grbd='git_rebase_default'                        # [G]it [R]e[B]ase [D]efault: rebase onto the default branch
+alias grbdi='git_rebase_default --interactive'         # [G]it [R]e[B]ase [D]efault [I]nteractive: interactively rebase onto the default branch
+alias grbm='git_rebase_main'                           # [G]it [R]e[B]ase [M]ain: rebase onto the main branch ('main' or 'master')
+alias grbmi='git_rebase_main --interactive'            # [G]it [R]e[B]ase [M]ain [I]nteractive: interactively rebase onto the main branch ('main' or 'master')
+alias grbod='git_rebase_origin_default'                # [G]it [R]e[B]ase [O]rigin [D]efault: rebase onto the origin's default branch
+alias grbodi='git_rebase_origin_default --interactive' # [G]it [R]e[B]ase [O]rigin [D]efault [I]nteractive: interactively rebase onto the origin's default branch
+alias grbom='git_rebase_origin_main'                   # [G]it [R]e[B]ase [O]rigin [M]ain: rebase onto the origin's main branch ('main' or 'master')
+alias grbomi='git_rebase_origin_main --interactive'    # [G]it [R]e[B]ase [O]rigin [M]ain [I]nteractive: interactively rebase onto the origin's main branch ('main' or 'master')
 
 alias grba='git rebase --abort'    # [G]it [R]e[B]ase [A]bort: stop a rebase in progress
 alias grbc='git rebase --continue' # [G]it [R]e[B]ase [C]ontinue: continue a rebase in progress
@@ -123,21 +179,16 @@ alias grmc='git rm --cached' # [G]it [R]emove [C]ached: delete a file from the G
 
 # [[ Reset ]]
 
-function git_reset_mixed_head() {
-    git reset --mixed HEAD~"$1"
+function git_reset_head() {
+    git reset "$1" HEAD~"$2"
 }
-function git_reset_soft_head() {
-    git reset --soft HEAD~"$1"
-}
-function git_reset_hard_head() {
-    git reset --hard HEAD~"$1"
-}
-alias grsm='git reset --mixed'     # [G]it [R]eset [M]ixed: undo & unstage the targeted commit(s), or unstage the targeted files' changes
-alias grsmh='git_reset_mixed_head' # [G]it [R]eset [M]ixed [H]ead: undo & unstage a number of the last commits (default to 1)
-alias grss='git reset --soft'      # [G]it [R]eset [S]oft: undo but keep staged the targeted commit(s)
-alias grssh='git_reset_soft_head'  # [G]it [R]eset [S]oft [H]ead: undo but keep staged a number of the last commits (default to 1)
-alias grsh='git reset --hard'      # [G]it [R]eset [H]ard: undo & discard the changes of the targeted commit(s), or discard the targeted files' changes
-alias grshh='git_reset_hard_head'  # [G]it [R]eset [H]ard [H]ead: undo & discard the changes of a number of the last commits (default to 1)
+
+alias grsh='git reset --hard'        # [G]it [R]eset [H]ard: undo & discard the changes of the targeted commit(s), or discard the targeted files' changes
+alias grshh='git_reset_head --hard'  # [G]it [R]eset [H]ard [H]ead: undo & discard the changes of a number of the last commits (default to 1)
+alias grsm='git reset --mixed'       # [G]it [R]eset [M]ixed: undo & unstage the targeted commit(s), or unstage the targeted files' changes
+alias grsmh='git_reset_head --mixed' # [G]it [R]eset [M]ixed [H]ead: undo & unstage a number of the last commits (default to 1)
+alias grss='git reset --soft'        # [G]it [R]eset [S]oft: undo but keep staged the targeted commit(s)
+alias grssh='git_reset_head --soft'  # [G]it [R]eset [S]oft [H]ead: undo but keep staged a number of the last commits (default to 1)
 
 # [[ Restore ]]
 
@@ -187,16 +238,6 @@ alias gstps='git stash push' # [G]it [ST]ash [P]u[S]h: move the local changes in
 
 # [[ Switch ]]
 
-function git_switch_main() {
-    if git show-ref --verify --quiet refs/heads/main || git show-ref --verify --quiet refs/remotes/origin/main; then
-        git switch main
-    elif git show-ref --verify --quiet refs/heads/master || git show-ref --verify --quiet refs/remotes/origin/master; then
-        git switch master
-    else
-        echo "Branch 'main' or 'master' doesn't exist"
-        return 1
-    fi
-}
 function git_switch_default() {
     local default_branch
     default_branch=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@')
@@ -207,6 +248,17 @@ function git_switch_default() {
         return 1
     fi
 }
+function git_switch_main() {
+    if git show-ref --verify --quiet refs/heads/main || git show-ref --verify --quiet refs/remotes/origin/main; then
+        git switch main
+    elif git show-ref --verify --quiet refs/heads/master || git show-ref --verify --quiet refs/remotes/origin/master; then
+        git switch master
+    else
+        echo "Branch 'main' or 'master' doesn't exist"
+        return 1
+    fi
+}
+
 alias gsw='git switch'           # [G]it [SW]itch: switch to a branch
 alias gswc='git switch --create' # [G]it [SW]itch [C]reate: create a branch & switch to it
 alias gswd='git_switch_default'  # [G]it [SW]itch [D]efault: switch to the default branch
