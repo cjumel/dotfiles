@@ -183,6 +183,7 @@ function git_reset_head() {
     git reset "$1" HEAD~"$2"
 }
 
+alias grs='git reset'                # [G]it [R]eset: undo the targeted commit(s), or unstage the targeted files' changes
 alias grsh='git reset --hard'        # [G]it [R]eset [H]ard: undo & discard the changes of the targeted commit(s), or discard the targeted files' changes
 alias grshh='git_reset_head --hard'  # [G]it [R]eset [H]ard [H]ead: undo & discard the changes of a number of the last commits (default to 1)
 alias grsm='git reset --mixed'       # [G]it [R]eset [M]ixed: undo & unstage the targeted commit(s), or unstage the targeted files' changes
@@ -192,7 +193,11 @@ alias grssh='git_reset_head --soft'  # [G]it [R]eset [S]oft [H]ead: undo but kee
 
 # [[ Restore ]]
 
-alias grt='git restore' # [G]it [R]es[T]ore: restore the targeted files' changes from the last commit (head)
+alias grt='git restore'     # [G]it [R]es[T]ore: discard the unstaged changes of the targeted files
+alias grta='git restore :/' # [G]it [R]es[T]ore [A]ll: discard the unstaged changes of all tracked files
+
+alias grts='git restore --staged'     # [G]it [R]es[T]ore [S]taged: unstage the targeted files' changes
+alias grtsa='git restore --staged :/' # [G]it [R]es[T]ore [S]taged [A]ll: unstage the changes of all tracked files
 
 # [[ Revert ]]
 
@@ -270,24 +275,9 @@ alias gswp='git switch -'        # [G]it [SW]itch [P]revious: switch to the prev
 alias gt='git tag'           # [G]it [T]ag: create a local tag
 alias gtd='git tag --delete' # [G]it [T]ag [D]elete: delete a local tag
 
-# [[ Unstage ]]
-
-alias gu='git restore --staged'     # [U]nstage: remove from the staging area the targeted files' changes
-alias gua='git restore --staged :/' # [U]nstage [A]ll: remove from the staging area all the changes
-
 # [[ Worktree ]]
 
 alias gw='git worktree'         # [G]it [W]orktree: base command for Git worktrees
 alias gwa='git worktree add'    # [G]it [W]orktree [A]dd: create a new worktree
 alias gwl='git worktree list'   # [G]it [W]orktree [L]ist: list all existing worktrees
 alias gwr='git worktree remove' # [G]it [W]orktree [R]emove: delete a worktree
-
-# [[ Discard ]]
-
-alias gx='git restore'                     # [G]it [D]iscard: discard the unstaged changes of the targeted file(s)
-alias gxa='git restore :/; git clean -dfq' # [G]it [D]iscard [A]ll: discard the unstaged changes of all tracked files & discard all untracked but not ignored files
-alias gxi='git clean -dXf'                 # [G]it [D]iscard [I]gnored: discard all ignored files
-alias gxin='git clean -dXn'                # [G]it [D]iscard [I]gnored [N]o-act: preview the ignored files that would be discarded
-alias gxii='git clean -dXi'                # [G]it [D]iscard [I]gnored [I]nteractive: interactively discard all ignored files
-alias gxt='git restore :/'                 # [G]it [D]iscard [T]racked: discard the unstaged changes of all tracked files
-alias gxu='git clean -dfq'                 # [G]it [D]iscard [U]ntracked: discard all untracked but not ignored files
