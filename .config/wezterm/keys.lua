@@ -16,6 +16,7 @@ return {
   { key = "+", mods = "SUPER", action = wezterm.action.IncreaseFontSize },
   { key = "-", mods = "SUPER", action = wezterm.action.DecreaseFontSize },
   { key = "0", mods = "SUPER", action = wezterm.action.ResetFontSize },
+  { key = "0", mods = "SUPER|SHIFT", action = wezterm.action.ResetFontAndWindowSize },
   { key = "1", mods = "SUPER", action = wezterm.action.ActivateTab(0) },
   { key = "2", mods = "SUPER", action = wezterm.action.ActivateTab(1) },
   { key = "3", mods = "SUPER", action = wezterm.action.ActivateTab(2) },
