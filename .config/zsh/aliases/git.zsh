@@ -231,8 +231,10 @@ alias gshh='git_show_head' # [G]it [SH]ow [H]ead: give details on the n'th lates
 
 # [[ Stash ]]
 
-alias gst='git stash'                      # [G]it [ST]ash: move local changes in tracked files to the stash
-alias gstu='git stash --include-untracked' # [G]it [ST]ash including [U]ntracked: move local changes in tracked & untracked files to the stash
+alias gst='git stash'                                 # [G]it [ST]ash: move local changes in tracked files to the stash
+alias gstm='git stash --message'                      # [G]it [ST]ash with [M]essage: move local changes in tracked files to the stash with a custom message
+alias gstu='git stash --include-untracked'            # [G]it [ST]ash including [U]ntracked: move local changes in tracked & untracked files to the stash
+alias gstum='git stash --include-untracked --message' # [G]it [ST]ash including [U]ntracked with [M]essage: move local changes in tracked & untracked files to the stash with a custom message
 
 alias gsta='git stash apply' # [G]it [ST]ash [A]pply: copy the stash changes to the local files
 alias gstc='git stash clear' # [G]it [ST]ash [C]lear: remove all the stash entries
@@ -240,6 +242,7 @@ alias gstd='git stash drop'  # [G]it [ST]ash [D]rop: remove one stash entry (def
 alias gstl='git stash list'  # [G]it [ST]ash [L]ist: list the stash entries
 alias gstp='git stash pop'   # [G]it [ST]ash [P]op: move the statsh changes to the local files (or copy them if there is any conflict)
 alias gstps='git stash push' # [G]it [ST]ash [P]u[S]h: move the local changes in tracked files to the stash
+alias gsts='git stash show'  # [G]it [ST]ash [S]how: show the changes in the latest stash entry
 
 # [[ Switch ]]
 
