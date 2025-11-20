@@ -1,10 +1,8 @@
 # [G]it: a version control system for tracking changes in source code
 
-# [[ Add ]]
+# [[ Status ]]
 
-alias ga='git add'           # [G]it [A]dd: add the targeted files' changes to the staging area
-alias gaa='git add --all'    # [G]it [A]dd [A]ll: add all changes to the staging area
-alias gau='git add --update' # [G]it [A]dd [U]pdate: add the tracked files' changes to the staging area
+alias g='git status' # [G]it status: show the git status
 
 # [[ Branch ]]
 
@@ -160,13 +158,13 @@ function git_rebase_origin_main() {
 }
 
 alias grbd='git_rebase_default'                        # [G]it [R]e[B]ase [D]efault: rebase onto the default branch
-alias grbdi='git_rebase_default --interactive'         # [G]it [R]e[B]ase [D]efault [I]nteractive: interactively rebase onto the default branch
 alias grbm='git_rebase_main'                           # [G]it [R]e[B]ase [M]ain: rebase onto the main branch ('main' or 'master')
-alias grbmi='git_rebase_main --interactive'            # [G]it [R]e[B]ase [M]ain [I]nteractive: interactively rebase onto the main branch ('main' or 'master')
 alias grbod='git_rebase_origin_default'                # [G]it [R]e[B]ase [O]rigin [D]efault: rebase onto the origin's default branch
-alias grbodi='git_rebase_origin_default --interactive' # [G]it [R]e[B]ase [O]rigin [D]efault [I]nteractive: interactively rebase onto the origin's default branch
 alias grbom='git_rebase_origin_main'                   # [G]it [R]e[B]ase [O]rigin [M]ain: rebase onto the origin's main branch ('main' or 'master')
-alias grbomi='git_rebase_origin_main --interactive'    # [G]it [R]e[B]ase [O]rigin [M]ain [I]nteractive: interactively rebase onto the origin's main branch ('main' or 'master')
+alias grbid='git_rebase_default --interactive'         # [G]it [R]e[B]ase [I]nteractive [D]efault: interactively rebase onto the default branch
+alias grbim='git_rebase_main --interactive'            # [G]it [R]e[B]ase [I]nteractive [M]ain: interactively rebase onto the main branch ('main' or 'master')
+alias grbiod='git_rebase_origin_default --interactive' # [G]it [R]e[B]ase [I]nteractive [O]rigin [D]efault: interactively rebase onto the origin's default branch
+alias grbiom='git_rebase_origin_main --interactive'    # [G]it [R]e[B]ase [I]nteractive [O]rigin [M]ain: interactively rebase onto the origin's main branch ('main' or 'master')
 
 alias grba='git rebase --abort'    # [G]it [R]e[B]ase [A]bort: stop a rebase in progress
 alias grbc='git rebase --continue' # [G]it [R]e[B]ase [C]ontinue: continue a rebase in progress
@@ -212,10 +210,11 @@ alias grva='git revert --abort'    # [G]it [R]evert [A]bort: stop a revert in pr
 alias grvc='git revert --continue' # [G]it [R]evert [C]ontinue: resume a revert in progress
 alias grvs='git revert --skip'     # [G]it [R]evert [S]kip: skip a commit during a revert in progress
 
-# [[ Status ]]
+# [[ Stage ]]
 
-alias gs='git status'          # [G]it [S]tatus: show the Git status of the repository
-alias gss='git status --short' # [G]it [S]tatus [S]hort: show the status of the repository in shorter format
+alias gs='git stage'           # [G]it [S]tage: add the targeted files' changes to the staging area
+alias gsa='git stage --all'    # [G]it [S]tage [A]ll: add all changes to the staging area
+alias gsu='git stage --update' # [G]it [S]tage [U]pdate: add the tracked files' changes to the staging area
 
 # [[ Show ]]
 

@@ -1,4 +1,4 @@
-# [NV]im: a modern Vim-based text editor
+# N[VI]m: a modern Vim-based text editor
 
 function nvim_contextual() {
     # Python project with a standard virtual environment named `.venv`
@@ -25,14 +25,10 @@ function nvim_cleanup() {
     rm -rf ~/.local/state/nvim/
 }
 
-alias nv='nvim_contextual'                                  # [NV]im: open Neovim with contextual setup
-alias nva='NVIM_ENABLE_ALL_PLUGINS=1 nvim_contextual'       # [NV]im [A]ll-plugins: open Neovim with all plugins enabled, for updating purposes
-alias nvb='nvim'                                            # [NV]im [B]are: open Neovim without contextual setup
-alias nvc='nvim --clean'                                    # [NV]im [C]lean: open Neovim without any custom configuration
-alias nvcu='nvim_cleanup'                                   # [NV]im [C]lean[U]p: clean up all Neovim user data
-alias nvd='nvim -d'                                         # [NV]im [D]iff: open Neovim in diff mode, to compare several files
-alias nvi='NVIM_ENABLE_ALL_PLUGINS=1 nvim +MasonInstallAll' # [NV]im [I]nstall: open Neovim and install everything that needs to be installed
-
-# [L]ua[J]it: a Just-In-Time Compiler for Lua programming language
-
-alias lj='luajit' # [L]ua[J]it: run a the Lua Just-In-Time Compiler
+alias vi='nvim_contextual'                                  # N[VI]m: open Neovim with contextual setup
+alias via='NVIM_ENABLE_ALL_PLUGINS=1 nvim_contextual'       # N[VI]m [A]ll-plugins: open Neovim with all plugins enabled, for updating purposes
+alias vib='nvim'                                            # N[VI]m [B]are: open Neovim without contextual setup
+alias vic='nvim --clean'                                    # N[VI]m [C]lean: open Neovim without any custom configuration
+alias vicu='nvim_cleanup'                                   # N[VI]m [C]lean[U]p: clean up all Neovim user data
+alias vid='nvim -d'                                         # N[VI]m [D]iff: open Neovim in diff mode, to compare several files
+alias vii='NVIM_ENABLE_ALL_PLUGINS=1 nvim +MasonInstallAll' # N[VI]m [I]nstall: open Neovim and install everything that needs to be installed
