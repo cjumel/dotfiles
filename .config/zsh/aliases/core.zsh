@@ -15,11 +15,11 @@ function alias-ls() {
 alias al='alias'     # [AL]ias: list all aliases, or show an alias definition, or define a new alias
 alias all='alias-ls' # [AL]ias [L]ist: list all aliases starting with the argument
 
-alias cl='clear' # [CL]ear: clear the terminal screen
+alias clr='clear' # [CL]ea[R]: clear the terminal screen
 
 alias cpr='cp -r' # [C]o[P]y [R]ecursive: copy files and directories recursively
 
-alias ls='ls'      # [L]i[S]t: list files and directories
+alias ls='ls -1'   # [L]i[S]t: list files and directories
 alias lsa='ls -a'  # [L]i[S]t [A]ll: list all files and directories (including hidden)
 alias ll='ls -l'   # [L]ist [L]ong: list files and directories in long format
 alias lla='ls -la' # [L]ist [L]ong [A]ll: list all files and directories (including hidden) in long format
@@ -92,8 +92,9 @@ alias rmf='rm -f'             # [R]e[M]ove [F]orce: remove a file, ignoring none
 alias rmr='rm -r'             # [R]e[M]ove [R]ecursive: remove directories and their contents recursively
 alias rmrf='rm -rf'           # [R]e[M]ove [R]ecursive [F]orce: remove files and directories recursively, ignoring nonexistent files and never prompt
 
-alias so='source'           # [SO]urce: read and execute commands from a file in the current shell environment
-alias soz='source ~/.zshrc' # [SO]urce [Z]sh config: reload the Zsh configuration file
+alias so='source'            # [SO]urce: read and execute commands from a file in the current shell environment
+alias sob='source ~/.bashrc' # [SO]urce [B]ash config: reload the Bash configuration file
+alias soz='source ~/.zshrc'  # [SO]urce [Z]sh config: reload the Zsh configuration file
 
 alias to='touch' # [T]ouch: change file timestamps or create an empty file if it doesn't exist
 
