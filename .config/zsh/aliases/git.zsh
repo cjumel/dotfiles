@@ -1,5 +1,11 @@
 # [G]it: a version control system for tracking changes in source code
 
+# [[ Add ]]
+
+alias ga='git add'           # [G]it [A]dd: add the targeted files' changes to the staging area
+alias gaa='git add --all'    # [G]it [A]dd [A]ll: add all changes to the staging area
+alias gau='git add --update' # [G]it [A]dd [U]pdate: add the tracked files' changes to the staging area
+
 # [[ Branch ]]
 
 alias gb='git branch'           # [G]it [B]ranch: list local branches
@@ -210,12 +216,6 @@ alias grvs='git revert --skip'     # [G]it [R]evert [S]kip: skip a commit during
 
 alias gs='git status' # [G]it [S]tatus: show the git status
 
-# [[ Stage ]]
-
-alias gsg='git stage'           # [G]it [S]ta[G]e: add the targeted files' changes to the staging area
-alias gsga='git stage --all'    # [G]it [S]ta[G]e [A]ll: add all changes to the staging area
-alias gsgu='git stage --update' # [G]it [S]ta[G]e [U]pdate: add the tracked files' changes to the staging area
-
 # [[ Show ]]
 
 function git_show_head() {
@@ -230,19 +230,19 @@ alias gshh='git_show_head' # [G]it [SH]ow [H]ead: give details on the n'th lates
 
 # [[ Stash ]]
 
-alias gss='git stash'                                 # [G]it [S]ta[S]h: move local changes in tracked files to the stash
-alias gssm='git stash --message'                      # [G]it [S]ta[S]h with [M]essage: move local changes in tracked files to the stash with a custom message
-alias gssu='git stash --include-untracked'            # [G]it [S]ta[S]h including [U]ntracked: move local changes in tracked & untracked files to the stash
-alias gssum='git stash --include-untracked --message' # [G]it [S]ta[S]h including [U]ntracked with [M]essage: move local changes in tracked & untracked files to the stash with a custom message
+alias gst='git stash'                                 # [G]it [ST]tash: move local changes in tracked files to the stash
+alias gstm='git stash --message'                      # [G]it [ST]tash with [M]essage: move local changes in tracked files to the stash with a custom message
+alias gstu='git stash --include-untracked'            # [G]it [ST]tash including [U]ntracked: move local changes in tracked & untracked files to the stash
+alias gstum='git stash --include-untracked --message' # [G]it [ST]tash including [U]ntracked with [M]essage: move local changes in tracked & untracked files to the stash with a custom message
 
-alias gssa='git stash apply'            # [G]it [S]ta[S]h [A]pply: copy the stash changes to the local files
-alias gssc='git stash clear'            # [G]it [S]ta[S]h [C]lear: remove all the stash entries
-alias gssd='git stash drop'             # [G]it [S]ta[S]h [D]rop: remove one stash entry (default to the last)
-alias gssl='git stash list'             # [G]it [S]ta[S]h [L]ist: list the stash entries
-alias gsspp='git stash pop'             # [G]it [S]ta[S]h [P]o[P]: move the statsh changes to the local files (or copy them if there is any conflict)
-alias gssps='git stash push'            # [G]it [S]ta[S]h [P]u[S]h: move the local changes in tracked files to the stash
-alias gsspsm='git stash push --message' # [G]it [S]ta[S]h [P]u[S]h with [M]essage: move the local changes in tracked files to the stash with a custom message
-alias gsss='git stash show'             # [G]it [S]ta[S]h [S]how: show the changes in the latest stash entry
+alias gsta='git stash apply'            # [G]it [ST]tash [A]pply: copy the stash changes to the local files
+alias gstc='git stash clear'            # [G]it [ST]tash [C]lear: remove all the stash entries
+alias gstd='git stash drop'             # [G]it [ST]tash [D]rop: remove one stash entry (default to the last)
+alias gstl='git stash list'             # [G]it [ST]tash [L]ist: list the stash entries
+alias gstpp='git stash pop'             # [G]it [ST]tash [P]o[P]: move the statsh changes to the local files (or copy them if there is any conflict)
+alias gstps='git stash push'            # [G]it [ST]tash [P]u[S]h: move the local changes in tracked files to the stash
+alias gstpsm='git stash push --message' # [G]it [ST]tash [P]u[S]h with [M]essage: move the local changes in tracked files to the stash with a custom message
+alias gsts='git stash show'             # [G]it [ST]tash [S]how: show the changes in the latest stash entry
 
 # [[ Switch ]]
 
