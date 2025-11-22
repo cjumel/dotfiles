@@ -50,14 +50,17 @@ alias gcw='git commit --message "🚧 WIP [skip ci]" --no-verify' # [G]it [C]omm
 alias gci='git check-ignore'            # [G]it [C]heck [I]gnore: if a file is ignored by Git, print its path
 alias gciv='git check-ignore --verbose' # [G]it [C]heck [I]gnore [V]erbose: if a file is ignored by Git, print its path & the ignore rule
 
-# [[ Clone ]]
-
-alias gcl='git clone'         # [G]it [CL]one: clone a repository
-alias gclb='git clone --bare' # [G]it [CL]one [B]are: clone a repository as a bare repository (useful for git worktrees)
-
 # [[ Clean ]]
 
-alias gcle='git clean' # [G]it [CLE]an: remove untracked files from the working tree
+alias gcle='git clean'       # [G]it [CLE]an: remove untracked files from the working tree
+alias gcled='git clean -d'   # [G]it [CLE]an [D]irectories: remove untracked files & directories from the working tree
+alias gclen='git clean -n'   # [G]it [CLE]an [N]o-act: show which untracked files would be removed from the working tree
+alias gcledn='git clean -dn' # [G]it [CLE]an [D]irectories [N]o-act: show which untracked files & directories would be removed from the working tree
+
+# [[ Clone ]]
+
+alias gclo='git clone'         # [G]it [CLO]ne: clone a repository
+alias gclob='git clone --bare' # [G]it [CLO]ne [B]are: clone a repository as a bare repository (useful for git worktrees)
 
 # [[ Checkout ]]
 
