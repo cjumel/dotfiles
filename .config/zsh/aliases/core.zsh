@@ -19,12 +19,14 @@ alias clr='clear' # [CL]ea[R]: clear the terminal screen
 
 alias cpr='cp -r' # [C]o[P]y [R]ecursive: copy files and directories recursively
 
-alias ls='ls -1'   # [L]i[S]t: list files and directories
-alias lsa='ls -a'  # [L]i[S]t [A]ll: list all files and directories (including hidden)
-alias ll='ls -l'   # [L]ist [L]ong: list files and directories in long format
-alias lla='ls -la' # [L]ist [L]ong [A]ll: list all files and directories (including hidden) in long format
-alias lr='ls -R'   # [L]ist [R]ecursive: list files and directories recursively
-alias lra='ls -Ra' # [L]ist [R]ecursive [A]ll: list all files and directories (including hidden) recursively
+alias ls='ls -1'     # [L]i[S]t: list files and directories
+alias la='ls -a'     # [L]ist [A]ll: list all files and directories (including hidden)
+alias ll='ls -l'     # [L]ist [L]ong: list files and directories in long format
+alias lla='ls -la'   # [L]ist [L]ong [A]ll: list all files and directories (including hidden) in long format
+alias lr='ls -R'     # [L]ist [R]ecursive: list files and directories recursively
+alias lra='ls -Ra'   # [L]ist [R]ecursive [A]ll: list all files and directories (including hidden) recursively
+alias llr='ls -lR'   # [L]ist [L]ong [R]ecursive: list files and directories in long format recursively
+alias llra='ls -lRa' # [L]ist [L]ong [R]ecursive [A]ll: list all files and directories (including hidden) in long format recursively
 
 function lns-clean() {
     ARG1=${1:-.} # Default to current directory
