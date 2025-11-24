@@ -43,8 +43,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview "$FZF_TAB_PREVIEW"
 
 # [[ Zsh standard plugins ]]
 # A few standard plugins for zsh, enabling syntax highlighting (show valid/invalid commands, paths, etc.),
-# autosuggestions (suggest commands in ghost text based on command history) & additional tool completions (e.g. for
-# `pre-commit`)
+# autosuggestions (suggest commands in ghost text based on command history)
 # Keymaps for zsh-autosuggestions are:
 #   - <C-e>, or "end-of-line" widget, with the cursor at the end of the line will accept the whole suggestion
 #   - <C-f>, or "forward-char" widget, with the cursor at the end of the line will also accept the whole suggestion
@@ -52,4 +51,3 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview "$FZF_TAB_PREVIEW"
 
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
-zinit light zsh-users/zsh-completions
