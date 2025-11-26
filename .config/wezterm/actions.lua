@@ -65,6 +65,20 @@ function M.set_actions()
     overrides.macos_window_background_blur = new_blur
     window:set_config_overrides(overrides)
   end)
+
+  wezterm.on("toggle-meta-combinations", function(window, _)
+    local overrides = window:get_config_overrides() or {}
+    local options_ = theme.make_config(options)
+    if overrides.send_composed_key_when_left_alt_is_pressed == nil then
+      overrides.send_composed_key_when_left_alt_is_pressed = options_.send_composed_key_when_left_alt_is_pressed
+    end
+    if overrides.send_composed_key_when_right_alt_is_pressed == nil then
+      overrides.send_composed_key_when_right_alt_is_pressed = options_.send_composed_key_when_right_alt_is_pressed
+    end
+    overrides.send_composed_key_when_left_alt_is_pressed = not overrides.send_composed_key_when_left_alt_is_pressed
+    overrides.send_composed_key_when_right_alt_is_pressed = not overrides.send_composed_key_when_right_alt_is_pressed
+    window:set_config_overrides(overrides)
+  end)
 end
 
 return M
