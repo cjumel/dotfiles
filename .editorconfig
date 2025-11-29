@@ -33,23 +33,34 @@ indent_style = space
 indent_size = 4
 max_line_length = 100
 
+[{*.sh,*.zsh}]
+indent_style = space
+indent_size = 4
+
+[*.tmux]
+indent_style = space
+indent_size = 4
+
 [*.toml]
 indent_style = space
 indent_size = 2
 max_line_length = 100
 
-[*.yaml]
+[{*.yaml,*.yml}]
 indent_style = space
 indent_size = 2
 max_line_length = 100
 
-[{*.sh,*.zsh,.zshenv,.zshrc,*.tmux}]
-indent_style = space
-indent_size = 4
-
 [.gitconfig]
 indent_style = tab
 indent_size = 8
+
+[{.zprofile,.zshenv,.zshrc}]
+indent_style = space
+indent_size = 4
+
+[COMMIT_EDITMSG]
+max_line_length = 72
 
 [Makefile]
 # Require necessarily 8-long tab indentation to work
