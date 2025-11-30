@@ -197,22 +197,65 @@ alias grmc='git rm --cached' # [G]it [R]emove [C]ached: delete a file from the G
 
 # [[ Reset ]]
 
+function git_reset() {
+    if [[ "$1" == "--hard" ]]; then
+        echo -n "Confirm 'git reset $1 $2'? (y/n): "
+        read -r response
+
+        if [[ "$response" =~ ^[Yy]$ ]]; then
+            git reset "$1" "$2"
+        else
+            echo "Cancelled"
+        fi
+    else
+        git reset "$1" "$2"
+    fi
+}
 function git_reset_head() {
-    git reset "$1" HEAD~"$2"
+    if [[ "$1" == "--hard" ]]; then
+        echo -n "Confirm 'git reset $1 HEAD~$2'? (y/n): "
+        read -r response
+
+        if [[ "$response" =~ ^[Yy]$ ]]; then
+            git reset "$1" HEAD~"$2"
+        else
+            echo "Cancelled"
+        fi
+    else
+        git reset "$1" HEAD~"$2"
+    fi
 }
 
-alias grs='git reset'                # [G]it [R]eset: undo the targeted commit(s), or unstage the targeted files' changes
-alias grsh='git reset --hard'        # [G]it [R]eset [H]ard: undo & discard the changes of the targeted commit(s), or discard the targeted files' changes
+alias grs='git_reset'                # [G]it [R]eset: undo the targeted commit(s), or unstage the targeted files' changes
+alias grsh='git_reset --hard'        # [G]it [R]eset [H]ard: undo & discard the changes of the targeted commit(s), or discard the targeted files' changes
 alias grshh='git_reset_head --hard'  # [G]it [R]eset [H]ard [H]ead: undo & discard the changes of a number of the last commits (default to 1)
-alias grsm='git reset --mixed'       # [G]it [R]eset [M]ixed: undo & unstage the targeted commit(s), or unstage the targeted files' changes
+alias grsm='git_reset --mixed'       # [G]it [R]eset [M]ixed: undo & unstage the targeted commit(s), or unstage the targeted files' changes
 alias grsmh='git_reset_head --mixed' # [G]it [R]eset [M]ixed [H]ead: undo & unstage a number of the last commits (default to 1)
-alias grss='git reset --soft'        # [G]it [R]eset [S]oft: undo but keep staged the targeted commit(s)
+alias grss='git_reset --soft'        # [G]it [R]eset [S]oft: undo but keep staged the targeted commit(s)
 alias grssh='git_reset_head --soft'  # [G]it [R]eset [S]oft [H]ead: undo but keep staged a number of the last commits (default to 1)
 
 # [[ Restore ]]
 
-alias grt='git restore'     # [G]it [R]es[T]ore: discard the unstaged changes of the targeted files
-alias grta='git restore :/' # [G]it [R]es[T]ore [A]ll: discard the unstaged changes of all tracked files
+function git_restore() {
+    local all=""
+    local name="git restore"
+    if [[ "$1" == ":/" ]]; then
+        all=":/"
+        name="git restore (all)"
+    fi
+
+    echo -n "Confirm '${name}'? (y/n): "
+    read -r response
+
+    if [[ "$response" =~ ^[Yy]$ ]]; then
+        git restore $all
+    else
+        echo "Cancelled"
+    fi
+}
+
+alias grt='git_restore'     # [G]it [R]es[T]ore: discard the unstaged changes of the targeted files
+alias grta='git_restore :/' # [G]it [R]es[T]ore [A]ll: discard the unstaged changes of all tracked files
 
 alias grts='git restore --staged'     # [G]it [R]es[T]ore [S]taged: unstage the targeted files' changes
 alias grtsa='git restore --staged :/' # [G]it [R]es[T]ore [S]taged [A]ll: unstage the changes of all tracked files
@@ -253,9 +296,30 @@ alias gstm='git stash --message'                      # [G]it [ST]tash with [M]e
 alias gstu='git stash --include-untracked'            # [G]it [ST]tash including [U]ntracked: move local changes in tracked & untracked files to the stash
 alias gstum='git stash --include-untracked --message' # [G]it [ST]tash including [U]ntracked with [M]essage: move local changes in tracked & untracked files to the stash with a custom message
 
+function git_stash_clear() {
+    echo -n "Confirm 'git stash clear'? (y/n): "
+    read -r response
+
+    if [[ "$response" =~ ^[Yy]$ ]]; then
+        git stash clear
+    else
+        echo "Cancelled"
+    fi
+}
+function git_stash_drop() {
+    echo -n "Confirm 'git stash drop'? (y/n): "
+    read -r response
+
+    if [[ "$response" =~ ^[Yy]$ ]]; then
+        git stash drop
+    else
+        echo "Cancelled"
+    fi
+}
+
 alias gsta='git stash apply' # [G]it [ST]tash [A]pply: copy the stash changes to the local files
-alias gstc='git stash clear' # [G]it [ST]tash [C]lear: remove all the stash entries
-alias gstd='git stash drop'  # [G]it [ST]tash [D]rop: remove one stash entry (default to the last)
+alias gstc='git_stash_clear' # [G]it [ST]tash [C]lear: remove all the stash entries
+alias gstd='git_stash_drop'  # [G]it [ST]tash [D]rop: remove one stash entry (default to the last)
 alias gstl='git stash list'  # [G]it [ST]tash [L]ist: list the stash entries
 alias gstp='git stash pop'   # [G]it [ST]tash [P]op: move the statsh changes to the local files (or copy them if there is any conflict)
 alias gsts='git stash show'  # [G]it [ST]tash [S]how: show the changes in the latest stash entry
