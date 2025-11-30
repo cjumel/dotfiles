@@ -52,10 +52,25 @@ alias gciv='git check-ignore --verbose' # [G]it [C]heck [I]gnore [V]erbose: if a
 
 # [[ Clean ]]
 
-alias gcle='git clean'       # [G]it [CLE]an: remove untracked files from the working tree
-alias gcled='git clean -d'   # [G]it [CLE]an [D]irectories: remove untracked files & directories from the working tree
-alias gclen='git clean -n'   # [G]it [CLE]an [N]o-act: show which untracked files would be removed from the working tree
-alias gcledn='git clean -dn' # [G]it [CLE]an [D]irectories [N]o-act: show which untracked files & directories would be removed from the working tree
+function git_clean() {
+    local directories=""
+    if [[ "$1" == "-d" ]]; then
+        directories="-d"
+    fi
+
+    git clean $directories --dry-run
+    echo -n "Confirm? (y/n): "
+    read -r response
+
+    if [[ "$response" =~ ^[Yy]$ ]]; then
+        git clean $directories
+    else
+        echo "Cancelled"
+    fi
+}
+
+alias gcle='git_clean'     # [G]it [CLE]an: remove untracked files from the working tree
+alias gcled='git_clean -d' # [G]it [CLE]an [D]irectories: remove untracked files & directories from the working tree
 
 # [[ Clone ]]
 
