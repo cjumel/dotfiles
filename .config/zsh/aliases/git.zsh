@@ -12,30 +12,8 @@ alias gb='git branch'           # [G]it [B]ranch: list local branches
 alias gba='git branch --all'    # [G]it [B]ranch [A]ll: list local & remote branches
 alias gbr='git branch --remote' # [G]it [B]ranch [R]emote: list remote branches
 
-function git_branch_delete() {
-    for arg in "$@"; do
-        if [[ "$arg" == "-h" || "$arg" == "--help" ]]; then
-            git branch --delete "$@"
-            return
-        fi
-    done
-    for arg in "$@"; do
-        if [[ "$arg" == "-f" || "$arg" == "--force" ]]; then
-            echo -n "Confirm 'git branch --delete $*'? (y/n): "
-            read -r response
-            if [[ "$response" =~ ^[Yy]$ ]]; then
-                git branch --delete "$@"
-            else
-                echo "Cancelled"
-            fi
-            return
-        fi
-    done
-    git branch --delete "$@"
-}
-
-alias gbd='git_branch_delete'          # [G]it [B]ranch [D]elete: delete a local branch
-alias gbdf='git_branch_delete --force' # [G]it [B]ranch [D]elete [F]orce: delete a local branch even if not merged
+alias gbd='git branch --delete'          # [G]it [B]ranch [D]elete: delete a local branch
+alias gbdf='git branch --delete --force' # [G]it [B]ranch [D]elete [F]orce: delete a local branch even if not merged
 
 # [[ Commit ]]
 
@@ -46,22 +24,18 @@ alias gca='git commit --amend'              # [G]it [C]ommit [A]mend: commit by 
 alias gcan='git commit --amend --no-verify' # [G]it [C]ommit [A]mend [N]o-verify: commit by amending the last commit without running commit hooks
 
 function git_commit_fixup() {
-    local no_verify=""
-    if [[ "$1" == "--no-verify" ]]; then
-        no_verify="--no-verify"
-    fi
     local commit
     commit=$(git log --oneline --no-merges -n 50 |
-        fzf --preview='git show --color=always {1}' \
-            --prompt="Commit > " |
+        fzf --prompt="Commit > " --preview='git show --color=always {1}' |
         awk '{print $1}')
     if [[ -n "$commit" ]]; then
-        git commit --fixup="$commit" $no_verify
+        git commit --fixup="$commit" "$@"
     else
         echo "No commit selected"
         return 1
     fi
 }
+
 alias gcf='git_commit_fixup'              # [G]it [C]ommit [F]ixup: create a fixup commit
 alias gcfn='git_commit_fixup --no-verify' # [G]it [C]ommit [F]ixup [N]o-verify: create a fixup commit without running commit hooks
 
@@ -74,28 +48,15 @@ alias gciv='git check-ignore --verbose' # [G]it [C]heck [I]gnore [V]erbose: if a
 
 # [[ Clean ]]
 
-function git_clean() {
-    for arg in "$@"; do
-        if [[ "$arg" == "-h" || "$arg" == "--help" || "$arg" == "-n" || "$arg" == "--dry-run" ]]; then
-            git clean "$@"
-            return
-        fi
-    done
-    git clean "$@" --dry-run
-    echo -n "Confirm 'git clean $*'? (y/n): "
-    read -r response
-    if [[ "$response" =~ ^[Yy]$ ]]; then
-        git clean "$@"
-    else
-        echo "Cancelled"
-    fi
-}
+alias gcle='git clean'       # [G]it [CLE]an: remove untracked files from the working tree
+alias gclex='git clean -x'   # [G]it [CLE]an including ignored: remove untracked & ignored files from the working tree
+alias gcled='git clean -d'   # [G]it [CLE]an [D]irectories: remove untracked files & directories from the working tree
+alias gcledx='git clean -dx' # [G]it [CLE]an [D]irectories including ignored: remove untracked & ignored files & directories from the working tree
 
-alias gcle='git_clean'     # [G]it [CLE]an: remove untracked files from the working tree
-alias gclex='git_clean -x' # [G]it [CLE]an including ignored: remove untracked & ignored files from the working tree
-
-alias gcled='git_clean -d'   # [G]it [CLE]an [D]irectories: remove untracked files & directories from the working tree
-alias gcledx='git_clean -dx' # [G]it [CLE]an [D]irectories including ignored: remove untracked & ignored files & directories from the working tree
+alias gclen='git clean -n'     # [G]it [CLE]an dry-run: show what untracked files from the working tree would be removed
+alias gclenx='git clean -nx'   # [G]it [CLE]an dry-run including ignored: show what untracked & ignored files from the working tree would be removed
+alias gclend='git clean -nd'   # [G]it [CLE]an dry-run [D]irectories: show what untracked files & directories from the working tree would be removed
+alias gclendx='git clean -ndx' # [G]it [CLE]an dry-run [D]irectories including ignored: show what untracked & ignored files & directories from the working tree would be removed
 
 # [[ Clone ]]
 
@@ -132,35 +93,13 @@ alias gpl='git pull' # [G]it [P]u[L]l: download objects and refs from the remote
 
 # [[ Push ]]
 
-function git_push() {
-    for arg in "$@"; do
-        if [[ "$arg" == "-h" || "$arg" == "--help" ]]; then
-            git push "$@"
-            return
-        fi
-    done
-    for arg in "$@"; do
-        if [[ "$arg" == "-f" || "$arg" == "--force" ]]; then
-            echo -n "Confirm 'git push $*'? (y/n): "
-            read -r response
-            if [[ "$response" =~ ^[Yy]$ ]]; then
-                git push "$@"
-            else
-                echo "Cancelled"
-            fi
-            return
-        fi
-    done
-    git push "$@"
-}
+alias gps='git push'                 # [G]it [P]ush: upload the current branch to the remote repository
+alias gpsf='git push --force'        # [G]it [P]ush [F]orce: upload the current branch to the remote repository & overwrite any conflicting changes
+alias gpst='git push --tags'         # [G]it [P]ush [T]ags: upload the current branch & all local tags to the remote repository
+alias gpsu='git push --set-upstream' # [G]it [P]ush [U]pstream: upload the current branch to the remote repository and set the relevant upstream if needed
 
-alias gps='git_push'                 # [G]it [P]ush: upload the current branch to the remote repository
-alias gpsf='git_push --force'        # [G]it [P]ush [F]orce: upload the current branch to the remote repository & overwrite any conflicting changes
-alias gpst='git_push --tags'         # [G]it [P]ush [T]ags: upload the current branch & all local tags to the remote repository
-alias gpsu='git_push --set-upstream' # [G]it [P]ush [U]pstream: upload the current branch to the remote repository and set the relevant upstream if needed
-
-alias gpsd='git_push --delete'         # [G]it [P]ush [D]elete: delete the listed ref (e.g. a tag)
-alias gpsdo='git_push --delete origin' # [G]it [P]ush [D]elete [O]rigin: delete the listed ref (e.g. a tag) from the origin remote
+alias gpsd='git push --delete'         # [G]it [P]ush [D]elete: delete the listed ref (e.g. a tag)
+alias gpsdo='git push --delete origin' # [G]it [P]ush [D]elete [O]rigin: delete the listed ref (e.g. a tag) from the origin remote
 
 # [[ Rebase ]]
 
@@ -168,56 +107,40 @@ alias grb='git rebase'                # [G]it [R]e[B]ase: apply the current bran
 alias grbi='git rebase --interactive' # [G]it [R]e[B]ase [I]nteractive: apply the current branch selected changes & actions on top of another branch
 
 function git_rebase_default() {
-    local interactive=""
-    if [[ "$1" == "--interactive" ]]; then
-        interactive="--interactive"
-    fi
     local default_branch
     default_branch=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@')
     if [[ -n "$default_branch" ]]; then
-        git rebase $interactive "$default_branch"
+        git rebase "$default_branch" "$@"
     else
         echo "Could not determine default branch"
         return 1
     fi
 }
 function git_rebase_main() {
-    local interactive=""
-    if [[ "$1" == "--interactive" ]]; then
-        interactive="--interactive"
-    fi
     if git show-ref --verify --quiet refs/heads/main; then
-        git rebase $interactive main
+        git rebase main "$@"
     elif git show-ref --verify --quiet refs/heads/master; then
-        git rebase $interactive master
+        git rebase master "$@"
     else
         echo "Branch 'main' or 'master' doesn't exist"
         return 1
     fi
 }
 function git_rebase_origin_default() {
-    local interactive=""
-    if [[ "$1" == "--interactive" ]]; then
-        interactive="--interactive"
-    fi
     local default_branch
     default_branch=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@')
     if [[ -n "$default_branch" ]]; then
-        git rebase $interactive "origin/$default_branch"
+        git rebase "origin/$default_branch" "$@"
     else
         echo "Could not determine default branch"
         return 1
     fi
 }
 function git_rebase_origin_main() {
-    local interactive=""
-    if [[ "$1" == "--interactive" ]]; then
-        interactive="--interactive"
-    fi
     if git show-ref --verify --quiet refs/remotes/origin/main; then
-        git rebase $interactive origin/main
+        git rebase origin/main "$@"
     elif git show-ref --verify --quiet refs/remotes/origin/master; then
-        git rebase $interactive origin/master
+        git rebase origin/master "$@"
     else
         echo "Branch 'origin/main' or 'origin/master' doesn't exist"
         return 1
@@ -244,62 +167,28 @@ alias grmc='git rm --cached' # [G]it [R]emove [C]ached: delete a file from the G
 
 # [[ Reset ]]
 
-function git_reset() {
-    for arg in "$@"; do
-        if [[ "$arg" == "-h" || "$arg" == "--help" ]]; then
-            git reset "$@"
-            return
-        fi
-    done
-    for arg in "$@"; do
-        if [[ "$arg" == "--hard" ]]; then
-            echo -n "Confirm 'git reset $*'? (y/n): "
-            read -r response
-            if [[ "$response" =~ ^[Yy]$ ]]; then
-                git reset "$@"
-            else
-                echo "Cancelled"
-            fi
-            return
-        fi
-    done
-    git reset "$@"
-}
 function git_reset_head() {
     git_reset "$1" HEAD~"$2"
 }
 
-alias grs='git_reset'                # [G]it [R]eset: undo the targeted commit(s), or unstage the targeted files' changes
-alias grsh='git_reset --hard'        # [G]it [R]eset [H]ard: undo & discard the changes of the targeted commit(s), or discard the targeted files' changes
-alias grshh='git_reset_head --hard'  # [G]it [R]eset [H]ard [H]ead: undo & discard the changes of a number of the last commits (default to 1)
-alias grsm='git_reset --mixed'       # [G]it [R]eset [M]ixed: undo & unstage the targeted commit(s), or unstage the targeted files' changes
+alias grs='git reset' # [G]it [R]eset: undo the targeted commit(s), or unstage the targeted files' changes
+
+alias grsh='git reset --hard'       # [G]it [R]eset [H]ard: undo & discard the changes of the targeted commit(s), or discard the targeted files' changes
+alias grshh='git_reset_head --hard' # [G]it [R]eset [H]ard [H]ead: undo & discard the changes of a number of the last commits (default to 1)
+
+alias grsm='git reset --mixed'       # [G]it [R]eset [M]ixed: undo & unstage the targeted commit(s), or unstage the targeted files' changes
 alias grsmh='git_reset_head --mixed' # [G]it [R]eset [M]ixed [H]ead: undo & unstage a number of the last commits (default to 1)
-alias grss='git_reset --soft'        # [G]it [R]eset [S]oft: undo but keep staged the targeted commit(s)
-alias grssh='git_reset_head --soft'  # [G]it [R]eset [S]oft [H]ead: undo but keep staged a number of the last commits (default to 1)
+
+alias grss='git reset --soft'       # [G]it [R]eset [S]oft: undo but keep staged the targeted commit(s)
+alias grssh='git_reset_head --soft' # [G]it [R]eset [S]oft [H]ead: undo but keep staged a number of the last commits (default to 1)
 
 # [[ Restore ]]
 
-function git_restore() {
-    for arg in "$@"; do
-        if [[ "$arg" == "-h" || "$arg" == "--help" || "$arg" == "-S" || "$arg" == "--staged" ]]; then
-            git restore "$@"
-            return
-        fi
-    done
-    echo -n "Confirm 'git restore $*'? (y/n): "
-    read -r response
-    if [[ "$response" =~ ^[Yy]$ ]]; then
-        git restore "$@"
-    else
-        echo "Cancelled"
-    fi
-}
+alias grt='git restore'     # [G]it [R]es[T]ore: discard the unstaged changes of the targeted files
+alias grta='git restore :/' # [G]it [R]es[T]ore [A]ll: discard the unstaged changes of all tracked files
 
-alias grt='git_restore'     # [G]it [R]es[T]ore: discard the unstaged changes of the targeted files
-alias grta='git_restore :/' # [G]it [R]es[T]ore [A]ll: discard the unstaged changes of all tracked files
-
-alias grts='git_restore --staged'     # [G]it [R]es[T]ore [S]taged: unstage the targeted files' changes
-alias grtsa='git_restore --staged :/' # [G]it [R]es[T]ore [S]taged [A]ll: unstage the changes of all tracked files
+alias grts='git restore --staged'     # [G]it [R]es[T]ore [S]taged: unstage the targeted files' changes
+alias grtsa='git restore --staged :/' # [G]it [R]es[T]ore [S]taged [A]ll: unstage the changes of all tracked files
 
 # [[ Revert ]]
 
@@ -307,6 +196,7 @@ function git_revert_head() {
     git revert --no-commit HEAD~"$1"..
     git commit
 }
+
 alias grv='git revert'       # [G]it [R]e[V]ert: create a new commit to undo the targeted commit
 alias grvh='git_revert_head' # [G]it [R]e[V]ert [H]ead: create a new commit to undo a number of the last commits (default to 1)
 
@@ -327,6 +217,7 @@ function git_show_head() {
         git show HEAD~"$(($1 - 1))" # Use arithmetic expansion to convert input to number
     fi
 }
+
 alias gsh='git show'       # [G]it [SH]ow: give details on the targeted object (commit, tag, etc.)
 alias gshh='git_show_head' # [G]it [SH]ow [H]ead: give details on the n'th latest commit (default to 1, the latest one)
 
@@ -337,28 +228,9 @@ alias gstm='git stash --message'                      # [G]it [ST]tash with [M]e
 alias gstu='git stash --include-untracked'            # [G]it [ST]tash including [U]ntracked: move local changes in tracked & untracked files to the stash
 alias gstum='git stash --include-untracked --message' # [G]it [ST]tash including [U]ntracked with [M]essage: move local changes in tracked & untracked files to the stash with a custom message
 
-function git_stash_clear() {
-    echo -n "Confirm 'git stash clear $*'? (y/n): "
-    read -r response
-    if [[ "$response" =~ ^[Yy]$ ]]; then
-        git stash clear "$@"
-    else
-        echo "Cancelled"
-    fi
-}
-function git_stash_drop() {
-    echo -n "Confirm 'git stash drop $*'? (y/n): "
-    read -r response
-    if [[ "$response" =~ ^[Yy]$ ]]; then
-        git stash drop "$@"
-    else
-        echo "Cancelled"
-    fi
-}
-
 alias gsta='git stash apply' # [G]it [ST]tash [A]pply: copy the stash changes to the local files
-alias gstc='git_stash_clear' # [G]it [ST]tash [C]lear: remove all the stash entries
-alias gstd='git_stash_drop'  # [G]it [ST]tash [D]rop: remove one stash entry (default to the last)
+alias gstc='git stash clear' # [G]it [ST]tash [C]lear: remove all the stash entries
+alias gstd='git stash drop'  # [G]it [ST]tash [D]rop: remove one stash entry (default to the last)
 alias gstl='git stash list'  # [G]it [ST]tash [L]ist: list the stash entries
 alias gstp='git stash pop'   # [G]it [ST]tash [P]op: move the statsh changes to the local files (or copy them if there is any conflict)
 alias gsts='git stash show'  # [G]it [ST]tash [S]how: show the changes in the latest stash entry
@@ -374,7 +246,7 @@ function git_switch_default() {
     local default_branch
     default_branch=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@')
     if [[ -n "$default_branch" ]]; then
-        git switch "$default_branch"
+        git switch "$default_branch" "$@"
     else
         echo "Could not determine default branch"
         return 1
@@ -382,9 +254,9 @@ function git_switch_default() {
 }
 function git_switch_main() {
     if git show-ref --verify --quiet refs/heads/main || git show-ref --verify --quiet refs/remotes/origin/main; then
-        git switch main
+        git switch main "$@"
     elif git show-ref --verify --quiet refs/heads/master || git show-ref --verify --quiet refs/remotes/origin/master; then
-        git switch master
+        git switch master "$@"
     else
         echo "Branch 'main' or 'master' doesn't exist"
         return 1
