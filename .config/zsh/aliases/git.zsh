@@ -12,8 +12,30 @@ alias gb='git branch'           # [G]it [B]ranch: list local branches
 alias gba='git branch --all'    # [G]it [B]ranch [A]ll: list local & remote branches
 alias gbr='git branch --remote' # [G]it [B]ranch [R]emote: list remote branches
 
-alias gbd='git branch --delete'          # [G]it [B]ranch [D]elete: delete a local branch
-alias gbdf='git branch --delete --force' # [G]it [B]ranch [D]elete [F]orce: delete a local branch even if not merged
+function git_branch_delete() {
+    for arg in "$@"; do
+        if [[ "$arg" == "-h" || "$arg" == "--help" ]]; then
+            git branch --delete "$@"
+            return
+        fi
+    done
+    for arg in "$@"; do
+        if [[ "$arg" == "-f" || "$arg" == "--force" ]]; then
+            echo -n "Confirm 'git branch --delete $*'? (y/n): "
+            read -r response
+            if [[ "$response" =~ ^[Yy]$ ]]; then
+                git branch --delete "$@"
+            else
+                echo "Cancelled"
+            fi
+            return
+        fi
+    done
+    git branch --delete "$@"
+}
+
+alias gbd='git_branch_delete'          # [G]it [B]ranch [D]elete: delete a local branch
+alias gbdf='git_branch_delete --force' # [G]it [B]ranch [D]elete [F]orce: delete a local branch even if not merged
 
 # [[ Commit ]]
 
@@ -53,24 +75,27 @@ alias gciv='git check-ignore --verbose' # [G]it [C]heck [I]gnore [V]erbose: if a
 # [[ Clean ]]
 
 function git_clean() {
-    local directories=""
-    if [[ "$1" == "-d" ]]; then
-        directories="-d"
-    fi
-
-    git clean $directories --dry-run
-    echo -n "Confirm? (y/n): "
+    for arg in "$@"; do
+        if [[ "$arg" == "-h" || "$arg" == "--help" || "$arg" == "-n" || "$arg" == "--dry-run" ]]; then
+            git clean "$@"
+            return
+        fi
+    done
+    git clean "$@" --dry-run
+    echo -n "Confirm 'git clean $*'? (y/n): "
     read -r response
-
     if [[ "$response" =~ ^[Yy]$ ]]; then
-        git clean $directories
+        git clean "$@"
     else
         echo "Cancelled"
     fi
 }
 
 alias gcle='git_clean'     # [G]it [CLE]an: remove untracked files from the working tree
-alias gcled='git_clean -d' # [G]it [CLE]an [D]irectories: remove untracked files & directories from the working tree
+alias gclex='git_clean -x' # [G]it [CLE]an including ignored: remove untracked & ignored files from the working tree
+
+alias gcled='git_clean -d'   # [G]it [CLE]an [D]irectories: remove untracked files & directories from the working tree
+alias gcledx='git_clean -dx' # [G]it [CLE]an [D]irectories including ignored: remove untracked & ignored files & directories from the working tree
 
 # [[ Clone ]]
 
@@ -107,13 +132,35 @@ alias gpl='git pull' # [G]it [P]u[L]l: download objects and refs from the remote
 
 # [[ Push ]]
 
-alias gps='git push'                 # [G]it [P]ush: upload the current branch to the remote repository
-alias gpsf='git push --force'        # [G]it [P]ush [F]orce: upload the current branch to the remote repository & overwrite any conflicting changes
-alias gpst='git push --tags'         # [G]it [P]ush [T]ags: upload the current branch & all local tags to the remote repository
-alias gpsu='git push --set-upstream' # [G]it [P]ush [U]pstream: upload the current branch to the remote repository and set the relevant upstream if needed
+function git_push() {
+    for arg in "$@"; do
+        if [[ "$arg" == "-h" || "$arg" == "--help" ]]; then
+            git push "$@"
+            return
+        fi
+    done
+    for arg in "$@"; do
+        if [[ "$arg" == "-f" || "$arg" == "--force" ]]; then
+            echo -n "Confirm 'git push $*'? (y/n): "
+            read -r response
+            if [[ "$response" =~ ^[Yy]$ ]]; then
+                git push "$@"
+            else
+                echo "Cancelled"
+            fi
+            return
+        fi
+    done
+    git push "$@"
+}
 
-alias gpsd='git push --delete'         # [G]it [P]ush [D]elete: delete the listed ref (e.g. a tag)
-alias gpsdo='git push --delete origin' # [G]it [P]ush [D]elete [O]rigin: delete the listed ref (e.g. a tag) from the origin remote
+alias gps='git_push'                 # [G]it [P]ush: upload the current branch to the remote repository
+alias gpsf='git_push --force'        # [G]it [P]ush [F]orce: upload the current branch to the remote repository & overwrite any conflicting changes
+alias gpst='git_push --tags'         # [G]it [P]ush [T]ags: upload the current branch & all local tags to the remote repository
+alias gpsu='git_push --set-upstream' # [G]it [P]ush [U]pstream: upload the current branch to the remote repository and set the relevant upstream if needed
+
+alias gpsd='git_push --delete'         # [G]it [P]ush [D]elete: delete the listed ref (e.g. a tag)
+alias gpsdo='git_push --delete origin' # [G]it [P]ush [D]elete [O]rigin: delete the listed ref (e.g. a tag) from the origin remote
 
 # [[ Rebase ]]
 
@@ -198,32 +245,28 @@ alias grmc='git rm --cached' # [G]it [R]emove [C]ached: delete a file from the G
 # [[ Reset ]]
 
 function git_reset() {
-    if [[ "$1" == "--hard" ]]; then
-        echo -n "Confirm 'git reset $1 $2'? (y/n): "
-        read -r response
-
-        if [[ "$response" =~ ^[Yy]$ ]]; then
-            git reset "$1" "$2"
-        else
-            echo "Cancelled"
+    for arg in "$@"; do
+        if [[ "$arg" == "-h" || "$arg" == "--help" ]]; then
+            git reset "$@"
+            return
         fi
-    else
-        git reset "$1" "$2"
-    fi
+    done
+    for arg in "$@"; do
+        if [[ "$arg" == "--hard" ]]; then
+            echo -n "Confirm 'git reset $*'? (y/n): "
+            read -r response
+            if [[ "$response" =~ ^[Yy]$ ]]; then
+                git reset "$@"
+            else
+                echo "Cancelled"
+            fi
+            return
+        fi
+    done
+    git reset "$@"
 }
 function git_reset_head() {
-    if [[ "$1" == "--hard" ]]; then
-        echo -n "Confirm 'git reset $1 HEAD~$2'? (y/n): "
-        read -r response
-
-        if [[ "$response" =~ ^[Yy]$ ]]; then
-            git reset "$1" HEAD~"$2"
-        else
-            echo "Cancelled"
-        fi
-    else
-        git reset "$1" HEAD~"$2"
-    fi
+    git_reset "$1" HEAD~"$2"
 }
 
 alias grs='git_reset'                # [G]it [R]eset: undo the targeted commit(s), or unstage the targeted files' changes
@@ -237,18 +280,16 @@ alias grssh='git_reset_head --soft'  # [G]it [R]eset [S]oft [H]ead: undo but kee
 # [[ Restore ]]
 
 function git_restore() {
-    local all=""
-    local name="git restore"
-    if [[ "$1" == ":/" ]]; then
-        all=":/"
-        name="git restore (all)"
-    fi
-
-    echo -n "Confirm '${name}'? (y/n): "
+    for arg in "$@"; do
+        if [[ "$arg" == "-h" || "$arg" == "--help" || "$arg" == "-S" || "$arg" == "--staged" ]]; then
+            git restore "$@"
+            return
+        fi
+    done
+    echo -n "Confirm 'git restore $*'? (y/n): "
     read -r response
-
     if [[ "$response" =~ ^[Yy]$ ]]; then
-        git restore $all
+        git restore "$@"
     else
         echo "Cancelled"
     fi
@@ -257,8 +298,8 @@ function git_restore() {
 alias grt='git_restore'     # [G]it [R]es[T]ore: discard the unstaged changes of the targeted files
 alias grta='git_restore :/' # [G]it [R]es[T]ore [A]ll: discard the unstaged changes of all tracked files
 
-alias grts='git restore --staged'     # [G]it [R]es[T]ore [S]taged: unstage the targeted files' changes
-alias grtsa='git restore --staged :/' # [G]it [R]es[T]ore [S]taged [A]ll: unstage the changes of all tracked files
+alias grts='git_restore --staged'     # [G]it [R]es[T]ore [S]taged: unstage the targeted files' changes
+alias grtsa='git_restore --staged :/' # [G]it [R]es[T]ore [S]taged [A]ll: unstage the changes of all tracked files
 
 # [[ Revert ]]
 
@@ -297,21 +338,19 @@ alias gstu='git stash --include-untracked'            # [G]it [ST]tash including
 alias gstum='git stash --include-untracked --message' # [G]it [ST]tash including [U]ntracked with [M]essage: move local changes in tracked & untracked files to the stash with a custom message
 
 function git_stash_clear() {
-    echo -n "Confirm 'git stash clear'? (y/n): "
+    echo -n "Confirm 'git stash clear $*'? (y/n): "
     read -r response
-
     if [[ "$response" =~ ^[Yy]$ ]]; then
-        git stash clear
+        git stash clear "$@"
     else
         echo "Cancelled"
     fi
 }
 function git_stash_drop() {
-    echo -n "Confirm 'git stash drop'? (y/n): "
+    echo -n "Confirm 'git stash drop $*'? (y/n): "
     read -r response
-
     if [[ "$response" =~ ^[Yy]$ ]]; then
-        git stash drop
+        git stash drop "$@"
     else
         echo "Cancelled"
     fi
