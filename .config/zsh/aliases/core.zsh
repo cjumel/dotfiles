@@ -73,6 +73,8 @@ alias mdpc='mkdir-parent-cd' # [M]ake [D]irectory [P]arent [C]d: create a nested
 alias mk='make'                  # [M]a[K]e: run a Make command
 alias mki='make --ignore-errors' # [M]a[K]e [I]gnore errors: run a Make command, ignoring any error
 
+alias op='open' # [OP]en: open a file or directory with the system default application
+
 alias py='python'                      # [PY]thon: open a Python REPL or run a Python script
 alias pyb='PYTHON_BASIC_REPL=1 python' # [PY]thon [B]asic-REPL: open a Python REPL with basic features (e.g. no auto-ident)
 alias pym='python -m'                  # [PY]thon [M]odule: run a Python module

@@ -1,5 +1,18 @@
 # [G]it: a version control system for tracking changes in source code
 
+_git_fuzzy_select_commit() {
+    git log --oneline --no-merges |
+        fzf --prompt="Commit > " --preview='git show --color=always {1}' |
+        awk '{print $1}'
+}
+_git_get_head_commit() {
+    if [ -z "$1" ]; then
+        echo "HEAD"
+    else
+        echo "HEAD~$1"
+    fi
+}
+
 # [[ Add ]]
 
 alias ga='git add'           # [G]it [A]dd: add the targeted files' changes to the staging area
@@ -23,11 +36,9 @@ alias gcn='git commit --no-verify' # [G]it [C]ommit [N]o-verify: create commit w
 alias gca='git commit --amend'              # [G]it [C]ommit [A]mend: commit by amending the last commit
 alias gcan='git commit --amend --no-verify' # [G]it [C]ommit [A]mend [N]o-verify: commit by amending the last commit without running commit hooks
 
-function git_commit_fixup() {
+function git_commit_fixup_fuzzy() {
     local commit
-    commit=$(git log --oneline --no-merges -n 50 |
-        fzf --prompt="Commit > " --preview='git show --color=always {1}' |
-        awk '{print $1}')
+    commit=$(_git_fuzzy_select_commit)
     if [[ -n "$commit" ]]; then
         git commit --fixup="$commit" "$@"
     else
@@ -35,9 +46,15 @@ function git_commit_fixup() {
         return 1
     fi
 }
+function git_commit_fixup_head() {
+    git commit "$1" --fixup="$(_git_get_head_commit "$2")"
+}
 
-alias gcf='git_commit_fixup'              # [G]it [C]ommit [F]ixup: create a fixup commit
-alias gcfn='git_commit_fixup --no-verify' # [G]it [C]ommit [F]ixup [N]o-verify: create a fixup commit without running commit hooks
+alias gcf='git commit --fixup'                   # [G]it [C]ommit [F]ixup: fixup the targeted commit
+alias gcff='git_commit_fixup_fuzzy'              # [G]it [C]ommit [F]ixup [F]uzzy: fixup a fuzzy-found commit
+alias gcffn='git_commit_fixup_fuzzy --no-verify' # [G]it [C]ommit [F]ixup [F]uzzy [N]o-verify: fixup a fuzzy-found commit without running commit hooks
+alias gcfh='git_commit_fixup_head --verify'      # [G]it [C]ommit [F]ixup [H]ead: fixup the HEAD commit or a number of commits before HEAD
+alias gcfhn='git_commit_fixup_head --no-verify'  # [G]it [C]ommit [F]ixup [H]ead [N]o-verify: fixup the HEAD commit or a number of commits before HEAD without running commit hooks
 
 alias gcw='git commit --message "🚧 WIP [skip ci]" --no-verify' # [G]it [C]ommit [W]IP: create a WIP commit
 
@@ -48,15 +65,14 @@ alias gciv='git check-ignore --verbose' # [G]it [C]heck [I]gnore [V]erbose: if a
 
 # [[ Clean ]]
 
-alias gcle='git clean'       # [G]it [CLE]an: remove untracked files from the working tree
-alias gclex='git clean -x'   # [G]it [CLE]an including ignored: remove untracked & ignored files from the working tree
-alias gcled='git clean -d'   # [G]it [CLE]an [D]irectories: remove untracked files & directories from the working tree
-alias gcledx='git clean -dx' # [G]it [CLE]an [D]irectories including ignored: remove untracked & ignored files & directories from the working tree
-
+alias gcle='git clean'         # [G]it [CLE]an: remove untracked files from the working tree
 alias gclen='git clean -n'     # [G]it [CLE]an dry-run: show what untracked files from the working tree would be removed
-alias gclenx='git clean -nx'   # [G]it [CLE]an dry-run including ignored: show what untracked & ignored files from the working tree would be removed
-alias gclend='git clean -nd'   # [G]it [CLE]an dry-run [D]irectories: show what untracked files & directories from the working tree would be removed
-alias gclendx='git clean -ndx' # [G]it [CLE]an dry-run [D]irectories including ignored: show what untracked & ignored files & directories from the working tree would be removed
+alias gcled='git clean -d'     # [G]it [CLE]an [D]irectories: remove untracked files & directories from the working tree
+alias gcledn='git clean -dn'   # [G]it [CLE]an [D]irectories dry-run: show what untracked files & directories from the working tree would be removed
+alias gcledx='git clean -dx'   # [G]it [CLE]an [D]irectories including ignored: remove untracked & ignored files & directories from the working tree
+alias gcledxn='git clean -dxn' # [G]it [CLE]an [D]irectories including ignored dry-run: show what untracked & ignored files & directories from the working tree would be removed
+alias gclex='git clean -x'     # [G]it [CLE]an including ignored: remove untracked & ignored files from the working tree
+alias gclexn='git clean -nx'   # [G]it [CLE]an including ignored dry-run: show what untracked & ignored files from the working tree would be removed
 
 # [[ Clone ]]
 
@@ -106,56 +122,6 @@ alias gpsdo='git push --delete origin' # [G]it [P]ush [D]elete [O]rigin: delete 
 alias grb='git rebase'                # [G]it [R]e[B]ase: apply the current branch changes on top of another branch
 alias grbi='git rebase --interactive' # [G]it [R]e[B]ase [I]nteractive: apply the current branch selected changes & actions on top of another branch
 
-function git_rebase_default() {
-    local default_branch
-    default_branch=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@')
-    if [[ -n "$default_branch" ]]; then
-        git rebase "$default_branch" "$@"
-    else
-        echo "Could not determine default branch"
-        return 1
-    fi
-}
-function git_rebase_main() {
-    if git show-ref --verify --quiet refs/heads/main; then
-        git rebase main "$@"
-    elif git show-ref --verify --quiet refs/heads/master; then
-        git rebase master "$@"
-    else
-        echo "Branch 'main' or 'master' doesn't exist"
-        return 1
-    fi
-}
-function git_rebase_origin_default() {
-    local default_branch
-    default_branch=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@')
-    if [[ -n "$default_branch" ]]; then
-        git rebase "origin/$default_branch" "$@"
-    else
-        echo "Could not determine default branch"
-        return 1
-    fi
-}
-function git_rebase_origin_main() {
-    if git show-ref --verify --quiet refs/remotes/origin/main; then
-        git rebase origin/main "$@"
-    elif git show-ref --verify --quiet refs/remotes/origin/master; then
-        git rebase origin/master "$@"
-    else
-        echo "Branch 'origin/main' or 'origin/master' doesn't exist"
-        return 1
-    fi
-}
-
-alias grbd='git_rebase_default'                        # [G]it [R]e[B]ase [D]efault: rebase onto the default branch
-alias grbm='git_rebase_main'                           # [G]it [R]e[B]ase [M]ain: rebase onto the main branch ('main' or 'master')
-alias grbod='git_rebase_origin_default'                # [G]it [R]e[B]ase [O]rigin [D]efault: rebase onto the origin's default branch
-alias grbom='git_rebase_origin_main'                   # [G]it [R]e[B]ase [O]rigin [M]ain: rebase onto the origin's main branch ('main' or 'master')
-alias grbid='git_rebase_default --interactive'         # [G]it [R]e[B]ase [I]nteractive [D]efault: interactively rebase onto the default branch
-alias grbim='git_rebase_main --interactive'            # [G]it [R]e[B]ase [I]nteractive [M]ain: interactively rebase onto the main branch ('main' or 'master')
-alias grbiod='git_rebase_origin_default --interactive' # [G]it [R]e[B]ase [I]nteractive [O]rigin [D]efault: interactively rebase onto the origin's default branch
-alias grbiom='git_rebase_origin_main --interactive'    # [G]it [R]e[B]ase [I]nteractive [O]rigin [M]ain: interactively rebase onto the origin's main branch ('main' or 'master')
-
 alias grba='git rebase --abort'    # [G]it [R]e[B]ase [A]bort: stop a rebase in progress
 alias grbc='git rebase --continue' # [G]it [R]e[B]ase [C]ontinue: continue a rebase in progress
 alias grbs='git rebase --skip'     # [G]it [R]e[B]ase [S]kip: skip a commit's changes during a rebase in progress
@@ -167,38 +133,64 @@ alias grmc='git rm --cached' # [G]it [R]emove [C]ached: delete a file from the G
 
 # [[ Reset ]]
 
+function git_reset_fuzzy() {
+    local commit
+    commit=$(_git_fuzzy_select_commit)
+    if [[ -n "$commit" ]]; then
+        git reset "$commit" "$@"
+    else
+        echo "No commit selected"
+        return 1
+    fi
+}
 function git_reset_head() {
-    git_reset "$1" HEAD~"$2"
+    git reset "$1" "$(_git_get_head_commit "$2")"
 }
 
 alias grs='git reset' # [G]it [R]eset: undo the targeted commit(s), or unstage the targeted files' changes
 
-alias grsh='git reset --hard'       # [G]it [R]eset [H]ard: undo & discard the changes of the targeted commit(s), or discard the targeted files' changes
-alias grshh='git_reset_head --hard' # [G]it [R]eset [H]ard [H]ead: undo & discard the changes of a number of the last commits (default to 1)
+alias grsh='git reset --hard'        # [G]it [R]eset [H]ard: undo & discard the changes of the targeted commit(s), or discard the targeted files' changes
+alias grshf='git_reset_fuzzy --hard' # [G]it [R]eset [H]ard [F]uzzy: undo & discard the changes of a fuzzy-found commit
+alias grshh='git_reset_head --hard'  # [G]it [R]eset [H]ard [H]ead: undo & discard the changes of a number of the last commits (default to 1)
 
-alias grsm='git reset --mixed'       # [G]it [R]eset [M]ixed: undo & unstage the targeted commit(s), or unstage the targeted files' changes
-alias grsmh='git_reset_head --mixed' # [G]it [R]eset [M]ixed [H]ead: undo & unstage a number of the last commits (default to 1)
+alias grsm='git reset --mixed'        # [G]it [R]eset [M]ixed: undo & unstage the targeted commit(s), or unstage the targeted files' changes
+alias grsmf='git_reset_fuzzy --mixed' # [G]it [R]eset [M]ixed [F]uzzy: undo & unstage a fuzzy-found commit
+alias grsmh='git_reset_head --mixed'  # [G]it [R]eset [M]ixed [H]ead: undo & unstage a number of the last commits (default to 1)
 
-alias grss='git reset --soft'       # [G]it [R]eset [S]oft: undo but keep staged the targeted commit(s)
-alias grssh='git_reset_head --soft' # [G]it [R]eset [S]oft [H]ead: undo but keep staged a number of the last commits (default to 1)
+alias grss='git reset --soft'        # [G]it [R]eset [S]oft: undo but keep staged the targeted commit(s)
+alias grssf='git_reset_fuzzy --soft' # [G]it [R]eset [S]oft [F]uzzy: undo but keep staged a fuzzy-found commit
+alias grssh='git_reset_head --soft'  # [G]it [R]eset [S]oft [H]ead: undo but keep staged a number of the last commits (default to 1)
 
 # [[ Restore ]]
 
-alias grt='git restore'     # [G]it [R]es[T]ore: discard the unstaged changes of the targeted files
-alias grta='git restore :/' # [G]it [R]es[T]ore [A]ll: discard the unstaged changes of all tracked files
+alias grt='git restore'     # [G]it [R]es[T]ore: restore the worktree, that is discard the unstaged changes, of the targeted files
+alias grta='git restore :/' # [G]it [R]es[T]ore [A]ll: restore the worktree, that is discard all unstaged changes, of all tracked files
 
-alias grts='git restore --staged'     # [G]it [R]es[T]ore [S]taged: unstage the targeted files' changes
-alias grtsa='git restore --staged :/' # [G]it [R]es[T]ore [S]taged [A]ll: unstage the changes of all tracked files
+alias grts='git restore --staged'     # [G]it [R]es[T]ore [S]taged: restore the staged changes, that is unstage the changes, of the targeted files
+alias grtsa='git restore --staged :/' # [G]it [R]es[T]ore [S]taged [A]ll: restore the staged changes, that is unstage all changes, of all tracked files
+
+alias grtb='git restore --worktree --staged'     # [G]it [R]es[T]ore [B]oth: restore both the worktree & staged changes of the targeted files
+alias grtba='git restore --worktree --staged :/' # [G]it [R]es[T]ore [B]oth [A]ll: restore both the worktree & staged changes of all tracked files
 
 # [[ Revert ]]
 
+function git_revert_fuzzy() {
+    local commit
+    commit=$(_git_fuzzy_select_commit)
+    if [[ -n "$commit" ]]; then
+        git revert "$commit" "$@"
+    else
+        echo "No commit selected"
+        return 1
+    fi
+}
 function git_revert_head() {
-    git revert --no-commit HEAD~"$1"..
-    git commit
+    git revert "$(_git_get_head_commit "$1")"
 }
 
-alias grv='git revert'       # [G]it [R]e[V]ert: create a new commit to undo the targeted commit
-alias grvh='git_revert_head' # [G]it [R]e[V]ert [H]ead: create a new commit to undo a number of the last commits (default to 1)
+alias grv='git revert'        # [G]it [R]e[V]ert: create a new commit to undo the targeted commit
+alias grvf='git_revert_fuzzy' # [G]it [R]e[V]ert [F]uzzy: create a new commit to undo a fuzzy-found commit
+alias grvh='git_revert_head'  # [G]it [R]e[V]ert [H]ead: create a new commit to undo the HEAD commit or a number of commits before HEAD
 
 alias grva='git revert --abort'    # [G]it [R]evert [A]bort: stop a revert in progress
 alias grvc='git revert --continue' # [G]it [R]evert [C]ontinue: resume a revert in progress
@@ -210,16 +202,23 @@ alias gs='git status' # [G]it [S]tatus: show the git status
 
 # [[ Show ]]
 
-function git_show_head() {
-    if [ -z "$1" ]; then
-        git show HEAD
+function git_show_fuzzy() {
+    local commit
+    commit=$(_git_fuzzy_select_commit)
+    if [[ -n "$commit" ]]; then
+        git show "$commit" "$@"
     else
-        git show HEAD~"$(($1 - 1))" # Use arithmetic expansion to convert input to number
+        echo "No commit selected"
+        return 1
     fi
 }
+function git_show_head() {
+    git show "$(_git_get_head_commit "$1")"
+}
 
-alias gsh='git show'       # [G]it [SH]ow: give details on the targeted object (commit, tag, etc.)
-alias gshh='git_show_head' # [G]it [SH]ow [H]ead: give details on the n'th latest commit (default to 1, the latest one)
+alias gsh='git show'        # [G]it [SH]ow: give details on the targeted object (commit, tag, etc.)
+alias gshf='git_show_fuzzy' # [G]it [SH]ow [F]uzzy: give details on a fuzzy-found commit
+alias gshh='git_show_head'  # [G]it [SH]ow [H]ead: give details on the HEAD commit or a number of commits before HEAD
 
 # [[ Stash ]]
 
@@ -242,32 +241,27 @@ alias gstpsum='git stash push --include-untracked --message' # [G]it [ST]tash [P
 
 # [[ Switch ]]
 
-function git_switch_default() {
-    local default_branch
-    default_branch=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@')
-    if [[ -n "$default_branch" ]]; then
-        git switch "$default_branch" "$@"
-    else
-        echo "Could not determine default branch"
-        return 1
-    fi
-}
-function git_switch_main() {
-    if git show-ref --verify --quiet refs/heads/main || git show-ref --verify --quiet refs/remotes/origin/main; then
-        git switch main "$@"
-    elif git show-ref --verify --quiet refs/heads/master || git show-ref --verify --quiet refs/remotes/origin/master; then
-        git switch master "$@"
-    else
-        echo "Branch 'main' or 'master' doesn't exist"
-        return 1
-    fi
-}
-
 alias gsw='git switch'           # [G]it [SW]itch: switch to a branch
 alias gswc='git switch --create' # [G]it [SW]itch [C]reate: create a branch & switch to it
-alias gswd='git_switch_default'  # [G]it [SW]itch [D]efault: switch to the default branch
-alias gswm='git_switch_main'     # [G]it [SW]itch [M]ain: switch to the main branch ('main' or 'master')
-alias gswp='git switch -'        # [G]it [SW]itch [P]revious: switch to the previous branch
+alias gswp='git switch -'        # [G]it [SW]itch [P]revious: switch back to the previous branch
+
+function git_switch_detach_fuzzy() {
+    local commit
+    commit=$(_git_fuzzy_select_commit)
+    if [[ -n "$commit" ]]; then
+        git switch --detach "$commit" "$@"
+    else
+        echo "No commit selected"
+        return 1
+    fi
+}
+function git_switch_detach_head() {
+    git switch --detach "$(_git_get_head_commit "$1")"
+}
+
+alias gswd='git switch --detach'      # [G]it [SW]itch [D]etach: switch to a specific commit in detached HEAD state
+alias gswdf='git_switch_detach_fuzzy' # [G]it [SW]itch [D]etach [F]uzzy: switch to a fuzzy-found commit in detached HEAD state
+alias gswdh='git_switch_detach_head'  # [G]it [SW]itch [D]etach [H]ead: switch to the HEAD commit or a number of commits before HEAD in detached HEAD state
 
 # [[ Tag ]]
 
