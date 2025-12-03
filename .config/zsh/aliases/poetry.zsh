@@ -1,4 +1,4 @@
-# [PO]etry: Python dependency management & packaging tool
+# Poetry: Python packaging and dependency management made easy
 
 alias poa='poetry add'     # [PO]etry [A]dd: add new project dependencies
 alias poag='poetry add -G' # [PO]etry [A]dd [G]roup: add new project dependencies in a dependency group passed as 1st argument
@@ -25,11 +25,11 @@ alias poln='poetry lock --no-update' # [PO]etry [L]ock [N]o-update: lock the cur
 alias pop='poetry publish'          # [PO]etry [P]ublish: publish a package to a remote repository without building it
 alias popb='poetry publish --build' # [PO]etry [P]ublish [B]uild: build & publish a package to a remote repository
 
-alias porm='poetry remove' # [PO]etry [R]e[M]ove: remove project dependencies
+alias por='poetry run'             # [PO]etry [R]un: run a command using the current project Poetry environment
+alias porp='poetry run python'     # [PO]etry [R]un [P]ython: start a Python shell or run a Python script using the current project Poetry environment
+alias porpm='poetry run python -m' # [PO]etry [R]un [P]ython [M]odule: run a Python module using the current project Poetry environment
 
-alias poru='poetry run'             # [PO]etry [RU]n: run a command using the current project Poetry environment
-alias porup='poetry run python'     # [PO]etry [RU]n [P]ython: start a Python shell or run a Python script using the current project Poetry environment
-alias porupm='poetry run python -m' # [PO]etry [RU]n [P]ython [M]odule: run a Python module using the current project Poetry environment
+alias porm='poetry remove' # [PO]etry [R]e[M]ove: remove project dependencies
 
 alias pos='poetry shell' # [PO]etry [S]hell: spawn a shell with the current project Poetry environment activated
 

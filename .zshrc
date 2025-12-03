@@ -27,9 +27,10 @@ for tool in "${tools[@]}"; do
     [ -f "$HOME/.config/$tool/$tool.zsh" ] && source "$HOME/.config/$tool/$tool.zsh"
 done
 
-# Source alias directory (should be done near the end)
-for file in "$HOME/.config/zsh/aliases/"*.zsh; do
-    source "$file"
+# Source alias files (should be done near the end)
+alias_files=(brew core git javascript misc poetry python rust tmux uv)
+for alias_file in "${alias_files[@]}"; do
+    [ -f "$HOME/.config/zsh/aliases/$alias_file.zsh" ] && source "$HOME/.config/zsh/aliases/$alias_file.zsh"
 done
 
 # Terminal prompt (should be called last)
