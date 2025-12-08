@@ -166,10 +166,8 @@ _fzf_comprun() {
     esac
 }
 
-# Specify the commands which trigger directory-only completion for `fzf`
-# Let's enable this feature for the main builtin command whose regular completion shows only directories
+# Specify commands which trigger directory-only completion (builtin commands whose default completion shows only directories)
 export FZF_COMPLETION_DIR_COMMANDS='
-    c
     cd
 '
 
