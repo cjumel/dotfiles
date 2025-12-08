@@ -26,20 +26,10 @@ if [[ -d $realpath ]]; then
 elif [[ -f $realpath ]]; then
     bat --color=always --line-range=:500 $realpath
 else
-    echo "Unsupported preview: $realpath"
+    echo "$realpath"
 fi
 '
-zstyle ':fzf-tab:complete:bat:*' fzf-preview "$FZF_TAB_PREVIEW"
-zstyle ':fzf-tab:complete:cat:*' fzf-preview "$FZF_TAB_PREVIEW"
-zstyle ':fzf-tab:complete:cd:*' fzf-preview "$FZF_TAB_PREVIEW"
-zstyle ':fzf-tab:complete:cp:*' fzf-preview "$FZF_TAB_PREVIEW"
-zstyle ':fzf-tab:complete:du:*' fzf-preview "$FZF_TAB_PREVIEW"
-zstyle ':fzf-tab:complete:dust:*' fzf-preview "$FZF_TAB_PREVIEW"
-zstyle ':fzf-tab:complete:eza:*' fzf-preview "$FZF_TAB_PREVIEW"
-zstyle ':fzf-tab:complete:ls:*' fzf-preview "$FZF_TAB_PREVIEW"
-zstyle ':fzf-tab:complete:mv:*' fzf-preview "$FZF_TAB_PREVIEW"
-zstyle ':fzf-tab:complete:rm:*' fzf-preview "$FZF_TAB_PREVIEW"
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview "$FZF_TAB_PREVIEW"
+zstyle ':fzf-tab:complete:*' fzf-preview "$FZF_TAB_PREVIEW"
 
 # [[ Zsh standard plugins ]]
 # A few standard plugins for zsh, enabling syntax highlighting (show valid/invalid commands, paths, etc.),
