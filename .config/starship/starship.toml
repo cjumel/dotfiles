@@ -1,3 +1,5 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
 # The `add_new_line` behavior is implemented manually in `.config/starship/starship.zsh` to work
 # around an issue with new line being added at the beginning of a terminal session
 add_newline = false
@@ -7,11 +9,12 @@ $directory\
 $git_branch\
 $git_commit\
 $git_state\
-${custom.git_changes}\
+${custom.git_status_simplified}\
 $git_status\
 $jobs\
 $fill\
 $python\
+$nodejs\
 $cmd_duration\
 $time\
 $line_break\
@@ -19,10 +22,10 @@ $character\
 """
 
 [cmd_duration]
-format = '[󱦟 $duration]($style) '
+format = '[󱦟$duration]($style) '
 style = "yellow bold"
 
-[custom.git_changes]
+[custom.git_status_simplified] # Source: https://github.com/starship/starship/discussions/1252#discussioncomment-692829
 format = '[$symbol]($style)'
 shell = ['bash']
 style = 'red bold'
@@ -53,8 +56,6 @@ format = '[- $state( $progress_current/$progress_total)]($style) '
 style = "bold purple"
 
 [git_status]
-ahead = "⇡"
-behind = "⇣"
 diverged = "⇡⇣"
 format = '([$ahead_behind$stashed]($style))'
 stashed = "≡"
@@ -64,12 +65,15 @@ style = "red bold"
 number_threshold = 999 # Never reached in practice
 style = "red bold"
 
+[nodejs]
+format = '[$symbol($version )]($style)'
+version_format = '${raw}'
+
 [python]
-detect_extensions = []
-detect_files = []
-format = '[($symbol $virtualenv)]($style) '
+format = '[${symbol} ${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 style = "blue bold"
 symbol = ""
+version_format = '${raw}'
 
 [time]
 disabled = false
