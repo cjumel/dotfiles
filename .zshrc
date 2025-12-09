@@ -37,15 +37,19 @@ zinit cdreplay -q
 # Add custom completions defined in ~/.zfunc directory
 fpath+=~/.zfunc
 
-# Additional tool configuration scripts
-[ -f ~/.config/bat/bat.zsh ] && source ~/.config/bat/bat.zsh                     #
-[ -f ~/.config/dust/dust.zsh ] && source ~/.config/dust/dust.zsh                 #
-[ -f ~/.config/eza/eza.zsh ] && source ~/.config/eza/eza.zsh                     #
-[ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh                     #
-[ -f ~/.config/pypoetry/pypoetry.zsh ] && source ~/.config/pypoetry/pypoetry.zsh #
-[ -f ~/.config/ripgrep/ripgrep.zsh ] && source ~/.config/ripgrep/ripgrep.zsh     #
-[ -f ~/.config/tldr/tldr.zsh ] && source ~/.config/tldr/tldr.zsh                 #
-[ -f ~/.config/zoxide/zoxide.zsh ] && source ~/.config/zoxide/zoxide.zsh         # Must be called after `compinit`
+# Lazy loads the `add-zsh-hook` which enables hooks definitions in tool configurations
+autoload -U add-zsh-hook
 
-# Terminal prompt
+# Additional tool configuration scripts (some of them must be called after `compinit`)
+[ -f ~/.config/bat/bat.zsh ] && source ~/.config/bat/bat.zsh
+[ -f ~/.config/dust/dust.zsh ] && source ~/.config/dust/dust.zsh
+[ -f ~/.config/eza/eza.zsh ] && source ~/.config/eza/eza.zsh
+[ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh
+[ -f ~/.config/pypoetry/pypoetry.zsh ] && source ~/.config/pypoetry/pypoetry.zsh
+[ -f ~/.config/ripgrep/ripgrep.zsh ] && source ~/.config/ripgrep/ripgrep.zsh
+[ -f ~/.config/tldr/tldr.zsh ] && source ~/.config/tldr/tldr.zsh
+[ -f ~/.config/uv/uv.zsh ] && source ~/.config/uv/uv.zsh
+[ -f ~/.config/zoxide/zoxide.zsh ] && source ~/.config/zoxide/zoxide.zsh
+
+# Terminal prompt (should be called last)
 [ -f ~/.config/starship/starship.zsh ] && source ~/.config/starship/starship.zsh
