@@ -45,6 +45,7 @@ autoload -U add-zsh-hook
 [ -f ~/.config/dust/dust.zsh ] && source ~/.config/dust/dust.zsh
 [ -f ~/.config/eza/eza.zsh ] && source ~/.config/eza/eza.zsh
 [ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh
+[ -f ~/.config/nvm/nvm.zsh ] && source ~/.config/nvm/nvm.zsh
 [ -f ~/.config/pypoetry/pypoetry.zsh ] && source ~/.config/pypoetry/pypoetry.zsh
 [ -f ~/.config/ripgrep/ripgrep.zsh ] && source ~/.config/ripgrep/ripgrep.zsh
 [ -f ~/.config/tldr/tldr.zsh ] && source ~/.config/tldr/tldr.zsh
