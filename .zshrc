@@ -1,56 +1,36 @@
 # General configuration
-[ -f ~/.config/zsh/config.zsh ] && source ~/.config/zsh/config.zsh
+[ -f "$HOME/.config/zsh/config.zsh" ] && source "$HOME/.config/zsh/config.zsh"
+[ -f "$HOME/.config/zsh/theme.zsh" ] && source "$HOME/.config/zsh/theme.zsh"
 
-# Additional shell features
-[ -f ~/.config/zsh/theme.zsh ] && source ~/.config/zsh/theme.zsh
-
-# Aliases (defined ./.config/zsh/aliases/)
-for file in ~/.config/zsh/aliases/*.zsh; do
-    source "$file"
-done
-
-# Zinit setup
-# Zinit is a modern plugin manager for zsh, at the same time simple, powerful & very fast
-# `ZINIT_HOME` is the directory where zinit & its plugins will be stored; if this directory doesn't exist, this will clone zinit
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+# Zinit and its plugins
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git" # Directory where zinit & its plugins will be stored
 if [ ! -d "$ZINIT_HOME" ]; then
     mkdir -p "$(dirname "$ZINIT_HOME")"
     git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 source "${ZINIT_HOME}/zinit.zsh"
+[ -f "$HOME/.config/zsh/plugins.zsh" ] && source "$HOME/.config/zsh/plugins.zsh" # Must be sourced before calling `compinit`
 
-# Plugins (must be defined before calling `compinit`)
-[ -f ~/.config/zsh/plugins.zsh ] && source ~/.config/zsh/plugins.zsh
-
-# Initialize completion system
-# Let's only check the compinit cache once a day, to reduce the startup time
-# Source: https://gist.github.com/ctechols/ca1035271ad134841284#gistcomment-2308206
+# Completion engine
 autoload -Uz compinit
-if [ "$(find ~/.zcompdump -mtime +1)" ]; then
+if [ "$(find "$HOME/.zcompdump" -mtime +1)" ]; then # Only check the cache once a day, to reduce startup time
     compinit
+else
+    compinit -C # Skip completion cache check
 fi
-compinit -C
+zinit cdreplay -q # Actually run any compdef saved by zinit before compinit call
 
-# Actually run any compdef saved by zinit before compinit call
-zinit cdreplay -q
+# Additional tool configurations (some of them must be called after `compinit`)
+autoload -U add-zsh-hook # Enable hooks definitions for tool lazy-loading
+tools=(bat dust eza fzf nvm pypoetry ripgrep tldr uv zoxide)
+for tool in "${tools[@]}"; do
+    [ -f "$HOME/.config/$tool/$tool.zsh" ] && source "$HOME/.config/$tool/$tool.zsh"
+done
 
-# Add custom completions defined in ~/.zfunc directory
-fpath+=~/.zfunc
-
-# Lazy loads the `add-zsh-hook` which enables hooks definitions in tool configurations
-autoload -U add-zsh-hook
-
-# Additional tool configuration scripts (some of them must be called after `compinit`)
-[ -f ~/.config/bat/bat.zsh ] && source ~/.config/bat/bat.zsh
-[ -f ~/.config/dust/dust.zsh ] && source ~/.config/dust/dust.zsh
-[ -f ~/.config/eza/eza.zsh ] && source ~/.config/eza/eza.zsh
-[ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh
-[ -f ~/.config/nvm/nvm.zsh ] && source ~/.config/nvm/nvm.zsh
-[ -f ~/.config/pypoetry/pypoetry.zsh ] && source ~/.config/pypoetry/pypoetry.zsh
-[ -f ~/.config/ripgrep/ripgrep.zsh ] && source ~/.config/ripgrep/ripgrep.zsh
-[ -f ~/.config/tldr/tldr.zsh ] && source ~/.config/tldr/tldr.zsh
-[ -f ~/.config/uv/uv.zsh ] && source ~/.config/uv/uv.zsh
-[ -f ~/.config/zoxide/zoxide.zsh ] && source ~/.config/zoxide/zoxide.zsh
+# Source alias directory (should be done near the end)
+for file in "$HOME/.config/zsh/aliases/"*.zsh; do
+    source "$file"
+done
 
 # Terminal prompt (should be called last)
-[ -f ~/.config/starship/starship.zsh ] && source ~/.config/starship/starship.zsh
+[ -f "$HOME/.config/starship/starship.zsh" ] && source "$HOME/.config/starship/starship.zsh"
