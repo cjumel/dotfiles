@@ -1,4 +1,5 @@
 # General configuration
+autoload -U add-zsh-hook # Enable hooks definitions
 [ -f "$HOME/.config/zsh/config.zsh" ] && source "$HOME/.config/zsh/config.zsh"
 [ -f "$HOME/.config/zsh/theme.zsh" ] && source "$HOME/.config/zsh/theme.zsh"
 
@@ -21,7 +22,6 @@ fi
 zinit cdreplay -q # Actually run any compdef saved by zinit before compinit call
 
 # Additional tool configurations (some of them must be called after `compinit`)
-autoload -U add-zsh-hook # Enable hooks definitions for tool lazy-loading
 tools=(bat dust eza fzf nvm pypoetry ripgrep tldr uv zoxide)
 for tool in "${tools[@]}"; do
     [ -f "$HOME/.config/$tool/$tool.zsh" ] && source "$HOME/.config/$tool/$tool.zsh"

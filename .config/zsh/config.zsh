@@ -48,3 +48,19 @@ bindkey '^[[13;2u' insert-newline # <S-CR>
 autoload edit-command-line
 zle -N edit-command-line
 bindkey "^v" edit-command-line # Mnemonic: Vim
+
+# [[ Python ]]
+
+function activate_python_venv_hook() {
+    if [[ -f "$PWD/.venv/bin/activate" ]]; then
+        if [[ "$VIRTUAL_ENV" != "$PWD/.venv" ]]; then # A different venv is enabled or no venv is enabled
+            [[ -n "$VIRTUAL_ENV" ]] && deactivate
+            VIRTUAL_ENV_DISABLE_PROMPT=1 source "$PWD/.venv/bin/activate" # Don't alter the prompt to avoid disabling it entirely when using `deactivate` in a tmux session
+        fi
+    elif [[ -n "$VIRTUAL_ENV" && "$PWD" != "${VIRTUAL_ENV%/*}"* ]]; then # A venv is enabled and we are no longer in its directory or subdirectories
+        deactivate
+    fi
+}
+
+add-zsh-hook chpwd activate_python_venv_hook # On directory change
+activate_python_venv_hook                    # On shell startup
