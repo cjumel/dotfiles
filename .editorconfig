@@ -7,7 +7,6 @@ insert_final_newline = true
 [*.json]
 indent_style = space
 indent_size = 2
-max_line_length = 100
 
 [*.lua]
 indent_style = space
@@ -46,6 +45,11 @@ indent_style = space
 indent_size = 2
 max_line_length = 100
 
+[*.ts]
+indent_style = space
+indent_size = 2
+max_line_length = 100
+
 [{*.yaml,*.yml}]
 indent_style = space
 indent_size = 2
@@ -63,6 +67,6 @@ indent_size = 4
 max_line_length = 72
 
 [Makefile]
-# Require necessarily 8-long tab indentation to work
+# Require necessarily 8-long tab indentation
 indent_style = tab
 indent_size = 8
