@@ -51,6 +51,8 @@ bindkey "^v" edit-command-line # Mnemonic: Vim
 
 # [[ Python ]]
 
+alias python='python3'
+
 function activate_python_venv_hook() {
     if [[ -f "$PWD/.venv/bin/activate" ]]; then
         if [[ "$VIRTUAL_ENV" != "$PWD/.venv" ]]; then # A different venv is enabled or no venv is enabled
