@@ -25,11 +25,12 @@ fi
 export FZF_DEFAULT_OPTS="
     --layout=reverse
     --height=40%
-    --cycle
+    --cycle # Cycle through the list when reaching the top/bottom
+    --bind change:top # Move cursor to top on query change
     --bind 'tab:down'
     --bind 'shift-tab:up'
-    --bind 'ctrl-s:toggle+down'
-    --bind 'ctrl-g:top'
+    --bind 'ctrl-s:toggle+down' # Like 'select'
+    --bind 'ctrl-g:top' # Like the 'gg' keymap in Vim/Neovim
     --bind 'alt-p:toggle-preview'
 "
 
