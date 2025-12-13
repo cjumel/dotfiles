@@ -25,10 +25,14 @@
 [fetch]
 	prune = true
 	pruneTags = true
+[format]
+	pretty = oneline
 [help]
 	autocorrect = prompt
 [init]
 	defaultBranch = main
+[log]
+	abbrevCommit = true
 [merge]
 	conflictStyle = zdiff3
 [pull]
