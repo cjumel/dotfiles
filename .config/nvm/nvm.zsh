@@ -1,4 +1,5 @@
-# Lazy load nvm to avoid slowing down shell startup
+# [[ Setup ]]
+# Lazy-setup to avoid slowing down shell startup
 
 export NVM_DIR="$HOME/.nvm"
 
@@ -14,26 +15,28 @@ function load-nvm-hook() {
     [[ -e .nvmrc ]] && load-nvm
 }
 
-# Define placeholder functions that load nvm on first use (which then removes the placeholders)
-nvm() {
+# Placeholder functions that load nvm on first use and then remove themselves
+function nvm() {
     load-nvm
     nvm "$@"
 }
-node() {
+function node() {
     load-nvm
     node "$@"
 }
-npm() {
+function npm() {
     load-nvm
     npm "$@"
 }
-npx() {
+function npx() {
     load-nvm
     npx "$@"
 }
 
 add-zsh-hook chpwd load-nvm-hook # On directory change
 load-nvm-hook                    # On shell startup
+
+# [[ Auto-use ]]
 
 load-nvmrc-hook() {
     [[ -e .nvmrc ]] || return
@@ -49,3 +52,10 @@ load-nvmrc-hook() {
 
 add-zsh-hook chpwd load-nvmrc-hook # On directory change
 load-nvmrc-hook                    # On shell startup
+
+# [[ Aliases ]]
+
+alias nvd='nvm deactivate'
+alias nvi='nvm install'
+alias nvu='nvm use'
+alias nvui='nvm uninstall'

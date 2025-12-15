@@ -1,42 +1,40 @@
-# Disable unused variables diagnostics (used by zsh)
 # shellcheck disable=SC2034
 
-# [[ General configuration ]]
+# [[ Options ]]
+# This should be sourced at the beginning of the configuration
 
-export LANG=en_US.UTF-8 # Make sure everything is in English
+eval "$(brew shellenv)" # Homebrew post-installation: set HOMEBREW_PREFIX, update PATH, MANPATH, fpath (for shell completions), etc.
+
+export PATH="$PATH:$HOME/.local/bin" # Append to PATH directory for manual (e.g. neovim) or some tools (e.g. uv) binaries, this must not be prepended to avoid overriding Homebrew Python binaries
+
+export LANG=en_US.UTF-8 # Set the default language
 export EDITOR=nvim      # Set the default editor
-export LESS=R           # Clear the content after quitting the `less` pager (e.g. when using `git log` with `less`)
-bindkey -e              # Force emacs keybindings for zsh (usually the default but setting `EDITOR` to `nvim` alter this setting)
+export VISUAL=nvim      # Set the default visual editor
+export PAGER=less       # Set the default pager
+export LESS=R           # Options for less (clear terminal content after quiting)
 
-# Completion styling
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # Case-insensitive completion when using lowercase (like ripgrep smart case)
-
-# [[ History configuration ]]
-# Documentation: https://zsh.sourceforge.io/Doc/Release/Options.html#History
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # Set case-insensitive completion when using lowercase (like ripgrep smart case)
 
 HISTFILE="$HOME/.zsh_history" # History file location
 HISTSIZE=10000                # Limit number of entries in memory
 SAVEHIST=10000                # Limit number of entries in history file
 HISTDUP=erase                 # Erase duplicates in the history file
-
-setopt APPEND_HISTORY       # Append commands to history file instead of replacing it
-setopt HIST_IGNORE_ALL_DUPS # If a new command in history list duplicates an older one, the latter is removed
-setopt HIST_IGNORE_DUPS     # if a new command in history list duplicates the previous one, the former is ignored
-setopt HIST_IGNORE_SPACE    # Do not record a command starting with a space; convenient for sensible commands
-setopt HIST_REDUCE_BLANKS   # Remove superfluous blanks & newlines from commands; help prevent duplicates & improve fuzzy search in commands
-setopt HIST_SAVE_NO_DUPS    # Do not save any older duplicate command to the history file
-setopt SHARE_HISTORY        # Enable sharing history between sessions by adding & importing entries incrementally; replace `INC_APPEND_HISTORY`
+setopt APPEND_HISTORY         # Append commands to history file instead of replacing it
+setopt HIST_IGNORE_ALL_DUPS   # If a new command in history list duplicates an older one, the latter is removed
+setopt HIST_IGNORE_DUPS       # if a new command in history list duplicates the previous one, the former is ignored
+setopt HIST_IGNORE_SPACE      # Do not record a command starting with a space; convenient for sensible commands
+setopt HIST_REDUCE_BLANKS     # Remove superfluous blanks & newlines from commands; help prevent duplicates & improve fuzzy search in commands
+setopt HIST_SAVE_NO_DUPS      # Do not save any older duplicate command to the history file
+setopt SHARE_HISTORY          # Enable sharing history between sessions by adding & importing entries incrementally; replace `INC_APPEND_HISTORY`
 
 # [[ Key bindings ]]
 
-# By default, clear-screen is mapped to "^l", but "^l" is mapped to window navigation in tmux
-bindkey "^o" clear-screen
+bindkey -e # Force emacs keybindings for zsh (usually the default but setting `EDITOR` to `nvim` alter this setting)
 
-# Filter search history browsing with the current command
+bindkey "^o" clear-screen # By default, clear-screen is mapped to <C-l>, but this keymap is used for window navigation in Tmux
 bindkey "^p" history-search-backward
 bindkey "^n" history-search-forward
 
-# Insert a newline inside a command
 insert-newline() {
     LBUFFER="${LBUFFER}
 "
@@ -44,12 +42,46 @@ insert-newline() {
 zle -N insert-newline
 bindkey '^[[13;2u' insert-newline # <S-CR>
 
-# Keymap to edit the command line with an editor
 autoload edit-command-line
 zle -N edit-command-line
 bindkey "^v" edit-command-line # Mnemonic: Vim
 
-# [[ Python ]]
+# [[ Terminal theme management ]]
+
+function changetheme() {
+    local themes="default
+catppuccin-macchiato
+catppuccin-mocha
+catppuccin-frappe
+catppuccin-latte
+everforest-dark
+everforest-light
+gruvbox-dark
+gruvbox-material
+gruvbox-light
+kanagawa-wave
+kanagawa-dragon
+kanagawa-lotus
+onedark
+onelight
+rose-pine-moon
+rose-pine-main
+rose-pine-dawn
+tokyonight-moon
+tokyonight-night
+tokyonight-storm
+tokyonight-day"
+    local selected_theme=$(echo "$themes" | fzf --prompt="Theme > " --no-sort)
+    if [[ -z $selected_theme ]]; then
+        return
+    fi
+    ln -sf "$HOME/.config/wezterm/theme/$selected_theme.lua" "$HOME/.config/wezterm/theme/current.lua"
+    ln -sf "$HOME/.config/tmux/theme/tmux-$selected_theme.conf" "$HOME/.config/tmux/theme/tmux-current.conf"
+    ln -sf "$HOME/.config/nvim/lua/config/theme/$selected_theme.lua" "$HOME/.config/nvim/lua/config/theme/current.lua"
+}
+alias ct='changetheme'
+
+# [[ Python setup ]]
 
 alias python='python3'
 

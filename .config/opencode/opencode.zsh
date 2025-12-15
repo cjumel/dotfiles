@@ -1,0 +1,3 @@
+# [[ Aliases ]]
+
+alias oc='opencode'

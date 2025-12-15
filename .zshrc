@@ -1,7 +1,6 @@
 # General configuration
 autoload -U add-zsh-hook # Enable hooks definitions
 [ -f "$HOME/.config/zsh/config.zsh" ] && source "$HOME/.config/zsh/config.zsh"
-[ -f "$HOME/.config/zsh/theme.zsh" ] && source "$HOME/.config/zsh/theme.zsh"
 
 # Zinit and its plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git" # Directory where zinit & its plugins will be stored
@@ -14,24 +13,23 @@ source "${ZINIT_HOME}/zinit.zsh"
 
 # Completion engine
 autoload -Uz compinit
-if [ "$(find "$HOME/.zcompdump" -mtime +1)" ]; then # Only check the cache once a day, to reduce startup time
+# Only check the cache once a day, to reduce startup time; to manually refresh cache, run `rm -f ~/.zcompdump; compinit`
+if [ "$(find "$HOME/.zcompdump" -mtime +1)" ]; then
     compinit
 else
-    compinit -C # Skip completion cache check
+    compinit -C # Skip cache check
 fi
 zinit cdreplay -q # Actually run any compdef saved by zinit before compinit call
 
 # Additional tool configurations (some of them must be called after `compinit`)
-tools=(bat dust eza fzf nvm pypoetry ripgrep tldr uv zoxide)
+tools=(bat dust eza fzf gh nvm opencode pypoetry ripgrep tldr tmux uv zoxide)
 for tool in "${tools[@]}"; do
     [ -f "$HOME/.config/$tool/$tool.zsh" ] && source "$HOME/.config/$tool/$tool.zsh"
 done
 
-# Source alias files (should be done near the end)
-alias_files=(brew core git javascript misc poetry python rust tmux uv)
-for alias_file in "${alias_files[@]}"; do
-    [ -f "$HOME/.config/zsh/aliases/$alias_file.zsh" ] && source "$HOME/.config/zsh/aliases/$alias_file.zsh"
-done
+# Source alias file (should be done near the end)
+[ -f "$HOME/.config/zsh/aliases.zsh" ] && source "$HOME/.config/zsh/aliases.zsh"
 
 # Terminal prompt (should be called last)
+# shellcheck disable=SC1094
 [ -f "$HOME/.config/starship/starship.zsh" ] && source "$HOME/.config/starship/starship.zsh"
