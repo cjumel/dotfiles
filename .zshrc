@@ -23,7 +23,7 @@ fi
 zinit cdreplay -q # Actually run any compdef saved by zinit before compinit call
 
 # Additional tool configurations (some of them must be called after `compinit`)
-tools=(bat dust eza fzf gh nvm opencode pypoetry ripgrep tldr tmux uv zoxide)
+tools=(bat docker dust eza fzf gh nvm opencode pypoetry ripgrep tldr tmux uv zoxide)
 for tool in "${tools[@]}"; do
     [ -f "$HOME/.config/$tool/$tool.zsh" ] && source "$HOME/.config/$tool/$tool.zsh"
 done
