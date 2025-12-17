@@ -1,5 +1,0 @@
-# Unversioned aliases
-.config/zsh/aliases/_*.zsh
-
-# Pycharm stuff
-.idea/
