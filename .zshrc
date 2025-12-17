@@ -12,6 +12,7 @@ source "${ZINIT_HOME}/zinit.zsh"
 [ -f "$HOME/.config/zsh/plugins.zsh" ] && source "$HOME/.config/zsh/plugins.zsh" # Must be sourced before calling `compinit`
 
 # Completion engine
+fpath+=("$HOME/.zfunc") # Manual completions directory
 autoload -Uz compinit
 # Only check the cache once a day, to reduce startup time; to manually refresh cache, run `rm -f ~/.zcompdump; compinit`
 if [ "$(find "$HOME/.zcompdump" -mtime +1)" ]; then
