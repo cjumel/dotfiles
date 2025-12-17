@@ -3,7 +3,8 @@
 # [[ Options ]]
 # This should be sourced at the beginning of the configuration
 
-eval "$(brew shellenv)" # Homebrew post-installation: set HOMEBREW_PREFIX, update PATH, MANPATH, fpath (for shell completions), etc.
+eval "$(brew shellenv)"               # Homebrew post-installation: set HOMEBREW_PREFIX, update PATH, MANPATH, fpath (for shell completions), etc.
+fpath=("${fpath[@]:1}" "${fpath[1]}") # Move prepended Homebrew's fpath to the end (some of Homebrew's completions are worse than the default ones, e.g. for `git`)
 
 export PATH="$PATH:$HOME/.local/bin" # Append to PATH directory for manual (e.g. neovim) or some tools (e.g. uv) binaries, this must not be prepended to avoid overriding Homebrew Python binaries
 
