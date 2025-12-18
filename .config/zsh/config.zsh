@@ -47,41 +47,6 @@ autoload edit-command-line
 zle -N edit-command-line
 bindkey "^v" edit-command-line # Mnemonic: Vim
 
-# [[ Terminal theme management ]]
-
-function changetheme() {
-    local themes="default
-catppuccin-macchiato
-catppuccin-mocha
-catppuccin-frappe
-catppuccin-latte
-everforest-dark
-everforest-light
-gruvbox-dark
-gruvbox-material
-gruvbox-light
-kanagawa-wave
-kanagawa-dragon
-kanagawa-lotus
-onedark
-onelight
-rose-pine-moon
-rose-pine-main
-rose-pine-dawn
-tokyonight-moon
-tokyonight-night
-tokyonight-storm
-tokyonight-day"
-    local selected_theme=$(echo "$themes" | fzf --prompt="Theme > " --no-sort)
-    if [[ -z $selected_theme ]]; then
-        return
-    fi
-    ln -sf "$HOME/.config/wezterm/theme/$selected_theme.lua" "$HOME/.config/wezterm/theme/current.lua"
-    ln -sf "$HOME/.config/tmux/theme/tmux-$selected_theme.conf" "$HOME/.config/tmux/theme/tmux-current.conf"
-    ln -sf "$HOME/.config/nvim/lua/config/theme/$selected_theme.lua" "$HOME/.config/nvim/lua/config/theme/current.lua"
-}
-alias ct='changetheme'
-
 # [[ Python setup ]]
 
 alias python='python3'

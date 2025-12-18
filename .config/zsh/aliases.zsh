@@ -23,17 +23,49 @@ alias brlv='brew leaves'
 alias bro='brew outdated'
 alias brp='brew pin'
 alias brr='brew reinstall'
-alias brs='brew services'
+alias brs='brew search'
 alias brsl='brew services list'
-alias brssa='brew services start'
-alias brsso='brew services stop'
-alias brse='brew search'
+alias brss='brew services start'
+alias brsst='brew services stop'
 alias brud='brew update'
 alias brug='brew upgrade'
 alias brui='brew uninstall'
 alias brup='brew unpin'
 
 alias cl='clear'
+
+function changetheme() {
+    local themes="default
+catppuccin-macchiato
+catppuccin-mocha
+catppuccin-frappe
+catppuccin-latte
+everforest-dark
+everforest-light
+gruvbox-dark
+gruvbox-material
+gruvbox-light
+kanagawa-wave
+kanagawa-dragon
+kanagawa-lotus
+onedark
+onelight
+rose-pine-moon
+rose-pine-main
+rose-pine-dawn
+tokyonight-moon
+tokyonight-night
+tokyonight-storm
+tokyonight-day"
+    local selected_theme=$(echo "$themes" | fzf --prompt="Themes > " --no-sort)
+    if [[ -z $selected_theme ]]; then
+        return
+    fi
+    ln -sf "$HOME/.config/wezterm/theme/$selected_theme.lua" "$HOME/.config/wezterm/theme/current.lua"
+    ln -sf "$HOME/.config/tmux/theme/tmux-$selected_theme.conf" "$HOME/.config/tmux/theme/tmux-current.conf"
+    ln -sf "$HOME/.config/nvim/lua/config/theme/$selected_theme.lua" "$HOME/.config/nvim/lua/config/theme/current.lua"
+}
+alias ct='changetheme'
 
 alias da='deactivate'
 
@@ -123,7 +155,7 @@ function pythonvenv() {
 alias py='python'
 alias pyv='pythonvenv'
 
-function rmbrokensymlink() {
+function rmbrokensymlinks() {
     local recursive=0
     local dir="."
     while [[ $# -gt 0 ]]; do
@@ -150,7 +182,7 @@ function rmbrokensymlink() {
     echo "$broken_symlinks"
     find "${find_opts[@]}" -exec rm -- {} + # Line taken from the `man find` page
 }
-alias rbs="rmbrokensymlink"
+alias rbs="rmbrokensymlinks"
 
 alias rd='rmdir'
 
