@@ -15,10 +15,10 @@ source "${ZINIT_HOME}/zinit.zsh"
 fpath+=("$HOME/.zfunc") # Manual completions directory
 autoload -Uz compinit
 # Only check the cache once a day, to reduce startup time; to manually refresh cache, run `rm -f ~/.zcompdump; compinit`
-if [ "$(find "$HOME/.zcompdump" -mtime +1)" ]; then
+if [[ ! -f "$HOME/.zcompdump" ]] || [[ "$(find "$HOME/.zcompdump" -mtime +1)" ]]; then
     compinit
 else
-    compinit -C # Skip cache check
+    compinit -C # Skip security checks and re-use cache if it exists
 fi
 zinit cdreplay -q # Actually run any compdef saved by zinit before compinit call
 
