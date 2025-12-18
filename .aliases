@@ -1,4 +1,4 @@
-# Aliases for core commands
+# Shell (bash or zsh) aliases
 
 alias -- -='cd -' # '--' means any following '-' is not to be interpreted as an option
 alias ~='cd ~'
@@ -69,6 +69,41 @@ alias ct='changetheme'
 
 alias da='deactivate'
 
+alias dkb='docker build'
+alias dkcl='docker container ls'
+alias dkcp='docker container prune'
+alias dkcr='docker container rm'
+alias dke='docker exec'
+alias dkil='docker image ls'
+alias dkip='docker image prune'
+alias dkir='docker image rm'
+alias dkp='docker ps'
+alias dkpl='docker pull'
+alias dkps='docker push'
+alias dkr='docker run'
+alias dkrm='docker rm'
+alias dks='docker start'
+alias dksd='docker system df'
+alias dksp='docker system prune'
+alias dkst='docker stop'
+alias dkvl='docker volume ls'
+alias dkvp='docker volume prune'
+alias dkvr='docker volume rm'
+
+# Use `docker compose` instead of `docker-compose` will make completions available
+alias dcb='docker compose build'
+alias dce='docker compose exec'
+alias dcd='docker compose down'
+alias dcl='docker compose ls'
+alias dcp='docker compose ps'
+alias dcpl='docker compose pull'
+alias dcps='docker compose push'
+alias dcr='docker compose run'
+alias dcrm='docker compose rm'
+alias dcs='docker compose start'
+alias dcst='docker compose stop'
+alias dcu='docker compose up'
+
 alias ga='git add'
 alias gb='git branch'
 alias gc='git commit'
@@ -104,6 +139,15 @@ alias gwa='git worktree add'
 alias gwl='git worktree list'
 alias gwr='git worktree remove'
 
+alias ghic='gh issue create'
+alias ghie='gh issue edit'
+alias ghil='gh issue list'
+alias ghiv='gh issue view'
+alias ghpc='gh pr create'
+alias ghpe='gh pr edit'
+alias ghpl='gh pr list'
+alias ghpv='gh pr view'
+
 alias he='head'
 
 alias hi='history'
@@ -130,6 +174,13 @@ alias npl='npm list'
 alias npr='npm run'
 alias nprm='npm remove'
 
+alias nvd='nvm deactivate'
+alias nvi='nvm install'
+alias nvu='nvm use'
+alias nvui='nvm uninstall'
+
+alias oc='opencode'
+
 alias op='open'
 
 alias pif='pip freeze'
@@ -137,6 +188,30 @@ alias pii='pip install'
 alias pil='pip list'
 alias pis='pip show'
 alias piu='pip uninstall'
+
+alias poa='poetry add'
+alias pob='poetry build'
+alias poc='poetry check'
+alias pocc='poetry cache clear'
+alias pocl='poetry cache list'
+alias poea='poetry env activate'
+alias poei='poetry env info'
+alias poel='poetry env list'
+alias poer='poetry env remove'
+alias poeu='poetry env use'
+alias poi='poetry install'
+alias poii='poetry init'
+alias pol='poetry lock'
+alias pon='poetry new'
+alias pop='poetry publish'
+alias por='poetry run'
+alias porm='poetry remove'
+alias porp='poetry run python'
+alias pos='poetry sync'
+alias pose='poetry search'
+alias posh='poetry show'
+alias posu='poetry self update'
+alias pou='poetry update'
 
 function pythonvenv() {
     local python_version=${1:-3}
@@ -200,6 +275,27 @@ alias sob='source ~/.bashrc'
 alias sov='sourcevenv'
 alias soz='source ~/.zshrc'
 
+alias tk='tokei' # See https://github.com/XAMPPRocky/tokei
+
+alias tl='tldr' # See https://github.com/tldr-pages/tldr
+
+function _tmux-new-or-attach() {
+    local dir=$(basename "$PWD")
+    if tmux has-session -t="$dir" 2>/dev/null; then # Avoid error if the session already exists
+        tmux attach-session -t="$dir"
+    else
+        tmux new-session -s "$dir"
+    fi
+}
+alias tm='_tmux-new-or-attach'
+alias tma='tmux attach'
+alias tmd='tmux detach'
+alias tml='tmux ls 2>/dev/null || echo "No tmux server is running"'
+alias tmk='tmux kill-session'
+alias tmks='tmux kill-server'
+alias tmn='tmux new'
+alias tmr='tmux rename'
+
 function touchdirs() {
     for file in "$@"; do
         dir=$(dirname "$file")
@@ -211,6 +307,34 @@ alias to='touch'
 alias tod='touchdirs'
 
 alias ul='unlink'
+
+alias uva='uv add'
+alias uvb='uv build'
+alias uvcc='uv cache clean' # Same as `uv clean`
+alias uvcp='uv cache prune'
+alias uvi='uv init'
+alias uvl='uv lock'
+alias uvp='uv publish'
+alias uvpf='uv pip freeze'
+alias uvpi='uv pip install'
+alias uvpl='uv pip list'
+alias uvps='uv pip show'
+alias uvpu='uv pip uninstall'
+alias uvpyi='uv python install'
+alias uvpyl='uv python list'
+alias uvr='uv run'
+alias uvrm='uv remove'
+alias uvrp='uv run python'
+alias uvs='uv sync'
+alias uvsu='uv self update'
+alias uvsv='uv self version'
+alias uvt='uv tree'
+alias uvti='uv tool install'
+alias uvtl='uv tool list'
+alias uvtr='uv tool run'
+alias uvtui='uv tool uninstall'
+alias uvtup='uv tool upgrade'
+alias uvv='uv venv'
 
 alias vi='nvim'
 alias vii='NVIM_ENABLE_ALL_PLUGINS=1 nvim +MasonInstallAll' # Install mode
