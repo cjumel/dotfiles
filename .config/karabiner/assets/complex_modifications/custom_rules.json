@@ -162,6 +162,39 @@
         {
           "type": "basic",
           "from": {
+            "key_code": "g",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to_if_alone": [
+            {
+              "key_code": "g",
+              "halt": true
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_command",
+              "modifiers": [
+                "left_option",
+                "left_control"
+              ]
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_canceled": [
+              {
+                "key_code": "g"
+              }
+            ]
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
             "key_code": "j",
             "modifiers": {
               "optional": [
@@ -271,6 +304,39 @@
             "to_if_canceled": [
               {
                 "key_code": "semicolon"
+              }
+            ]
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to_if_alone": [
+            {
+              "key_code": "h",
+              "halt": true
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "right_command",
+              "modifiers": [
+                "right_option",
+                "right_control"
+              ]
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_canceled": [
+              {
+                "key_code": "h"
               }
             ]
           }
