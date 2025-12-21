@@ -2,13 +2,39 @@
 
 ## Applications
 
+### [AeroSpace](https://github.com/nikitabobko/AeroSpace)
+
+AeroSpace is a tiling window manager for MacOS. It is great to manage window layouts and workspace
+with a keyboard-centric and developper-friendly approach. See this
+[YouTube video](https://www.youtube.com/watch?v=5nwnJjr5eOo&t) for a more detailed explanation of
+what AeroSpace can do.
+
+I additionally use [SwipeAeroSpace](https://github.com/MediosZ/SwipeAeroSpace), to keep being able
+to use trackpad gestures to swipe workspaces.
+
+#### Install
+
+For macOS, run the following commands:
+
+```bash
+brew install --cask nikitabobko/tap/aerospace
+brew install --cask mediosz/tap/swipeaerospace
+```
+
+Then start the AeroSpace and SwipeAeroSpace applications and follow the prompts to give them the
+relevant system access, enable them on startup and configure them if necessary.
+
+Lastly, change the following settings:
+
+- enable `System Settings → Desktop & Dock → Group windows by application`
+- disable `System Settings → Trackpad → More Gestures → Swipe between full-screen applications`
+
 ### [Karabiner-Elements](https://karabiner-elements.pqrs.org/)
 
 Karabiner is a great tool for MacOS to customize a keyboard's behavior. I use it to:
 
-- Implement home row mods (see this
-  [YouTube video](https://www.youtube.com/watch?v=sLWQ4Gx88h4&t=913s) for an explanation and a
-  similar implementation)
+- Implement home row mods (see this [YouTube video](https://www.youtube.com/watch?v=sLWQ4Gx88h4&t)
+  for an explanation and a similar implementation)
 - Overload the Caps Lock key with Escape (see this other
   [Youtube video](https://www.youtube.com/watch?v=XuQVbZ0wENE) for an explanation and a slightly
   different implementation)

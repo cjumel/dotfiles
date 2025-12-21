@@ -1,0 +1,91 @@
+config-version = 2
+
+start-at-login = true
+
+accordion-padding = 100
+persistent-workspaces = [
+  "1", # Messages and music
+  "2", # Web browser
+  "3", # Terminal
+  "4", # Other
+]
+
+[gaps]
+inner.horizontal = 20
+inner.vertical = 20
+outer.bottom = [{ monitor."DELL S2721DS" = 90 }, { monitor."built-in" = 40 }, 60]
+outer.left = [{ monitor."DELL S2721DS" = 120 }, { monitor."built-in" = 40 }, 80]
+outer.right = [{ monitor."DELL S2721DS" = 120 }, { monitor."built-in" = 40 }, 80]
+# With the notch of the built-in monitor, extra space is added at the top
+outer.top = [{ monitor."DELL S2721DS" = 90 }, { monitor."built-in" = 10 }, 60]
+
+[mode.main.binding]
+cmd-alt-ctrl-a = 'layout tiles accordion' # Toggle accordion
+cmd-alt-ctrl-f = 'layout floating tiling' # Toggle floating
+cmd-alt-ctrl-z = 'fullscreen' # Like Tmux's zoom
+
+cmd-alt-ctrl-h = 'focus left'
+cmd-alt-ctrl-j = 'focus down'
+cmd-alt-ctrl-k = 'focus up'
+cmd-alt-ctrl-l = 'focus right'
+cmd-alt-ctrl-shift-h = 'move left'
+cmd-alt-ctrl-shift-j = 'move down'
+cmd-alt-ctrl-shift-k = 'move up'
+cmd-alt-ctrl-shift-l = 'move right'
+
+cmd-alt-ctrl-n = 'workspace next'
+cmd-alt-ctrl-o = 'workspace-back-and-forth' # Like Vim's <C-o>
+cmd-alt-ctrl-p = 'workspace prev'
+cmd-alt-ctrl-shift-n = ['move-node-to-workspace next', 'workspace next']
+cmd-alt-ctrl-shift-p = ['move-node-to-workspace prev', 'workspace prev']
+
+cmd-alt-ctrl-1 = 'workspace 1'
+cmd-alt-ctrl-2 = 'workspace 2'
+cmd-alt-ctrl-3 = 'workspace 3'
+cmd-alt-ctrl-4 = 'workspace 4'
+cmd-alt-ctrl-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
+cmd-alt-ctrl-shift-2 = ['move-node-to-workspace 2', 'workspace 2']
+cmd-alt-ctrl-shift-3 = ['move-node-to-workspace 3', 'workspace 3']
+cmd-alt-ctrl-shift-4 = ['move-node-to-workspace 4', 'workspace 4']
+
+cmd-alt-ctrl-equal = 'resize smart +50'
+cmd-alt-ctrl-minus = 'resize smart -50'
+
+cmd-alt-ctrl-b = 'exec-and-forget open -a Zen' # Like "browser"
+cmd-alt-ctrl-m = 'exec-and-forget open -a Slack' # Like "messages" 
+cmd-alt-ctrl-s = 'exec-and-forget open -a Spotify' # Like "songs"
+cmd-alt-ctrl-t = 'exec-and-forget open -a WezTerm' # Like "terminal"
+
+cmd-alt-ctrl-space = 'mode service'
+
+[mode.service.binding]
+r = ['reload-config', 'mode main']
+
+a = ['layout accordion horizontal vertical', 'mode main']
+t = ['layout tiles horizontal vertical', 'mode main']
+
+h = ['join-with left', 'mode main']
+j = ['join-with down', 'mode main']
+k = ['join-with up', 'mode main']
+l = ['join-with right', 'mode main']
+
+f = ['flatten-workspace-tree', 'mode main']
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Finder|System Settings'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Slack|Spotify'
+run = 'move-node-to-workspace 1'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Zen'
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'WezTerm'
+run = 'move-node-to-workspace 3'
+
+[[on-window-detected]] # Last section: all the rest
+run = 'move-node-to-workspace 4'
