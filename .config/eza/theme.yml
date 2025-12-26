@@ -3,14 +3,10 @@ filenames:
   ".env.example": {icon: {glyph: }}
   ".env.sample": {icon: {glyph: }}
   ".env.test": {icon: {glyph: }}
-  ".gitignore-global": {icon: {glyph: }}
-  ".prettierrc.yaml": {icon: {glyph: }}
-  ".pre-commit-config.yaml": {icon: {glyph: "\U000F06E2"}}
+  ".markdownlintrc": {icon: {glyph: }}
   ".python-version": {icon: {glyph: }}
-  ".stow-local-ignore": {icon: {glyph: }}
-  ".vimiumrc": {icon: {glyph: }}
+  ".shellcheckrc": {icon: {glyph: "\U000F107B"}}
+  ".stow-local-ignore": {icon: {glyph: "\U000F107B"}}
   "ignore": {icon: {glyph: }}
   "py.typed": {icon: {glyph: }}
-
-extensions:
-  "yaml": {icon: {glyph: }}
+  "ripgreprc": {icon: {glyph: "\U000F107B"}}
