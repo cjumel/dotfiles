@@ -4,7 +4,7 @@ root = true
 charset = utf-8
 insert_final_newline = true
 
-[*.json]
+[{*.json,.markdownlintrc}]
 indent_style = space
 indent_size = 2
 
@@ -18,34 +18,11 @@ indent_style = space
 indent_size = 2
 max_line_length = 100
 
-[*.proto]
-indent_style = space
-indent_size = 2
-
-[*.py]
-indent_style = space
-indent_size = 4
-max_line_length = 100
-
-[*.rs]
-indent_style = space
-indent_size = 4
-max_line_length = 100
-
-[{*.sh,*.zsh}]
-indent_style = space
-indent_size = 4
-
-[*.tmux]
+[{*.sh,*.zsh,.aliases,.zshrc}]
 indent_style = space
 indent_size = 4
 
 [*.toml]
-indent_style = space
-indent_size = 2
-max_line_length = 100
-
-[*.ts]
 indent_style = space
 indent_size = 2
 max_line_length = 100
@@ -59,14 +36,9 @@ max_line_length = 100
 indent_style = tab
 indent_size = 8
 
-[{.aliases,.zprofile,.zshenv,.zshrc}]
-indent_style = space
-indent_size = 4
-
 [COMMIT_EDITMSG]
 max_line_length = 72
 
 [Makefile]
-# Require necessarily 8-long tab indentation
 indent_style = tab
 indent_size = 8
