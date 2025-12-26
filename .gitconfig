@@ -13,7 +13,6 @@
 [core]
 	autocrlf = input
 	editor = nvim
-	excludesfile = ~/.gitignore-global # Next to `~/.gitconfig`
 	pager = less
 [credential]
 	helper = osxkeychain

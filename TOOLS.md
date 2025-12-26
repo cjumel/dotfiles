@@ -49,8 +49,8 @@ For MacOS, install Karabiner-Elements following its
 ### [Vimium](https://github.com/philc/vimium)
 
 I use Vimium for Vim-like key bindings in a web browser. It's install instructions depend on the web
-browser, and, to use my settings, you need to copy the content of [this file](.vimiumrc) in the
-Vimium settings in your web browser.
+browser, and, to use my settings, you need to copy the content of
+[this file](.config/vimium/vimiumrc.vim) in the Vimium settings in your web browser.
 
 ### [WezTerm](https://wezfurlong.org/wezterm/index.html)
 

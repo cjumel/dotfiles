@@ -15,4 +15,4 @@
 .*\.md$
 
 # Fake configuration files
-^/\.vimiumrc$
+vimiumrc\.vim$
