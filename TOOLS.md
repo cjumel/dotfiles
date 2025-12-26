@@ -4,7 +4,7 @@
 
 ### [AeroSpace](https://github.com/nikitabobko/AeroSpace)
 
-AeroSpace is a tiling window manager for MacOS. It is great to manage window layouts and workspace
+AeroSpace is a tiling window manager for macOS. It is great to manage window layouts and workspace
 with a keyboard-centric and developper-friendly approach. See this
 [YouTube video](https://www.youtube.com/watch?v=5nwnJjr5eOo&t) for a more detailed explanation of
 what AeroSpace can do.
@@ -31,7 +31,7 @@ Lastly, change the following settings:
 
 ### [Karabiner-Elements](https://karabiner-elements.pqrs.org/)
 
-Karabiner is a great tool for MacOS to customize a keyboard's behavior. I use it to:
+Karabiner is a great tool for macOS to customize a keyboard's behavior. I use it to:
 
 - Implement home row mods (see this [YouTube video](https://www.youtube.com/watch?v=sLWQ4Gx88h4&t)
   for an explanation and a similar implementation)
@@ -43,25 +43,25 @@ Karabiner is a great tool for MacOS to customize a keyboard's behavior. I use it
 
 #### Install
 
-For MacOS, install Karabiner-Elements following its
+For macOS, install Karabiner-Elements following its
 [installation guide](https://karabiner-elements.pqrs.org/docs/getting-started/installation/).
 
 ### [Vimium](https://github.com/philc/vimium)
 
 I use Vimium for Vim-like key bindings in a web browser. It's install instructions depend on the web
-browser, and, to use my settings, you need to copy the content of [this file](.vimiumrc) in the
-Vimium settings in your web browser.
+browser, and, to use my settings, you need to copy the content of
+[this file](.config/vimium/vimiumrc.vim) in the Vimium settings in your web browser.
 
 ### [WezTerm](https://wezfurlong.org/wezterm/index.html)
 
 Wezterm is my terminal emulator of choice, as it is very simple to install, has all the standard
-terminal features (unlike the builtin MacOS terminal emulator or [iTerm2](https://iterm2.com/),
+terminal features (unlike the builtin macOS terminal emulator or [iTerm2](https://iterm2.com/),
 which I both used at some point), is very performant, and is very configurable through Lua code (the
 same language as neovim configuration).
 
 #### Install
 
-To install the terminal emulator and a font, for MacOS, run the following commands:
+To install the terminal emulator and a font, for macOS, run the following commands:
 
 ```bash
 brew install font-jetbrains-mono-nerd-font
@@ -76,7 +76,7 @@ brew install --cask wezterm
 
 #### Install
 
-For MacOS, run the following command:
+For macOS, run the following command:
 
 ```bash
 brew install bat
@@ -86,7 +86,7 @@ brew install bat
 
 #### Install
 
-For MacOS, Linux or Windows, install Docker Desktop following its
+For macOS, Linux or Windows, install Docker Desktop following its
 [installation guide](https://docs.docker.com/get-started/introduction/get-docker-desktop/).
 
 > [!NOTE]
@@ -108,7 +108,7 @@ mkdir -p ~/.zfunc; docker completion zsh > ~/.zfunc/_docker
 
 #### Install
 
-For MacOS, run the following command:
+For macOS, run the following command:
 
 ```bash
 brew install dust
@@ -118,7 +118,7 @@ brew install dust
 
 #### Install
 
-For MacOS, run the following command:
+For macOS, run the following command:
 
 ```bash
 brew install eza
@@ -128,7 +128,7 @@ brew install eza
 
 #### Install
 
-For MacOS, run the following commanda;
+For macOS, run the following commanda;
 
 ```bash
 brew install fd
@@ -150,7 +150,7 @@ apt install fd-find
 
 #### Install
 
-For MacOS, run the following commands:
+For macOS, run the following commands:
 
 ```bash
 brew install fzf
@@ -168,7 +168,7 @@ apt install fzf
 
 #### Install
 
-For MacOS, run the following command:
+For macOS, run the following command:
 
 ```bash
 brew install gh
@@ -185,7 +185,7 @@ more details and install instructions.
 
 #### Install
 
-For MacOS, as recommanded in the
+For macOS, as recommanded in the
 [install guide](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating), run the
 following command:
 
@@ -198,7 +198,7 @@ PROFILE=/dev/null bash -c \
 
 #### Install
 
-For MacOS, run the following command:
+For macOS, run the following command:
 
 ```bash
 brew install opencode
@@ -208,7 +208,7 @@ brew install opencode
 
 #### Install
 
-For MacOS and Linux, as recommanded by the
+For macOS and Linux, as recommanded by the
 [official installer guide](https://python-poetry.org/docs/#installation), run the following command:
 
 ```bash
@@ -235,7 +235,7 @@ mkdir -p ~/.zfunc; poetry completions zsh > ~/.zfunc/_poetry
 
 #### Install
 
-For MacOS, run the following command:
+For macOS, run the following command:
 
 ```bash
 brew install ripgrep
@@ -251,7 +251,7 @@ apt-get install ripgrep
 
 #### Install
 
-For MacOS, run the following command:
+For macOS, run the following command:
 
 ```bash
 brew install starship
@@ -264,7 +264,7 @@ brew install starship
 I use tmux with [TPM](https://github.com/tmux-plugins/tpm), the Tmux Plugin Manager, which also
 needs to be installed.
 
-For MacOS, run the following commands:
+For macOS, run the following commands:
 
 ```bash
 brew install tmux
@@ -285,7 +285,7 @@ Then start tmux with the command `tmux`, press `<prefix>I` to install tmux plugi
 
 #### Install
 
-For MacOS and Linux, as recommanded by the
+For macOS and Linux, as recommanded by the
 [standalone installer guide](https://docs.astral.sh/uv/getting-started/installation/#standalone-installer),
 run the following command:
 
@@ -316,7 +316,7 @@ uvx --generate-shell-completion zsh > ~/.zfunc/_uvx
 
 #### Install
 
-For MacOS, run the following command:
+For macOS, run the following command:
 
 ```bash
 brew install zoxide

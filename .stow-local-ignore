@@ -1,11 +1,18 @@
 # Prject-local stuff
-\.git
-\.gitignore
-\.nvim\.lua
-^/Makefile
+^/\.git$
+^/\.editorconfig$
+^/\.markdownlintrc$
+^/\.mdformat\.toml$
+^/\.nvim\.lua$
+^/\.shellcheckrc$
+^/\.stylua\.toml$
+^/\.taplo\.toml$
+^/\.yamlfmt\.yaml$
+^/\.yamllint\.yaml$
+^/Makefile$
 
 # Documentation
-.*\.md
+.*\.md$
 
 # Fake configuration files
-\.vimiumrc
+vimiumrc\.vim$

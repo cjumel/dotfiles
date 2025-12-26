@@ -16,10 +16,8 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # Set case-insensitive co
 
 HISTFILE="$HOME/.zsh_history" # History file location
 HISTSIZE=10000                # Limit number of entries in memory
-# shellcheck disable=SC2034
-SAVEHIST=10000 # Limit number of entries in history file
-# shellcheck disable=SC2034
-HISTDUP=erase # Erase duplicates in the history file
+SAVEHIST=10000                # Limit number of entries in history file
+HISTDUP=erase                 # Erase duplicates in the history file
 
 setopt APPEND_HISTORY       # Append commands to history file instead of replacing it
 setopt HIST_IGNORE_ALL_DUPS # If a new command in history list duplicates an older one, the latter is removed
