@@ -46,6 +46,31 @@ Karabiner is a great tool for macOS to customize a keyboard's behavior. I use it
 For macOS, install Karabiner-Elements following its
 [installation guide](https://karabiner-elements.pqrs.org/docs/getting-started/installation/).
 
+### [SketchyBar](https://felixkratz.github.io/SketchyBar/)
+
+SketchyBar is a highly flexible, customizable, fast and powerful replacement or complement for
+macOS's builtin status bar. Being community driven, it provides many modules for very cool
+customization, like displaying and interacting with AeroSpace workspaces.
+
+#### Requirements
+
+- the JetBrains Mono [Nerd Font](https://github.com/ryanoasis/nerd-fonts) (which can be installed
+  with `brew install --cask font-jetbrains-mono-nerd-font`)
+
+#### Install
+
+For macOS, run the following commands:
+
+```bash
+brew tap FelixKratz/formulae
+brew install sketchybar
+chmod +x config/sketchybar/plugins/aerospace.sh
+```
+
+Lastly, change the following settings:
+
+- enable `System Settings → Desktop & Dock → Displays have separate Spaces`
+
 ### [Vimium](https://github.com/philc/vimium)
 
 I use Vimium for Vim-like key bindings in a web browser. It's install instructions depend on the web
@@ -59,14 +84,18 @@ terminal features (unlike the builtin macOS terminal emulator or [iTerm2](https:
 which I both used at some point), is very performant, and is very configurable through Lua code (the
 same language as neovim configuration).
 
+#### Requirements
+
+- the JetBrains Mono [Nerd Font](https://github.com/ryanoasis/nerd-fonts) (which can be installed
+  with `brew install --cask font-jetbrains-mono-nerd-font`)
+
 #### Install
 
 To install the terminal emulator and a font, for macOS, run the following commands:
 
 ```bash
-brew install font-jetbrains-mono-nerd-font
 brew install --cask wezterm
-# or, to install nightly:
+# or, to install the nightly version:
 # brew install --cask wezterm@nightly
 ```
 

@@ -3,11 +3,18 @@ config-version = 2
 start-at-login = true
 
 accordion-padding = 100
+after-startup-command = ['exec-and-forget sketchybar']
 persistent-workspaces = [
   "1", # Messages and music
   "2", # Web browser
   "3", # Terminal
   "4", # Other
+]
+
+exec-on-workspace-change = [
+  '/bin/bash',
+  '-c',
+  'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE',
 ]
 
 [gaps]
@@ -58,7 +65,7 @@ cmd-alt-ctrl-t = 'exec-and-forget open -a WezTerm' # Like "terminal"
 cmd-alt-ctrl-space = 'mode service'
 
 [mode.service.binding]
-r = ['reload-config', 'mode main']
+r = ['reload-config', "exec-and-forget sketchybar --reload", 'mode main']
 
 a = ['layout accordion horizontal vertical', 'mode main']
 t = ['layout tiles horizontal vertical', 'mode main']

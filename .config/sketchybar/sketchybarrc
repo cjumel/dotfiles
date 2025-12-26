@@ -1,0 +1,26 @@
+ITEM_DIR="$CONFIG_DIR/items"
+PLUGIN_DIR="$CONFIG_DIR/plugins"
+
+FONT="JetBrainsMono Nerd Font:Bold:12.0"
+
+bar=(
+	color=
+	position=right
+	height=50
+	margin=10
+	y_offset=5
+)
+default=(
+	label.font="$FONT"
+	padding_left=2
+	padding_right=2
+)
+
+sketchybar \
+	--bar "${bar[@]}" \
+	--default "${default[@]}"
+
+source "$ITEM_DIR/spaces.sh"
+source "$ITEM_DIR/clock.sh"
+
+sketchybar --update # Finalize setup
