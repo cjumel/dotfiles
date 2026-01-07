@@ -18,7 +18,6 @@ export FZF_PROMPT_DIR_HIDDEN='Directories [h] > '
 export FZF_PROMPT_DIR_IGNORE='Directories [i] > '
 export FZF_PROMPT_DIR_ALL='Directories [i][h] > '
 export FZF_PROMPT_COMMAND='Commands > '
-export FZF_PROMPT_ALIAS='Aliases > '
 export FZF_PROMPT_COMMIT='Commits > '
 
 export FZF_PREVIEW_PATH='
@@ -147,19 +146,6 @@ export FZF_ALT_C_OPTS="
 "
 
 # [[ Keybindings ]]
-
-function _fzf-alias-widget() {
-    local selected_alias=$(alias |
-        sed 's/=/ -> /' |
-        fzf --prompt "$FZF_PROMPT_ALIAS" |
-        cut -d' ' -f1)
-    if [[ -n "$selected_alias" ]]; then
-        LBUFFER="${LBUFFER}${selected_alias} "
-    fi
-    zle reset-prompt
-}
-zle -N _fzf-alias-widget
-bindkey '^[r' _fzf-alias-widget # <M-r>
 
 function _fzf-git-log-widget() {
     if ! git rev-parse --git-dir >/dev/null 2>&1; then

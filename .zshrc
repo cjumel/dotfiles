@@ -27,24 +27,7 @@ setopt HIST_REDUCE_BLANKS   # Remove superfluous blanks & newlines from commands
 setopt HIST_SAVE_NO_DUPS    # Do not save any older duplicate command to the history file
 setopt SHARE_HISTORY        # Enable sharing history between sessions by adding & importing entries incrementally; replace `INC_APPEND_HISTORY`
 
-# [[ Custom key bindings ]]
-
-bindkey -e # Force emacs keybindings for Zsh (usually the default but setting `EDITOR` to `nvim` alter this setting)
-
-bindkey "^o" clear-screen # By default, clear-screen is mapped to <C-l>, but this keymap is used for window navigation in tmux
-bindkey "^p" history-search-backward
-bindkey "^n" history-search-forward
-
-insert-newline() {
-    LBUFFER="${LBUFFER}
-"
-}
-zle -N insert-newline
-bindkey '^[[13;2u' insert-newline # <S-CR>
-
-autoload edit-command-line
-zle -N edit-command-line
-bindkey "^v" edit-command-line # Mnemonic: Vim
+bindkey -e # Force emacs keybindings (it is usually the default, but setting `EDITOR` to `nvim` alters this setting); this must be set before setting up the completion engine
 
 # [[ Plugins ]]
 
@@ -76,6 +59,31 @@ else
     compinit -C # Skip security checks and re-use cache if it exists
 fi
 zinit cdreplay -q # Actually run any compdef saved by zinit before compinit call
+
+# [[ Key bindings ]]
+# Existing key bindings can be seen with the `bindkey` command
+
+insert-newline() {
+    LBUFFER="${LBUFFER}
+"
+}
+zle -N insert-newline
+autoload edit-command-line
+zle -N edit-command-line
+copy-command-line() {
+    # shellcheck disable=SC2153
+    echo -n "$BUFFER" | pbcopy
+    zle -M "Command copied to clipboard"
+}
+zle -N copy-command-line
+
+bindkey '^[[13;2u' insert-newline # <S-CR>
+bindkey "^[l" clear-screen        # `clear-screen` default keymap ("^l") is overriden by tmux window navigation
+bindkey "^u" backward-kill-line   # "^u" is mapped to `kill-whole-line` by default
+bindkey "^[u" kill-line           # `kill-line` default keymap ("^k") is overriden by tmux window navigation
+bindkey "^X^R" redo               #
+bindkey "^X^E" edit-command-line  #
+bindkey "^Xy" copy-command-line   # Like "yank" in Vim/Neovim
 
 # [[ Miscellaneous ]]
 

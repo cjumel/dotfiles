@@ -8,10 +8,17 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
+function aliasfuzzyfind() {
+    local selected_alias=$(alias | sed 's/=/ -> /' | fzf --prompt 'Aliases > ' | cut -d' ' -f1)
+    if [[ -n "$selected_alias" ]]; then
+        print -z "${selected_alias} "
+    fi
+}
 function aliaslist() {
     alias | grep "^$1"
 }
 alias al='alias'
+alias alf='aliasfuzzyfind'
 alias all='aliaslist'
 
 alias bra='brew autoremove'
