@@ -186,10 +186,10 @@ bindkey '^[[Z' fzf-completion    # Use <S-Tab> as fzf completion keybinding (<Ta
 # Use `fd` to generate completion candidates (doesn't respect the `ignore` file here)
 # In the following functions, `$1` is the base path to start traversal
 _fzf_compgen_path() {
-    fd --hidden --follow --strip-cwd-prefix "$1"
+    fd --hidden --follow . "$1"
 }
 _fzf_compgen_dir() {
-    fd --hidden --follow --strip-cwd-prefix --type d "$1"
+    fd --hidden --follow --type d . "$1"
 }
 
 # Use same preview for all commands
