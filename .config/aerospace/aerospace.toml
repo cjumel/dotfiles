@@ -2,7 +2,7 @@ config-version = 2
 
 start-at-login = true
 
-accordion-padding = 100
+accordion-padding = 150
 persistent-workspaces = [
   "1", # Messages and music
   "2", # Web browser
