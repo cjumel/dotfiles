@@ -5,8 +5,6 @@
 
 " [[ Keymaps ]]
 
-" Let's implement Vim-like keymaps from scratch, but with one simplifications:
-" if there is no use in repeating a key or using a modifier, let's not
 unmapAll
 
 " Scrolling
@@ -22,39 +20,33 @@ map gg scrollToTop
 map G scrollToBottom
 
 " Navigation
-" Let's use s/S to open links, similarly to the "s" search in vim-easymotion
-" or hop.nvim (which I use)
+" s/S to open links is similar to cursor navigation in hop.nvim
 map s LinkHints.activateMode
 map S LinkHints.activateModeToOpenInNewTab
 map o goBack
 map i goForward
 
-" Basic tab management
+" Tab management
 map t createTab
 map T restoreTab
-" Avoid using the <Tab> & <S-Tab> keys, as it can be used to jump between
-" fields in forms in both insert and normal mode
 map r reload
 map y copyCurrentUrl
 map p openCopiedUrlInCurrentTab
 map P openCopiedUrlInNewTab
 map q removeTab
-
-" Advanced tab management
-" When using <space>, like the <leader> key in Neovim, the <space> key is not
-" available anymore to use as a regular key, which is really annoying
-map gt Vomnibar.activateTabSelection
-map gp togglePinTab
+map gt nextTab
+map gT previousTab
 map gd duplicateTab
 map gm toggleMuteTab
+map gp togglePinTab
 
 " Vim modes
 map / enterFindMode
 map n performFind
 map N performBackwardsFind
 
-map ? showHelp
+map g? showHelp
 
 " [[ Link Hint Characters ]]
 
-hgjfkdlsmqyturieozpabvn
+hgjfkdlsayturieowpqnbmvc
