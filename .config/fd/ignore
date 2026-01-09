@@ -1,13 +1,4 @@
-# This file defines ignore rules for `fd` (which powers Neovim's telescome.nvim file search, or some fzf features). By default, `fd`
-# already takes into account the rules defined in `.gitignore` files, but the rules defined here are useful whenever we're not in a Git
-# repository, particularly when:
-# - working in a project not under version control yet
-# - working directly in the home directory
-
-# [[ Regular projects ]]
-
-# MacOS stuff
-.DS_Store
+# This file defines ignore rules for `fd` (which powers several fuzzy search algorithms I use), in addition to the default ones (e.g. ignored stuff in git repositories)
 
 # Git stuff
 .git/
@@ -16,43 +7,8 @@
 .venv/
 node_modules/
 
-# [[ Home directory ]]
-
-# MacOS home directories not related to coding
-.Trash/
-Applications/
-Library/
-Movies/
-Music/
-Pictures/
-Public/
-Zotero/
-
-# Home configuration directories
-.ansible/
-.azure/
-.cache/
-.cargo/
-.clearml/
-.cups/
-.data/
-.docker/
-.emacs.d/
-.fleet/
-.gem/
-.idea/
-.ipython/
-.jupyter/
-.kaggle/
-.keras/
-.local/
-.matplotlib/
-.npm/
+# Cache directories
+.mypy_cache/
+.pytest_cache/
 .ruff_cache/
-.ssh/
-.streamlit/
-.terminfo/
-.terraform.d/
-.vim/
-.zprofile/
-.zsh_sessions/
+__pycache__/
