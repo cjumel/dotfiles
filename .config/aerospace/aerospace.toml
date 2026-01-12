@@ -10,12 +10,19 @@ persistent-workspaces = [
   "4", # Other
 ]
 
+exec-on-workspace-change = [
+  '/bin/bash',
+  '-c',
+  'sketchybar --trigger aerospace_workspace_change PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE',
+]
+
 [gaps]
 inner.horizontal = 20
 inner.vertical = 20
 outer.bottom = [{ monitor."DELL S2721DS" = 90 }, { monitor."built-in" = 40 }, 60]
 outer.left = [{ monitor."DELL S2721DS" = 120 }, { monitor."built-in" = 40 }, 80]
-outer.right = [{ monitor."DELL S2721DS" = 120 }, { monitor."built-in" = 40 }, 80]
+# At least 60 should be used for `outer.right` to leave room for the SketchyBar
+outer.right = [{ monitor."DELL S2721DS" = 120 }, { monitor."built-in" = 60 }, 80]
 # With the notch of the built-in monitor, extra space is added at the top
 outer.top = [{ monitor."DELL S2721DS" = 90 }, { monitor."built-in" = 10 }, 60]
 
@@ -59,7 +66,7 @@ cmd-alt-ctrl-t = 'exec-and-forget open -a WezTerm' # Like "terminal"
 cmd-alt-ctrl-space = 'mode service'
 
 [mode.service.binding]
-r = ['reload-config', 'mode main']
+r = ['reload-config', "exec-and-forget sketchybar --reload", 'mode main']
 
 a = ['layout accordion horizontal vertical', 'mode main']
 t = ['layout tiles horizontal vertical', 'mode main']

@@ -10,3 +10,4 @@ filenames:
   "ignore": {icon: {glyph: }}
   "py.typed": {icon: {glyph: }}
   "ripgreprc": {icon: {glyph: "\U000F107B"}}
+  "sketchybarrc": {icon: {glyph: }}
