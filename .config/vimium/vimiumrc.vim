@@ -25,6 +25,8 @@ map s LinkHints.activateMode
 map S LinkHints.activateModeToOpenInNewTab
 map o goBack
 map i goForward
+map ] nextTab
+map [ previousTab
 
 " Tab management
 map t createTab
@@ -34,8 +36,6 @@ map y copyCurrentUrl
 map p openCopiedUrlInCurrentTab
 map P openCopiedUrlInNewTab
 map q removeTab
-map gt nextTab
-map gT previousTab
 map gd duplicateTab
 map gm toggleMuteTab
 map gp togglePinTab
@@ -45,7 +45,7 @@ map / enterFindMode
 map n performFind
 map N performBackwardsFind
 
-map g? showHelp
+map ? showHelp
 
 " [[ Link Hint Characters ]]
 
