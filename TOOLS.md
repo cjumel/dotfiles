@@ -59,14 +59,18 @@ terminal features (unlike the builtin macOS terminal emulator or [iTerm2](https:
 which I both used at some point), is very performant, and is very configurable through Lua code (the
 same language as neovim configuration).
 
+#### Requirements
+
+- the JetBrains Mono [Nerd Font](https://github.com/ryanoasis/nerd-fonts) (which can be installed
+  with `brew install --cask font-jetbrains-mono-nerd-font`)
+
 #### Install
 
 To install the terminal emulator and a font, for macOS, run the following commands:
 
 ```bash
-brew install font-jetbrains-mono-nerd-font
 brew install --cask wezterm
-# or, to install nightly:
+# or, to install the nightly version:
 # brew install --cask wezterm@nightly
 ```
 
