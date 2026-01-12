@@ -25,24 +25,35 @@ if [[ -d {} ]]; then
     eza -a1 --color=always --icons=always --group-directories-first {}
 elif [[ -f {} ]]; then
     bat --color=always --line-range=:500 {}
-else
-    echo "Unsupported preview: {}"
 fi
 '
 export FZF_PREVIEW_COMMIT='git show --color=always {1}'
+export FZF_ACTION_COPY='execute-silent(echo -n {+} | pbcopy)+preview(echo -n Copied in clipboard:\\n{+})'
+export FZF_ACTION_COPY_COMMAND='execute-silent(echo -n {2..} | pbcopy)+preview(echo -n Copied in clipboard:\\n{2..})'
+export FZF_ACTION_COPY_COMMIT='execute-silent(echo {+1} | pbcopy)+preview(echo -n Copied in clipboard:\\n{+1})'
+export FZF_ACTION_VIEW_PATH='execute(
+if [[ -d {} ]]; then
+    eza -a1 --color=always --icons=never --group-directories-first {} | less
+elif [[ -f {} ]]; then
+    bat --color=always {} | less
+fi
+)'
+export FZF_ACTION_VIEW_COMMIT='execute(git show --color=always {1})'
 
 # [[ Options ]]
 
 export FZF_DEFAULT_OPTS="
-    --layout=reverse
-    --height=40%
-    --cycle # Cycle through the list when reaching the top/bottom
-    --bind change:top # Move cursor to top on query change
-    --bind 'tab:down'
-    --bind 'shift-tab:up'
-    --bind 'ctrl-s:toggle+down' # Like 'select'
-    --bind 'ctrl-g:top' # Like the 'gg' keymap in Vim/Neovim
-    --bind 'alt-p:toggle-preview'
+    --layout=reverse                 #
+    --height=40%                     #
+    --cycle                          # Cycle through the list when reaching the top/bottom
+    --bind change:top                # Move cursor to top on query change
+    --bind 'alt-u:kill-line'         #
+    --bind 'tab:down'                #
+    --bind 'shift-tab:up'            #
+    --bind 'ctrl-s:toggle+down'      # Like 'select'
+    --bind 'ctrl-g:top'              # Like the 'gg' keymap in Vim/Neovim
+    --bind 'ctrl-y:$FZF_ACTION_COPY' # Like 'yank' in Vim/Neovim
+    --bind 'alt-p:toggle-preview'    #
 "
 
 export FZF_CTRL_T_COMMAND="$FZF_FD_FILE_COMMAND_HIDDEN"
@@ -109,10 +120,12 @@ export FZF_CTRL_T_OPTS="
     --bind 'ctrl-t:transform: $FZF_CTRL_T_TOGGLE_DIR_TRANSFORMER'
     --bind 'alt-h:transform: $FZF_CTRL_T_TOGGLE_HIDDEN_TRANSFORMER'
     --bind 'alt-i:transform: $FZF_CTRL_T_TOGGLE_IGNORED_TRANSFORMER'
+    --bind 'ctrl-v:$FZF_ACTION_VIEW_PATH'
 "
 
 export FZF_CTRL_R_OPTS="
     --prompt '$FZF_PROMPT_COMMAND'
+    --bind 'ctrl-y:$FZF_ACTION_COPY_COMMAND'
 "
 
 export FZF_ALT_C_COMMAND="$FZF_FD_DIR_COMMAND_HIDDEN"
@@ -143,6 +156,7 @@ export FZF_ALT_C_OPTS="
     --preview '$FZF_PREVIEW_PATH'
     --bind 'alt-h:transform: $FZF_ALT_C_TOGGLE_HIDDEN_TRANSFORMER'
     --bind 'alt-i:transform: $FZF_ALT_C_TOGGLE_IGNORED_TRANSFORMER'
+    --bind 'ctrl-v:$FZF_ACTION_VIEW_PATH'
 "
 
 # [[ Keybindings ]]
@@ -153,7 +167,7 @@ function _fzf-git-log-widget() {
         return 1
     fi
     local commits=$(git log --oneline --color=always |
-        fzf --ansi --no-sort --multi --prompt "$FZF_PROMPT_COMMIT" --preview "$FZF_PREVIEW_COMMIT" |
+        fzf --ansi --no-sort --multi --prompt "$FZF_PROMPT_COMMIT" --preview "$FZF_PREVIEW_COMMIT" --bind "ctrl-y:$FZF_ACTION_COPY_COMMIT" --bind "ctrl-v:$FZF_ACTION_VIEW_COMMIT" |
         awk '{print $1}')
     if [[ -n "$commits" ]]; then
         local commit_string=$(echo "$commits" | tr '\n' ' ' | sed 's/ $//')
@@ -184,7 +198,7 @@ _fzf_comprun() {
     shift
 
     case "$command" in
-    *) fzf --preview "$FZF_PREVIEW_PATH" "$@" ;;
+    *) fzf --preview "$FZF_PREVIEW_PATH" --bind "ctrl-v:$FZF_ACTION_VIEW_PATH" "$@" ;;
     esac
 }
 
