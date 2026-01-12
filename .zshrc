@@ -38,12 +38,45 @@ if [ ! -d "$ZINIT_HOME" ]; then
 fi
 source "${ZINIT_HOME}/zinit.zsh"
 
+# shellcheck disable=SC2016
+export FZF_TAB_PREVIEW='
+if [[ -d $realpath ]]; then
+    eza -a1 --color=always --icons=always --group-directories-first $realpath
+elif [[ -f $realpath ]]; then
+    bat --color=always --line-range=:500 $realpath
+elif [[ $word != HEAD && $word != */HEAD ]] && { git show-ref --verify --quiet refs/heads/$word 2>/dev/null || git show-ref --verify --quiet refs/remotes/$word 2>/dev/null || git show-ref --verify --quiet refs/remotes/origin/$word 2>/dev/null; }; then
+    git log --oneline --color=always $word
+elif git rev-parse --verify --quiet $word^{commit} >/dev/null 2>&1; then
+    git show --color=always $word
+else
+    echo $desc | fold -s -w $FZF_PREVIEW_COLUMNS
+fi
+'
+# shellcheck disable=SC2016
+export FZF_TAB_ACTION_VIEW='execute({_FTB_INIT_}
+if [[ -d $realpath ]]; then
+    eza -a1 --color=always --icons=never --group-directories-first $realpath | less
+elif [[ -f $realpath ]]; then
+    bat --color=always $realpath | less
+elif [[ $word != HEAD && $word != */HEAD ]] && { git show-ref --verify --quiet refs/heads/$word 2>/dev/null || git show-ref --verify --quiet refs/remotes/$word 2>/dev/null || git show-ref --verify --quiet refs/remotes/origin/$word 2>/dev/null; }; then
+    git log --oneline --color=always $word | less
+elif git rev-parse --verify --quiet $word^{commit} >/dev/null 2>&1; then
+    git show --color=always $word | less
+else
+    echo $desc | fold -s -w $FZF_PREVIEW_COLUMNS | less
+fi
+)'
+
 zinit light Aloxaf/fzf-tab     # Should be loaded before zsh-autosuggestions
 zstyle ':completion:*' menu no # Avoid conflicts with fzf-tab
 zstyle ':fzf-tab:*' fzf-flags \
     --height=40% \
+    --bind 'alt-u:kill-line' \
     --bind 'ctrl-s:toggle+down' \
-    --bind 'ctrl-g:top'
+    --bind 'ctrl-g:top' \
+    --bind 'alt-p:toggle-preview'
+zstyle ':fzf-tab:complete:*' fzf-preview "$FZF_TAB_PREVIEW"
+zstyle ':fzf-tab:complete:*' fzf-bindings "ctrl-v:$FZF_TAB_ACTION_VIEW"
 
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
