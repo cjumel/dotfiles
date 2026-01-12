@@ -13,11 +13,10 @@ persistent-workspaces = [
 [gaps]
 inner.horizontal = 20
 inner.vertical = 20
-outer.bottom = [{ monitor."DELL S2721DS" = 90 }, { monitor."built-in" = 40 }, 60]
+outer.bottom = [{ monitor."DELL S2721DS" = 90 }, { monitor."built-in" = 30 }, 60]
 outer.left = [{ monitor."DELL S2721DS" = 120 }, { monitor."built-in" = 40 }, 80]
 outer.right = [{ monitor."DELL S2721DS" = 120 }, { monitor."built-in" = 40 }, 80]
-# With the notch of the built-in monitor, extra space is added at the top
-outer.top = [{ monitor."DELL S2721DS" = 90 }, { monitor."built-in" = 10 }, 60]
+outer.top = [{ monitor."DELL S2721DS" = 90 }, { monitor."built-in" = 30 }, 60]
 
 [mode.main.binding]
 cmd-alt-ctrl-a = 'layout tiles accordion' # Toggle accordion
