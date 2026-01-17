@@ -75,9 +75,22 @@ alias ct='changetheme'
 alias da='deactivate'
 
 alias dkb='docker build'
-alias dkcl='docker container ls'
-alias dkcp='docker container prune'
-alias dkcr='docker container rm'
+alias dkc='docker compose' # Using `docker compose` instead of `docker-compose` will make completions available
+alias dkcb='docker compose build'
+alias dkce='docker compose exec'
+alias dkcd='docker compose down'
+alias dkcl='docker compose ls'
+alias dkcp='docker compose ps'
+alias dkcpl='docker compose pull'
+alias dkcps='docker compose push'
+alias dkcr='docker compose run'
+alias dkcrm='docker compose rm'
+alias dkcs='docker compose start'
+alias dkcst='docker compose stop'
+alias dkctl='docker container ls'
+alias dkctp='docker container prune'
+alias dkctr='docker container rm'
+alias dkcu='docker compose up'
 alias dke='docker exec'
 alias dkil='docker image ls'
 alias dkip='docker image prune'
@@ -95,31 +108,42 @@ alias dkvl='docker volume ls'
 alias dkvp='docker volume prune'
 alias dkvr='docker volume rm'
 
-# Use `docker compose` instead of `docker-compose` will make completions available
-alias dcb='docker compose build'
-alias dce='docker compose exec'
-alias dcd='docker compose down'
-alias dcl='docker compose ls'
-alias dcp='docker compose ps'
-alias dcpl='docker compose pull'
-alias dcps='docker compose push'
-alias dcr='docker compose run'
-alias dcrm='docker compose rm'
-alias dcs='docker compose start'
-alias dcst='docker compose stop'
-alias dcu='docker compose up'
+function _git_status_directory() {
+    local dirs=("${@:-.}")
+    local first=true
+    for dir in "${dirs[@]}"; do
+        if [[ ${#dirs[@]} -gt 1 ]]; then
+            [[ "$first" == true ]] || echo
+            echo "=== $dir ==="
+        fi
+        git -C "$dir" status
+        first=false
+    done
+}
+compdef _directories _git_status_directory
 
 alias ga='git add'
 alias gb='git branch'
 alias gc='git commit'
 alias gci='git check-ignore'
+alias gcl='git clone'
 alias gcle='git clean'
-alias gclo='git clone'
 alias gco='git checkout'
 alias gd='git diff'
 alias gf='git fetch'
 alias gi='git init'
 alias gl='git log'
+alias glf='git ls-files'
+alias glfi='git lfs install'
+alias glfl='git lfs ls-files'
+alias glfpl='git lfs pull'
+alias glfps='git lfs push'
+alias glfs='git lfs status'
+alias glfu='git lfs uninstall'
+alias glr='git ls-remote'
+alias glt='git ls-tree'
+alias gm='git merge'
+alias gmv='git mv'
 alias gpl='git pull'
 alias gps='git push'
 alias grb='git rebase'
@@ -128,6 +152,7 @@ alias grs='git reset'
 alias grt='git restore'
 alias grv='git revert'
 alias gs='git status'
+alias gsd='_git_status_directory'
 alias gsh='git show'
 alias gst='git stash'
 alias gsta='git stash apply'
@@ -175,6 +200,7 @@ alias mk='make'
 
 alias npa='npm add'
 alias npi='npm install'
+alias npic='npm install-clean'
 alias npl='npm list'
 alias npr='npm run'
 alias nprm='npm remove'
@@ -184,9 +210,15 @@ alias nvi='nvm install'
 alias nvu='nvm use'
 alias nvui='nvm uninstall'
 
+alias nxr='nx run'
+
 alias oc='opencode'
 
 alias op='open'
+
+alias pbc='pbcopy'
+
+alias pbp='pbpaste'
 
 alias pif='pip freeze'
 alias pii='pip install'
@@ -217,6 +249,8 @@ alias pose='poetry search'
 alias posh='poetry show'
 alias posu='poetry self update'
 alias pou='poetry update'
+
+alias pni='pnpm install'
 
 function pythonvenv() {
     local python_version=${1:-3}
@@ -266,6 +300,8 @@ alias rbs="rmbrokensymlinks"
 
 alias rd='rmdir'
 
+alias rp='realpath'
+
 function sourcevenv() {
     local venv_path=${1:-.venv}
     if [[ -d "$venv_path" ]]; then
@@ -284,15 +320,25 @@ alias tk='tokei' # See https://github.com/XAMPPRocky/tokei
 
 alias tl='tldr' # See https://github.com/tldr-pages/tldr
 
-function _tmux-new-or-attach() {
-    local dir=$(basename "$PWD")
-    if tmux has-session -t="$dir" 2>/dev/null; then # Avoid error if the session already exists
-        tmux attach-session -t="$dir"
+function _tmux-smart-session() {
+    local session_name dir toplevel prefix
+    dir=$(basename "$PWD")
+    toplevel=$(git rev-parse --show-toplevel 2>/dev/null) # Root of a regular repo (not bare), or root of a worktree, or empty
+    if [[ -n "$toplevel" ]]; then
+        prefix=$(basename "$toplevel")
+        if [[ "$(realpath "$PWD")" != "$(realpath "$toplevel")" ]]; then
+            session_name="${prefix}|${dir}"
+        fi
+    fi
+    session_name="${session_name:-$dir}"
+    session_name="${session_name//./}" # Strip `.` which are not well interpreted by tmux
+    if tmux has-session -t="$session_name" 2>/dev/null; then
+        tmux attach-session -t="$session_name"
     else
-        tmux new-session -s "$dir"
+        tmux new-session -s "$session_name"
     fi
 }
-alias tm='_tmux-new-or-attach'
+alias tm='_tmux-smart-session'
 alias tma='tmux attach'
 alias tmd='tmux detach'
 alias tml='tmux ls 2>/dev/null || echo "No tmux server is running"'
@@ -327,6 +373,7 @@ alias uvps='uv pip show'
 alias uvpu='uv pip uninstall'
 alias uvpyi='uv python install'
 alias uvpyl='uv python list'
+alias uvpyp='uv python pin'
 alias uvr='uv run'
 alias uvrm='uv remove'
 alias uvrp='uv run python'
@@ -343,6 +390,7 @@ alias uvv='uv venv'
 
 alias vi='nvim'
 alias vii='NVIM_ENABLE_ALL_PLUGINS=1 nvim +MasonInstallAll' # Install mode
+alias viu='NVIM_ENABLE_ALL_PLUGINS=1 nvim'                  # Update mode
 
 alias wi='which'
 
