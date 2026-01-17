@@ -113,13 +113,15 @@ alias ga='git add'
 alias gb='git branch'
 alias gc='git commit'
 alias gci='git check-ignore'
+alias gcl='git clone'
 alias gcle='git clean'
-alias gclo='git clone'
 alias gco='git checkout'
 alias gd='git diff'
 alias gf='git fetch'
 alias gi='git init'
 alias gl='git log'
+alias gm='git merge'
+alias gmv='git mv'
 alias gpl='git pull'
 alias gps='git push'
 alias grb='git rebase'
@@ -175,6 +177,7 @@ alias mk='make'
 
 alias npa='npm add'
 alias npi='npm install'
+alias npic='npm install-clean'
 alias npl='npm list'
 alias npr='npm run'
 alias nprm='npm remove'
@@ -187,6 +190,10 @@ alias nvui='nvm uninstall'
 alias oc='opencode'
 
 alias op='open'
+
+alias pbc='pbcopy'
+
+alias pbp='pbpaste'
 
 alias pif='pip freeze'
 alias pii='pip install'
@@ -266,6 +273,8 @@ alias rbs="rmbrokensymlinks"
 
 alias rd='rmdir'
 
+alias rp='realpath'
+
 function sourcevenv() {
     local venv_path=${1:-.venv}
     if [[ -d "$venv_path" ]]; then
@@ -327,6 +336,7 @@ alias uvps='uv pip show'
 alias uvpu='uv pip uninstall'
 alias uvpyi='uv python install'
 alias uvpyl='uv python list'
+alias uvpyp='uv python pin'
 alias uvr='uv run'
 alias uvrm='uv remove'
 alias uvrp='uv run python'
