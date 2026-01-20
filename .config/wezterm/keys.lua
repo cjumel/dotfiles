@@ -3,7 +3,6 @@
 local wezterm = require("wezterm")
 
 return {
-
   -- [[ Default actions ]]
   { key = "c", mods = "SUPER", action = wezterm.action.CopyTo("Clipboard") },
   { key = "h", mods = "SUPER", action = wezterm.action.HideApplication },
@@ -36,12 +35,4 @@ return {
   { key = "b", mods = "SUPER", action = wezterm.action.EmitEvent("increase-blur") },
   { key = "b", mods = "SUPER|SHIFT", action = wezterm.action.EmitEvent("decrease-blur") },
   { key = "m", mods = "SUPER|SHIFT", action = wezterm.action.EmitEvent("toggle-meta-combinations") },
-
-  -- [[ Complex key combinations ]]
-  -- Redefine keycodes for less common key combinations to make them work through tmux
-  -- In the following, a leading "^[" in a keycode is actually an escape sequence
-  { key = "Return", mods = "SHIFT", action = wezterm.action({ SendString = "[13;2u" }) },
-  { key = "Return", mods = "CTRL", action = wezterm.action({ SendString = "[13;5u" }) },
-  { key = "Backspace", mods = "SHIFT", action = wezterm.action({ SendString = "[127;2u" }) },
-  { key = "Backspace", mods = "CTRL", action = wezterm.action({ SendString = "[127;5u" }) },
 }
