@@ -74,6 +74,8 @@ zstyle ':fzf-tab:*' fzf-flags \
     --bind 'alt-u:kill-line' \
     --bind 'ctrl-s:toggle+down' \
     --bind 'ctrl-g:top' \
+    --bind 'ctrl-j:preview-down+preview-down+preview-down+preview-down+preview-down' \
+    --bind 'ctrl-k:preview-up+preview-up+preview-up+preview-up+preview-up' \
     --bind 'alt-p:toggle-preview'
 zstyle ':fzf-tab:complete:*' fzf-preview "$FZF_TAB_PREVIEW"
 zstyle ':fzf-tab:complete:*' fzf-bindings "ctrl-v:$FZF_TAB_ACTION_VIEW"

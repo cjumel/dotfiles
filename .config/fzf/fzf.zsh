@@ -43,17 +43,19 @@ export FZF_ACTION_VIEW_COMMIT='execute(git show --color=always {1})'
 # [[ Options ]]
 
 export FZF_DEFAULT_OPTS="
-    --layout=reverse                 #
-    --height=40%                     #
-    --cycle                          # Cycle through the list when reaching the top/bottom
-    --bind change:top                # Move cursor to top on query change
-    --bind 'alt-u:kill-line'         #
-    --bind 'tab:down'                #
-    --bind 'shift-tab:up'            #
-    --bind 'ctrl-s:toggle+down'      # Like 'select'
-    --bind 'ctrl-g:top'              # Like the 'gg' keymap in Vim/Neovim
+    --layout=reverse
+    --height=40%
+    --cycle # Cycle through the list when reaching the top/bottom
+    --bind change:top # Move cursor to top on query change
+    --bind 'alt-u:kill-line'
+    --bind 'tab:down'
+    --bind 'shift-tab:up'
+    --bind 'ctrl-s:toggle+down' # Like 'select'
+    --bind 'ctrl-g:top' # Like the 'gg' keymap in Vim/Neovim
     --bind 'ctrl-y:$FZF_ACTION_COPY' # Like 'yank' in Vim/Neovim
-    --bind 'alt-p:toggle-preview'    #
+    --bind 'ctrl-j:preview-down+preview-down+preview-down+preview-down+preview-down'
+    --bind 'ctrl-k:preview-up+preview-up+preview-up+preview-up+preview-up'
+    --bind 'alt-p:toggle-preview'
 "
 
 export FZF_CTRL_T_COMMAND="$FZF_FD_FILE_COMMAND_HIDDEN"
