@@ -132,7 +132,6 @@ alias python='python3'
 
 if command -v bat &>/dev/null; then
     alias cat='bat'
-    alias head='bat --line-range :10'
     export MANPAGER="sh -c 'col -bx | bat -l man -p'" # Use bat to colorize the man pages
 fi
 if command -v dust &>/dev/null; then
