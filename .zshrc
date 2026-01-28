@@ -98,11 +98,6 @@ zinit cdreplay -q # Actually run any compdef saved by zinit before compinit call
 # [[ Key bindings ]]
 # Existing key bindings can be seen with the `bindkey` command
 
-insert-newline() {
-    LBUFFER="${LBUFFER}
-"
-}
-zle -N insert-newline
 autoload edit-command-line
 zle -N edit-command-line
 copy-command-line() {
@@ -112,13 +107,12 @@ copy-command-line() {
 }
 zle -N copy-command-line
 
-bindkey '^[[13;2u' insert-newline # <S-CR>
-bindkey "^[l" clear-screen        # `clear-screen` default keymap ("^l") is overriden by tmux window navigation
-bindkey "^u" backward-kill-line   # "^u" is mapped to `kill-whole-line` by default
-bindkey "^[u" kill-line           # `kill-line` default keymap ("^k") is overriden by tmux window navigation
-bindkey "^X^R" redo               #
-bindkey "^X^E" edit-command-line  #
-bindkey "^Xy" copy-command-line   # Like "yank" in Vim/Neovim
+bindkey "^[l" clear-screen       # `clear-screen` default keymap ("^l") is overriden by tmux window navigation
+bindkey "^u" backward-kill-line  # "^u" is mapped to `kill-whole-line` by default
+bindkey "^[u" kill-line          # `kill-line` default keymap ("^k") is overriden by tmux window navigation
+bindkey "^X^R" redo              #
+bindkey "^X^E" edit-command-line #
+bindkey "^Xy" copy-command-line  # Like "yank" in Vim/Neovim
 
 # [[ Miscellaneous ]]
 
