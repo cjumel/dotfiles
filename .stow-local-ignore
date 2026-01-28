@@ -1,9 +1,8 @@
 # Prject-local stuff
 ^/\.git$
 ^/\.editorconfig$
-^/\.markdownlintrc$
-^/\.mdformat\.toml$
 ^/\.nvim\.lua$
+^/\.rumdl\.toml$
 ^/\.shellcheckrc$
 ^/\.stylua\.toml$
 ^/\.taplo\.toml$

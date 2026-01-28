@@ -3,7 +3,6 @@ filenames:
   ".env.example": {icon: {glyph: }}
   ".env.sample": {icon: {glyph: }}
   ".env.test": {icon: {glyph: }}
-  ".markdownlintrc": {icon: {glyph: }}
   ".python-version": {icon: {glyph: }}
   ".shellcheckrc": {icon: {glyph: "\U000F107B"}}
   ".stow-local-ignore": {icon: {glyph: "\U000F107B"}}
