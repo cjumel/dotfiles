@@ -34,5 +34,4 @@ return {
   { key = "o", mods = "SUPER|SHIFT", action = wezterm.action.EmitEvent("increase-opacity") },
   { key = "b", mods = "SUPER", action = wezterm.action.EmitEvent("increase-blur") },
   { key = "b", mods = "SUPER|SHIFT", action = wezterm.action.EmitEvent("decrease-blur") },
-  { key = "m", mods = "SUPER|SHIFT", action = wezterm.action.EmitEvent("toggle-meta-combinations") },
 }

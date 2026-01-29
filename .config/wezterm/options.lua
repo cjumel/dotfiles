@@ -20,7 +20,7 @@ config.adjust_window_size_when_changing_font_size = false
 
 -- [[ Keys ]]
 config.enable_kitty_keyboard = true -- Make possible to use less common keymaps like <C-CR> or <C-S-a> in tmux
-config.send_composed_key_when_left_alt_is_pressed = false
-config.send_composed_key_when_right_alt_is_pressed = false
+config.send_composed_key_when_left_alt_is_pressed = true -- To type special characters
+config.send_composed_key_when_right_alt_is_pressed = false -- To type meta key combinations (used by home-row mods)
 
 return config
