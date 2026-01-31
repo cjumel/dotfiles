@@ -35,19 +35,7 @@ wezterm.on("reset-config", function(window, _)
   window:set_config_overrides(overrides)
 end)
 
-wezterm.on("increase-opacity", function(window, _)
-  local overrides = window:get_config_overrides() or {}
-  if not overrides.window_background_opacity then
-    overrides.window_background_opacity = config.window_background_opacity
-  end
-  local new_opacity = overrides.window_background_opacity + 0.05
-  if new_opacity > 1.0 then
-    new_opacity = 1.0
-  end
-  overrides.window_background_opacity = new_opacity
-  window:set_config_overrides(overrides)
-end)
-wezterm.on("decrease-opacity", function(window, _)
+wezterm.on("increase-transparency", function(window, _)
   local overrides = window:get_config_overrides() or {}
   if not overrides.window_background_opacity then
     overrides.window_background_opacity = config.window_background_opacity
@@ -55,6 +43,18 @@ wezterm.on("decrease-opacity", function(window, _)
   local new_opacity = overrides.window_background_opacity - 0.05
   if new_opacity < 0.0 then
     new_opacity = 0.0
+  end
+  overrides.window_background_opacity = new_opacity
+  window:set_config_overrides(overrides)
+end)
+wezterm.on("decrease-transparency", function(window, _)
+  local overrides = window:get_config_overrides() or {}
+  if not overrides.window_background_opacity then
+    overrides.window_background_opacity = config.window_background_opacity
+  end
+  local new_opacity = overrides.window_background_opacity + 0.05
+  if new_opacity > 1.0 then
+    new_opacity = 1.0
   end
   overrides.window_background_opacity = new_opacity
   window:set_config_overrides(overrides)
@@ -85,19 +85,21 @@ end)
 -- [[ Keys ]]
 
 config.keys = {
-  -- Default actions
-  { key = "c", mods = "SUPER", action = wezterm.action.CopyTo("Clipboard") },
+  -- MacOS window management
+  { key = "f", mods = "SUPER|CTRL", action = wezterm.action.ToggleFullScreen },
   { key = "h", mods = "SUPER", action = wezterm.action.HideApplication },
   { key = "m", mods = "SUPER", action = wezterm.action.Hide },
-  { key = "n", mods = "SUPER", action = wezterm.action.SpawnWindow },
   { key = "q", mods = "SUPER", action = wezterm.action.QuitApplication },
-  { key = "t", mods = "SUPER", action = wezterm.action.SpawnTab("CurrentPaneDomain") },
+
+  -- Default actions
+  { key = "c", mods = "SUPER", action = wezterm.action.CopyTo("Clipboard") },
   { key = "v", mods = "SUPER", action = wezterm.action.PasteFrom("Clipboard") },
+  { key = "n", mods = "SUPER", action = wezterm.action.SpawnWindow },
+  { key = "t", mods = "SUPER", action = wezterm.action.SpawnTab("CurrentPaneDomain") },
   { key = "w", mods = "SUPER", action = wezterm.action.CloseCurrentTab({ confirm = true }) },
   { key = "+", mods = "SUPER", action = wezterm.action.IncreaseFontSize },
   { key = "-", mods = "SUPER", action = wezterm.action.DecreaseFontSize },
   { key = "0", mods = "SUPER", action = wezterm.action.ResetFontSize },
-  { key = "0", mods = "SUPER|SHIFT", action = wezterm.action.ResetFontAndWindowSize },
   { key = "1", mods = "SUPER", action = wezterm.action.ActivateTab(0) },
   { key = "2", mods = "SUPER", action = wezterm.action.ActivateTab(1) },
   { key = "3", mods = "SUPER", action = wezterm.action.ActivateTab(2) },
@@ -112,10 +114,10 @@ config.keys = {
 
   -- Custom actions
   { key = "r", mods = "SUPER", action = wezterm.action.EmitEvent("reset-config") },
-  { key = "o", mods = "SUPER", action = wezterm.action.EmitEvent("decrease-opacity") },
-  { key = "o", mods = "SUPER|SHIFT", action = wezterm.action.EmitEvent("increase-opacity") },
-  { key = "b", mods = "SUPER", action = wezterm.action.EmitEvent("increase-blur") },
-  { key = "b", mods = "SUPER|SHIFT", action = wezterm.action.EmitEvent("decrease-blur") },
+  { key = "t", mods = "SUPER|META", action = wezterm.action.EmitEvent("increase-transparency") },
+  { key = "t", mods = "SUPER|META|SHIFT", action = wezterm.action.EmitEvent("decrease-transparency") },
+  { key = "b", mods = "SUPER|META", action = wezterm.action.EmitEvent("increase-blur") },
+  { key = "b", mods = "SUPER|META|SHIFT", action = wezterm.action.EmitEvent("decrease-blur") },
 }
 
 return config
