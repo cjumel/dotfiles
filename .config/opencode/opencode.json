@@ -3,7 +3,6 @@
   "autoupdate": false,
   "theme": "system",
   "keybinds": {
-    "input_delete_to_line_end": "alt+u",
     "command_list": "<leader>p",
     "input_move_up": "ctrl+p",
     "input_move_down": "ctrl+n",

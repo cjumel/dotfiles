@@ -47,7 +47,6 @@ export FZF_DEFAULT_OPTS="
     --height=40%
     --cycle # Cycle through the list when reaching the top/bottom
     --bind change:top # Move cursor to top on query change
-    --bind 'alt-u:kill-line'
     --bind 'tab:down'
     --bind 'shift-tab:up'
     --bind 'ctrl-s:toggle+down' # Like 'select'

@@ -71,7 +71,6 @@ zinit light Aloxaf/fzf-tab     # Should be loaded before zsh-autosuggestions
 zstyle ':completion:*' menu no # Avoid conflicts with fzf-tab
 zstyle ':fzf-tab:*' fzf-flags \
     --height=40% \
-    --bind 'alt-u:kill-line' \
     --bind 'ctrl-s:toggle+down' \
     --bind 'ctrl-g:top' \
     --bind 'ctrl-j:preview-down+preview-down+preview-down+preview-down+preview-down' \
@@ -109,7 +108,6 @@ zle -N copy-command-line
 
 bindkey "^[l" clear-screen       # `clear-screen` default keymap ("^l") is overriden by tmux window navigation
 bindkey "^u" backward-kill-line  # "^u" is mapped to `kill-whole-line` by default
-bindkey "^[u" kill-line          # `kill-line` default keymap ("^k") is overriden by tmux window navigation
 bindkey "^X^R" redo              #
 bindkey "^X^E" edit-command-line #
 bindkey "^Xy" copy-command-line  # Like "yank" in Vim/Neovim
