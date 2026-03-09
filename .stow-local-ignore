@@ -1,13 +1,6 @@
 # Prject-local stuff
 ^/\.git$
-^/\.editorconfig$
 ^/\.nvim\.lua$
-^/\.rumdl\.toml$
-^/\.shellcheckrc$
-^/\.stylua\.toml$
-^/\.taplo\.toml$
-^/\.yamlfmt\.yaml$
-^/\.yamllint\.yaml$
 ^/Makefile$
 
 # Documentation
