@@ -157,6 +157,7 @@ add-zsh-hook chpwd activate_python_venv_hook # On directory change
 activate_python_venv_hook                    # On shell startup
 
 # Lazy-setup nvm on command or on file detection, to avoid slowing down shell startup
+unset NVM_LOADED # Make sure lazy-loading works correctly when resourcing the file
 function load-nvm() {
     [[ -n "$NVM_LOADED" ]] && return
     NVM_LOADED=1
