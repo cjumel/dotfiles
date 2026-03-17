@@ -13,8 +13,10 @@ ${custom.git_status_simplified}\
 $git_status\
 $jobs\
 $fill\
-$python\
+$lua\
 $nodejs\
+$python\
+$typst\
 $cmd_duration\
 $time\
 $line_break\
@@ -43,8 +45,13 @@ truncation_symbol = "󰊢 "
 [fill]
 symbol = " "
 
+[lua]
+format = '[$symbol($version) ]($style)'
+symbol = '󰢱'
+
 [git_branch]
 format = "[$symbol$branch(:$remote_branch)]($style) "
+ignore_bare_repo = true
 style = "bold purple"
 
 [git_commit]
@@ -79,3 +86,7 @@ version_format = '${raw}'
 disabled = false
 format = "[ $time]($style) "
 style = "bold yellow"
+
+[typst]
+format = '[$symbol($version )]($style)'
+version_format = '${raw}'
