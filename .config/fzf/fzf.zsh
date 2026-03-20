@@ -54,7 +54,7 @@ export FZF_DEFAULT_OPTS="
     --bind 'ctrl-y:$FZF_ACTION_COPY' # Like 'yank' in Vim/Neovim
     --bind 'ctrl-j:preview-down+preview-down+preview-down+preview-down+preview-down'
     --bind 'ctrl-k:preview-up+preview-up+preview-up+preview-up+preview-up'
-    --bind 'alt-p:toggle-preview'
+    --bind 'alt-v:toggle-preview'
 "
 
 export FZF_CTRL_T_COMMAND="$FZF_FD_FILE_COMMAND_HIDDEN"
