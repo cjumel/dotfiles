@@ -202,10 +202,13 @@ PROFILE=/dev/null bash -c \
 
 #### Install
 
-For macOS, run the following command:
+For macOS, to use with Anthropic models thanks to the
+[opencode-anthropic-oauth plugin](https://github.com/shahidshabbir-se/opencode-anthropic-oauth), run
+the following commands:
 
 ```bash
 brew install opencode
+npm install -g opencode-anthropic-oauth
 ```
 
 ### [Poetry](https://python-poetry.org/)
