@@ -1,4 +1,5 @@
 # Part of this config is taken from https://blog.gitbutler.com/how-git-core-devs-configure-git/
+# It's also setup to use delta (https://github.com/dandavison/delta) as a pager for better diff visualization
 
 [advice]
 	forceDeleteBranch = false
@@ -13,7 +14,7 @@
 [core]
 	autocrlf = input
 	editor = nvim
-	pager = less
+	pager = delta
 [credential]
 	helper = osxkeychain
 [diff]
@@ -35,6 +36,8 @@
 	autocorrect = prompt
 [init]
 	defaultBranch = main
+[interactive]
+	diffFilter = delta --color-only
 [log]
 	abbrevCommit = true
 [merge]
@@ -60,3 +63,7 @@
 [user]
 	name = cjumel
 	email = clement.jumel@gmail.com
+
+[delta]
+	navigate = true  # Use `n` & `N` keys to move between diff sections
+	side-by-side = true

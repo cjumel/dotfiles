@@ -86,6 +86,16 @@ For macOS, run the following command:
 brew install bat
 ```
 
+### [delta](https://github.com/dandavison/delta)
+
+#### Install
+
+For macOS, run the following command:
+
+```bash
+brew install git-delta
+```
+
 ### [Docker](https://www.docker.com/)
 
 #### Install

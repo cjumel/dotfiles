@@ -115,6 +115,7 @@ bindkey "^Xy" copy-command-line  # Like "yank" in Vim/Neovim
 # [[ Miscellaneous ]]
 
 export EZA_CONFIG_DIR="$HOME/.config/eza"
+export DELTA_PAGER="less -R"
 export NVM_DIR="$HOME/.nvm"
 export POETRY_CONFIG_DIR="$HOME/.config/pypoetry"
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/ripgreprc"
