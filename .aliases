@@ -38,6 +38,7 @@ alias brud='brew update'
 alias brug='brew upgrade'
 alias brui='brew uninstall'
 alias brup='brew unpin'
+alias brut='brew untap'
 
 alias cl='clear'
 
@@ -108,6 +109,13 @@ alias dkvl='docker volume ls'
 alias dkvp='docker volume prune'
 alias dkvr='docker volume rm'
 
+function _git_log_fzf() {
+    git log --oneline --color=always |
+        fzf --ansi --no-sort --multi --prompt "Commits > " --preview "git show --color=always {1}" \
+            --bind "ctrl-y:execute-silent(echo {+1} | pbcopy)+preview(echo -n Copied in clipboard:\\n{+1})" --bind "ctrl-v:execute(git show --color=always {1})" |
+        awk '{printf "%s", $1}'
+}
+
 function _git_status_directory() {
     local dirs=("${@:-.}")
     local first=true
@@ -120,7 +128,21 @@ function _git_status_directory() {
         first=false
     done
 }
-compdef _directories _git_status_directory
+if [ -n "$ZSH_VERSION" ]; then compdef _directories _git_status_directory; fi
+
+function _git_worktree_status() {
+    # Find non-bare git worktrees
+    local -a worktrees
+    while IFS= read -r wt; do
+        if [[ $(git -C "$wt" rev-parse --is-bare-repository 2>/dev/null) == "true" ]]; then
+            continue
+        fi
+        worktrees+=("$wt")
+    done < <(git worktree list --porcelain | grep '^worktree ' | sed 's/^worktree //')
+
+    [[ ${#worktrees[@]} -eq 0 ]] && return
+    _git_status_directory "${worktrees[@]}"
+}
 
 alias ga='git add'
 alias gb='git branch'
@@ -133,7 +155,10 @@ alias gd='git diff'
 alias gf='git fetch'
 alias gi='git init'
 alias gl='git log'
-alias glf='git ls-files'
+alias glf='_git_log_fzf'
+alias glsf='git ls-files'
+alias glsr='git ls-remote'
+alias glst='git ls-tree'
 alias glfi='git lfs install'
 alias glfl='git lfs ls-files'
 alias glfpl='git lfs pull'
@@ -167,8 +192,12 @@ alias gt='git tag'
 alias gw='git worktree'
 alias gwa='git worktree add'
 alias gwl='git worktree list'
-alias gwr='git worktree remove'
+alias gwm='git worktree move'
+alias gwrm='git worktree remove'
+alias gwrp='git worktree repair'
+alias gws='_git_worktree_status'
 
+alias ghb='gh browse'
 alias ghic='gh issue create'
 alias ghie='gh issue edit'
 alias ghil='gh issue list'
@@ -181,6 +210,8 @@ alias ghpv='gh pr view'
 alias he='head'
 
 alias hi='history'
+
+alias lj='luajit'
 
 function mkdircd() {
     mkdir "$@"
@@ -195,6 +226,11 @@ function mkdircd() {
 }
 alias md='mkdir'
 alias mdc='mkdircd'
+
+alias mi='mise'
+alias mii='mise install'
+alias mit='mise trust'
+alias miu='mise use'
 
 alias mk='make'
 
@@ -211,8 +247,11 @@ alias nvu='nvm use'
 alias nvui='nvm uninstall'
 
 alias nxr='nx run'
+alias nxrm='nx run-many'
 
 alias oc='opencode'
+alias oca='opencode auth'
+alias ocal='opencode auth login'
 
 alias op='open'
 
@@ -251,6 +290,7 @@ alias posu='poetry self update'
 alias pou='poetry update'
 
 alias pni='pnpm install'
+alias pnr='pnpm run'
 
 function pythonvenv() {
     local python_version=${1:-3}
@@ -316,6 +356,8 @@ alias sob='source ~/.bashrc'
 alias sov='sourcevenv'
 alias soz='source ~/.zshrc'
 
+alias st='stow'
+
 alias tk='tokei' # See https://github.com/XAMPPRocky/tokei
 
 alias tl='tldr' # See https://github.com/tldr-pages/tldr
@@ -346,6 +388,31 @@ alias tmk='tmux kill-session'
 alias tmks='tmux kill-server'
 alias tmn='tmux new'
 alias tmr='tmux rename'
+
+_terminal_notifier() {
+    local exit_code=$?
+    local message
+    local status_mode=0
+    if [[ "$1" == "-s" || "$1" == "--status" ]]; then
+        status_mode=1
+        if ((exit_code == 0)); then
+            message="✅ Success"
+        else
+            message="❌ Failure ($exit_code)"
+        fi
+    elif [[ ! -t 0 ]]; then # For piping commands
+        message=$(cat)
+    else
+        message="${1:-Notification}"
+    fi
+    message="${message//$'\n'/ }"
+    message="${message//\"/\\\"}"
+    message="${message:0:200}"
+    osascript -e "display notification \"$message\" with title \"Terminal (${PWD##*/})\" sound name \"Tink\""
+    ((status_mode)) && return $exit_code
+    return 0
+}
+alias tn='_terminal_notifier'
 
 function touchdirs() {
     for file in "$@"; do
@@ -389,8 +456,8 @@ alias uvtup='uv tool upgrade'
 alias uvv='uv venv'
 
 alias vi='nvim'
-alias vii='NVIM_ENABLE_ALL_PLUGINS=1 nvim +MasonInstallAll' # Install mode
-alias viu='NVIM_ENABLE_ALL_PLUGINS=1 nvim'                  # Update mode
+alias vii='NVIM_ENABLE_ALL_PLUGINS=1 nvim +InstallAll' # Install mode
+alias viu='NVIM_ENABLE_ALL_PLUGINS=1 nvim'             # Update mode
 
 alias wi='which'
 
