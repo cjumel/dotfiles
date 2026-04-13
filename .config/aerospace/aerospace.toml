@@ -72,7 +72,7 @@ r = ['reload-config', 'mode main'] # Reload AeroSpace config
 esc = ['mode main']
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Finder|Preview|System Settings|Archive Utility'
+if.app-name-regex-substring = 'Archive Utility|Finder|Preview|System Settings|TextEdit'
 run = 'layout floating'
 
 [[on-window-detected]]
