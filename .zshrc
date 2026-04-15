@@ -1,7 +1,8 @@
 # [[ Options ]]
 # This should be at the top of the configuration
 
-export PATH="$HOME/.local/bin:$PATH" # Manual (e.g. Neovim) or some tools (e.g. Poetry and uv) binaries
+export PATH="$HOME/.local/bin:$PATH"    # Manual (e.g. Neovim) or some tools (e.g. Poetry and uv) binaries
+export PATH="$HOME/.jenv/shims:${PATH}" # Java tooling
 
 eval "$(brew shellenv)"               # Homebrew post-install: set `HOMEBREW_PREFIX`, update `PATH`, `MANPATH`, `fpath`, etc. (must be done after `PATH` is updated to ensure Homebrew's directories are prioritized)
 fpath=("${fpath[@]:1}" "${fpath[1]}") # Move prepended Homebrew's `fpath` to the end (some completions are worse than the default ones, e.g. for Git)
@@ -202,6 +203,32 @@ load-nvmrc-hook() {
 }
 add-zsh-hook chpwd load-nvmrc-hook # On directory change
 load-nvmrc-hook                    # On shell startup
+
+# Lazy-setup jenv on command or on file detection, to avoid slowing down shell startup
+unset JENV_LOADED # Make sure lazy-loading works correctly when resourcing the file
+function load-jenv() {
+    [[ -n "$JENV_LOADED" ]] && return
+    JENV_LOADED=1
+    unfunction jenv java javac 2>/dev/null # Remove the placeholder functions
+    eval "$(jenv init -)"
+}
+function load-jenv-hook() {
+    [[ -e .java-version ]] && load-jenv
+}
+function jenv() {
+    load-jenv
+    jenv "$@"
+}
+function java() {
+    load-jenv
+    java "$@"
+}
+function javac() {
+    load-jenv
+    javac "$@"
+}
+add-zsh-hook chpwd load-jenv-hook # On directory change
+load-jenv-hook                    # On shell startup
 
 # [[ Aliases ]]
 # This should be near the end of the configuration
