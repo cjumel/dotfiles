@@ -210,16 +210,22 @@ PROFILE=/dev/null bash -c \
 
 ### [OpenCode](https://opencode.ai/)
 
+I use OpenCode along with [rtk](https://www.rtk-ai.app/), a proxy to reduce AI agents token
+consumption.
+
 #### Install
 
-For macOS, to use with Anthropic models thanks to the
-[opencode-anthropic-oauth plugin](https://github.com/shahidshabbir-se/opencode-anthropic-oauth), run
-the following commands:
+For macOS, run the following commands:
 
 ```bash
-brew install opencode
-npm install -g opencode-anthropic-oauth
+brew install opencode rtk
+rtk init -g --opencode # You will be prompted wether to enable telemetry or not
 ```
+
+## Update
+
+Besides updating OpenCode itself through HomeBrew, you can update the OpenCode plugins by updating
+the pinned versions in the [configuration file](.config/opencode/opencode.json).
 
 ### [Poetry](https://python-poetry.org/)
 
