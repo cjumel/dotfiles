@@ -4,7 +4,8 @@
 ^/Makefile$
 
 # Documentation
-.*\.md$
+^/README\.md$
+^/TOOLS\.md$
 
 # Fake configuration files
 vimiumrc\.vim$
