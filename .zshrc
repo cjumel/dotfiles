@@ -230,6 +230,31 @@ function javac() {
 add-zsh-hook chpwd load-jenv-hook # On directory change
 load-jenv-hook                    # On shell startup
 
+# Lazy-setup mise on command or on file detection, to avoid slowing down shell startup
+unset MISE_LOADED # Make sure lazy-loading works correctly when resourcing the file
+function load-mise() {
+    [[ -n "$MISE_LOADED" ]] && return
+    MISE_LOADED=1
+    unfunction mise 2>/dev/null # Remove the placeholder function
+    eval "$(mise activate zsh)"
+}
+function mise() {
+    load-mise
+    mise "$@"
+}
+function load-mise-hook() {
+    local dir="$PWD"
+    while [[ "$dir" != "/" ]]; do
+        [[ -e "$dir/.mise.toml" || -e "$dir/.tool-versions" ]] && {
+            load-mise
+            return
+        }
+        dir="${dir:h}" # Parent directory
+    done
+}
+add-zsh-hook chpwd load-mise-hook # On directory change
+load-mise-hook                    # On shell startup
+
 # [[ Aliases ]]
 # This should be near the end of the configuration
 
