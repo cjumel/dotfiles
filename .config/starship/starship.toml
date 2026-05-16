@@ -14,6 +14,7 @@ $git_status\
 $jobs\
 $fill\
 $lua\
+$mise\
 $nodejs\
 $python\
 $typst\
@@ -71,6 +72,11 @@ style = "red bold"
 [jobs]
 number_threshold = 999 # Never reached in practice
 style = "red bold"
+
+[mise]
+disabled = false
+format = '[$symbol]($style) '
+symbol = 'mise'
 
 [nodejs]
 format = '[$symbol($version )]($style)'
