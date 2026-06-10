@@ -10,7 +10,6 @@ To use all these configuration files, you need:
 - [Git](https://git-scm.com/), to clone this repository
 - [GNU Stow](https://www.gnu.org/software/stow/), to set up all the configuration symbolic links at
   once with a single command
-- [GNU Make](https://www.gnu.org/software/make/), to use the recommended commands
 
 You can also use these configurations files manually without any requirement, but the rest of this
 file doesn't cover how to do so.
@@ -38,7 +37,7 @@ if you have backed up all your important configuration files.**
 To create the configuration symbolic links, simply run the following command:
 
 ```bash
-make symlinks
+stow --no-folding --adopt .
 ```
 
 This will create all the relevant symbolic links in your home directory and in sub-directories of
@@ -49,3 +48,12 @@ configuration, you need to discard these changes.
 Note that this command will **not** install any software, this depends on your operating system and
 needs to be done manually for each relevant tool. For additional instructions on how I install each
 tool, see the [Tools documentation](TOOLS.md).
+
+### Troubleshoting
+
+If updating zsh completion code, you might want to use the following command to make your changes
+be taken into account.
+
+```bash
+rm -f ~/.zcompdump
+```

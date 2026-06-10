@@ -1,7 +1,6 @@
 # Prject-local stuff
 ^/\.git$
 ^/\.nvim\.lua$
-^/Makefile$
 
 # Documentation
 ^/README\.md$
