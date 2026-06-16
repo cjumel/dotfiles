@@ -18,7 +18,6 @@ export FZF_PROMPT_DIR_HIDDEN='Directories [h] > '
 export FZF_PROMPT_DIR_IGNORE='Directories [i] > '
 export FZF_PROMPT_DIR_ALL='Directories [i][h] > '
 export FZF_PROMPT_COMMAND='Commands > '
-export FZF_PROMPT_COMMIT='Commits > '
 
 export FZF_PREVIEW_PATH='
 if [[ -d {} ]]; then
@@ -27,10 +26,8 @@ elif [[ -f {} ]]; then
     bat --color=always --line-range=:500 {}
 fi
 '
-export FZF_PREVIEW_COMMIT='git show --color=always {1}'
 export FZF_ACTION_COPY='execute-silent(echo -n {+} | pbcopy)+preview(echo -n Copied in clipboard:\\n{+})'
 export FZF_ACTION_COPY_COMMAND='execute-silent(echo -n {2..} | pbcopy)+preview(echo -n Copied in clipboard:\\n{2..})'
-export FZF_ACTION_COPY_COMMIT='execute-silent(echo {+1} | pbcopy)+preview(echo -n Copied in clipboard:\\n{+1})'
 export FZF_ACTION_VIEW_PATH='execute(
 if [[ -d {} ]]; then
     eza -a1 --color=always --icons=never --group-directories-first {} | less
@@ -38,7 +35,6 @@ elif [[ -f {} ]]; then
     bat --color=always {} | less
 fi
 )'
-export FZF_ACTION_VIEW_COMMIT='execute(git show --color=always {1})'
 
 # [[ Options ]]
 
@@ -160,59 +156,21 @@ export FZF_ALT_C_OPTS="
     --bind 'ctrl-v:$FZF_ACTION_VIEW_PATH'
 "
 
-# [[ Keybindings ]]
-
-function _fzf-git-log-widget() {
-    if ! git rev-parse --git-dir >/dev/null 2>&1; then
-        zle -M "Not a git repository"
-        return 1
-    fi
-    local commits=$(git log --oneline --color=always |
-        fzf --ansi --no-sort --multi --prompt "$FZF_PROMPT_COMMIT" --preview "$FZF_PREVIEW_COMMIT" --bind "ctrl-y:$FZF_ACTION_COPY_COMMIT" --bind "ctrl-v:$FZF_ACTION_VIEW_COMMIT" |
-        awk '{print $1}')
-    if [[ -n "$commits" ]]; then
-        local commit_string=$(echo "$commits" | tr '\n' ' ' | sed 's/ $//')
-        LBUFFER="${LBUFFER}${commit_string}"
-    fi
-    zle reset-prompt
-}
-zle -N _fzf-git-log-widget
-bindkey '^[t' _fzf-git-log-widget # <M-t>
-
 # [[ Completion ]]
-
-export FZF_COMPLETION_TRIGGER='' # Remove the default trigger character
-bindkey '^[[Z' fzf-completion    # Use <S-Tab> as fzf completion keybinding (<Tab> is kept for regular completion)
-
-# Use `fd` to generate completion candidates (doesn't respect the `ignore` file here)
-# In the following functions, `$1` is the base path to start traversal
-_fzf_compgen_path() {
-    fd --hidden --follow . "$1"
-}
-_fzf_compgen_dir() {
-    fd --hidden --follow --type d . "$1"
-}
 
 # Use same preview for all commands
 _fzf_comprun() {
     local command=$1
     shift
-
     case "$command" in
     *) fzf --preview "$FZF_PREVIEW_PATH" --bind "ctrl-v:$FZF_ACTION_VIEW_PATH" "$@" ;;
     esac
 }
 
 # Specify commands which trigger directory-only completion (builtin commands whose default completion shows only directories)
-export FZF_COMPLETION_DIR_COMMANDS='
-    cd
-'
+export FZF_COMPLETION_DIR_COMMANDS='cd'
 
 # [[ Setup ]]
 
 # Set up shell integration (key bindings & fuzzy completion)
 source <(fzf --zsh)
-
-# Since above is defined a custom keybinding for completion, remapping <C-i> is necessary to keep it as regular completion
-# shellcheck disable=SC2154
-bindkey '^i' "$fzf_default_completion"
