@@ -44,52 +44,19 @@ wezterm.on("switch-alt-key-mode", function(window, _)
   window:toast_notification("WezTerm", message, nil, 2000)
 end)
 
-wezterm.on("increase-transparency", function(window, _)
-  local overrides = window:get_config_overrides() or {}
-  if not overrides.window_background_opacity then
-    overrides.window_background_opacity = config.window_background_opacity
-  end
-  local new_opacity = overrides.window_background_opacity - 0.05
-  if new_opacity < 0.0 then
-    new_opacity = 0.0
-  end
-  overrides.window_background_opacity = new_opacity
-  window:set_config_overrides(overrides)
-end)
-wezterm.on("decrease-transparency", function(window, _)
-  local overrides = window:get_config_overrides() or {}
-  if not overrides.window_background_opacity then
-    overrides.window_background_opacity = config.window_background_opacity
-  end
-  local new_opacity = overrides.window_background_opacity + 0.05
-  if new_opacity > 1.0 then
-    new_opacity = 1.0
-  end
-  overrides.window_background_opacity = new_opacity
-  window:set_config_overrides(overrides)
-end)
+local function make_adjuster(event, key, delta, min, max)
+  wezterm.on(event, function(window, _)
+    local overrides = window:get_config_overrides() or {}
+    local value = overrides[key] or config[key]
+    overrides[key] = math.max(min, math.min(max, value + delta))
+    window:set_config_overrides(overrides)
+  end)
+end
 
-wezterm.on("increase-blur", function(window, _)
-  local overrides = window:get_config_overrides() or {}
-  if not overrides.macos_window_background_blur then
-    overrides.macos_window_background_blur = config.macos_window_background_blur
-  end
-  local new_blur = overrides.macos_window_background_blur + 5
-  overrides.macos_window_background_blur = new_blur
-  window:set_config_overrides(overrides)
-end)
-wezterm.on("decrease-blur", function(window, _)
-  local overrides = window:get_config_overrides() or {}
-  if not overrides.macos_window_background_blur then
-    overrides.macos_window_background_blur = config.macos_window_background_blur
-  end
-  local new_blur = overrides.macos_window_background_blur - 5
-  if new_blur < 0 then
-    new_blur = 0
-  end
-  overrides.macos_window_background_blur = new_blur
-  window:set_config_overrides(overrides)
-end)
+make_adjuster("increase-opacity", "window_background_opacity", 0.05, 0.0, 1.0)
+make_adjuster("decrease-opacity", "window_background_opacity", -0.05, 0.0, 1.0)
+make_adjuster("increase-blur", "macos_window_background_blur", 5, 0, 100)
+make_adjuster("decrease-blur", "macos_window_background_blur", -5, 0, 100)
 
 -- [[ Keys ]]
 
@@ -124,10 +91,10 @@ config.keys = {
   -- Custom actions
   { key = "r", mods = "SUPER", action = wezterm.action.EmitEvent("reset-config") },
   { key = "a", mods = "SUPER", action = wezterm.action.EmitEvent("switch-alt-key-mode") },
-  { key = "t", mods = "SUPER|META", action = wezterm.action.EmitEvent("increase-transparency") },
-  { key = "t", mods = "SUPER|META|SHIFT", action = wezterm.action.EmitEvent("decrease-transparency") },
-  { key = "b", mods = "SUPER|META", action = wezterm.action.EmitEvent("increase-blur") },
-  { key = "b", mods = "SUPER|META|SHIFT", action = wezterm.action.EmitEvent("decrease-blur") },
+  { key = "o", mods = "SUPER", action = wezterm.action.EmitEvent("decrease-opacity") },
+  { key = "o", mods = "SUPER|SHIFT", action = wezterm.action.EmitEvent("increase-opacity") },
+  { key = "b", mods = "SUPER", action = wezterm.action.EmitEvent("increase-blur") },
+  { key = "b", mods = "SUPER|SHIFT", action = wezterm.action.EmitEvent("decrease-blur") },
 }
 
 return config
