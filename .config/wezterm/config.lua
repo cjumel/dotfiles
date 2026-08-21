@@ -23,8 +23,9 @@ config.adjust_window_size_when_changing_font_size = false
 -- [[ Keyboard ]]
 config.disable_default_key_bindings = true
 config.enable_kitty_keyboard = true -- Make possible to use less common keymaps like <C-CR> or <C-S-a> in tmux
-config.send_composed_key_when_left_alt_is_pressed = true -- To type special characters
-config.send_composed_key_when_right_alt_is_pressed = false -- To type meta key combinations (used by home-row mods)
+local send_composed_key_when_alt_is_pressed = wezterm.GLOBAL.send_composed_key_when_alt_is_pressed or false -- Enable meta combinations by default
+config.send_composed_key_when_left_alt_is_pressed = send_composed_key_when_alt_is_pressed
+config.send_composed_key_when_right_alt_is_pressed = send_composed_key_when_alt_is_pressed
 
 -- [[ Custom actions ]]
 
@@ -33,6 +34,14 @@ wezterm.on("reset-config", function(window, _)
   local default_config = theme.update_config(config, { force_reload = true })
   overrides = utils.merge_dicts({ overrides, default_config })
   window:set_config_overrides(overrides)
+end)
+
+wezterm.on("switch-alt-key-mode", function(window, _)
+  wezterm.GLOBAL.send_composed_key_when_alt_is_pressed = not wezterm.GLOBAL.send_composed_key_when_alt_is_pressed
+  wezterm.reload_configuration()
+  local message = wezterm.GLOBAL.send_composed_key_when_alt_is_pressed and "Alt sends composed keys"
+    or "Alt sends meta combinations"
+  window:toast_notification("WezTerm", message, nil, 2000)
 end)
 
 wezterm.on("increase-transparency", function(window, _)
@@ -114,6 +123,7 @@ config.keys = {
 
   -- Custom actions
   { key = "r", mods = "SUPER", action = wezterm.action.EmitEvent("reset-config") },
+  { key = "a", mods = "SUPER", action = wezterm.action.EmitEvent("switch-alt-key-mode") },
   { key = "t", mods = "SUPER|META", action = wezterm.action.EmitEvent("increase-transparency") },
   { key = "t", mods = "SUPER|META|SHIFT", action = wezterm.action.EmitEvent("decrease-transparency") },
   { key = "b", mods = "SUPER|META", action = wezterm.action.EmitEvent("increase-blur") },
