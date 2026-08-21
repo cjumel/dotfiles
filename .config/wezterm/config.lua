@@ -1,8 +1,8 @@
-local theme = require("theme")
-local utils = require("utils")
 local wezterm = require("wezterm")
 
 local config = {}
+
+config.automatically_reload_config = false
 
 -- [[ Window ]]
 config.hide_tab_bar_if_only_one_tab = true
@@ -28,13 +28,6 @@ config.send_composed_key_when_left_alt_is_pressed = send_composed_key_when_alt_i
 config.send_composed_key_when_right_alt_is_pressed = send_composed_key_when_alt_is_pressed
 
 -- [[ Custom actions ]]
-
-wezterm.on("reset-config", function(window, _)
-  local overrides = window:get_config_overrides() or {}
-  local default_config = theme.update_config(config, { force_reload = true })
-  overrides = utils.merge_dicts({ overrides, default_config })
-  window:set_config_overrides(overrides)
-end)
 
 wezterm.on("switch-alt-key-mode", function(window, _)
   wezterm.GLOBAL.send_composed_key_when_alt_is_pressed = not wezterm.GLOBAL.send_composed_key_when_alt_is_pressed
@@ -87,9 +80,16 @@ config.keys = {
   { key = "9", mods = "SUPER", action = wezterm.action.ActivateTab(8) },
   { key = "Tab", mods = "CTRL", action = wezterm.action.ActivateTabRelative(1) },
   { key = "Tab", mods = "CTRL|SHIFT", action = wezterm.action.ActivateTabRelative(-1) },
+  {
+    key = "r",
+    mods = "SUPER",
+    action = wezterm.action_callback(function(window, pane)
+      window:toast_notification("wezterm", "Configuration reloaded", nil, 2000)
+      window:perform_action(wezterm.action.ReloadConfiguration, pane)
+    end),
+  },
 
   -- Custom actions
-  { key = "r", mods = "SUPER", action = wezterm.action.EmitEvent("reset-config") },
   { key = "a", mods = "SUPER", action = wezterm.action.EmitEvent("switch-alt-key-mode") },
   { key = "o", mods = "SUPER", action = wezterm.action.EmitEvent("decrease-opacity") },
   { key = "o", mods = "SUPER|SHIFT", action = wezterm.action.EmitEvent("increase-opacity") },
