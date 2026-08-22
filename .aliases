@@ -40,6 +40,8 @@ alias brui='brew uninstall'
 alias brup='brew unpin'
 alias brut='brew untap'
 
+alias caf='caffeinate'
+
 alias cl='clear'
 
 function changetheme() {
