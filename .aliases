@@ -40,6 +40,8 @@ alias brui='brew uninstall'
 alias brup='brew unpin'
 alias brut='brew untap'
 
+alias caf='caffeinate'
+
 alias cl='clear'
 
 function changetheme() {
@@ -204,6 +206,7 @@ alias ghil='gh issue list'
 alias ghiv='gh issue view'
 alias ghpc='gh pr create'
 alias ghpe='gh pr edit'
+alias ghpef='gh pr edit --body="$(git log --reverse --pretty=format:"- **%s**%n%b" origin/HEAD..HEAD)"' # Like --fill-verbose in `gh pr create` but for `gh pr edit`
 alias ghpl='gh pr list'
 alias ghpv='gh pr view'
 
