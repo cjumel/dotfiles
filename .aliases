@@ -8,18 +8,18 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
-function aliasfuzzyfind() {
+function _alias-fuzzy-find() {
     local selected_alias=$(alias | sed 's/=/ -> /' | fzf --prompt 'Aliases > ' | cut -d' ' -f1)
     if [[ -n "$selected_alias" ]]; then
         print -z "${selected_alias} "
     fi
 }
-function aliaslist() {
+function _alias-list() {
     alias | grep "^$1"
 }
 alias al='alias'
-alias alf='aliasfuzzyfind'
-alias all='aliaslist'
+alias alf='_alias-fuzzy-find'
+alias all='_alias-list'
 
 alias bra='brew autoremove'
 alias brc='brew cleanup'
@@ -40,9 +40,11 @@ alias brui='brew uninstall'
 alias brup='brew unpin'
 alias brut='brew untap'
 
+alias caf='caffeinate'
+
 alias cl='clear'
 
-function changetheme() {
+function _change-theme() {
     local themes="default
 catppuccin-macchiato
 catppuccin-mocha
@@ -71,7 +73,7 @@ tokyonight-day"
     ln -sf "$HOME/.config/tmux/theme/tmux-$selected_theme.conf" "$HOME/.config/tmux/theme/tmux-current.conf"
     ln -sf "$HOME/.config/nvim/lua/config/theme/$selected_theme.lua" "$HOME/.config/nvim/lua/config/theme/current.lua"
 }
-alias ct='changetheme'
+alias ct='_change-theme'
 
 alias da='deactivate'
 
@@ -109,14 +111,20 @@ alias dkvl='docker volume ls'
 alias dkvp='docker volume prune'
 alias dkvr='docker volume rm'
 
-function _git_log_fzf() {
+function _git-log-fzf() {
     git log --oneline --color=always |
         fzf --ansi --no-sort --multi --prompt "Commits > " --preview "git show --color=always {1}" \
             --bind "ctrl-y:execute-silent(echo {+1} | pbcopy)+preview(echo -n Copied in clipboard:\\n{+1})" --bind "ctrl-v:execute(git show --color=always {1})" |
         awk '{printf "%s", $1}'
 }
+function _git-log-fzf-full() {
+    git log -z --color=always --format='%h%x09%s%n%b' |
+        fzf --ansi --read0 --print0 --exact --no-sort --multi --prompt "Commits > " --preview "git show --color=always {1}" \
+            --bind "ctrl-y:execute-silent(echo {+1} | pbcopy)+preview(echo -n Copied in clipboard:\\n{+1})" --bind "ctrl-v:execute(git show --color=always {1})" |
+        awk -v RS='\0' -F '\t' '{printf "%s", $1}'
+}
 
-function _git_status_directory() {
+function _git-status-directory() {
     local dirs=("${@:-.}")
     local first=true
     for dir in "${dirs[@]}"; do
@@ -128,9 +136,9 @@ function _git_status_directory() {
         first=false
     done
 }
-if [ -n "$ZSH_VERSION" ]; then compdef _directories _git_status_directory; fi
+if [ -n "$ZSH_VERSION" ]; then compdef _directories _git-status-directory; fi
 
-function _git_worktree_status() {
+function _git-worktree-status() {
     # Find non-bare git worktrees
     local -a worktrees
     while IFS= read -r wt; do
@@ -141,7 +149,7 @@ function _git_worktree_status() {
     done < <(git worktree list --porcelain | grep '^worktree ' | sed 's/^worktree //')
 
     [[ ${#worktrees[@]} -eq 0 ]] && return
-    _git_status_directory "${worktrees[@]}"
+    _git-status-directory "${worktrees[@]}"
 }
 
 alias ga='git add'
@@ -155,7 +163,8 @@ alias gd='git diff'
 alias gf='git fetch'
 alias gi='git init'
 alias gl='git log'
-alias glf='_git_log_fzf'
+alias glf='_git-log-fzf'
+alias glff='_git-log-fzf-full'
 alias glsf='git ls-files'
 alias glsr='git ls-remote'
 alias glst='git ls-tree'
@@ -177,7 +186,7 @@ alias grs='git reset'
 alias grt='git restore'
 alias grv='git revert'
 alias gs='git status'
-alias gsd='_git_status_directory'
+alias gsd='_git-status-directory'
 alias gsh='git show'
 alias gst='git stash'
 alias gsta='git stash apply'
@@ -191,11 +200,42 @@ alias gsw='git switch'
 alias gt='git tag'
 alias gw='git worktree'
 alias gwa='git worktree add'
-alias gwl='git worktree list'
+alias gwls='git worktree list'
+alias gwlo='git worktree lock'
 alias gwm='git worktree move'
+alias gwp='git worktree prune'
 alias gwrm='git worktree remove'
 alias gwrp='git worktree repair'
-alias gws='_git_worktree_status'
+alias gws='_git-worktree-status'
+alias gwu='git worktree unlock'
+
+function _gh-pr-edit-fill-verbose() {
+    local range='origin/HEAD..HEAD'
+    local body
+    local argument
+    local dry_run=false
+    local -a gh_arguments
+
+    for argument in "$@"; do
+        if [[ "$argument" == '--dry-run' ]]; then
+            dry_run=true
+        else
+            gh_arguments+=("$argument")
+        fi
+    done
+
+    if (($(git rev-list --count "$range") == 1)); then
+        body=$(git log --pretty=format:'%b' "$range")
+    else
+        body=$(git log --reverse --pretty=format:'- **%s**%n%w(0,4,4)%+b' "$range")
+    fi
+
+    if [[ "$dry_run" == true ]]; then
+        printf '%s\n' "$body"
+    else
+        gh pr edit --body="$body" "${gh_arguments[@]}"
+    fi
+}
 
 alias ghb='gh browse'
 alias ghic='gh issue create'
@@ -204,6 +244,7 @@ alias ghil='gh issue list'
 alias ghiv='gh issue view'
 alias ghpc='gh pr create'
 alias ghpe='gh pr edit'
+alias ghpef='_gh-pr-edit-fill-verbose'
 alias ghpl='gh pr list'
 alias ghpv='gh pr view'
 
@@ -213,7 +254,7 @@ alias hi='history'
 
 alias lj='luajit'
 
-function mkdircd() {
+function _mkdir-cd() {
     mkdir "$@"
     local dir
     for arg in "$@"; do
@@ -225,7 +266,7 @@ function mkdircd() {
     cd "$dir" || exit
 }
 alias md='mkdir'
-alias mdc='mkdircd'
+alias mdc='_mkdir-cd'
 
 alias mi='mise'
 alias mii='mise install'
@@ -246,6 +287,20 @@ alias nvi='nvm install'
 alias nvu='nvm use'
 alias nvui='nvm uninstall'
 
+function _nx-daemon-list() {
+    local pid workspace
+    local found=0
+    while IFS= read -r pid; do
+        [[ -z "$pid" ]] && continue
+        found=1
+        workspace=$(lsof -a -p "$pid" -d cwd -Fn 2>/dev/null | sed -n 's/^n//p')
+        echo "PID $pid: ${workspace:-unknown workspace}"
+    done < <(pgrep -f 'nx/dist/src/daemon/server/start\.js')
+    ((found)) || echo "No Nx daemons running"
+}
+
+alias nxd='nx daemon'
+alias nxdl='_nx-daemon-list'
 alias nxr='nx run'
 alias nxrm='nx run-many'
 
@@ -292,7 +347,7 @@ alias pou='poetry update'
 alias pni='pnpm install'
 alias pnr='pnpm run'
 
-function pythonvenv() {
+function _python-venv() {
     local python_version=${1:-3}
     local venv_name=${2:-.venv}
     local python_cmd="python${python_version}"
@@ -307,9 +362,9 @@ function pythonvenv() {
     "$python_cmd" -m venv "$venv_name"
 }
 alias py='python'
-alias pyv='pythonvenv'
+alias pyv='_python-venv'
 
-function rmbrokensymlinks() {
+function _rm-broken-symlinks() {
     local recursive=0
     local dir="."
     while [[ $# -gt 0 ]]; do
@@ -336,13 +391,13 @@ function rmbrokensymlinks() {
     echo "$broken_symlinks"
     find "${find_opts[@]}" -exec rm -- {} + # Line taken from the `man find` page
 }
-alias rbs="rmbrokensymlinks"
+alias rbs='_rm-broken-symlinks'
 
 alias rd='rmdir'
 
 alias rp='realpath'
 
-function sourcevenv() {
+function _source-venv() {
     local venv_path=${1:-.venv}
     if [[ -d "$venv_path" ]]; then
         source "$venv_path/bin/activate"
@@ -353,7 +408,7 @@ function sourcevenv() {
 }
 alias so='source'
 alias sob='source ~/.bashrc'
-alias sov='sourcevenv'
+alias sov='_source-venv'
 alias soz='source ~/.zshrc'
 
 alias st='stow'
@@ -389,7 +444,7 @@ alias tmks='tmux kill-server'
 alias tmn='tmux new'
 alias tmr='tmux rename'
 
-_terminal_notifier() {
+_terminal-notifier() {
     local exit_code=$?
     local message
     local status_mode=0
@@ -412,9 +467,9 @@ _terminal_notifier() {
     ((status_mode)) && return $exit_code
     return 0
 }
-alias tn='_terminal_notifier'
+alias tn='_terminal-notifier'
 
-function touchdirs() {
+function _touch-dirs() {
     for file in "$@"; do
         dir=$(dirname "$file")
         mkdir -p "$dir"
@@ -422,7 +477,7 @@ function touchdirs() {
     done
 }
 alias to='touch'
-alias tod='touchdirs'
+alias tod='_touch-dirs'
 
 alias ul='unlink'
 
