@@ -5,6 +5,11 @@ start-at-login = true
 accordion-padding = 150
 persistent-workspaces = ["1", "2", "3", "4"] # A 5th workspace is added when using a second display
 
+after-startup-command = [
+  'layout --workspace 1 --root accordion',
+  'layout --workspace 4 --root accordion',
+]
+
 [gaps]
 inner.horizontal = 20
 inner.vertical = 20
@@ -24,8 +29,10 @@ cmd-alt-ctrl-shift-j = 'move down'
 cmd-alt-ctrl-shift-k = 'move up'
 cmd-alt-ctrl-shift-l = 'move right'
 
-cmd-alt-ctrl-n = 'workspace next'
-cmd-alt-ctrl-p = 'workspace prev'
+# `list-workspaces --empty no` excludes the focused workspace if it's empty, which leads to a jump
+# to an unexpected workspace, hence the double `list-workspaces` call and the numeric merge with `sort -n -u`
+cmd-alt-ctrl-n = 'exec-and-forget { aerospace list-workspaces --monitor focused --empty no; aerospace list-workspaces --focused; } | sort -n -u | aerospace workspace --stdin next'
+cmd-alt-ctrl-p = 'exec-and-forget { aerospace list-workspaces --monitor focused --empty no; aerospace list-workspaces --focused; } | sort -n -u | aerospace workspace --stdin prev'
 cmd-alt-ctrl-shift-n = ['move-node-to-workspace next', 'workspace next']
 cmd-alt-ctrl-shift-p = ['move-node-to-workspace prev', 'workspace prev']
 
@@ -34,40 +41,42 @@ cmd-alt-ctrl-2 = 'workspace 2'
 cmd-alt-ctrl-3 = 'workspace 3'
 cmd-alt-ctrl-4 = 'workspace 4'
 cmd-alt-ctrl-5 = 'workspace 5'
+cmd-alt-ctrl-6 = 'workspace 6'
+cmd-alt-ctrl-7 = 'workspace 7'
+cmd-alt-ctrl-8 = 'workspace 8'
+cmd-alt-ctrl-9 = 'workspace 9'
 cmd-alt-ctrl-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
 cmd-alt-ctrl-shift-2 = ['move-node-to-workspace 2', 'workspace 2']
 cmd-alt-ctrl-shift-3 = ['move-node-to-workspace 3', 'workspace 3']
 cmd-alt-ctrl-shift-4 = ['move-node-to-workspace 4', 'workspace 4']
 cmd-alt-ctrl-shift-5 = ['move-node-to-workspace 5', 'workspace 5']
+cmd-alt-ctrl-shift-6 = ['move-node-to-workspace 6', 'workspace 6']
+cmd-alt-ctrl-shift-7 = ['move-node-to-workspace 7', 'workspace 7']
+cmd-alt-ctrl-shift-8 = ['move-node-to-workspace 8', 'workspace 8']
+cmd-alt-ctrl-shift-9 = ['move-node-to-workspace 9', 'workspace 9']
 
-# Mnemonic: form some kind of arrow block, a bit similar to Vim's hjkl
-cmd-alt-ctrl-backslash = 'join-with up'
-cmd-alt-ctrl-leftSquareBracket = 'join-with left'
-cmd-alt-ctrl-quote = 'join-with down'
-cmd-alt-ctrl-rightSquareBracket = 'join-with right'
-
-cmd-alt-ctrl-f = 'layout floating tiling' # Toggle floating
-cmd-alt-ctrl-o = 'workspace-back-and-forth' # Like Vim/Neovim's <C-o>
-cmd-alt-ctrl-r = 'flatten-workspace-tree' # Reset joins
-cmd-alt-ctrl-z = 'fullscreen' # Toggle zoom
+cmd-alt-ctrl-b = 'workspace-back-and-forth'
 
 cmd-alt-ctrl-equal = 'resize smart +50'
 cmd-alt-ctrl-minus = 'resize smart -50'
 
-cmd-alt-ctrl-b = 'exec-and-forget open -a Zen' # Like "browser"
-cmd-alt-ctrl-m = 'exec-and-forget open -a Slack' # Like "messages" 
-cmd-alt-ctrl-s = 'exec-and-forget open -a Spotify' # Like "songs"
-cmd-alt-ctrl-t = 'exec-and-forget open -a WezTerm' # Like "terminal"
-
 cmd-alt-ctrl-space = 'mode service'
 
 [mode.service.binding]
+f = ['layout floating tiling', 'mode main'] # Toggle floating
+t = ['flatten-workspace-tree', 'mode main'] # Reset tiling tree
+z = ['fullscreen', 'mode main'] # Toggle zoom
 
-l = ['layout tiles accordion', 'mode main'] # Change layout
-o = ['layout horizontal vertical', 'mode main'] # Change orientation
+h = ['join-with left', "mode main"]
+j = ['join-with down', "mode main"]
+k = ['join-with up', "mode main"]
+l = ['join-with right', "mode main"]
 
-d = ['enable off'] # Disable AeroSpace 
-r = ['reload-config', 'mode main'] # Reload AeroSpace config
+m = ['layout tiles accordion', 'mode main'] # Change layout mode
+o = ['layout horizontal vertical', 'mode main'] # Change layout orientation
+
+d = ['enable off'] # Disable 
+r = ['reload-config', 'mode main'] # Reload config
 
 esc = ['mode main']
 
@@ -80,7 +89,7 @@ if.app-name-regex-substring = 'Slack|Spotify'
 run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Zen'
+if.app-name-regex-substring = 'Zen|Firefox'
 run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
@@ -88,4 +97,5 @@ if.app-name-regex-substring = 'WezTerm'
 run = 'move-node-to-workspace 3'
 
 [[on-window-detected]] # Last section: all the rest
+if = 'true'
 run = 'move-node-to-workspace 4'
