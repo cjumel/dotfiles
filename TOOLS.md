@@ -10,7 +10,9 @@ with a keyboard-centric and developper-friendly approach. See this
 what AeroSpace can do.
 
 I additionally use [SwipeAeroSpace](https://github.com/MediosZ/SwipeAeroSpace), to keep being able
-to use trackpad gestures to swipe workspaces.
+to use trackpad gestures to swipe workspaces, as well as
+[JankyBorders](https://github.com/FelixKratz/JankyBorders) to help track the focused window in
+a tiling layout.
 
 #### Install
 
@@ -19,6 +21,7 @@ For macOS, run the following commands:
 ```bash
 brew install --cask nikitabobko/tap/aerospace
 brew install --cask mediosz/tap/swipeaerospace
+brew install --formula FelixKratz/formulae/borders
 ```
 
 Then start the AeroSpace and SwipeAeroSpace applications and follow the prompts to give them the
