@@ -9,10 +9,9 @@ with a keyboard-centric and developper-friendly approach. See this
 [YouTube video](https://www.youtube.com/watch?v=5nwnJjr5eOo&t) for a more detailed explanation of
 what AeroSpace can do.
 
-I additionally use [SwipeAeroSpace](https://github.com/MediosZ/SwipeAeroSpace), to keep being able
-to use trackpad gestures to swipe workspaces, as well as
-[JankyBorders](https://github.com/FelixKratz/JankyBorders) to help track the focused window in
-a tiling layout.
+I additionally use [hammerspoon](https://github.com/hammerspoon/hammerspoon), to use trackpad
+gestures to swipe workspaces, as well as [JankyBorders](https://github.com/FelixKratz/JankyBorders)
+to help track the focused window in a tiling layout.
 
 #### Install
 
@@ -20,14 +19,16 @@ For macOS, run the following commands:
 
 ```bash
 brew install --cask nikitabobko/tap/aerospace
-brew install --cask mediosz/tap/swipeaerospace
+brew install --cask hammerspoon
+# Change the config location for hammerspoon
+defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua"
 brew install --formula FelixKratz/formulae/borders
 ```
 
-Then start the AeroSpace and SwipeAeroSpace applications and follow the prompts to give them the
-relevant system access, enable them on startup and configure them if necessary.
+Then, start the AeroSpace and hammerspoon applications, give them the relevant system access and
+tweak their configurations through the GUI if needed.
 
-Lastly, change the following settings:
+Lastly, change the following MacOS settings:
 
 - enable `System Settings → Desktop & Dock → Group windows by application`
 - disable `System Settings → Trackpad → More Gestures → Swipe between full-screen applications`
