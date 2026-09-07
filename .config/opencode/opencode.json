@@ -3,5 +3,39 @@
   "autoupdate": false,
   "plugin": [
     "@mohak34/opencode-notifier@0.2.8"
-  ]
+  ],
+  "agent": {
+    "build": {
+      "mode": "primary",
+      "model": "openai/gpt-5.6-terra"
+    },
+    "plan": {
+      "mode": "primary",
+      "model": "openai/gpt-5.6-sol"
+    },
+    "general": {
+      "mode": "subagent",
+      "model": "openai/gpt-5.6-terra"
+    },
+    "explore": {
+      "mode": "subagent",
+      "model": "openai/gpt-5.6-terra"
+    },
+    "scout": {
+      "mode": "subagent",
+      "model": "openai/gpt-5.6-terra"
+    },
+    "compaction": {
+      "mode": "primary",
+      "model": "openai/gpt-5.6-terra"
+    },
+    "title": {
+      "mode": "primary",
+      "model": "openai/gpt-5.6-luna"
+    },
+    "summary": {
+      "mode": "primary",
+      "model": "openai/gpt-5.6-luna"
+    }
+  }
 }
