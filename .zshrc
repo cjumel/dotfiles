@@ -13,6 +13,13 @@ export VISUAL=nvim      # Default visual editor
 export PAGER=less       # Default pager
 export LESS=R           # Options for less (clear terminal content after quiting)
 
+# Keep command-line editor buffers under $HOME so Neovim finds ~/.editorconfig
+if [[ ! -d "$HOME/.cache/zsh" ]]; then
+    # shellcheck disable=SC2174
+    mkdir -p -m 700 "$HOME/.cache/zsh"
+fi
+TMPPREFIX="$HOME/.cache/zsh/zsh"
+
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # Set case-insensitive completion when using lowercase (like ripgrep's smart case)
 
 HISTFILE="$HOME/.zsh_history" # History file location
