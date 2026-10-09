@@ -3,6 +3,7 @@
 ^/\.nvim\.lua$
 
 # Documentation
+^/MACOS\.md$
 ^/README\.md$
 ^/TOOLS\.md$
 
