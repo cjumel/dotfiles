@@ -5,6 +5,7 @@
 ^/\.rtk$
 
 # Documentation
+^/MACOS\.md$
 ^/README\.md$
 ^/TOOLS\.md$
 
