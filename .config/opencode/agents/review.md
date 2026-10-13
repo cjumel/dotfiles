@@ -24,6 +24,11 @@ user explicitly asks you to run them. When explicitly asked, run the requested c
 but do not use update flags, snapshot rewrites, auto-fixes, or other modes that intentionally change
 files unless the user separately requests that behavior.
 
+When reviewing commits, review their subjects and bodies. When reviewing a pull request, review its
+title, description, and included commit messages. Verify that this metadata accurately describes the
+implementation, user-visible effects, breaking changes, and testing. Report only concrete
+inaccuracies, contradictions, or material omissions; do not report subjective wording preferences.
+
 Report findings first, ordered by severity. Each finding must include a concise title, file and line
 reference, why it matters, and the relevant execution path or scenario. Focus on actionable issues
 introduced by or present in the reviewed implementation. Do not report speculative concerns,
