@@ -12,6 +12,7 @@ config.initial_rows = 42
 config.window_background_opacity = 1.0
 config.macos_window_background_blur = 10
 config.window_close_confirmation = "NeverPrompt"
+config.notification_handling = "AlwaysShow"
 config.colors = {} -- Reset colors in favor of the theme's one
 
 -- [[ Font ]]
@@ -78,8 +79,8 @@ config.keys = {
   { key = "7", mods = "SUPER", action = wezterm.action.ActivateTab(6) },
   { key = "8", mods = "SUPER", action = wezterm.action.ActivateTab(7) },
   { key = "9", mods = "SUPER", action = wezterm.action.ActivateTab(8) },
-  { key = "Tab", mods = "CTRL", action = wezterm.action.ActivateTabRelative(1) },
-  { key = "Tab", mods = "CTRL|SHIFT", action = wezterm.action.ActivateTabRelative(-1) },
+  { key = "Tab", mods = "META", action = wezterm.action.ActivateTabRelative(1) },
+  { key = "Tab", mods = "META|SHIFT", action = wezterm.action.ActivateTabRelative(-1) },
   {
     key = "r",
     mods = "SUPER",

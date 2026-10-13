@@ -1,0 +1,20 @@
+{
+  "$schema": "https://opencode.ai/v2/cli.json",
+  "theme": {
+    "name": "system"
+  },
+  "attention": {
+    "notifications": true,
+    "sound": true
+  },
+  "keybinds": {
+    "command.palette.show": "<leader>ctrl+p",
+    "prompt.editor": "<leader>ctrl+e",
+    "session.fork": "<leader>f",
+    "agent.cycle": "tab",
+    "input.move.up": "ctrl+p",
+    "input.move.down": "ctrl+n",
+    "prompt.history.previous": "alt+p",
+    "prompt.history.next": "alt+n"
+  }
+}
