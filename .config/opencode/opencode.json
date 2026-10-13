@@ -4,6 +4,9 @@
   "plugin": [
     "@mohak34/opencode-notifier@0.2.8"
   ],
+  "instructions": [
+    "./instructions.md"
+  ],
   "agent": {
     "build": {
       "mode": "primary",
