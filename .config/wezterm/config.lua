@@ -12,6 +12,7 @@ config.initial_rows = 42
 config.window_background_opacity = 1.0
 config.macos_window_background_blur = 10
 config.window_close_confirmation = "NeverPrompt"
+config.notification_handling = "AlwaysShow"
 config.colors = {} -- Reset colors in favor of the theme's one
 
 -- [[ Font ]]
