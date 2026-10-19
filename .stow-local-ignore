@@ -1,6 +1,8 @@
 # Prject-local stuff
 ^/\.git$
+^/\.gitignore$
 ^/\.nvim\.lua$
+^/\.rtk$
 
 # Documentation
 ^/MACOS\.md$
