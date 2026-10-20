@@ -226,7 +226,7 @@ brew install opencode rtk
 rtk init -g --opencode # You will be prompted wether to enable telemetry or not
 ```
 
-## Update
+#### Update
 
 Besides updating OpenCode itself through HomeBrew, you can update the OpenCode plugins by updating
 the pinned versions in the [configuration file](.config/opencode/opencode.json).
@@ -285,6 +285,10 @@ brew install starship
 ```
 
 ### [tmux](https://github.com/tmux/tmux)
+
+#### Requirements
+
+- tmux 3.8 or later
 
 #### Install
 
