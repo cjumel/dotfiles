@@ -90,6 +90,8 @@ config.keys = {
   },
 
   -- Custom actions
+  { key = "j", mods = "SUPER", action = wezterm.action.ScrollByLine(10) },
+  { key = "k", mods = "SUPER", action = wezterm.action.ScrollByLine(-10) },
   { key = "a", mods = "SUPER", action = wezterm.action.EmitEvent("switch-alt-key-mode") },
   { key = "o", mods = "SUPER", action = wezterm.action.EmitEvent("decrease-opacity") },
   { key = "o", mods = "SUPER|SHIFT", action = wezterm.action.EmitEvent("increase-opacity") },
