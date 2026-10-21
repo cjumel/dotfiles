@@ -6,7 +6,7 @@ config.colors = {
   background = "#181616",
 
   cursor_bg = "#C8C093",
-  cursor_fg = "#C8C093",
+  cursor_fg = "#181616",
   cursor_border = "#C8C093",
 
   selection_fg = "#c5c9c5",
