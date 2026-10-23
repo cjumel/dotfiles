@@ -1,3 +1,5 @@
+# shellcheck shell=bash
+
 # [[ Variables ]]
 
 export FZF_FD_FILE_COMMAND='fd --type f'
