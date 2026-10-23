@@ -1,11 +1,13 @@
 ---
 description: Reviews existing working-tree changes, commits, pull requests, and completed implementations without making code changes.
-mode: primary
 model: openai/gpt-5.6-sol
-permission:
-  edit: deny
-  task:
-    general: deny
+permissions:
+  - action: edit
+    resource: "*"
+    effect: deny
+  - action: subagent
+    resource: general
+    effect: deny
 ---
 
 <!-- rumdl-disable MD041 -->

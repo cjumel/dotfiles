@@ -226,11 +226,6 @@ brew install opencode rtk
 rtk init -g --opencode # You will be prompted wether to enable telemetry or not
 ```
 
-#### Update
-
-Besides updating OpenCode itself through HomeBrew, you can update the OpenCode plugins by updating
-the pinned versions in the [configuration file](.config/opencode/opencode.json).
-
 ### [Poetry](https://python-poetry.org/)
 
 #### Install
