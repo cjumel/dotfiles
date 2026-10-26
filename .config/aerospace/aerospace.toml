@@ -91,7 +91,7 @@ if.app-name-regex-substring = 'Slack|Spotify'
 run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Zen|Firefox'
+if.app-name-regex-substring = 'Zen'
 run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
