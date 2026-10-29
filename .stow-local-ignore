@@ -11,3 +11,6 @@
 
 # Fake configuration files
 vimiumrc\.vim$
+
+# Development dependencies
+(^|/)node_modules(/|$)

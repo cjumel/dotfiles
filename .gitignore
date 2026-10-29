@@ -1,1 +1,5 @@
+# Prject-local stuff
 .rtk/
+
+# Development dependencies
+**/node_modules/

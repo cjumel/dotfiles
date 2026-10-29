@@ -215,7 +215,7 @@ PROFILE=/dev/null bash -c \
 ### [OpenCode](https://opencode.ai/)
 
 I use OpenCode along with [rtk](https://www.rtk-ai.app/), a proxy to reduce AI agents token
-consumption.
+consumption, and a tmux integration through a local plugin.
 
 #### Install
 
@@ -226,6 +226,23 @@ brew install opencode rtk
 opencode service set disabled true # Disable always-on background service
 rtk init -g --opencode # Setup rtk for opencode
 ```
+
+#### Local plugin development
+
+The local OpenCode tmux plugin has its own TypeScript development environment so editors can resolve
+the OpenCode plugin API and report type errors. It requires a current Node.js and npm installation
+only when editing the plugin. After linking the dotfiles, install its dependencies with:
+
+```bash
+cd .config/opencode/plugins/tmux
+npm ci
+npm run typecheck
+npm audit --omit=dev
+```
+
+The development dependencies are pinned to the installed OpenCode version. After upgrading
+OpenCode, update the plugin development dependencies to the matching release and regenerate the
+lockfile with `npm install`.
 
 ### [Poetry](https://python-poetry.org/)
 
@@ -285,6 +302,7 @@ brew install starship
 #### Requirements
 
 - tmux 3.8 or later
+- `jq` for the OpenCode integration
 
 #### Install
 
