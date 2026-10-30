@@ -65,18 +65,35 @@ same language as neovim configuration).
 
 #### Requirements
 
-- the JetBrains Mono [Nerd Font](https://github.com/ryanoasis/nerd-fonts) (which can be installed
-  with `brew install --cask font-jetbrains-mono-nerd-font`)
+- the JetBrains Mono [Nerd Font](https://github.com/ryanoasis/nerd-fonts) (e.g. with
+  `brew install --cask font-jetbrains-mono-nerd-font`)
 
 #### Install
-
-To install the terminal emulator and a font, for macOS, run the following commands:
 
 ```bash
 brew install --cask wezterm
 # or, to install the nightly version:
 # brew install --cask wezterm@nightly
 ```
+
+### [Tinycast](https://github.com/abue-ammar/tinycast)
+
+Tinycast is a light-weight app launcher which I use as a drop-in replacement of the app-launcher, as
+well as to add a few additional keymaps (clipboard history, emoji picker). As this application
+requires at least macOS Tahoe, I also use Raycast v1 for my macOS Sequoia machine, setup is mostly
+equivalent and is not described here.
+
+#### Install
+
+```bash
+brew install --cask tinycast
+```
+
+Then, open Tinycast settings and enable `Settings → Backup → Settings File` to use the tracked
+configuration. Finally, create two custom commands:
+
+- `Open personal apps` with `zsh .config/tinycast/scripts/open-personal-apps.zsh`
+- `Open work apps` with `zsh .config/tinycast/scripts/open-work-apps.zsh`
 
 ## Terminal tools
 
