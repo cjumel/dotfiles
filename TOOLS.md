@@ -78,6 +78,25 @@ brew install --cask wezterm
 # brew install --cask wezterm@nightly
 ```
 
+### [Tinycast](https://github.com/abue-ammar/tinycast)
+
+Tinycast is a light-weight app launcher which I use as a drop-in replacement of the app-launcher, as
+well as to add a few additional keymaps (clipboard history, emoji picker).
+
+#### Install
+
+```bash
+brew trust --tap abue-ammar/tinycast 
+brew tap abue-ammar/tinycast
+brew install --cask tinycast # or `brew install --cask tinycast-universal` for Intel Macbooks
+```
+
+Then, open Tinycast settings and enable `Settings → Backup → Settings File` to use the tracked
+configuration. Finally, create two custom commands:
+
+- `Open personal apps` with `zsh .config/tinycast/scripts/open-personal-apps.zsh`
+- `Open work apps` with `zsh .config/tinycast/scripts/open-work-apps.zsh`
+
 ## Terminal tools
 
 ### [bat](https://github.com/sharkdp/bat)
