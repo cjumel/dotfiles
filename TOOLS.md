@@ -4,14 +4,16 @@
 
 ### [AeroSpace](https://github.com/nikitabobko/AeroSpace)
 
-AeroSpace is a tiling window manager for macOS. It is great to manage window layouts and workspace
-with a keyboard-centric and developper-friendly approach. See this
-[YouTube video](https://www.youtube.com/watch?v=5nwnJjr5eOo&t) for a more detailed explanation of
-what AeroSpace can do.
+I use [AeroSpace](https://github.com/nikitabobko/AeroSpace) as tiling window manager for macOS. It
+is a great tool to automatically manage window layouts and workspaces with a keyboard-centric and
+developper-friendly approach. See this [YouTube
+video](https://www.youtube.com/watch?v=5nwnJjr5eOo&t) for a more detailed explanation of what
+AeroSpace can do.
 
-I additionally use [hammerspoon](https://github.com/hammerspoon/hammerspoon), to use trackpad
-gestures to swipe workspaces, as well as [JankyBorders](https://github.com/FelixKratz/JankyBorders)
-to help track the focused window in a tiling layout.
+I additionally use [SwipeAeroSpace](https://github.com/MediosZ/SwipeAeroSpace) to use trackpad
+gestures with AeroSpace, along with some other cool features, as well as
+[JankyBorders](https://github.com/FelixKratz/JankyBorders) to help track the focused window in a
+tiling layout.
 
 #### Install
 
@@ -19,19 +21,37 @@ For macOS, run the following commands:
 
 ```bash
 brew install --cask nikitabobko/tap/aerospace
-brew install --cask hammerspoon
-# Change the config location for hammerspoon
-defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua"
+brew install --cask mediosz/tap/swipeaerospace
 brew install --formula FelixKratz/formulae/borders
 ```
 
-Then, start the AeroSpace and hammerspoon applications, give them the relevant system access and
-tweak their configurations through the GUI if needed.
+Then, start the AeroSpace and SwipeAeroSpace applications and give them the relevant system access.
+Also, enable "Start at login" in SwipeAeroSpace settings, and remove its menu bar item by hand, as
+those are not configurable through the configuration files.
 
-Lastly, change the following MacOS settings:
+#### System Settings
 
-- enable `System Settings → Desktop & Dock → Group windows by application`
-- disable `System Settings → Trackpad → More Gestures → Swipe between full-screen applications`
+To proporly use AeroSpace with this configuration, I change the following macOS system settings:
+
+- System Settings → Desktop & Dock → Group windows by application: `on`
+- System Settings → Trackpad → More Gestures:
+  - Swipe between pages: `off`
+  - Swipe between full-screen applications: `off`
+  - Notification Center: `on`
+  - Mission Control: `off`
+  - App Exposé: `off`
+  - Launchpad/Apps: `on`
+  - Show Desktop: `on`
+
+#### Logi Options +
+
+To also enable proper integration with Logitech mouses, I set the following mouse gestures:
+
+- Up: `Super + w`
+- Down: `Show Actions Ring`
+- Left: `Super + p`
+- Right: `Super + d`
+- Middle: `Launchpad`
 
 ### [Karabiner-Elements](https://karabiner-elements.pqrs.org/)
 

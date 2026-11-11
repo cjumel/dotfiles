@@ -33,8 +33,7 @@ cmd-alt-ctrl-shift-j = 'move down'
 cmd-alt-ctrl-shift-k = 'move up'
 cmd-alt-ctrl-shift-l = 'move right'
 
-cmd-alt-ctrl-n = 'list-workspaces --monitor focused --empty no | workspace --stdin next'
-cmd-alt-ctrl-p = 'list-workspaces --monitor focused --empty no | workspace --stdin prev'
+# workspace next/prev keymaps with skip-empty behavior is provided by SwipeAerospace
 cmd-alt-ctrl-shift-n = ['move-node-to-workspace next', 'workspace next']
 cmd-alt-ctrl-shift-p = ['move-node-to-workspace prev', 'workspace prev']
 
