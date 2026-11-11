@@ -1,0 +1,11 @@
+# Horizontal swipe
+fingers = "Four"
+skip-empty = true
+
+# Workspace overview
+swipeUpFingers = "Four"
+
+# Keyboard shortcuts
+nextWorkspaceShortcut = "cmd+alt+ctrl+n"
+prevWorkspaceShortcut = "cmd+alt+ctrl+p"
+toggleOverviewShortcut = "cmd+alt+ctrl+w" # Like "workspaces"
