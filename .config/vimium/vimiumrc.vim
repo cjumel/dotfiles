@@ -16,7 +16,7 @@ map d scrollPageDown
 map u scrollPageUp
 map f scrollFullPageDown
 map b scrollFullPageUp
-map gg scrollToTop
+map g scrollToTop
 map G scrollToBottom
 
 " Navigation
@@ -29,16 +29,12 @@ map ] nextTab
 map [ previousTab
 
 " Tab management
-map t createTab
-map T restoreTab
+map t restoreTab
 map r reload
 map y copyCurrentUrl
 map p openCopiedUrlInCurrentTab
 map P openCopiedUrlInNewTab
 map q removeTab
-map gd duplicateTab
-map gm toggleMuteTab
-map gp togglePinTab
 
 " Vim modes
 map / enterFindMode
