@@ -101,3 +101,7 @@ run = 'move-node-to-workspace 3'
 [[on-window-detected]] # Last section: all the rest
 if = 'true'
 run = 'move-node-to-workspace 4'
+
+[exec.env-vars]
+# Expand path to Intel-chip style homebrew binary location, to make sure borders can be found
+PATH = '/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/local/sbin:${PATH}'
